@@ -12,10 +12,7 @@
     
 	<!-- CSS -->
 	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-<<<<<<< HEAD
-=======
 	<link rel="stylesheet" href="./css/preguntasfrecuentes.css">
->>>>>>> 1c35163a8d398f1e389a7a7f91e973dba14664a0
 	<link href="css/style.css" rel="stylesheet" type="text/css" />
     
 	<!-- FONTS -->

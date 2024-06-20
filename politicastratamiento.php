@@ -11,13 +11,10 @@
     
     <!-- CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-<<<<<<< HEAD
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-=======
-	<link rel="stylesheet" href="./css/politicas.css">
 	<link rel="stylesheet" href="./css/politicas.css">
 	<link href="css/style.css" rel="stylesheet" type="text/css" />
->>>>>>> 1c35163a8d398f1e389a7a7f91e973dba14664a0
+
     
     <!-- FONTS -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500italic,700,500,700italic,900,900italic' rel='stylesheet' type='text/css'>
@@ -29,10 +26,6 @@
     
     <script src="js/jquery.min.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
-<<<<<<< HEAD
-=======
-    
->>>>>>> 1c35163a8d398f1e389a7a7f91e973dba14664a0
     <script src="js/myscript.js" type="text/javascript"></script>
 </head>
 <body>
@@ -105,7 +98,7 @@
             </header><!-- //HEADER -->
             <img fetchpriority="high" decoding="async" class="wp-image-114501 alignnone size-full entered lazyloaded" alt="" width="1700" height="2200" data-lazy-srcset="https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01.jpg 1700w, https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01-1280x1656.jpg 1280w, https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01-980x1268.jpg 980w, https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01-480x621.jpg 480w" data-lazy-sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) and (max-width: 1280px) 1280px, (min-width: 1281px) 1700px, 100vw" data-lazy-src="https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01.jpg" src="https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01.jpg" data-ll-status="loaded" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) and (max-width: 1280px) 1280px, (min-width: 1281px) 1700px, 100vw" srcset="https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01.jpg 1700w, https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01-1280x1656.jpg 1280w, https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01-980x1268.jpg 980w, https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01-480x621.jpg 480w">
         </div><!-- //PAGE -->
-       <!-- Footer -->
+        <!-- Footer -->
 	<br><section id="footer" class="slogan">
             <div class="container footercolor">
                 <div class="row text-center text-xs-center text-sm-left text-md-left">
