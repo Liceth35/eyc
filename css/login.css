@@ -1,0 +1,76 @@
+/* Estilos generales */
+
+/* Establece el tipo de fuente y el color de fondo del cuerpo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    /* Centra el contenido vertical y horizontalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    margin: 0; /* Elimina el margen predeterminado */
+}
+
+/* Contenedor principal del formulario */
+.login-container {
+    background-color: #fff; /* Fondo blanco */
+    padding: 30px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 300px; /* Ancho del contenedor */
+    text-align: center; /* Alineación del contenido centrado */
+}
+
+/* Estilo para el título del formulario */
+h2 {
+    color: #333; /* Color del texto oscuro */
+    margin-bottom: 20px; /* Margen inferior */
+}
+
+/* Estilos para el formulario */
+form {
+    display: flex; /* Diseño de columna */
+    flex-direction: column; /* Columnas apiladas */
+}
+
+/* Estilos para las etiquetas de los campos */
+label {
+    text-align: left; /* Alineación del texto a la izquierda */
+    margin-bottom: 8px; /* Margen inferior */
+    color: #555; /* Color del texto gris oscuro */
+}
+
+/* Estilos para los campos de entrada de correo y contraseña */
+input[type="email"],
+input[type="password"] {
+    padding: 10px; /* Relleno interno */
+    margin-bottom: 15px; /* Margen inferior */
+    border: 1px solid #ccc; /* Borde delgado gris claro */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 14px; /* Tamaño de fuente */
+    width: calc(100% - 22px); /* Ancho calculado menos el relleno y el borde */
+}
+
+/* Estilos para el botón de inicio de sesión */
+button[type="submit"] {
+    background-color: #007bff; /* Color de fondo azul */
+    color: #fff; /* Color de texto blanco */
+    border: none; /* Sin borde */
+    padding: 12px 20px; /* Relleno interno */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+    transition: background-color 0.3s; /* Transición suave del color de fondo */
+}
+
+/* Estilos para el botón de inicio de sesión al pasar el mouse */
+button[type="submit"]:hover {
+    background-color: #0056b3; /* Color de fondo azul más oscuro */
+}
+
+/* Estilos para el mensaje de error */
+.error-message {
+    color: #d9534f; /* Color de texto rojo */
+    margin-bottom: 15px; /* Margen inferior */
+}

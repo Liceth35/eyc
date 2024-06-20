@@ -1,0 +1,124 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    background-color: #007bff;
+    color: white;
+}
+
+.navbar .logo img {
+    max-width: 50px;
+    height: auto;
+}
+
+.navbar nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar nav ul li {
+    margin-left: 20px;
+}
+
+.navbar nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.navbar nav ul li a.logout-button {
+    background-color: #dc3545;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.navbar nav ul li a.logout-button:hover {
+    background-color: #c82333;
+}
+
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+.link-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.link-box {
+    width: 150px;
+    margin: 20px;
+    padding: 10px;
+    background-color: #007bff;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.link-box:hover {
+    transform: scale(1.05);
+}
+
+.link-box img {
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.link-box a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+/* Estilos para el botón de cerrar sesión */
+.btn {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-warning {
+    background-color: #f0ad4e;
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #ec971f;
+}
+
+.btn-warning:active {
+    background-color: #d58512;
+}
+
+.cerrar {
+    margin-left: auto; /* Alinea el botón a la derecha */
+    margin-right: 20px; /* Ajusta el margen derecho */
+}

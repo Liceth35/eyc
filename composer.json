@@ -1,0 +1,21 @@
+{
+    "name": "liceth/eyc",
+    "description": "testeando composer",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Liceth\\Eyc\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "liceth",
+            "email": "liceth2006valderrama@gmail.com"
+        }
+    ],
+    "minimum-stability": "beta",
+    "require": {
+        "phpoffice/phpspreadsheet": "^2.1"
+    }
+}
