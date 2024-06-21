@@ -1,5 +1,5 @@
 <?php
-require_once './PDODB.php';
+require_once './controlador/conexion.php';
 
 $db = new PDODB();
 $db->conectar();
@@ -14,62 +14,35 @@ $result = $db->getData($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subir Archivos</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>E&C | Ingeniería S.A.S</title>
+    <link rel="stylesheet" href="./css/recursos_humanos.css">
+    <!-- Agregar Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
-    <div class="container">
+    <!-- Botón para cerrar sesión -->
+    <button type="button" class="btn btn-warning cerrar btn-cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
+                <script>
+                    function cerrarSesion() {
+                        var xhttp = new XMLHttpRequest();
+                        xhttp.onreadystatechange = function() {
+                            if (this.readyState == 4 && this.status == 200) {
+                                window.location.href = "./index.php";
+                            }
+                        };
+                        xhttp.open("GET", "./controlador/logaout.php", true);
+                        xhttp.send();
+                    }
+                </script>
+
+    <div class=" contenedor_padre">
         <h1>Subir Archivos</h1>
         <form id="uploadForm" action="upload.php" method="POST" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="nombre">Nombre y apellidos *</label>
-                <input type="text" id="nombre" name="nombre" required>
-            </div>
-            <div class="form-group">
-                <label for="correo">Correo electrónico *</label>
-                <input type="email" id="correo" name="correo" required>
-            </div>
-            <div class="form-group">
-                <label for="celular">Celular *</label>
-                <input type="tel" id="celular" name="celular" required>
-            </div>
-            <div class="form-group">
-                <label for="tipo_documento">Tipo de documento *</label>
-                <select id="tipo_documento" name="tipo_documento" required>
-                    <option value="">Seleccionar</option>
-                    <option value="cc">Cédula de ciudadanía</option>
-                    <option value="ti">Tarjeta de identidad</option>
-                    <option value="ce">Cédula de extranjería</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="numero_documento">Número del documento *</label>
-                <input type="text" id="numero_documento" name="numero_documento" required>
-            </div>
-            <div class="form-group">
-                <label for="departamento">¿En qué departamento te encuentras? *</label>
-                <input type="text" id="departamento" name="departamento" required>
-            </div>
-            <div class="form-group">
-                <label for="ciudad">¿En qué ciudad vives? *</label>
-                <input type="text" id="ciudad" name="ciudad" required>
-            </div>
-            <div class="form-group">
-                <label for="profesion">Profesión</label>
-                <input type="text" id="profesion" name="profesion">
-            </div>
-            <div class="form-group">
-                <label for="mensaje">Mensaje</label>
-                <textarea id="mensaje" name="mensaje"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="archivo_adjunto">Archivo adjunto</label>
-                <input type="file" id="archivo_adjunto" name="archivo_adjunto" required>
-            </div>
-            <button type="submit">Enviar</button>
+            <!-- Campos del formulario -->
+            <!-- ... -->
         </form>
 
-        <table>
+        <table class="table">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -87,34 +60,62 @@ $result = $db->getData($sql);
                 </tr>
             </thead>
             <tbody>
-                <?php
-                if ($result) {
-                    foreach ($result as $row) {
-                        echo "<tr>
-                            <td>{$row['id']}</td>
-                            <td>{$row['nombre']}</td>
-                            <td>{$row['correo']}</td>
-                            <td>{$row['celular']}</td>
-                            <td>{$row['tipo_documento']}</td>
-                            <td>{$row['numero_documento']}</td>
-                            <td>{$row['departamento']}</td>
-                            <td>{$row['ciudad']}</td>
-                            <td>{$row['profesion']}</td>
-                            <td>{$row['mensaje']}</td>
-                            <td><a href='uploads/{$row['archivo_adjunto']}'>Ver Archivo</a></td>
-                            <td>
-                                <button>Ver Archivo Modal</button>
-                                <button>Ver Archivo página</button>
-                            </td>
-                        </tr>";
-                    }
-                } else {
-                    echo "<tr><td colspan='12'>No hay datos disponibles</td></tr>";
-                }
-                ?>
+                <?php foreach ($result as $row) { ?>
+                    <tr>
+                        <td><?php echo $row['id'] ?></td>
+                        <td><?php echo $row['nombre'] ?></td>
+                        <td><?php echo $row['correo'] ?></td>
+                        <td><?php echo $row['celular'] ?></td>
+                        <td><?php echo $row['tipo_documento'] ?></td>
+                        <td><?php echo $row['numero_documento'] ?></td>
+                        <td><?php echo $row['departamento'] ?></td>
+                        <td><?php echo $row['ciudad'] ?></td>
+                        <td><?php echo $row['profesion'] ?></td>
+                        <td><?php echo $row['mensaje'] ?></td>
+                        <td><a href='controlador/<?php echo $row['archivo_adjunto'] ?>'>Ver Archivo</a></td>
+                        <td>
+                            <!-- Botón para abrir el modal -->
+                            <button class="btn btn-primary" onclick="openModal('<?php echo $row['archivo_adjunto'] ?>')">Ver Archivo Modal</button>
+                        </td>
+                    </tr>
+                <?php } ?>
             </tbody>
         </table>
     </div>
+
+    <!-- Modal para mostrar el archivo -->
+    <div class="modal fade" id="archivoModal" tabindex="-1" role="dialog" aria-labelledby="archivoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="archivoModalLabel">Archivo Adjunto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <iframe id="archivoIframe" frameborder="0" scrolling="no" width="100%" height="500px"></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts al final del body -->
+    <!-- Bootstrap JS, jQuery, y script para abrir el modal -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <script>
+        // Función para abrir el modal con el archivo adjunto
+        function openModal(url) {
+            $('#archivoIframe').attr('src', 'controlador/' + url);
+            $('#archivoModal').modal('show');
+        }
+    </script>
 </body>
 </html>
 

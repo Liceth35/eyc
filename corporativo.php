@@ -54,6 +54,10 @@
             <img src="./images/godoworks.png" alt="Go do works Logo">
             <a href="https://eic.godoworks.com/es/base/Login/index" target="_blank">Go do works</a>
         </div>
+        <div class="link-box">
+            <img src="./images/godoworks.png" alt="Go do works Logo">
+            <a href="./Blog/admin_blog.php" target="_blank">Blog</a>
+        </div>
     </div>
 </div>
 </body>

@@ -122,7 +122,8 @@
 										<li class="scroll_btn"><a href="index.php#team">Team</a></li>
 										<li class="scroll_btn"><a href="index.php#news">News</a></li>
 										<li class="scroll_btn"><a href="#projects" >Proyectos</a></li>
-										<li><a href="trabaja-con-nosotros.php" >trabaja con nosotros</a></li>
+										<li><a href="./loginrh.php">CV</a></li>
+										<li><a href="trabaja-con-nosotros.php" >Trabaja con nosotros</a></li>
 									</ul>
 									<li class="nav-item">
 										<a class="nav-link" href="login.php"><strong>Corporativo</strong></a>

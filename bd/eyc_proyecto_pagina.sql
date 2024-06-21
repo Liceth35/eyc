@@ -1,0 +1,175 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 21-06-2024 a las 17:29:42
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `eyc_proyecto_pagina`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `contactos`
+--
+
+CREATE TABLE `contactos` (
+  `id` int(12) NOT NULL,
+  `nombre` varchar(40) NOT NULL,
+  `telefono` varchar(20) NOT NULL,
+  `correo` varchar(100) NOT NULL,
+  `mensaje` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `contactos`
+--
+
+INSERT INTO `contactos` (`id`, `nombre`, `telefono`, `correo`, `mensaje`) VALUES
+(1, 'Liceth', '31055', 'liceth2006valderrama@gmail.com', 'HOLA'),
+(2, 'Liceth', '31055', 'liceth2006valderrama@gmail.com', 'Hola');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `hoja_de_vida`
+--
+
+CREATE TABLE `hoja_de_vida` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `correo` varchar(100) NOT NULL,
+  `celular` varchar(30) NOT NULL,
+  `tipo_documento` varchar(50) NOT NULL,
+  `numero_documento` varchar(30) NOT NULL,
+  `departamento` varchar(100) NOT NULL,
+  `ciudad` varchar(100) NOT NULL,
+  `profesion` varchar(100) NOT NULL,
+  `mensaje` text NOT NULL,
+  `archivo_adjunto` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `hoja_de_vida`
+--
+
+INSERT INTO `hoja_de_vida` (`id`, `nombre`, `correo`, `celular`, `tipo_documento`, `numero_documento`, `departamento`, `ciudad`, `profesion`, `mensaje`, `archivo_adjunto`) VALUES
+(3, 'David Andrade', 'david@gmail.com', '3107098865', 'cedula', '1027956039', 'Antioquia', 'medellin', 'desarrollador', 'PRUEBA20', 'uploads/Ejemplo-de-descarga-pdf.pdf'),
+(4, 'Kelly meneses', 'kelly20@gmail.com', '3125556632', 'cedula', '1029659880', 'Antioquia', 'Apartado', 'Contadora', 'Buenos dias, esta es mu cv', 'uploads/Hoja de vida profesional azul.pdf'),
+(5, 'henry vargas', 'henry@gmail.com', '32235', 'cedula_extranjeria', '58487', 'Antioquia', 'medellin', 'desarrollador', 'prueba50', 'uploads/Hoja de vida profesional azul.pdf');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(12) NOT NULL,
+  `nombre` varchar(40) NOT NULL,
+  `correo` varchar(100) NOT NULL,
+  `contrasenna` int(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `contrasenna`) VALUES
+(1, 'Liceth Valderrama', 'liceth3@gmail.com', 1234),
+(3, 'Juan Perez', 'juan.perez@example.com', 12);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios_rh`
+--
+
+CREATE TABLE `usuarios_rh` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(60) NOT NULL,
+  `cedula` varchar(20) NOT NULL,
+  `contrasenna` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios_rh`
+--
+
+INSERT INTO `usuarios_rh` (`id`, `nombre`, `cedula`, `contrasenna`) VALUES
+(1, '', '1027956039', 'david2022');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `contactos`
+--
+ALTER TABLE `contactos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `hoja_de_vida`
+--
+ALTER TABLE `hoja_de_vida`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `usuarios_rh`
+--
+ALTER TABLE `usuarios_rh`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `contactos`
+--
+ALTER TABLE `contactos`
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `hoja_de_vida`
+--
+ALTER TABLE `hoja_de_vida`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios_rh`
+--
+ALTER TABLE `usuarios_rh`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

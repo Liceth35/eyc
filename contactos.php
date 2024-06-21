@@ -22,10 +22,7 @@
     <!--[if IE]><html class="ie" lang="en"> <![endif]-->
 	
 	<script src="js/jquery.min.js" type="text/javascript"></script>
-<<<<<<< HEAD
 	<script src="js/bootstrap.min.js" type="text/javascript"></script>
-=======
->>>>>>> 1c35163a8d398f1e389a7a7f91e973dba14664a0
 	<script src="js/myscript.js" type="text/javascript"></script>
 	
 <!-- PRELOADER -->

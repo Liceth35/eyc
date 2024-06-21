@@ -8,16 +8,21 @@
 </head>
 <body>
     <div class="login-container">
-        <form id="loginForm">
-            <h2>Login</h2>
+        <h2>Iniciar Sesión</h2>
+        <?php
+        session_start();
+        if (isset($_SESSION['error_login']) && $_SESSION['error_login'] == "si") {
+            echo "<p class='error-message'>Cédula o contraseña incorrectos. Inténtalo de nuevo.</p>";
+            unset($_SESSION['error_login']);
+        }
+        ?>
+        <form action="./controlador/login_rh.php" method="POST">
             <label for="cedula">Cédula:</label>
             <input type="text" id="cedula" name="cedula" required>
-            <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">Login</button>
+            <label for="contrasenna">Contraseña:</label>
+            <input type="password" id="contrasenna" name="contrasenna" required>
+            <button type="submit" name="btn_login">Iniciar Sesión</button>
         </form>
-        <div id="error-message"></div>
     </div>
-    <script src="login.js"></script>
 </body>
 </html>
