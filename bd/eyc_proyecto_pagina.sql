@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-06-2024 a las 17:29:42
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Tiempo de generación: 23-06-2024 a las 23:55:36
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,22 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `eyc_proyecto_pagina`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `admin_blog`
+--
+
+CREATE TABLE `admin_blog` (
+  `id` int(11) NOT NULL,
+  `titulo` varchar(255) NOT NULL,
+  `resumen` text NOT NULL,
+  `contenido` text NOT NULL,
+  `url_imagen` varchar(255) DEFAULT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT current_timestamp(),
+  `fecha_actualizacion` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -118,6 +134,12 @@ INSERT INTO `usuarios_rh` (`id`, `nombre`, `cedula`, `contrasenna`) VALUES
 --
 
 --
+-- Indices de la tabla `admin_blog`
+--
+ALTER TABLE `admin_blog`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `contactos`
 --
 ALTER TABLE `contactos`
@@ -144,6 +166,12 @@ ALTER TABLE `usuarios_rh`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `admin_blog`
+--
+ALTER TABLE `admin_blog`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `contactos`
