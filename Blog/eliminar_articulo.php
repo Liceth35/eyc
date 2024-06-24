@@ -1,14 +1,10 @@
 <?php
-require_once 'controlador/blog_controller.php';
+require_once '../controlador/eliminar_articulo.php'; // Cambia la ruta para incluir el controlador de eliminar artículo
 
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+$id = $_GET['id'];
+$eliminarArticuloController = new EliminarArticuloController();
+$eliminarArticuloController->eliminarArticulo($id);
 
-    $blogController = new BlogController();
-    if ($blogController->eliminarArticulo($id)) {
-        echo "Artículo eliminado exitosamente.";
-    } else {
-        echo "Error al eliminar el artículo.";
-    }
-}
+header("Location: admin_blog.php");
+exit;
 ?>
