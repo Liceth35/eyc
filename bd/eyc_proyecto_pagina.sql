@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-06-2024 a las 23:55:36
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.0.28
+-- Tiempo de generación: 25-06-2024 a las 22:52:22
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,6 +37,15 @@ CREATE TABLE `admin_blog` (
   `fecha_actualizacion` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `admin_blog`
+--
+
+INSERT INTO `admin_blog` (`id`, `titulo`, `resumen`, `contenido`, `url_imagen`, `fecha_creacion`, `fecha_actualizacion`) VALUES
+(1, 'Consejos de Mantenimiento', '', 'Ofrece consejos prácticos para el mantenimiento regular del sistema de gas. Esto puede incluir cosas simples que los propietarios pueden hacer por sí mismos para mantener la seguridad y eficiencia.', 'ruta/a/la/imagen4.jpg', '2024-06-24 11:49:58', '2024-06-24 19:37:48'),
+(2, 'Normativas y Regulaciones', '', 'Informa a tus lectores sobre las normativas locales o nacionales relacionadas con las inspecciones de gas. Esto puede incluir requisitos legales, estándares de seguridad y cumplimiento normativo.', 'images/works/2.jpg\"', '2024-06-24 11:49:58', '2024-06-24 19:37:44'),
+(3, 'Signos de Problemas de Gas', '', 'Describe los síntomas comunes que podrían indicar problemas con el sistema de gas en un hogar o edificio. Esto puede ayudar a los propietarios a reconocer cuándo es necesario una inspección adicional.', 'ruta/a/la/imagen3.jpg', '2024-06-24 11:49:58', '2024-06-24 19:37:40');
+
 -- --------------------------------------------------------
 
 --
@@ -57,7 +66,8 @@ CREATE TABLE `contactos` (
 
 INSERT INTO `contactos` (`id`, `nombre`, `telefono`, `correo`, `mensaje`) VALUES
 (1, 'Liceth', '31055', 'liceth2006valderrama@gmail.com', 'HOLA'),
-(2, 'Liceth', '31055', 'liceth2006valderrama@gmail.com', 'Hola');
+(2, 'Liceth', '31055', 'liceth2006valderrama@gmail.com', 'Hola'),
+(3, 'David Andrade', '310555', 'est.lmonsalve824@smart.edu.co', 'Buenos dias, me gustaria comunicarme con ustedes para una inspecion de gas');
 
 -- --------------------------------------------------------
 
@@ -84,9 +94,9 @@ CREATE TABLE `hoja_de_vida` (
 --
 
 INSERT INTO `hoja_de_vida` (`id`, `nombre`, `correo`, `celular`, `tipo_documento`, `numero_documento`, `departamento`, `ciudad`, `profesion`, `mensaje`, `archivo_adjunto`) VALUES
-(3, 'David Andrade', 'david@gmail.com', '3107098865', 'cedula', '1027956039', 'Antioquia', 'medellin', 'desarrollador', 'PRUEBA20', 'uploads/Ejemplo-de-descarga-pdf.pdf'),
-(4, 'Kelly meneses', 'kelly20@gmail.com', '3125556632', 'cedula', '1029659880', 'Antioquia', 'Apartado', 'Contadora', 'Buenos dias, esta es mu cv', 'uploads/Hoja de vida profesional azul.pdf'),
-(5, 'henry vargas', 'henry@gmail.com', '32235', 'cedula_extranjeria', '58487', 'Antioquia', 'medellin', 'desarrollador', 'prueba50', 'uploads/Hoja de vida profesional azul.pdf');
+(1, 'David Andrade', 'david@gmail.com', '3107098865', 'cedula', '1027956039', 'Antioquia', 'medellin', 'desarrollador', 'PRUEBA20', 'uploads/Ejemplo-de-descarga-pdf.pdf'),
+(2, 'Kelly meneses', 'kelly20@gmail.com', '3125556632', 'cedula', '1029659880', 'Antioquia', 'Apartado', 'Contadora', 'Buenos dias, esta es mu cv', 'uploads/Hoja de vida profesional azul.pdf'),
+(3, 'henry vargas', 'henry@gmail.com', '32235', 'cedula_extranjeria', '58487', 'Antioquia', 'medellin', 'desarrollador', 'prueba50', 'uploads/Hoja de vida profesional azul.pdf');
 
 -- --------------------------------------------------------
 
@@ -112,6 +122,26 @@ INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `contrasenna`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `usuarios_pqrs`
+--
+
+CREATE TABLE `usuarios_pqrs` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `cedula` varchar(100) NOT NULL,
+  `contrasenna` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios_pqrs`
+--
+
+INSERT INTO `usuarios_pqrs` (`id`, `nombre`, `cedula`, `contrasenna`) VALUES
+(1, 'Liceth V', '1027956039', 'baby22');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuarios_rh`
 --
 
@@ -127,7 +157,7 @@ CREATE TABLE `usuarios_rh` (
 --
 
 INSERT INTO `usuarios_rh` (`id`, `nombre`, `cedula`, `contrasenna`) VALUES
-(1, '', '1027956039', 'david2022');
+(1, 'Liceth V', '1027956039', 'baby22');
 
 --
 -- Índices para tablas volcadas
@@ -158,6 +188,12 @@ ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `usuarios_pqrs`
+--
+ALTER TABLE `usuarios_pqrs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `usuarios_rh`
 --
 ALTER TABLE `usuarios_rh`
@@ -171,25 +207,31 @@ ALTER TABLE `usuarios_rh`
 -- AUTO_INCREMENT de la tabla `admin_blog`
 --
 ALTER TABLE `admin_blog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `contactos`
 --
 ALTER TABLE `contactos`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `hoja_de_vida`
 --
 ALTER TABLE `hoja_de_vida`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios_pqrs`
+--
+ALTER TABLE `usuarios_pqrs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios_rh`
