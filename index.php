@@ -211,9 +211,9 @@
 								<img src="images/works/1.jpg" alt="" />
 								<a class="zoom" href="images/works/1.jpg" rel="prettyPhoto[portfolio1]" ></a>
 							</div>
-							<div class="work_description">
+							<div class="work_description ">
 								<div class="work_descr_cont">
-									<a href="portfolio-post.php" >Ginger Beast</a>
+									<span><h1 style="color: white;">Beast</h1></span>
 									<span>17 March, 2041</span>
 								</div>
 							</div>
@@ -229,7 +229,7 @@
 							</div>
 							<div class="work_description">
 								<div class="work_descr_cont">
-									<a href="portfolio-post.php" >Ginger Beast</a>
+									<span><h1 style="color: white;">Beast</h1></span>
 									<span>17 March, 2041</span>
 								</div>
 							</div>
@@ -245,7 +245,7 @@
 							</div>
 							<div class="work_description">
 								<div class="work_descr_cont">
-									<a href="portfolio-post.php" >Ginger Beast</a>
+									<span><h1 style="color: white;">Beast</h1></span>
 									<span>17 March, 2041</span>
 								</div>
 							</div>
@@ -261,7 +261,7 @@
 							</div>
 							<div class="work_description">
 								<div class="work_descr_cont">
-									<a href="portfolio-post.php" >Ginger Beast</a>
+									<span><h1 style="color: white;">Beast</h1></span>
 									<span>17 March, 2041</span>
 								</div>
 							</div>
@@ -277,7 +277,7 @@
 							</div>
 							<div class="work_description">
 								<div class="work_descr_cont">
-									<a href="portfolio-post.php" >Ginger Beast</a>
+									<span><h1 style="color: white;">Beast</h1></span>
 									<span>17 March, 2041</span>
 								</div>
 							</div>
@@ -293,7 +293,7 @@
 							</div>
 							<div class="work_description">
 								<div class="work_descr_cont">
-									<a href="portfolio-post.php" >Ginger Beast</a>
+									<span><h1 style="color: white;">Beast</h1></span>
 									<span>17 March, 2041</span>
 								</div>
 							</div>
@@ -309,7 +309,7 @@
 							</div>
 							<div class="work_description">
 								<div class="work_descr_cont">
-									<a href="portfolio-post.php" >Ginger Beast</a>
+									<span><h1 style="color: white;">Beast</h1></span></a>
 									<span>17 March, 2041</span>
 								</div>
 							</div>

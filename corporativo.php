@@ -55,8 +55,16 @@
             <a href="https://eic.godoworks.com/es/base/Login/index" target="_blank">Go do works</a>
         </div>
         <div class="link-box">
-            <img src="./images/godoworks.png" alt="Go do works Logo">
+            <img src="./images/tuercas.png" alt="Blog">
             <a href="./Blog/admin_blog.php" target="_blank">Blog</a>
+        </div>
+        <div class="link-box">
+            <img src="./images/PQRS.png" alt="PQRS">
+            <a href="./login_pqrs.php" target="_blank">PQRS</a>
+        </div>
+        <div class="link-box">
+            <img src="./images/hoja-de-vida.webp" alt="Hojas de vida">
+            <a href="./loginrh.php" target="_blank">Recursos humanos</a>
         </div>
     </div>
 </div>

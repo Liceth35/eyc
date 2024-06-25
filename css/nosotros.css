@@ -140,7 +140,7 @@ section .section-title {
 /* Footer */
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 section {
-    padding: 60px 0;
+    padding: 34px 0;
 }
 
 section .section-title {
@@ -154,11 +154,7 @@ section .section-title {
     border: 100% !important;
 }
 
-#footer .container {
-    width: 1000%;
-    padding: 20px 0;
-    box-sizing: border-box;
-}
+h5 {margin:40px 0 48px; line-height:20px; font-size:15px;}
 
 #footer h5 {
     padding-left: 10px;
