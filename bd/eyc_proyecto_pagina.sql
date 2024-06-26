@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-06-2024 a las 22:52:22
+-- Tiempo de generación: 26-06-2024 a las 22:59:52
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -37,14 +37,40 @@ CREATE TABLE `admin_blog` (
   `fecha_actualizacion` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Volcado de datos para la tabla `admin_blog`
+-- Estructura de tabla para la tabla `certificados`
 --
 
-INSERT INTO `admin_blog` (`id`, `titulo`, `resumen`, `contenido`, `url_imagen`, `fecha_creacion`, `fecha_actualizacion`) VALUES
-(1, 'Consejos de Mantenimiento', '', 'Ofrece consejos prácticos para el mantenimiento regular del sistema de gas. Esto puede incluir cosas simples que los propietarios pueden hacer por sí mismos para mantener la seguridad y eficiencia.', 'ruta/a/la/imagen4.jpg', '2024-06-24 11:49:58', '2024-06-24 19:37:48'),
-(2, 'Normativas y Regulaciones', '', 'Informa a tus lectores sobre las normativas locales o nacionales relacionadas con las inspecciones de gas. Esto puede incluir requisitos legales, estándares de seguridad y cumplimiento normativo.', 'images/works/2.jpg\"', '2024-06-24 11:49:58', '2024-06-24 19:37:44'),
-(3, 'Signos de Problemas de Gas', '', 'Describe los síntomas comunes que podrían indicar problemas con el sistema de gas en un hogar o edificio. Esto puede ayudar a los propietarios a reconocer cuándo es necesario una inspección adicional.', 'ruta/a/la/imagen3.jpg', '2024-06-24 11:49:58', '2024-06-24 19:37:40');
+CREATE TABLE `certificados` (
+  `id` int(11) NOT NULL,
+  `numero_cedula` varchar(100) NOT NULL,
+  `codigo_verificacion` varchar(50) NOT NULL,
+  `ubicacion_certificado` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `certificados`
+--
+
+INSERT INTO `certificados` (`id`, `numero_cedula`, `codigo_verificacion`, `ubicacion_certificado`) VALUES
+(1, '1027956039', '1234565ABC', './admin/uploads_certificado/ejemplo.pdf'),
+(3, '22024737', '12345CCC', './admin/uploads_certificado/ejemplo.pdf');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `citas`
+--
+
+CREATE TABLE `citas` (
+  `id` int(11) NOT NULL,
+  `cliente` varchar(255) NOT NULL,
+  `fecha` date NOT NULL,
+  `hora` time NOT NULL,
+  `detalles` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -67,7 +93,9 @@ CREATE TABLE `contactos` (
 INSERT INTO `contactos` (`id`, `nombre`, `telefono`, `correo`, `mensaje`) VALUES
 (1, 'Liceth', '31055', 'liceth2006valderrama@gmail.com', 'HOLA'),
 (2, 'Liceth', '31055', 'liceth2006valderrama@gmail.com', 'Hola'),
-(3, 'David Andrade', '310555', 'est.lmonsalve824@smart.edu.co', 'Buenos dias, me gustaria comunicarme con ustedes para una inspecion de gas');
+(3, 'David Andrade', '310555', 'est.lmonsalve824@smart.edu.co', 'Buenos dias, me gustaria comunicarme con ustedes para una inspecion de gas'),
+(4, 'Alejandro', '31055', 'est.lmonsalve824@smart.edu.co', 'Hola necesito ayuda'),
+(5, 'DAVID ', '321184332', 'est.lmonsalve824@smart.edu.co', 'Quiero poner una queja');
 
 -- --------------------------------------------------------
 
@@ -122,6 +150,26 @@ INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `contrasenna`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `usuarios_cert`
+--
+
+CREATE TABLE `usuarios_cert` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) DEFAULT NULL,
+  `cedula` varchar(20) DEFAULT NULL,
+  `contrasenna` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios_cert`
+--
+
+INSERT INTO `usuarios_cert` (`id`, `nombre`, `cedula`, `contrasenna`) VALUES
+(1, NULL, '1027956039', '1234');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuarios_pqrs`
 --
 
@@ -170,6 +218,18 @@ ALTER TABLE `admin_blog`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `certificados`
+--
+ALTER TABLE `certificados`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `citas`
+--
+ALTER TABLE `citas`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `contactos`
 --
 ALTER TABLE `contactos`
@@ -185,6 +245,12 @@ ALTER TABLE `hoja_de_vida`
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `usuarios_cert`
+--
+ALTER TABLE `usuarios_cert`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -207,13 +273,25 @@ ALTER TABLE `usuarios_rh`
 -- AUTO_INCREMENT de la tabla `admin_blog`
 --
 ALTER TABLE `admin_blog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `certificados`
+--
+ALTER TABLE `certificados`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `citas`
+--
+ALTER TABLE `citas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `contactos`
 --
 ALTER TABLE `contactos`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `hoja_de_vida`
@@ -228,6 +306,12 @@ ALTER TABLE `usuarios`
   MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT de la tabla `usuarios_cert`
+--
+ALTER TABLE `usuarios_cert`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de la tabla `usuarios_pqrs`
 --
 ALTER TABLE `usuarios_pqrs`
@@ -237,7 +321,7 @@ ALTER TABLE `usuarios_pqrs`
 -- AUTO_INCREMENT de la tabla `usuarios_rh`
 --
 ALTER TABLE `usuarios_rh`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
