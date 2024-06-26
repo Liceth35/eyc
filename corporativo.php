@@ -56,7 +56,7 @@
         </div>
         <div class="link-box">
             <img src="./images/tuercas.png" alt="Blog">
-            <a href="./Blog/admin_blog.php" target="_blank">Blog</a>
+            <a href="./admin_blog.php" target="_blank">Blog</a>
         </div>
         <div class="link-box">
             <img src="./images/PQRS.png" alt="PQRS">
@@ -65,6 +65,10 @@
         <div class="link-box">
             <img src="./images/hoja-de-vida.webp" alt="Hojas de vida">
             <a href="./loginrh.php" target="_blank">Recursos humanos</a>
+        </div>
+        <div class="link-box">
+            <img src="./images/certificados-ssl-de-un-año.png" alt="Certificados">
+            <a href="./login_certificados.php" target="_blank">Cargar certificados</a>
         </div>
     </div>
 </div>
