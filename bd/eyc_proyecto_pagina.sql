@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-06-2024 a las 22:59:52
+-- Tiempo de generación: 27-06-2024 a las 18:29:28
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -36,6 +36,15 @@ CREATE TABLE `admin_blog` (
   `fecha_creacion` timestamp NOT NULL DEFAULT current_timestamp(),
   `fecha_actualizacion` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `admin_blog`
+--
+
+INSERT INTO `admin_blog` (`id`, `titulo`, `resumen`, `contenido`, `url_imagen`, `fecha_creacion`, `fecha_actualizacion`) VALUES
+(1, 'Inspección de Gas: ¿Por qué es Importante?', 'Descubre la importancia de realizar inspecciones regulares de gas para garantizar la seguridad en el hogar.', 'Las inspecciones de gas son fundamentales para asegurar que todos los sistemas de gas en el hogar funcionen de manera segura y eficiente. Un sistema de gas defectuoso puede provocar fugas peligrosas y aumentar el riesgo de incendios. En este artículo, exploraremos los beneficios de las inspecciones regulares y cómo pueden ayudar a prevenir accidentes graves.\n', './images/clean_code_bg.jpg', '2024-06-27 12:39:23', '2024-06-27 15:19:52'),
+(2, 'Inspeccion', 'Hola', 'Bendito', './images/clean_code_bg.jpg', '2024-06-27 12:40:15', '2024-06-27 13:06:49'),
+(3, 'Nuevas vacantes', 'Envía tu hoja de vida a nuestro formulario trabaja con nosotros ', 'Puedes encontrarlo en la sección team en la ultima opción \"Trabaja con nosotros\". ', './images/hoja-de-vida.webp', '2024-06-27 13:00:26', '2024-06-27 16:00:17');
 
 -- --------------------------------------------------------
 
@@ -150,6 +159,26 @@ INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `contrasenna`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `usuarios_blog`
+--
+
+CREATE TABLE `usuarios_blog` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `correo` varchar(100) NOT NULL,
+  `contrasenna` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios_blog`
+--
+
+INSERT INTO `usuarios_blog` (`id`, `nombre`, `correo`, `contrasenna`) VALUES
+(1, 'Liceth', 'Liceth3@gmail.com', '1234');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuarios_cert`
 --
 
@@ -248,6 +277,12 @@ ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `usuarios_blog`
+--
+ALTER TABLE `usuarios_blog`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `usuarios_cert`
 --
 ALTER TABLE `usuarios_cert`
@@ -273,7 +308,7 @@ ALTER TABLE `usuarios_rh`
 -- AUTO_INCREMENT de la tabla `admin_blog`
 --
 ALTER TABLE `admin_blog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `certificados`
@@ -304,6 +339,12 @@ ALTER TABLE `hoja_de_vida`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios_blog`
+--
+ALTER TABLE `usuarios_blog`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios_cert`
