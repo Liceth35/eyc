@@ -35,9 +35,8 @@ form label {
 }
 
 form input[type="text"],
-form textarea,
-form input[type="file"] {
-    width: calc(100% - 22px); /* Ajusta para el padding */
+form textarea {
+    width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
@@ -58,7 +57,7 @@ form button[type="submit"] {
     cursor: pointer;
     font-size: 16px;
     display: block;
-    margin: 20px auto 0; /* Centra el botón y ajusta el margen superior */
+    margin: 0 auto;
 }
 
 form button[type="submit"]:hover {
@@ -69,40 +68,46 @@ form button[type="submit"]:focus {
     outline: none;
 }
 
-/* Estilos para el contenedor de botones */
-.button-container {
-    margin-bottom: 20px;
+/* Añadir espaciado adicional entre etiquetas y campos */
+form label,
+form input[type="text"],
+form textarea,
+form button[type="submit"] {
+    margin-top: 10px;
 }
 
-.button-container .button,
-.button-container .button-delete,
-.button-container .button-blog {
-    display: inline-block;
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
+/* Estilos para la lista de artículos recientes */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+ul li a {
+    display: block;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
     text-decoration: none;
-    border-radius: 4px;
-    margin-right: 10px;
-    font-size: 16px;
+    color: #333;
+    transition: background-color 0.3s ease;
 }
 
-.button-container .button-delete {
-    background-color: #dc3545;
+ul li a:hover {
+    background-color: #e0e0e0;
 }
 
-.button-container .button-blog {
-    background-color: #6c757d;
+ul li a h3 {
+    margin: 0;
+    font-size: 18px;
 }
 
-.button-container .button:hover,
-.button-container .button-delete:hover,
-.button-container .button-blog:hover {
-    background-color: #0056b3;
-}
-
-.button-container .button:focus,
-.button-container .button-delete:focus,
-.button-container .button-blog:focus {
-    outline: none;
+ul li a p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #666;
 }

@@ -56,7 +56,7 @@
         </div>
         <div class="link-box">
             <img src="./images/tuercas.png" alt="Blog">
-            <a href="./admin_blog.php" target="_blank">Blog</a>
+            <a href="./login_blog.php" target="_blank">Blog</a>
         </div>
         <div class="link-box">
             <img src="./images/PQRS.png" alt="PQRS">

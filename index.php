@@ -527,10 +527,10 @@
 						<div class="post_item">
 							<div class="post_item_img">
 								<img src="images/blog/1.jpg" alt="" />
-								<a class="link" href="blog-post.php" ></a>
+								<a class="link" href="./blog.php" ></a>
 							</div>
 							<div class="post_item_content">
-								<a class="title" href="blog-post.php" >Incendio</a>
+								<a class="title" href="./blog.php" ></a>
 								<ul class="post_item_inf">
 									<li><a href="javascript:void(0);" >Anna</a> |</li>
 									<li><a href="javascript:void(0);" >Photography</a> |</li>
@@ -542,10 +542,10 @@
 						<div class="post_item">
 							<div class="post_item_img">
 								<img src="images/blog/2.jpg" alt="" />
-								<a class="link" href="blog-post.php"></a>
+								<a class="link" href="./blog.php"></a>
 							</div>
 							<div class="post_item_content">
-								<a class="title" href="blog-post.php" >Mala inspeccion</a>
+								<a class="title" href="./blog.php" >Nueva vacante</a>
 								<ul class="post_item_inf">
 									<li><a href="javascript:void(0);" >Anna</a> |</li>
 									<li><a href="javascript:void(0);" >Web Design</a> |</li>
@@ -557,10 +557,10 @@
 						<div class="post_item">
 							<div class="post_item_img">
 								<img src="images/blog/3.jpg" alt="" />
-								<a class="link" href="blog-post.php"></a>
+								<a class="link" href="./blog.php"></a>
 							</div>
 							<div class="post_item_content">
-								<a class="title" href="blog-post.php" >Explosión</a>
+								<a class="title" href="./blog.php" >Por qué es importante la revisión de gas?</a>
 								<ul class="post_item_inf">
 									<li><a href="javascript:void(0);" >Anna</a> |</li>
 									<li><a href="javascript:void(0);" >Creative</a> |</li>
