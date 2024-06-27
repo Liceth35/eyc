@@ -19,18 +19,18 @@ $posts = $db->getData($sql);
     <link rel="stylesheet" href="./css/blog.css">
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <h1>Blog de Inspección de Gas</h1>
-            <nav>
-                <ul>
-                    <li><a href="./index.php">Inicio</a></li>
-                    <li><a href="#">Artículos</a></li>
-                    <li><a href="#">Contacto</a></li>
-                    <li><a href="#">Sobre Nosotros</a></li>
+
+<header class="navbar">
+    <a href="index.php" class="logo">
+        <img src="./images/Logo.png" alt="Logo">
+    </a>
+    <nav>
+        <ul>
+            <li><a href="./index.php" target="_blank">Inicio</a></li>
+            <li><a href="./contactos.php" target="_blank">Contactos</a></li>
+            <li><a href="./trabaja-con-nosotros.php" target="_blank">Team</a></li>
                 </ul>
             </nav>
-        </div>
     </header>
     <main>
         <section class="blog-posts">
@@ -49,7 +49,7 @@ $posts = $db->getData($sql);
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 Inspección de Gas S.A.S. Todos los derechos reservados.</p>
+        <p> 2024 E&C INGENIERÍA S.A.S. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>

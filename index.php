@@ -317,178 +317,6 @@
 				</div><!-- //PROJECTS SLIDER -->
 			</div>		
 		
-		<!-- TEAM -->
-		<section id="team">
-		
-			<!-- CONTAINER -->
-			<div class="container">
-				<h2><b>Nuestro</b> Team</h2>
-				
-				<!-- ROW -->
-				<div class="row" data-appear-top-offset="-200" data-animated="fadeInUp">
-						
-					<!-- TEAM SLIDER -->
-					<div class="owl-demo owl-carousel team_slider">				
-						<!-- crewman1 -->
-						<div class="item">
-							<div class="crewman_item">
-								<div class="crewman">
-									<img src="images/team/1.jpg" alt="" />
-								</div>
-								<div class="crewman_descr center">
-									<div class="crewman_descr_cont">
-										<p>Sarah Brown</p>
-										<span>Director</span>
-									</div>
-								</div>
-								<div class="crewman_social">
-									<a href="javascript:void(0);" ><i class="fa fa-twitter"></i></a>
-									<a href="javascript:void(0);" ><i class="fa fa-facebook-square"></i></a>
-								</div>
-							</div>
-						</div><!-- crewman1 -->
-						
-						<!-- crewman2 -->
-						<div class="item">
-							<div class="crewman_item">
-								<div class="crewman">
-									<img src="images/team/2.jpg" alt="" />
-								</div>
-								<div class="crewman_descr center">
-									<div class="crewman_descr_cont">
-										<p>David Jones</p>
-										<span>Creative Director</span>
-									</div>
-								</div>
-								<div class="crewman_social">
-									<a href="javascript:void(0);" ><i class="fa fa-google-plus"></i></a>
-									<a href="javascript:void(0);" ><i class="fa fa-twitter"></i></a>
-									<a href="javascript:void(0);" ><i class="fa fa-facebook-square"></i></a>
-								</div>
-							</div>
-						</div><!-- crewman1 -->
-						
-						<!-- crewman3 -->
-						<div class="item">
-							<div class="crewman_item">
-								<div class="crewman">
-									<img src="images/team/3.jpg" alt="" />
-								</div>
-								<div class="crewman_descr center">
-									<div class="crewman_descr_cont">
-										<p>Kate Smith</p>
-										<span>Manager</span>
-									</div>
-								</div>
-								<div class="crewman_social">
-									<a href="javascript:void(0);" ><i class="fa fa-twitter"></i></a>
-									<a href="javascript:void(0);" ><i class="fa fa-facebook-square"></i></a>
-								</div>
-							</div>
-						</div><!-- crewman3 -->
-						
-						<!-- crewman4 -->
-						<div class="item">
-							<div class="crewman_item">
-								<div class="crewman">
-									<img src="images/team/4.jpg" alt="" />
-								</div>
-								<div class="crewman_descr center">
-									<div class="crewman_descr_cont">
-										<p>Peter Parker</p>
-										<span>Manager</span>
-									</div>
-								</div>
-								<div class="crewman_social">
-									<a href="javascript:void(0);" ><i class="fa fa-twitter"></i></a>
-									<a href="javascript:void(0);" ><i class="fa fa-facebook-square"></i></a>
-								</div>
-							</div>
-						</div><!-- crewman4 -->
-						
-						<!-- crewman5 -->
-						<div class="item">
-							<div class="crewman_item">
-								<div class="crewman">
-									<img src="images/team/5.jpg" alt="" />
-								</div>
-								<div class="crewman_descr center">
-									<div class="crewman_descr_cont">
-										<p>Jim Moss</p>
-										<span>Designer</span>
-									</div>
-								</div>
-								<div class="crewman_social">
-									<a href="javascript:void(0);" ><i class="fa fa-google-plus"></i></a>
-									<a href="javascript:void(0);" ><i class="fa fa-twitter"></i></a>
-									<a href="javascript:void(0);" ><i class="fa fa-facebook-square"></i></a>
-								</div>
-							</div>
-						</div><!-- crewman5 -->
-						
-						<!-- crewman6 -->
-						<div class="item">
-							<div class="crewman_item">
-								<div class="crewman">
-									<img src="images/team/6.jpg" alt="" />
-								</div>
-								<div class="crewman_descr center">
-									<div class="crewman_descr_cont">
-										<p>John Marks</p>
-										<span>Designer</span>
-									</div>
-								</div>
-								<div class="crewman_social">
-									<a href="javascript:void(0);" ><i class="fa fa-twitter"></i></a>
-									<a href="javascript:void(0);" ><i class="fa fa-facebook-square"></i></a>
-								</div>
-							</div>
-						</div><!-- crewman6 -->
-						
-						<!-- crewman7 -->
-						<div class="item">
-							<div class="crewman_item">
-								<div class="crewman">
-									<img src="images/team/7.jpg" alt="" />
-								</div>
-								<div class="crewman_descr center">
-									<div class="crewman_descr_cont">
-										<p>Joe Mades</p>
-										<span>Developer</span>
-									</div>
-								</div>
-								<div class="crewman_social">
-									<a href="javascript:void(0);" ><i class="fa fa-twitter"></i></a>
-									<a href="javascript:void(0);" ><i class="fa fa-facebook-square"></i></a>
-								</div>
-							</div>
-						</div><!-- crewman7 -->
-						
-						<!-- crewman8 -->
-						<div class="item">
-							<div class="crewman_item">
-								<div class="crewman">
-									<img src="images/team/8.jpg" alt="" />
-								</div>
-								<div class="crewman_descr center">
-									<div class="crewman_descr_cont">
-										<p>Julia Anderson</p>
-										<span>Developer</span>
-									</div>
-								</div>
-								<li class="scroll_btn"><a href="#team" >Team</a></li>
-								
-								<div class="crewman_social">
-									<a class="slide_btn FromRight" href="#team" >Se parte de nuestro team </a>
-									<a href="javascript:void(0);" ><i class="fa fa-google-plus"></i></a>
-									<a href="javascript:void(0);" ><i class="fa fa-twitter"></i></a>
-									<a href="javascript:void(0);" ><i class="fa fa-facebook-square"></i></a>
-								</div>
-							</div>
-						</div><!-- crewman8 -->
-					</div><!-- TEAM SLIDER -->
-				</div><!-- //ROW -->
-			</div><!-- //CONTAINER -->
 			<div class="papanosotros"><a href="./trabaja-con-nosotros.php" class="trabajaNoso"><button type="button" class="btn btn-info">trabaja con nosotros</button></a></div>
 		</section><!-- //TEAM -->
 		
@@ -607,28 +435,26 @@
                         <ul class="list-unstyled quick-links">
                             <li><a href="./contactos.php"><i class="fa fa-angle-double-right"></i>Contactos</a></li>
                             <ul class="list-unstyled quick-links">
-                                <li><i class="fa-solid fa-phone"></i>Teléfono: (604) 4480265</li>
-                                <li><i class="fa-solid fa-map-location-dot"></i>Sede Principal Medellín(Antioquia)</li>
-                                <li><i class="fa-solid fa-map-location-dot"></i>CALLE 10 SUR 48 - 62 Barrio Aguacatala 2</li>
+								<li style="color: white;"><i class="fa-solid fa-phone"></i>Teléfono: (604) 4480265</li>
+								<li style="color: white;"><i class="fa-solid fa-map-location-dot"></i>Sede Principal Medellín(Antioquia)</li>
+								<li style="color: white;"><i class="fa-solid fa-map-location-dot"></i>CALLE 10 SUR 48 - 62 Barrio Aguacatala 2</li>
                             </ul>
                         </ul>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
-                        <ul class="list-unstyled list-inline social text-center">
-                            <li class="list-inline-item"><a href="https://m.facebook.com/people/Eyc-Ingenieria-Sas/100089364634242/"><i class="fa fa-facebook"></i></a></li>
-                            <li class="list-inline-item"><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="https://www.instagram.com/eycingenieria/?igsh=MXVyYWZ4NHV1ZzJ1dA%3D%3D"><i class="fa fa-instagram"></i></a></li>
-							<li class="list-inline-item"><a href="mailto:info@pqr@eyc.com.co" target="_blank"><i class="fa fa-envelope"></i></a></li>
-                        </ul>
+						<ul class="list-unstyled list-inline social text-center">
+							<li class="list-inline-item"><a href="https://m.facebook.com/people/Eyc-Ingenieria-Sas/100089364634242/" style="color: white;"><i class="fa fa-facebook"></i></a></li>
+							<li class="list-inline-item"><a href="https://www.instagram.com/eycingenieria/?igsh=MXVyYWZ4NHV1ZzJ1dA%3D%3D" style="color: white;"><i class="fa fa-instagram"></i></a></li>
+							<li class="list-inline-item"><a href="mailto:info@pqr@eyc.com.co" target="_blank" style="color: white;"><i class="fa fa-envelope"></i></a></li>
+						</ul>
 				</div>
 				<hr>
 			</div>	
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-black">
-					<p><u><a href="https://www.nationaltransaction.com/">National Transaction Corporation</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p>
-					<p class="h6">© All right Reversed.<a class="text-green ml-2" href="https://www.sunlimetech.com" target="_blank">Sunlimetech</a></p>
+				<li style="color: white;"><p class="h6">© 2024 E&C INGENIERÍA S.A.S. Todos los derechos reservados.</p></li>
 				</div>
 				<hr>
 			</div>	

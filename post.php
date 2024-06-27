@@ -30,14 +30,15 @@ if (isset($_GET['id'])) {
 </head>
 <body>
     <header>
+    <a href="./blog.php" class="logo">
+        <img src="./images/Logo.png" alt="Logo">
+    </a>
         <div class="header-container">
-            <h1>Blog de Inspección de Gas</h1>
             <nav>
                 <ul>
-                    <li><a href="./index.php">Inicio</a></li>
                     <li><a href="./blog.php">Artículos</a></li>
-                    <li><a href="./">Contacto</a></li>
-                    <li><a href="#">Sobre Nosotros</a></li>
+                    <li><a href="./contactos.php">Contacto</a></li>
+                    <li><a href="./trabaja-con-nosotros.php">Team</a></li>
                 </ul>
             </nav>
         </div>
@@ -50,7 +51,7 @@ if (isset($_GET['id'])) {
         </article>
     </main>
     <footer>
-        <p>&copy; 2024 Inspección de Gas S.A.S. Todos los derechos reservados.</p>
+        <p>&copy; 2024 E&C INGENIERÍA S.A.S. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>

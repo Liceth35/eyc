@@ -43,7 +43,7 @@ section .slogan{
 
 .container {padding-left:48px; padding-right:48px;max-inline-size:-webkit-fill-available;}
 .colorformulario{
-	background-color: beige!important;
+	background-color: #001a33!important;
 }
 
 .parallax {
@@ -74,7 +74,7 @@ img {
 	height:auto;
 }
 
-a {color:#999; transition: all 0.3s ease-in-out; -webkit-transition: all 0.3s ease-in-out;}
+a {color:white; transition: all 0.3s ease-in-out; -webkit-transition: all 0.3s ease-in-out;}
 a:hover, a:focus {text-decoration:none; color:#333;}
 
 .margbot0 {margin-bottom:0;}
@@ -137,7 +137,7 @@ h3 {margin:0 0 21px; line-height:25px; font-size:18px;}
 h3 b {font-weight:900;}
 h4 {margin:0 0 34px; line-height:25px; font-size:20px;}
 h4 b {font-weight:500;}
-h5 {margin:40px 0 48px; line-height:20px; font-size:15px;}
+h5 {margin:40px 0 48px; line-height:20px; font-size:15px;background-color: white;}
 h6 {margin:0 0 15px; line-height:20px; font-size:12px;}
 
 .center {text-align:center;}
@@ -877,7 +877,7 @@ ul.project_info li span {color:#979797;}
 /*-----------------------------------------------------------------------------------*/
 #news {padding:75px 0 50px;}
 section .footercolor
-{background-color:beige;}
+{background-color:#001a33;}
 
 
 .testimonials{margin-bottom:77px;}
@@ -1113,7 +1113,7 @@ footer h4 {color:#fff;}
 	display:block;
 	width:50px;
 	height:50px;
-	border:1px solid #242424;
+	border:1px solid white;
 	text-align:center;
 	line-height:46px;
 	font-size:23px;

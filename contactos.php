@@ -230,9 +230,9 @@
                         <ul class="list-unstyled quick-links">
                             <li><a href="./contactos.php"><i class="fa fa-angle-double-right"></i>Contactos</a></li>
                             <ul class="list-unstyled quick-links">
-                                <li><i class="fa-solid fa-phone"></i>Teléfono: (604) 4480265</li>
-                                <li><i class="fa-solid fa-map-location-dot"></i>Sede Principal Medellín(Antioquia)</li>
-                                <li><i class="fa-solid fa-map-location-dot"></i>CALLE 10 SUR 48 - 62 Barrio Aguacatala 2</li>
+                            <li style="color: white;"><i class="fa-solid fa-phone"></i>Teléfono: (604) 4480265</li>
+                            <li style="color: white;"><i class="fa-solid fa-map-location-dot"></i>Sede Principal Medellín(Antioquia)</li>
+                            <li style="color: white;"><i class="fa-solid fa-map-location-dot"></i>CALLE 10 SUR 48 - 62 Barrio Aguacatala 2</li>
                             </ul>
                         </ul>
                     </div>
@@ -240,18 +240,16 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
                         <ul class="list-unstyled list-inline social text-center">
-                            <li class="list-inline-item"><a href="https://m.facebook.com/people/Eyc-Ingenieria-Sas/100089364634242/"><i class="fa fa-facebook"></i></a></li>
-                            <li class="list-inline-item"><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="https://www.instagram.com/eycingenieria/?igsh=MXVyYWZ4NHV1ZzJ1dA%3D%3D"><i class="fa fa-instagram"></i></a></li>
-                            <li class="list-inline-item"><a href="mailto:info@inspecta.com.co" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                            <li class="list-inline-item"><a href="https://m.facebook.com/people/Eyc-Ingenieria-Sas/100089364634242/" style="color: white;"><i class="fa fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="https://www.instagram.com/eycingenieria/?igsh=MXVyYWZ4NHV1ZzJ1dA%3D%3D" style="color: white;"><i class="fa fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="mailto:info@pqr@eyc.com.co" target="_blank" style="color: white;"><i class="fa fa-envelope"></i></a></li>
                         </ul>
 				</div>
 				<hr>
 			</div>	
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-black">
-					<p><u><a href="https://www.nationaltransaction.com/">National Transaction Corporation</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p>
-					<p class="h6">© All right Reversed.<a class="text-green ml-2" href="https://www.sunlimetech.com" target="_blank">Sunlimetech</a></p>
+                <li style="color: white;"><p class="h6">© 2024 E&C INGENIERÍA S.A.S. Todos los derechos reservados.</p></li>
 				</div>
 				<hr>
 			</div>	
