@@ -50,7 +50,7 @@ form textarea {
 }
 
 form button[type="submit"] {
-    background-color: #4CAF50;
+    background-color: #001a33;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -62,7 +62,7 @@ form button[type="submit"] {
 }
 
 form button[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #022e57;
 }
 
 form button[type="submit"]:focus {

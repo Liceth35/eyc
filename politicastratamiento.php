@@ -73,10 +73,10 @@
                                     <li class="sub-menu">
                                         <a href="javascript:void(0);" style="color:black;">Team</a>
                                         <ul>
-                                            <li class="scroll_btn"><a href="index.php#team">Team</a></li>
-                                            <li class="scroll_btn"><a href="index.php#news">News</a></li>
-                                            <li class="scroll_btn"><a href="#projects">Proyectos</a></li>
-                                            <li><a href="trabaja-con-nosotros.php">Trabaja con nosotros</a></li>
+                                            <li class="scroll_btn"><a href="index.php#team"style="color:white!important;">Team</a></li>
+                                            <li class="scroll_btn"><a href="index.php#news"style="color:white!important;">News</a></li>
+                                            <li class="scroll_btn"><a href="#projects"style="color:white!important;">Proyectos</a></li>
+                                            <li><a href="trabaja-con-nosotros.php"style="color:white!important;">Trabaja con nosotros</a></li>
                                         </ul>
                                     </li>
                                     <li class="nav-item">
@@ -85,9 +85,9 @@
                                     <li class="sub-menu">
                                         <a href="javascript:void(0);" style="color:black;">Políticas</a>
                                         <ul>
-                                            <li><a href="politicas.php">Políticas de seguridad</a></li>
-                                            <li><a href="politicastratamiento.php">Política de tratamiento</a></li>
-                                            <li><a href="politicasetica.php">Política ética</a></li>
+                                            <li><a href="politicas.php"style="color:white!important;">Políticas de seguridad</a></li>
+                                            <li><a href="politicastratamiento.php"style="color:white!important;">Política de tratamiento</a></li>
+                                            <li><a href="politicasetica.php"style="color:white!important;">Política ética</a></li>
                                         </ul>
                                     </li>
                                 </ul>

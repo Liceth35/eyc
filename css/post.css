@@ -7,7 +7,7 @@ body, h1, h2, p, ul, li, img {
 
 /* Header styling */
 header {
-    background: #212529;
+    background: #001a33 ;
     color: #fff;
     padding: 10px 0;
     display: flex;
@@ -60,6 +60,7 @@ main {
 
 .post {
     text-align: center; /* Centrar el contenido en post */
+    background-color: wheat;
 }
 
 .post h2 {
@@ -88,7 +89,7 @@ main {
 footer {
     text-align: center;
     padding: 1rem 0;
-    background-color: #212529;
+    background-color: #001a33 ;
     color: #fff;
     position: relative; /* Cambiado de absolute a relative */
     bottom: 0;

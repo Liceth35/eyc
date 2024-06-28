@@ -41,7 +41,7 @@ section .slogan{
 }
 
 
-.container {padding-left:48px; padding-right:48px;max-inline-size:-webkit-fill-available;}
+.container {padding-left:48px; padding-right:80px;max-inline-size:-webkit-fill-available;}
 .colorformulario{
 	background-color: #001a33!important;
 }
@@ -137,7 +137,7 @@ h3 {margin:0 0 21px; line-height:25px; font-size:18px;}
 h3 b {font-weight:900;}
 h4 {margin:0 0 34px; line-height:25px; font-size:20px;}
 h4 b {font-weight:500;}
-h5 {margin:40px 0 48px; line-height:20px; font-size:15px;background-color: white;}
+h5 {margin:40px 0 48px; line-height:20px; font-size:15px;background-color: white;padding: 8px;}
 h6 {margin:0 0 15px; line-height:20px; font-size:12px;}
 
 .center {text-align:center;}
@@ -285,7 +285,7 @@ header {
 }
 .navmenu li:hover a,
 .navmenu li.active a {
-	color:#333;
+	color: black !important;
 }
 
 /* Sub menu */

@@ -111,28 +111,28 @@
 									<a class="nav-link" href="contactos.php"><strong>Contactos</strong></a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="servicios.php"><strong>Servicios</strong></a>
+									<a class="nav-link" href="servicios.php"style="color:black!important;"><strong>Servicios</strong></a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="certificado.php"><strong>Certficado</strong></a>
+									<a class="nav-link" href="certificado.php"style="color:black!important;"><strong>Certficado</strong></a>
 								</li>
 								<li class="sub-menu">
-									<a href="javascript:void(0);"  style="color:black;" >Team</a>
+									<a href="javascript:void(0);" style="color:black!important;" >Team</a>
 									<ul>
-										<li class="scroll_btn"><a href="index.php#team">Team</a></li>
-										<li class="scroll_btn"><a href="index.php#news">News</a></li>
-										<li class="scroll_btn"><a href="#projects" >Proyectos</a></li>
-										<li><a href="trabaja-con-nosotros.php" >Trabaja con nosotros</a></li>
+										<li class="scroll_btn"><a href="index.php#team"style="color:white!important;">Team</a></li>
+										<li class="scroll_btn"><a href="index.php#news"style="color:white!important;">News</a></li>
+										<li class="scroll_btn"><a href="#projects"style="color:white!important;">Proyectos</a></li>
+										<li><a href="trabaja-con-nosotros.php"style="color:white!important;" >Trabaja con nosotros</a></li>
 									</ul>
 									<li class="nav-item">
 										<a class="nav-link" href="login.php"><strong>Corporativo</strong></a>
 									</li>								
 									<li class="sub-menu">
-									<a href="javascript:void(0);" style="color:black;" >Politicas</a>
+									<a href="javascript:void(0);" style="color:black!important;" >Politicas</a>
 									<ul>
-										<li><a href="politicas.php" >Politicas seguridad</a></li>
-										<li><a href="politicastratamiento.php" >Politica tratamiento</a></li>
-										<li><a href="politicasetica.php" >politica etica</a></li>
+										<li><a href="politicas.php" style="color:white!important;">Politicas seguridad</a></li>
+										<li><a href="politicastratamiento.php" style="color:white!important;">Politica tratamiento</a></li>
+										<li><a href="politicasetica.php"style="color:white!important;" >politica etica</a></li>
 									</ul>
 								</li>
 							</ul>
@@ -141,8 +141,6 @@
 				</div><!-- //MENU BLOCK -->
 			</div><!-- //CONTAINER -->
 		</header><!-- //HEADER -->
-		
-		
 		<!-- HOME -->
 		<section id="home" class="padbot0">
 				
@@ -155,7 +153,7 @@
 							<p class="title2 captionDelay4 FromTop">Ingeniería</p>
 							<p class="title3 captionDelay6 FromTop">S.A.S</p>
 							<p class="title4 captionDelay7 FromBottom">Personal Competente, Comprometido con la Calidad
-																	Nuestro equipo está formado por profesionales altamente competentes que han adoptado la calidad como su filosofía de vida. Cada inspección es realizada con meticulosidad y precisión para asegurar el cumplimiento de los más altos estándares.</p>
+							Nuestro equipo está formado por profesionales altamente competentes que han adoptado la calidad como su filosofía de vida. Cada inspección es realizada con meticulosidad y precisión para asegurar el cumplimiento de los más altos estándares.</p>
 						</div>
 						<a class="slide_btn FromRight" href="Preguntas Frecuentes.php" >Preguntas Frecuentes</a>
 					<li class="slide2">
@@ -359,10 +357,6 @@
 							</div>
 							<div class="post_item_content">
 								<a class="title" href="./blog.php" ></a>
-								<ul class="post_item_inf">
-									<li><a href="javascript:void(0);" >Anna</a> |</li>
-									<li><a href="javascript:void(0);" >Photography</a> |</li>
-								</ul>
 							</div>
 						</div>
 					</div>
@@ -374,10 +368,6 @@
 							</div>
 							<div class="post_item_content">
 								<a class="title" href="./blog.php" >Nueva vacante</a>
-								<ul class="post_item_inf">
-									<li><a href="javascript:void(0);" >Anna</a> |</li>
-									<li><a href="javascript:void(0);" >Web Design</a> |</li>
-								</ul>
 							</div>
 						</div>
 					</div>
@@ -389,10 +379,6 @@
 							</div>
 							<div class="post_item_content">
 								<a class="title" href="./blog.php" >Por qué es importante la revisión de gas?</a>
-								<ul class="post_item_inf">
-									<li><a href="javascript:void(0);" >Anna</a> |</li>
-									<li><a href="javascript:void(0);" >Creative</a> |</li>
-								</ul>
 							</div>
 						</div>
 					</div>

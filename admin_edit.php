@@ -87,7 +87,8 @@ function mostrarArticulos($articulos) {
             <label for="url_imagen">URL de la Imagen:</label><br>
             <input type="text" id="url_imagen" name="url_imagen" value="<?php echo $article['url_imagen']; ?>" required><br><br>
 
-            <button type="submit">Actualizar</button>
+            <button type="submit" class="btn-actualizar">Actualizar</button>
+
         </form>
     <?php endif; ?>
 </body>

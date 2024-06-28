@@ -6,16 +6,23 @@ body {
     padding: 0;
 }
 
-h2 {
+.titulo-verificacion {
+    margin-top: 50px;
     text-align: center;
     color: #333;
-    margin-top: 20px;
+    font-size: 28px;
+    font-weight: bold;
 }
 
 /* Navbar Styles */
 .navbar {
-    background-color: #333;
-    padding: 10px 0;
+    background-color: white;
+    padding: 1.5rem 1rem; /* Aumenta el padding vertical para hacer el navbar más grueso */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .navbar .container {
@@ -24,113 +31,172 @@ h2 {
     align-items: center;
 }
 
+.logo {
+    margin-left: -80px;
+}
+
 .logo a {
-    color: #fff;
+    color: black;
     font-size: 24px;
     text-decoration: none;
+    font-weight: bold;
 }
 
 .navmenu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
 }
 
 .navmenu ul {
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
     display: flex;
+    font-size: 12px;
 }
 
-.navmenu > ul > li {
+.navmenu ul li {
+    margin-left: 20px;
     position: relative;
 }
 
-.navmenu a {
-    color: #fff;
-    padding: 10px 15px;
+.navmenu ul li a {
+    color: black;
     text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
     display: block;
 }
 
-.navmenu a:hover, .navmenu a:focus {
-    background-color: #444;
-}
-
-.sub-menu ul {
+.navmenu ul li ul {
     display: none;
     position: absolute;
-    top: 100%;
+    top: 40px;
     left: 0;
-    background-color: #333;
+    background-color: black;
     padding: 10px 0;
-    min-width: 200px;
-    z-index: 1000;
+    border-radius: 4px;
 }
 
-.sub-menu:hover ul {
+.navmenu ul li ul li {
+    width: 200px;
+    margin: 0;
+}
+
+.navmenu ul li ul li a {
+    padding: 8px 15px;
+}
+
+.navmenu ul li:hover ul {
     display: block;
 }
 
-.sub-menu a {
-    color: #fff;
-    padding: 10px 15px;
-    text-decoration: none;
-    display: block;
-}
-
-.sub-menu a:hover, .sub-menu a:focus {
-    background-color: #444;
+.navmenu ul li a {
+    transition: none; /* Elimina la transición para evitar movimientos */
 }
 
 /* Form Styles */
 form {
+    margin: 100px auto;
     max-width: 400px;
-    margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
+    background: #B3D7FF;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-label {
+form label {
+    display: block;
+    margin-bottom: 8px;
     font-weight: bold;
 }
 
-input[type="text"], input[type="password"] {
+form input[type="text"] {
     width: calc(100% - 20px);
     padding: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 16px;
 }
 
-button[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
+form button {
+    width: 100%;
+    padding: 10px;
     border: none;
+    background-color: #0056b3;
+    color: white;
+    font-size: 16px;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
+}
+
+form button:hover {
+    background-color: #004494;
+}
+
+/* Footer Styles */
+#footer {
+    background-color: #001a33;
+    color: white;
+    padding: 20px 0;
+}
+
+#footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#footer .row {
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
-button[type="submit"]:hover {
-    background-color: #45a049;
+#footer h5 {
+    background: white;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: black;
 }
 
-.error-message {
-    color: #f44336;
-    font-size: 14px;
-    margin-top: 5px;
+#footer ul.quick-links {
+    list-style: none;
+    padding: 0;
+    text-align: center;
 }
 
-.success-message {
-    color: #4CAF50;
-    font-size: 14px;
-    margin-top: 5px;
+#footer ul.quick-links li {
+    margin-bottom: 10px;
+}
+
+#footer ul.quick-links li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#footer ul.quick-links li a:hover {
+    color: #ddd;
+    text-decoration: underline;
+}
+
+#footer .social {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#footer .social i {
+    font-size: 18px;
+    color: white;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+#footer .social i:hover {
+    color: #ddd;
+}
+
+.derechos-reservados {
+    margin-top: 10px;
+    color: #ccc;
 }

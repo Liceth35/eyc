@@ -5,6 +5,7 @@ include 'controlador/conexion.php';
 $db = new PDODB();
 $db->conectar();
 
+// Eliminar artículo si se recibió el ID
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
@@ -18,6 +19,10 @@ if (isset($_GET['id'])) {
         echo "Error al eliminar el artículo.";
     }
 }
+
+// Consultar todos los artículos
+$sql = "SELECT id, titulo, resumen, contenido, url_imagen, fecha_creacion, fecha_actualizacion FROM admin_blog";
+$posts = $db->getData($sql);
 ?>
 
 <!DOCTYPE html>
@@ -35,5 +40,39 @@ if (isset($_GET['id'])) {
         <input type="number" id="id" name="id" required><br>
         <button type="submit">Eliminar</button>
     </form>
+
+    <h2>Lista de Artículos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Resumen</th>
+                <th>Contenido</th>
+                <th>URL Imagen</th>
+                <th>Fecha Creación</th>
+                <th>Fecha Actualización</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php if ($posts): ?>
+                <?php foreach ($posts as $post): ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($post['id']); ?></td>
+                        <td><?php echo htmlspecialchars($post['titulo']); ?></td>
+                        <td><?php echo htmlspecialchars($post['resumen']); ?></td>
+                        <td><?php echo htmlspecialchars($post['contenido']); ?></td>
+                        <td><?php echo htmlspecialchars($post['url_imagen']); ?></td>
+                        <td><?php echo htmlspecialchars($post['fecha_creacion']); ?></td>
+                        <td><?php echo htmlspecialchars($post['fecha_actualizacion']); ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <tr>
+                    <td colspan="7">No hay artículos disponibles.</td>
+                </tr>
+            <?php endif; ?>
+        </tbody>
+    </table>
 </body>
 </html>

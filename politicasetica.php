@@ -77,10 +77,10 @@
 								<li class="sub-menu">
 									<a href="javascript:void(0);" style="color:black;" >Team</a>
 									<ul>
-										<li class="scroll_btn"><a href="index.php#team">Team</a></li>
-										<li class="scroll_btn"><a href="index.php#news">News</a></li>
-										<li class="scroll_btn"><a href="#projects" >Proyectos</a></li>
-										<li><a href="trabaja-con-nosotros.php" >trabaja con nosotros</a></li>
+										<li class="scroll_btn"><a href="index.php#team"style="color:white!important;">Team</a></li>
+										<li class="scroll_btn"><a href="index.php#news"style="color:white!important;">News</a></li>
+										<li class="scroll_btn"><a href="#projects"style="color:white!important;" >Proyectos</a></li>
+										<li><a href="trabaja-con-nosotros.php"style="color:white!important;" >trabaja con nosotros</a></li>
 									</ul>
 									<li class="nav-item">
 										<a class="nav-link" href="login.php"><strong>Corporativo</strong></a>
@@ -88,9 +88,9 @@
 									<li class="sub-menu">
 									<a href="javascript:void(0);" style="color:black;" >Politicas</a>
 									<ul>
-										<li><a href="politicas.php" >Politicas seguridad</a></li>
-										<li><a href="politicastratamiento.php" >Politica tratamiento</a></li>
-										<li><a href="politicasetica.php" >politica etica</a></li>
+										<li><a href="politicas.php"style="color:white!important;" >Politicas seguridad</a></li>
+										<li><a href="politicastratamiento.php"style="color:white!important;" >Politica tratamiento</a></li>
+										<li><a href="politicasetica.php"style="color:white!important;" >politica etica</a></li>
 									</ul>
 								</li>
 							</ul>

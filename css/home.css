@@ -71,11 +71,7 @@ i.fa.fa-angle-double-right {
 nav ul li {
     transition: background-color 0.5s ease;
 }
-nav ul li:hover{
-    background-color: #4183D7;
-    border-radius: 8px;
-    transition: color 1.5s ease;
-}
+
 .encabezado {
     display: flex;
     justify-content: space-between;
@@ -151,33 +147,7 @@ h3 {
     font-size: 16px;
     text-decoration: none;
 }
-#botonSubir, #botonBajar {
-    position: fixed;
-    bottom: 20px;
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 1000; /* Para que los botones estén por encima de otros elementos */
-}
-
-#botonSubir {
-    right: 80px;
-}
-
-#botonBajar {
-    right: 20px;
-}
-
-#botonSubir:hover, #botonBajar:hover {
-    background-color: #0056b3;
-}
-
-.social-box .fa {
+x .fa {
     color: #4183D7;
 }
 .user{
@@ -216,24 +186,7 @@ h3 {
 .fa-hand{
     font-size: 2em;
 }
-#btnSubir {
-    display: none; 
-    position: fixed; 
-    bottom: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-    background-color: #007bff; 
-    color: #fff;
-    border: none;
-    border-radius: 50%; 
-    cursor: pointer;
-    }
 
-#btnSubir:hover {
-    background-color: #0056b3; 
-    }
 .noCliquiable {
     cursor: auto
     ;
@@ -256,10 +209,10 @@ section .section-title {
 }
 #footer h5{
 	padding-left: 10px;
-    border-left: 3px solid black;
+    border-left: 3px solid white;
     padding-bottom: 6px;
     margin-bottom: 20px;
-    color:black;
+    color:white;
 } 
 #footer a {
     color: black;
@@ -283,10 +236,10 @@ section .section-title {
 }
 #footer ul.social li a,
 #footer ul.quick-links li a{
-	color:black;
+	color:white;
 }
 #footer ul.social li a:hover{
-	color:black;
+	color:white;
 }
 #footer ul.quick-links li{
 	padding: 3px 0;

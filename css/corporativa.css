@@ -10,7 +10,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px 20px;
-    background-color: #007bff;
+    background-color: #001a33;
     color: white;
 }
 
@@ -111,14 +111,23 @@ h1 {
 }
 
 .btn-warning:hover {
-    background-color: #ec971f;
+    background-color: rgb(240, 206, 143);
 }
 
 .btn-warning:active {
-    background-color: #d58512;
+    background-color: rgb(240, 206, 143);
 }
 
 .cerrar {
     margin-left: auto; /* Alinea el botón a la derecha */
     margin-right: 30px; /* Ajusta el margen derecho */
+}
+footer {
+    background-color: #001a33 ;
+    color: white;
+    text-align: center;
+    padding: 0rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
