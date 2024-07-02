@@ -70,6 +70,10 @@
             <img src="./images/certificados-ssl-de-un-año.png" alt="Certificados">
             <a href="./login_certificados.php" target="_blank">Cargar certificados</a>
         </div>
+        <div class="link-box">
+            <img src="./images/images.png" alt="Citas">
+            <a href="./login_citas.php" target="_blank">Citas</a>
+        </div>
     </div>
 </div>
 <footer>

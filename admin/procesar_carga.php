@@ -1,10 +1,22 @@
 <?php
 require_once '../controlador/conexion.php'; // Asegúrate de que el archivo de conexión esté correctamente referenciado
 
+// Función para generar código único alfanumérico
+function generarCodigo($longitud = 10) {
+    $caracteres = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $codigo = '';
+    for ($i = 0; $i < $longitud; $i++) {
+        $codigo .= $caracteres[rand(0, strlen($caracteres) - 1)];
+    }
+    return $codigo;
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener los datos del formulario
     $numero_cedula = $_POST['numero_cedula'];
-    $codigo_verificacion = $_POST['codigo_verificacion'];
+
+    // Generar código de verificación único
+    $codigo_verificacion = generarCodigo(10);
 
     // Directorio donde se guardarán los archivos subidos
     $target_dir = "./admin/uploads_certificado/";
