@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-06-2024 a las 22:46:57
+-- Tiempo de generación: 03-07-2024 a las 23:00:39
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -74,10 +74,9 @@ INSERT INTO `certificados` (`id`, `numero_cedula`, `codigo_verificacion`, `ubica
 
 CREATE TABLE `citas` (
   `id` int(11) NOT NULL,
-  `cliente` varchar(255) NOT NULL,
   `fecha` date NOT NULL,
   `hora` time NOT NULL,
-  `detalles` text DEFAULT NULL
+  `nombre` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -108,6 +107,38 @@ INSERT INTO `contactos` (`id`, `nombre`, `telefono`, `correo`, `mensaje`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `departamentos`
+--
+
+CREATE TABLE `departamentos` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `departamentos`
+--
+
+INSERT INTO `departamentos` (`id`, `nombre`) VALUES
+(1, 'Antioquia'),
+(2, 'Cundinamarca');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `disponibilidad`
+--
+
+CREATE TABLE `disponibilidad` (
+  `id` int(11) NOT NULL,
+  `dia` date NOT NULL,
+  `manana` tinyint(1) NOT NULL DEFAULT 1,
+  `tarde` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `hoja_de_vida`
 --
 
@@ -133,6 +164,26 @@ INSERT INTO `hoja_de_vida` (`id`, `nombre`, `correo`, `celular`, `tipo_documento
 (1, 'David Andrade', 'david@gmail.com', '3107098865', 'cedula', '1027956039', 'Antioquia', 'medellin', 'desarrollador', 'PRUEBA20', 'uploads/Ejemplo-de-descarga-pdf.pdf'),
 (2, 'Kelly meneses', 'kelly20@gmail.com', '3125556632', 'cedula', '1029659880', 'Antioquia', 'Apartado', 'Contadora', 'Buenos dias, esta es mu cv', 'uploads/Hoja de vida profesional azul.pdf'),
 (3, 'henry vargas', 'henry@gmail.com', '32235', 'cedula_extranjeria', '58487', 'Antioquia', 'medellin', 'desarrollador', 'prueba50', 'uploads/Hoja de vida profesional azul.pdf');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `municipios`
+--
+
+CREATE TABLE `municipios` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) DEFAULT NULL,
+  `departamento_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `municipios`
+--
+
+INSERT INTO `municipios` (`id`, `nombre`, `departamento_id`) VALUES
+(1, 'Medellín', 1),
+(2, 'Bogotá', 2);
 
 -- --------------------------------------------------------
 
@@ -173,7 +224,7 @@ CREATE TABLE `usuarios_blog` (
 --
 
 INSERT INTO `usuarios_blog` (`id`, `nombre`, `correo`, `contrasenna`) VALUES
-(1, 'Liceth', 'Liceth3@gmail.com', '1234');
+(1, 'Liceth V', 'Liceth3@gmail.com', '1234');
 
 -- --------------------------------------------------------
 
@@ -183,17 +234,37 @@ INSERT INTO `usuarios_blog` (`id`, `nombre`, `correo`, `contrasenna`) VALUES
 
 CREATE TABLE `usuarios_cert` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(100) DEFAULT NULL,
   `cedula` varchar(20) DEFAULT NULL,
-  `contrasenna` varchar(100) DEFAULT NULL
+  `contrasenna` varchar(100) DEFAULT NULL,
+  `nombre` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios_cert`
 --
 
-INSERT INTO `usuarios_cert` (`id`, `nombre`, `cedula`, `contrasenna`) VALUES
-(1, NULL, '1027956039', '1234');
+INSERT INTO `usuarios_cert` (`id`, `cedula`, `contrasenna`, `nombre`) VALUES
+(1, '1027956039', '1234', 'Liceth V');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios_citas`
+--
+
+CREATE TABLE `usuarios_citas` (
+  `id` int(11) NOT NULL,
+  `cedula` varchar(20) NOT NULL,
+  `contrasenna` varchar(255) NOT NULL,
+  `nombre` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios_citas`
+--
+
+INSERT INTO `usuarios_citas` (`id`, `cedula`, `contrasenna`, `nombre`) VALUES
+(1, '1027956039', '1234', 'Liceth V');
 
 -- --------------------------------------------------------
 
@@ -213,7 +284,7 @@ CREATE TABLE `usuarios_pqrs` (
 --
 
 INSERT INTO `usuarios_pqrs` (`id`, `nombre`, `cedula`, `contrasenna`) VALUES
-(1, 'Liceth V', '1027956039', 'baby22');
+(1, 'Liceth V', '1027956039', '1234');
 
 -- --------------------------------------------------------
 
@@ -233,7 +304,7 @@ CREATE TABLE `usuarios_rh` (
 --
 
 INSERT INTO `usuarios_rh` (`id`, `nombre`, `cedula`, `contrasenna`) VALUES
-(1, 'Liceth V', '1027956039', 'baby22');
+(1, 'Liceth V', '1027956039', '1234');
 
 --
 -- Índices para tablas volcadas
@@ -264,10 +335,29 @@ ALTER TABLE `contactos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `departamentos`
+--
+ALTER TABLE `departamentos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `disponibilidad`
+--
+ALTER TABLE `disponibilidad`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `hoja_de_vida`
 --
 ALTER TABLE `hoja_de_vida`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `municipios`
+--
+ALTER TABLE `municipios`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `departamento_id` (`departamento_id`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -286,6 +376,13 @@ ALTER TABLE `usuarios_blog`
 --
 ALTER TABLE `usuarios_cert`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `usuarios_citas`
+--
+ALTER TABLE `usuarios_citas`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `cedula` (`cedula`);
 
 --
 -- Indices de la tabla `usuarios_pqrs`
@@ -313,7 +410,7 @@ ALTER TABLE `admin_blog`
 -- AUTO_INCREMENT de la tabla `certificados`
 --
 ALTER TABLE `certificados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `citas`
@@ -328,10 +425,28 @@ ALTER TABLE `contactos`
   MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT de la tabla `departamentos`
+--
+ALTER TABLE `departamentos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `disponibilidad`
+--
+ALTER TABLE `disponibilidad`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `hoja_de_vida`
 --
 ALTER TABLE `hoja_de_vida`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de la tabla `municipios`
+--
+ALTER TABLE `municipios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -352,6 +467,12 @@ ALTER TABLE `usuarios_cert`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT de la tabla `usuarios_citas`
+--
+ALTER TABLE `usuarios_citas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de la tabla `usuarios_pqrs`
 --
 ALTER TABLE `usuarios_pqrs`
@@ -362,6 +483,16 @@ ALTER TABLE `usuarios_pqrs`
 --
 ALTER TABLE `usuarios_rh`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `municipios`
+--
+ALTER TABLE `municipios`
+  ADD CONSTRAINT `municipios_ibfk_1` FOREIGN KEY (`departamento_id`) REFERENCES `departamentos` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

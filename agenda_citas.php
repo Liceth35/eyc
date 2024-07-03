@@ -3,39 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agendar Cita</title>
-    <link rel="stylesheet" href="./css/citas.css">
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css' />
+    <title>Agendamiento de Citas</title>
+    <link rel="stylesheet" href="css/citas.css">
+    <link rel="stylesheet" href="css/calendario.css">
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Servicios</a></li>
-                <li><a href="#">Contáctenos</a></li>
-            </ul>
-        </nav>
+        <h1>Agendamiento de Citas</h1>
     </header>
-    <main>
-        <section id="agendar-cita">
-            <h1>Agendamiento de Citas</h1>
-            <div class="steps">
-                <div class="step active" data-step="1">1. Seleccione oficina</div>
-                <div class="step" data-step="2">2. Seleccione día y hora</div>
-                <div class="step" data-step="3">3. Diligencie datos</div>
-            </div>
-            <form id="appointment-form">
-                <!-- Step 1 -->
-                <div class="step-content active" data-step="1">
-                    <h2>Seleccionar Oficina</h2>
-                    <div class="form-container">
-                        <form id="form-seleccion">
-                            <div class="form-group">
-                                <label for="departamento">Seleccionar departamento:</label>
-                                <select id="departamento" name="departamento" onchange="cargarMunicipios(this.value)" required>
-                                    <option value="">Selecciona un departamento</option>
-                                    <!-- Lista de departamentos de Colombia -->
+    <div class="container">
+        <div class="stepper">
+            <div class="step step1 active" onclick="nextStep(1)">1</div>
+            <div class="step step2" onclick="nextStep(2)">2</div>
+            <div class="step step3" onclick="nextStep(3)">3</div>
+        </div>
+        <div id="step1" class="step-content active">
+            <h2>Seleccionar Oficina</h2>
+            <form id="office-form">
+                <label for="departamento">Departamento:</label>
+                <select id="departamento" name="departamento">
+                    <option value="">Seleccionar departamento</option>
+                    <!-- Lista de departamentos -->
                                     <option value="1">Amazonas</option>
                                     <option value="2">Antioquia</option>
                                     <option value="3">Arauca</option>
@@ -68,13 +56,11 @@
                                     <option value="30">Valle del Cauca</option>
                                     <option value="31">Vaupés</option>
                                     <option value="32">Vichada</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="municipio">Seleccionar municipio:</label>
-                                <select id="municipio" name="municipio" onchange="cargarDisponibilidad(this.value)" required>
-                                    <option value="">Selecciona un municipio</option>
-                                    <!-- Opciones de municipios se cargarán aquí -->
+                </select>
+                <label for="municipio">Municipio:</label>
+                <select id="municipio" name="municipio">
+                    <option value="">Seleccionar municipio</option>
+                    <!-- Lista de municipios -->
                                     <!-- Amazonas -->
                                     <option value="leticia">Leticia</option>
                                     <!-- Antioquia -->
@@ -163,44 +149,72 @@
                                     <option value="mitu">Mitú</option>
                                     <!-- Vichada -->
                                     <option value="puerto_carreno">Puerto Carreño</option>
-                                </select>
-                            </div>
-                        </form>
-                    </div>
-                    <button type="button" class="next-btn" data-next-step="2">Siguiente</button>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="step-content" data-step="2">
-                    <h2>Seleccionar Día y Hora</h2>
-                    <div id="calendar"></div>
-                    <button type="button" class="prev-btn" data-prev-step="1">Anterior</button>
-                    <button type="button" class="next-btn" data-next-step="3">Siguiente</button>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="step-content" data-step="3">
-                    <h2>Diligenciar Datos</h2>
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" required>
-
-                    <label for="email">Correo Electrónico:</label>
-                    <input type="email" id="email" name="email" required>
-
-                    <label for="telefono">Teléfono:</label>
-                    <input type="tel" id="telefono" name="telefono" required>
-
-                    <button type="button" class="prev-btn" data-prev-step="2">Anterior</button>
-                    <button type="submit">Agendar Cita</button>
-                </div>
+                </select>
+                <button type="button" onclick="nextStep(2)">Continuar</button>
             </form>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Gas Company</p>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js"></script>
-    <script src="./js/citas.js"></script>
+        </div>
+        <div id="step2" class="step-content">
+            <div class="calendar-container">
+                <div class="calendar-header">Calendario de citas</div>
+                <div id="calendar"></div>
+            </div>
+            <div class="time-selection">
+                <div class="time-header">Seleccionar Horario de Atención</div>
+                <div class="time-slots">
+                    <label><input type="radio" name="time" value="7:00-9:00"> 7:00 am - 9:00 am</label>
+                    <label><input type="radio" name="time" value="9:00-12:00"> 9:00 am - 12:00 pm</label>
+                    <label><input type="radio" name="time" value="13:00-15:00"> 1:00 pm - 3:00 pm</label>
+                    <label><input type="radio" name="time" value="15:00-17:00"> 3:00 pm - 5:00 pm</label>
+                </div>
+            </div>
+            <button class="continue-button" onclick="nextStep(3)">Continuar</button>
+        </div>
+        <div id="step3" class="step-content">
+            <h2>Diligenciar Datos</h2>
+            <form id="data-form">
+                <label for="tipo-documento">Tipo de Documento:</label>
+                <select id="tipo-documento" name="tipo-documento">
+                    <option value="CC">Cédula de Ciudadanía</option>
+                    <option value="TI">Tarjeta de Identidad</option>
+                    <!-- Otras opciones -->
+                </select>
+                <label for="numero-documento">Número de Documento:</label>
+                <input type="text" id="numero-documento" name="numero-documento">
+                <label for="nombre">Nombres y Apellidos:</label>
+                <input type="text" id="nombre" name="nombre">
+                <label for="correo">Correo electrónico:</label>
+                <input type="email" id="correo" name="correo">
+                <label for="movil">Número de móvil:</label>
+                <input type="tel" id="movil" name="movil">
+                <label>
+                    <input type="checkbox" id="politica" name="politica" required>
+                    Acepto la Política de Tratamiento de Datos
+                </label>
+                <button type="submit">Finalizar</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/calendario.js" defer></script>
+    <script>
+        function nextStep(step) {
+            document.querySelectorAll('.step-content').forEach(function(content) {
+                content.classList.remove('active');
+            });
+            document.querySelector(`#step${step}`).classList.add('active');
+            document.querySelectorAll('.step').forEach(function(stepElement, index) {
+                if (index + 1 < step) {
+                    stepElement.classList.add('completed');
+                } else {
+                    stepElement.classList.remove('completed');
+                }
+                if (index + 1 === step) {
+                    stepElement.classList.add('active');
+                } else {
+                    stepElement.classList.remove('active');
+                }
+            });
+        }
+    </script>
 </body>
 </html>

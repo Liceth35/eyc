@@ -1,100 +1,96 @@
 body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
 }
 
 header {
-    background-color: #f8f9fa;
-    padding: 10px 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    background-color: #001a33;
+    color: white;
     text-align: center;
+    padding: 1em 0;
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #333;
-}
-
-main {
-    padding: 20px;
-}
-
-.steps {
+.stepper {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    justify-content: center;
+    margin: 20px 0;
 }
 
 .step {
-    flex: 1;
-    text-align: center;
-    padding: 10px;
-    background-color: #e9ecef;
-    border: 1px solid #dee2e6;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
     cursor: pointer;
+    color: white;
 }
 
-.step.active {
-    background-color: #007bff;
-    color: #fff;
+.step.step1 {
+    background-color: #b4daff; /* Azul claro */
+}
+
+.step.step2 {
+    background-color: #d8b4ff; /* Lila */
+}
+
+.step.step3 {
+    background-color: #a4c639; /* Verde */
+}
+
+.step.active, .step.completed {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.step.step1.active, .step.step1.completed {
+    background-color: #b4daff; /* Azul claro */
+}
+
+.step.step2.active, .step.step2.completed {
+    background-color: #d8b4ff; /* Lila */
+}
+
+.step.step3.active, .step.step3.completed {
+    background-color: #a4c639; /* Verde */
 }
 
 .step-content {
     display: none;
+    padding: 20px;
+    background-color: white;
+    margin: 20px auto;
+    width: 80%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .step-content.active {
     display: block;
 }
 
-.form-container {
-    margin-bottom: 20px;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
+label {
     display: block;
-    margin-bottom: 5px;
+    margin: 10px 0 5px;
 }
 
-.form-group select, .form-group input {
+input, select, button {
     width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: #001a33;
+    color: white;
     border: none;
     cursor: pointer;
 }
 
-button.prev-btn {
-    background-color: #6c757d;
-}
-
-button.prev-btn:hover, button.next-btn:hover, button[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-footer {
-    text-align: center;
-    padding: 10px 0;
-    background-color: #f8f9fa;
-    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+button:hover {
+    background-color: #004494;
 }

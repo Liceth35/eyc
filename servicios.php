@@ -10,7 +10,6 @@
     <link rel="shortcut icon" href="images/favicon.ico">
     
     <!-- CSS -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="./css/servicios.css">
     <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -35,73 +34,45 @@
     <!-- PAGE -->
     <div id="page">
     
-        <!-- HEADER -->
-        <header>
-            
-            <!-- MENU BLOCK -->
-            <div class="menu_servicios">
-            
-                <!-- CONTAINER -->
-                <div class="container clearfix">
-                    
-                    <!-- LOGO -->
-                    <div class="logo pull-left">
-                        <a href="index.php" ><span class="b1">e</span><span class="b2">&</span><span class="b3">c</span><span class="b4"></span><span class="b5"></span></a>
-                    </div><!-- //LOGO -->
-                    
-                    <!-- SEARCH FORM -->
-                    <div id="search-form" class="pull-right">
-                        <form method="get" action="#">
-                            <input type="text" name="Search" value="Search" onFocus="if (this.value == 'Search') this.value = '';" onBlur="if (this.value == '') this.value = 'Search';" />
-                        </form>
-                    </div><!-- SEARCH FORM -->
-                    
-                    
-                    <!-- MENU -->
-                    <div class="pull-right">
-                        <nav class="navmenu center">
+    <!-- Navbar -->
+    <header>
+        <div class="navbar">
+            <div class="container">
+                <!-- LOGO -->
+                <div class="logo-servicios">
+                    <a href="index.php"><span class="b1">E</span><span class="b2">&</span><span class="b3">C</span></a>
+                </div>
+                <!-- Menu -->
+                <nav class="navmenu">
+                    <ul>
+                        <li class="nav-item"><a class="nav-link" href="index.php"><strong>INICIO</strong></a></li>
+                        <li class="nav-item"><a class="nav-link" href="nosotros.php"><strong>NOSOTROS</strong></a></li>
+                        <li class="nav-item"><a class="nav-link" href="contactos.php"><strong>CONTACTOS</strong></a></li>
+                        <li class="nav-item"><a class="nav-link" href="servicios.php"><strong>SERVICIOS</strong></a></li>
+                        <li class="nav-item"><a class="nav-link" href="certificado.php"><strong>CERTIFICADO</strong></a></li>
+                        <li class="sub-menu">
+                            <a href="javascript:void(0);"><strong>TEAM</strong></a>
                             <ul>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="index.php"><strong>Inicio</strong></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="nosotros.php"><strong>Nosotros</strong></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="contactos.php"><strong>Contactos</strong></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="servicios.php"><strong>Servicios</strong></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="certificado.php"><strong>Certficado</strong></a>
-                                </li>
-                                <li class="sub-menu">
-									<a href="javascript:void(0);" style="color:black;">Team</a>
-									<ul>
-										<li class="scroll_btn"><a href="index.php#team"style="color:white!important;">Team</a></li>
-										<li class="scroll_btn"><a href="index.php#news"style="color:white!important;">News</a></li>
-										<li class="scroll_btn"><a href="#projects"style="color:white!important;" >Proyectos</a></li>
-										<li><a href="trabaja-con-nosotros.php"style="color:white!important;" >trabaja con nosotros</a></li>
-									</ul>
-									<li class="nav-item">
-										<a class="nav-link" href="login.php"><strong>Corporativo</strong></a>
-									</li>								
-									<li class="sub-menu">
-									<a href="javascript:void(0);"  style="color:black;">Politicas</a>
-									<ul>
-										<li><a href="politicas.php"style="color:white!important;" >Politicas seguridad</a></li>
-										<li><a href="politicastratamiento.php" style="color:white!important;">Politica tratamiento</a></li>
-										<li><a href="politicasetica.php" style="color:white!important;">politica etica</a></li>
-									</ul>
-								</li>
-							</ul>
-						</nav>
-                    </div><!-- //MENU -->
-                </div><!-- //MENU BLOCK -->
-            </div><!-- //CONTAINER -->
-        </header><!-- //HEADER -->
-        
+                                <li class="scroll_btn-servicios"><a href="index.php#team"style="color:white!important;">TEAM</a></li>
+                                <li class="scroll_btn-servicios"><a href="index.php#news"style="color:white!important;">NEWS</a></li>
+                                <li class="scroll_btn-servicios"><a href="#projects"style="color:white!important;">PROYECTOS</a></li>
+                                <li class="scroll_btn-servicios"><a href="trabaja-con-nosotros.php"style="color:white!important;">TRABAJA CON NOSOTROS</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="login.php"><strong>CORPORATIVO</strong></a></li>
+                        <li class="sub-menu">
+                            <a href="javascript:void(0);"><strong>POLÍTICAS</strong></a>
+                            <ul>
+                                <li class="scroll_btn-servicios"><a href="politicas.php"style="color:white!important;">POLÍTICAS</a></li>
+                                <li class="scroll_btn-servicios"><a href="politicasetica.php"style="color:white!important;">POLÍTICA ÉTICA</a></li>
+                                <li class="scroll_btn-servicios"><a href="politicastratamiento.php"style="color:white!important;">POLÍTICA DE TRATAMIENTO</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
         <!-- CLEAN CODE -->
         <div class="cleancode_block">
                 

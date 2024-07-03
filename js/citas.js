@@ -1,53 +1,33 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
-        dateClick: function(info) {
-            alert('Clicked on: ' + info.dateStr);
-            // Handle the date click event to proceed with time selection
-        }
-    });
-    calendar.render();
-
-    document.querySelectorAll('.next-btn').forEach(button => {
-        button.addEventListener('click', () => {
-            const nextStep = button.getAttribute('data-next-step');
-            updateStep(nextStep);
-        });
-    });
-
-    document.querySelectorAll('.prev-btn').forEach(button => {
-        button.addEventListener('click', () => {
-            const prevStep = button.getAttribute('data-prev-step');
-            updateStep(prevStep);
-        });
-    });
-
-    function updateStep(step) {
-        document.querySelectorAll('.step-content').forEach(content => {
-            content.classList.remove('active');
-            if (content.getAttribute('data-step') === step) {
-                content.classList.add('active');
-            }
-        });
-
-        document.querySelectorAll('.step').forEach(stepElem => {
-            stepElem.classList.remove('active');
-            if (stepElem.getAttribute('data-step') === step) {
-                stepElem.classList.add('active');
-            }
-        });
-    }
-});
-
 function cargarMunicipios(departamentoId) {
-    // Load municipalities based on selected department
-    // For now, we'll just log the department ID
-    console.log('Selected department:', departamentoId);
+    fetch(`controlador/cargarMunicipios.php?departamento_id=${departamentoId}`)
+        .then(response => response.json())
+        .then(data => {
+            const municipioSelect = document.getElementById('municipio');
+            municipioSelect.innerHTML = '<option value="">Selecciona un municipio</option>';
+            data.forEach(municipio => {
+                municipioSelect.innerHTML += `<option value="${municipio.id}">${municipio.nombre}</option>`;
+            });
+        });
 }
 
 function cargarDisponibilidad(municipioId) {
-    // Load availability based on selected municipality
-    // For now, we'll just log the municipality ID
-    console.log('Selected municipality:', municipioId);
+    fetch(`controlador/cargarDisponibilidad.php?municipio_id=${municipioId}`)
+        .then(response => response.json())
+        .then(data => {
+            const events = data.map(d => ({ title: 'Disponible', start: d.fecha, allDay: true }));
+            $('#calendar').fullCalendar('removeEvents');
+            $('#calendar').fullCalendar('addEventSource', events);
+        });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    $('#calendar').fullCalendar();
+});
+
+function goToStep(step) {
+    document.querySelectorAll('.step, .step-content').forEach(element => {
+        element.classList.remove('active');
+    });
+    document.querySelector(`.step[data-step="${step}"]`).classList.add('active');
+    document.getElementById(`step${step}`).classList.add('active');
 }

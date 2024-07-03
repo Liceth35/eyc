@@ -125,9 +125,25 @@ nav ul li {
     cursor: pointer;
     }
 
-#btnSubir:hover {
-    background-color: #0056b3; 
+    .logo-servicios {
+        position: absolute; /* Posicionamiento absoluto */
+        left: 30px; /* Mover al lado izquierdo */
+        top: 20px; /* Separación desde arriba */
+        font-size: 32px; /* Aumentar tamaño del texto */
+        padding: 0px; /* Añadir padding para espacio interno */
     }
+    
+    .logo-servicios a {
+        text-decoration: none; /* Eliminar subrayado */
+        color: black; /* Color del texto */
+    }
+    
+    .logo-servicios .b1,
+    .logo-servicios .b2,
+    .logo-servicios .b3 {
+        margin-right: 5px; /* Espacio entre letras */
+    }
+    
 section {
     padding: 60px 0;
 }

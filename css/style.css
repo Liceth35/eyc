@@ -242,8 +242,6 @@ header {
 .logo a span.b1 {font-weight:900;}
 .logo a span.b2 {font-weight:700;}
 .logo a span.b3 {font-weight:400;}
-.logo a span.b4 {font-weight:300;}
-.logo a span.b5 {font-weight:100;}
 
 /* __________ Menu __________ */
 .menu_block {
@@ -326,7 +324,7 @@ header {
 	font-weight:400;
 	text-align:left;
 	font-size:12px;
-	color:#999 !important;
+	color:white !important;
 	background:#1c1c1c;
 	border-bottom:1px solid #282828;
 }
@@ -2041,4 +2039,5 @@ element.style {
     width: 100%;
     text-align: right;
 	margin-right: 10%;
+	margin-top: 45PX;
 }
