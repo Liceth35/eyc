@@ -60,8 +60,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Ejecutar la consulta
             if ($stmt->execute()) {
                 // Redirigir si la inserción fue exitosa
-                header("location: trabaja-con-nosotros.php");
+                header("location: ../trabaja-con-nosotros.php");
                 exit;
+                if ($resultado = true) {
+                    echo "Formulario enviado exitosamente.";
+                } 
             } else {
                 echo "Error al enviar el formulario.";
             }
@@ -71,6 +74,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
+        if ($resultado = true) {
+            echo "Formulario enviado exitosamente.";
+        } 
     } else {
         echo "Error al subir el archivo PDF.";
     }

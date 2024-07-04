@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-07-2024 a las 23:00:39
+-- Tiempo de generación: 04-07-2024 a las 22:55:10
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -42,8 +42,7 @@ CREATE TABLE `admin_blog` (
 --
 
 INSERT INTO `admin_blog` (`id`, `titulo`, `resumen`, `contenido`, `url_imagen`, `fecha_creacion`, `fecha_actualizacion`) VALUES
-(1, 'Inspección de Gas: ¿Por qué es Importante?', 'Descubre la importancia de realizar inspecciones regulares de gas para garantizar la seguridad en el hogar.', 'Las inspecciones de gas son fundamentales para asegurar que todos los sistemas de gas en el hogar funcionen de manera segura y eficiente. Un sistema de gas defectuoso puede provocar fugas peligrosas y aumentar el riesgo de incendios. En este artículo, exploraremos los beneficios de las inspecciones regulares y cómo pueden ayudar a prevenir accidentes graves.\n', './images/clean_code_bg.jpg', '2024-06-27 12:39:23', '2024-06-27 15:19:52'),
-(2, 'Inspeccion', 'Somos un grupo de personas que desde el 2008 vienen dando forma a un equipo de alto rendimiento. En septiembre de 2015 E&C Ingeniería SAS logra acreditarse como organismo de inspección tipo A. En noviembre de 2015 E&C Ingeniería logra certificarse en las normas NTC 9001-2008, NTC 14001-2004, OSHAS 18001-2007. En junio de 2016 inicia labores con el contrato de EPM PC-2015-003222 para el proceso de inspecciones en Antioquia. En octubre de 2016 inicia labores con el contrato de GDO para el proceso de inspecciones en Valle del Cauca. En octubre de 2019 inicia labores con el contrato de EFIGAS para el proceso de inspecciones en el Eje Cafetero. Actualmente nos encontramos capacitándonos para acreditarnos en las normas para inspección de ascensores, puertas eléctricas, andenes móviles. Además, estamos preparando nuestra entrada a Bogotá y la Costa Caribe.', 'Somos un grupo de personas que desde el 2008 vienen dando forma a un equipo de alto rendimiento. En septiembre de 2015 E&C Ingeniería SAS logra acreditarse como organismo de inspección tipo A. En noviembre de 2015 E&C Ingeniería logra certificarse en las normas NTC 9001-2008, NTC 14001-2004, OSHAS 18001-2007. En junio de 2016 inicia labores con el contrato de EPM PC-2015-003222 para el proceso de inspecciones en Antioquia. En octubre de 2016 inicia labores con el contrato de GDO para el proceso de inspecciones en Valle del Cauca. En octubre de 2019 inicia labores con el contrato de EFIGAS para el proceso de inspecciones en el Eje Cafetero. Actualmente nos encontramos capacitándonos para acreditarnos en las normas para inspección de ascensores, puertas eléctricas, andenes móviles. Además, estamos preparando nuestra entrada a Bogotá y la Costa Caribe.Somos un grupo de personas que desde el 2008 vienen dando forma a un equipo de alto rendimiento. En septiembre de 2015 E&C Ingeniería SAS logra acreditarse como organismo de inspección tipo A. En noviembre de 2015 E&C Ingeniería logra certificarse en las normas NTC 9001-2008, NTC 14001-2004, OSHAS 18001-2007. En junio de 2016 inicia labores con el contrato de EPM PC-2015-003222 para el proceso de inspecciones en Antioquia. En octubre de 2016 inicia labores con el contrato de GDO para el proceso de inspecciones en Valle del Cauca. En octubre de 2019 inicia labores con el contrato de EFIGAS para el proceso de inspecciones en el Eje Cafetero. Actualmente nos encontramos capacitándonos para acreditarnos en las normas para inspección de ascensores, puertas eléctricas, andenes móviles. Además, estamos preparando nuestra entrada a Bogotá y la Costa Caribe.Somos un grupo de personas que desde el 2008 vienen dando forma a un equipo de alto rendimiento. En septiembre de 2015 E&C Ingeniería SAS logra acreditarse como organismo de inspección tipo A. En noviembre de 2015 E&C Ingeniería logra certificarse en las normas NTC 9001-2008, NTC 14001-2004, OSHAS 18001-2007. En junio de 2016 inicia labores con el contrato de EPM PC-2015-003222 para el proceso de inspecciones en Antioquia. En octubre de 2016 inicia labores con el contrato de GDO para el proceso de inspecciones en Valle del Cauca. En octubre de 2019 inicia labores con el contrato de EFIGAS para el proceso de inspecciones en el Eje Cafetero. Actualmente nos encontramos capacitándonos para acreditarnos en las normas para inspección de ascensores, puertas eléctricas, andenes móviles. Además, estamos preparando nuestra entrada a Bogotá y la Costa Caribe.Somos un grupo de personas que desde el 2008 vienen dando forma a un equipo de alto rendimiento. En septiembre de 2015 E&C Ingeniería SAS logra acreditarse como organismo de inspección tipo A. En noviembre de 2015 E&C Ingeniería logra certificarse en las normas NTC 9001-2008, NTC 14001-2004, OSHAS 18001-2007. En junio de 2016 inicia labores con el contrato de EPM PC-2015-003222 para el proceso de inspecciones en Antioquia. En octubre de 2016 inicia labores con el contrato de GDO para el proceso de inspecciones en Valle del Cauca. En octubre de 2019 inicia labores con el contrato de EFIGAS para el proceso de inspecciones en el Eje Cafetero. Actualmente nos encontramos capacitándonos para acreditarnos en las normas para inspección de ascensores, puertas eléctricas, andenes móviles. Además, estamos preparando nuestra entrada a Bogotá y la Costa Caribe.Somos un grupo de personas que desde el 2008 vienen dando forma a un equipo de alto rendimiento. En septiembre de 2015 E&C Ingeniería SAS logra acreditarse como organismo de inspección tipo A. En noviembre de 2015 E&C Ingeniería logra certificarse en las normas NTC 9001-2008, NTC 14001-2004, OSHAS 18001-2007. En junio de 2016 inicia labores con el contrato de EPM PC-2015-003222 para el proceso de inspecciones en Antioquia. En octubre de 2016 inicia labores con el contrato de GDO para el proceso de inspecciones en Valle del Cauca. En octubre de 2019 inicia labores con el contrato de EFIGAS para el proceso de inspecciones en el Eje Cafetero. Actualmente nos encontramos capacitándonos para acreditarnos en las normas para inspección de ascensores, puertas eléctricas, andenes móviles. Además, estamos preparando nuestra entrada a Bogotá y la Costa Caribe.Somos un grupo de personas que desde el 2008 vienen dando forma a un equipo de alto rendimiento. En septiembre de 2015 E&C Ingeniería SAS logra acreditarse como organismo de inspección tipo A. En noviembre de 2015 E&C Ingeniería logra certificarse en las normas NTC 9001-2008, NTC 14001-2004, OSHAS 18001-2007. En junio de 2016 inicia labores con el contrato de EPM PC-2015-003222 para el proceso de inspecciones en Antioquia. En octubre de 2016 inicia labores con el contrato de GDO para el proceso de inspecciones en Valle del Cauca. En octubre de 2019 inicia labores con el contrato de EFIGAS para el proceso de inspecciones en el Eje Cafetero. Actualmente nos encontramos capacitándonos para acreditarnos en las normas para inspección de ascensores, puertas eléctricas, andenes móviles. Además, estamos preparando nuestra entrada a Bogotá y la Costa Caribe.v', './images/clean_code_bg.jpg', '2024-06-27 12:40:15', '2024-06-28 16:59:56');
+(1, 'Inspección de Gas: ¿Por qué es Importante?', 'Descubre la importancia de realizar inspecciones regulares de gas para garantizar la seguridad en el hogar.', 'Las inspecciones de gas son fundamentales para asegurar que todos los sistemas de gas en el hogar funcionen de manera segura y eficiente. Un sistema de gas defectuoso puede provocar fugas peligrosas y aumentar el riesgo de incendios. En este artículo, exploraremos los beneficios de las inspecciones regulares y cómo pueden ayudar a prevenir accidentes graves.\n', './images/clean_code_bg.jpg', '2024-06-27 12:39:23', '2024-06-27 15:19:52');
 
 -- --------------------------------------------------------
 
@@ -74,10 +73,25 @@ INSERT INTO `certificados` (`id`, `numero_cedula`, `codigo_verificacion`, `ubica
 
 CREATE TABLE `citas` (
   `id` int(11) NOT NULL,
-  `fecha` date NOT NULL,
-  `hora` time NOT NULL,
-  `nombre` varchar(100) NOT NULL
+  `departamento` varchar(255) DEFAULT NULL,
+  `municipio` varchar(255) DEFAULT NULL,
+  `fecha` date DEFAULT NULL,
+  `horario` decimal(65,0) DEFAULT NULL,
+  `tipo_documento` varchar(10) DEFAULT NULL,
+  `numero_documento` varchar(50) DEFAULT NULL,
+  `nombre` varchar(255) DEFAULT NULL,
+  `correo` varchar(255) DEFAULT NULL,
+  `movil` varchar(50) DEFAULT NULL,
+  `acepto_politica` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `citas`
+--
+
+INSERT INTO `citas` (`id`, `departamento`, `municipio`, `fecha`, `horario`, `tipo_documento`, `numero_documento`, `nombre`, `correo`, `movil`, `acepto_politica`) VALUES
+(1, 'Amazonas', 'Medellín', '2024-07-04', 9, 'CC', '1027956039', 'David Andrade', 'henry@gmail.com', '3107098865', 1),
+(22, NULL, NULL, NULL, NULL, 'CC', 'EJEMPLO', 'David Andrade', 'liceth3@gmail.com', '3107098865', 1);
 
 -- --------------------------------------------------------
 
@@ -102,39 +116,8 @@ INSERT INTO `contactos` (`id`, `nombre`, `telefono`, `correo`, `mensaje`) VALUES
 (2, 'Liceth', '31055', 'liceth2006valderrama@gmail.com', 'Hola'),
 (3, 'David Andrade', '310555', 'est.lmonsalve824@smart.edu.co', 'Buenos dias, me gustaria comunicarme con ustedes para una inspecion de gas'),
 (4, 'Alejandro', '31055', 'est.lmonsalve824@smart.edu.co', 'Hola necesito ayuda'),
-(5, 'DAVID ', '321184332', 'est.lmonsalve824@smart.edu.co', 'Quiero poner una queja');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `departamentos`
---
-
-CREATE TABLE `departamentos` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `departamentos`
---
-
-INSERT INTO `departamentos` (`id`, `nombre`) VALUES
-(1, 'Antioquia'),
-(2, 'Cundinamarca');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `disponibilidad`
---
-
-CREATE TABLE `disponibilidad` (
-  `id` int(11) NOT NULL,
-  `dia` date NOT NULL,
-  `manana` tinyint(1) NOT NULL DEFAULT 1,
-  `tarde` tinyint(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+(5, 'DAVID ', '321184332', 'est.lmonsalve824@smart.edu.co', 'Quiero poner una queja'),
+(6, 'Liceth', '31055', 'liceth2006valderrama@gmail.com', 'prueba33');
 
 -- --------------------------------------------------------
 
@@ -163,27 +146,8 @@ CREATE TABLE `hoja_de_vida` (
 INSERT INTO `hoja_de_vida` (`id`, `nombre`, `correo`, `celular`, `tipo_documento`, `numero_documento`, `departamento`, `ciudad`, `profesion`, `mensaje`, `archivo_adjunto`) VALUES
 (1, 'David Andrade', 'david@gmail.com', '3107098865', 'cedula', '1027956039', 'Antioquia', 'medellin', 'desarrollador', 'PRUEBA20', 'uploads/Ejemplo-de-descarga-pdf.pdf'),
 (2, 'Kelly meneses', 'kelly20@gmail.com', '3125556632', 'cedula', '1029659880', 'Antioquia', 'Apartado', 'Contadora', 'Buenos dias, esta es mu cv', 'uploads/Hoja de vida profesional azul.pdf'),
-(3, 'henry vargas', 'henry@gmail.com', '32235', 'cedula_extranjeria', '58487', 'Antioquia', 'medellin', 'desarrollador', 'prueba50', 'uploads/Hoja de vida profesional azul.pdf');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `municipios`
---
-
-CREATE TABLE `municipios` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(100) DEFAULT NULL,
-  `departamento_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `municipios`
---
-
-INSERT INTO `municipios` (`id`, `nombre`, `departamento_id`) VALUES
-(1, 'Medellín', 1),
-(2, 'Bogotá', 2);
+(3, 'henry vargas', 'henry@gmail.com', '32235', 'cedula_extranjeria', '58487', 'Antioquia', 'medellin', 'desarrollador', 'prueba50', 'uploads/Hoja de vida profesional azul.pdf'),
+(8, 'Kevin Montoya', 'kevin@gmail.com', '312835269898', 'cedula', '21165656', 'Antioquia', 'Medellin', 'Diseñador grafico', 'ESTO ES UNA PRUEBA', 'uploads/Hoja de Vida Administrador Sencillo Blanco y Negro.pdf');
 
 -- --------------------------------------------------------
 
@@ -335,29 +299,10 @@ ALTER TABLE `contactos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `departamentos`
---
-ALTER TABLE `departamentos`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `disponibilidad`
---
-ALTER TABLE `disponibilidad`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indices de la tabla `hoja_de_vida`
 --
 ALTER TABLE `hoja_de_vida`
   ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `municipios`
---
-ALTER TABLE `municipios`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `departamento_id` (`departamento_id`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -416,37 +361,19 @@ ALTER TABLE `certificados`
 -- AUTO_INCREMENT de la tabla `citas`
 --
 ALTER TABLE `citas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `contactos`
 --
 ALTER TABLE `contactos`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT de la tabla `departamentos`
---
-ALTER TABLE `departamentos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de la tabla `disponibilidad`
---
-ALTER TABLE `disponibilidad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `hoja_de_vida`
 --
 ALTER TABLE `hoja_de_vida`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT de la tabla `municipios`
---
-ALTER TABLE `municipios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -483,16 +410,6 @@ ALTER TABLE `usuarios_pqrs`
 --
 ALTER TABLE `usuarios_rh`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `municipios`
---
-ALTER TABLE `municipios`
-  ADD CONSTRAINT `municipios_ibfk_1` FOREIGN KEY (`departamento_id`) REFERENCES `departamentos` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

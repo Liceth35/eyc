@@ -19,7 +19,7 @@
         </div>
         <div id="step1" class="step-content active">
             <h2>Seleccionar Oficina</h2>
-            <form id="office-form">
+            <form id="data-form" action="./controlador/guardar_cita.php" method="post">
                 <label for="departamento">Departamento:</label>
                 <select id="departamento" name="departamento">
                     <option value="">Seleccionar departamento</option>
@@ -171,7 +171,7 @@
         </div>
         <div id="step3" class="step-content">
             <h2>Diligenciar Datos</h2>
-            <form id="data-form">
+            <form id="data-form" action="./controlador/guardar_cita.php" method="post">
                 <label for="tipo-documento">Tipo de Documento:</label>
                 <select id="tipo-documento" name="tipo-documento">
                     <option value="CC">Cédula de Ciudadanía</option>
