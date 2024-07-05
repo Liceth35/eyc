@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-07-2024 a las 22:55:10
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Tiempo de generación: 05-07-2024 a las 02:09:15
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -64,34 +64,6 @@ CREATE TABLE `certificados` (
 INSERT INTO `certificados` (`id`, `numero_cedula`, `codigo_verificacion`, `ubicacion_certificado`) VALUES
 (1, '1027956039', '1234565ABC', './admin/uploads_certificado/ejemplo.pdf'),
 (3, '22024737', '12345CCC', './admin/uploads_certificado/ejemplo.pdf');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `citas`
---
-
-CREATE TABLE `citas` (
-  `id` int(11) NOT NULL,
-  `departamento` varchar(255) DEFAULT NULL,
-  `municipio` varchar(255) DEFAULT NULL,
-  `fecha` date DEFAULT NULL,
-  `horario` decimal(65,0) DEFAULT NULL,
-  `tipo_documento` varchar(10) DEFAULT NULL,
-  `numero_documento` varchar(50) DEFAULT NULL,
-  `nombre` varchar(255) DEFAULT NULL,
-  `correo` varchar(255) DEFAULT NULL,
-  `movil` varchar(50) DEFAULT NULL,
-  `acepto_politica` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `citas`
---
-
-INSERT INTO `citas` (`id`, `departamento`, `municipio`, `fecha`, `horario`, `tipo_documento`, `numero_documento`, `nombre`, `correo`, `movil`, `acepto_politica`) VALUES
-(1, 'Amazonas', 'Medellín', '2024-07-04', 9, 'CC', '1027956039', 'David Andrade', 'henry@gmail.com', '3107098865', 1),
-(22, NULL, NULL, NULL, NULL, 'CC', 'EJEMPLO', 'David Andrade', 'liceth3@gmail.com', '3107098865', 1);
 
 -- --------------------------------------------------------
 
@@ -287,12 +259,6 @@ ALTER TABLE `certificados`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `citas`
---
-ALTER TABLE `citas`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indices de la tabla `contactos`
 --
 ALTER TABLE `contactos`
@@ -356,12 +322,6 @@ ALTER TABLE `admin_blog`
 --
 ALTER TABLE `certificados`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT de la tabla `citas`
---
-ALTER TABLE `citas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `contactos`
