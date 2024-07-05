@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-07-2024 a las 02:09:15
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.0.28
+-- Tiempo de generación: 05-07-2024 a las 22:19:04
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -68,6 +68,35 @@ INSERT INTO `certificados` (`id`, `numero_cedula`, `codigo_verificacion`, `ubica
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `citas`
+--
+
+CREATE TABLE `citas` (
+  `id` int(11) NOT NULL,
+  `departamento` varchar(100) DEFAULT NULL,
+  `municipio` varchar(100) DEFAULT NULL,
+  `fecha` date DEFAULT NULL,
+  `horario` varchar(20) DEFAULT NULL,
+  `numero_documento` varchar(50) DEFAULT NULL,
+  `tipo_documento` varchar(20) DEFAULT NULL,
+  `nombre` varchar(100) DEFAULT NULL,
+  `correo` varchar(100) DEFAULT NULL,
+  `movil` varchar(20) DEFAULT NULL,
+  `acepto_politica` tinyint(1) DEFAULT NULL,
+  `numero_contrato` varchar(50) DEFAULT NULL,
+  `direccion` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `citas`
+--
+
+INSERT INTO `citas` (`id`, `departamento`, `municipio`, `fecha`, `horario`, `numero_documento`, `tipo_documento`, `nombre`, `correo`, `movil`, `acepto_politica`, `numero_contrato`, `direccion`) VALUES
+(6, 'Amazonas', 'leticia', '2024-07-12', '7:00-9:00', '1027956039', 'CC', 'Kelly meneses', 'kelly20@gmail.com', '3107098865', 0, '556495964554', 'calle 101c');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `contactos`
 --
 
@@ -90,6 +119,27 @@ INSERT INTO `contactos` (`id`, `nombre`, `telefono`, `correo`, `mensaje`) VALUES
 (4, 'Alejandro', '31055', 'est.lmonsalve824@smart.edu.co', 'Hola necesito ayuda'),
 (5, 'DAVID ', '321184332', 'est.lmonsalve824@smart.edu.co', 'Quiero poner una queja'),
 (6, 'Liceth', '31055', 'liceth2006valderrama@gmail.com', 'prueba33');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `disponibilidad`
+--
+
+CREATE TABLE `disponibilidad` (
+  `id` int(11) NOT NULL,
+  `municipio` varchar(255) NOT NULL,
+  `fecha` date NOT NULL,
+  `horario` time NOT NULL,
+  `disponible` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `disponibilidad`
+--
+
+INSERT INTO `disponibilidad` (`id`, `municipio`, `fecha`, `horario`, `disponible`) VALUES
+(1, '', '0000-00-00', '00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -259,9 +309,21 @@ ALTER TABLE `certificados`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `citas`
+--
+ALTER TABLE `citas`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `contactos`
 --
 ALTER TABLE `contactos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `disponibilidad`
+--
+ALTER TABLE `disponibilidad`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -324,10 +386,22 @@ ALTER TABLE `certificados`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT de la tabla `citas`
+--
+ALTER TABLE `citas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT de la tabla `contactos`
 --
 ALTER TABLE `contactos`
   MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `disponibilidad`
+--
+ALTER TABLE `disponibilidad`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `hoja_de_vida`

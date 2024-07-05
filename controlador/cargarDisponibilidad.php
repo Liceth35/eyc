@@ -7,13 +7,9 @@ $db = new PDODB();
 $db->conectar();
 
 $query = "SELECT id, municipio, fecha, horario, disponible FROM disponibilidad";
-$result = $db->consulta($query);
+$resultados = $db->consulta($query);
 
-$disponibilidad = [];
-
-while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-    $disponibilidad[] = $row;
-}
+$disponibilidad = $resultados ? $resultados : [];
 
 echo json_encode($disponibilidad);
 

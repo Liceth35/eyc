@@ -71,10 +71,23 @@
             fetch('controlador/cargarDisponibilidad.php')
                 .then(response => response.json())
                 .then(data => {
-                    // Aquí se debe implementar la carga y visualización de la disponibilidad
-                    console.log(data); // Revisar la estructura de los datos recibidos
-                    // Implementar la carga de los datos en el calendario y los horarios
-                });
+                    // Limpiar tabla antes de actualizar
+                    const tableBody = document.getElementById('time-table');
+                    tableBody.innerHTML = '';
+
+                    // Iterar sobre los datos recibidos y construir filas de la tabla
+                    data.forEach(item => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${item.municipio}</td>
+                            <td>${item.fecha}</td>
+                            <td>${item.horario}</td>
+                            <td>${item.disponible}</td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Error al cargar disponibilidad:', error));
         }
 
         function agregarDisponibilidad() {
@@ -86,29 +99,18 @@
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ municipio, fecha, rango_horario })
-            }).then(response => response.json()).then(data => {
+            }).then(response => response.json())
+              .then(data => {
                 alert('Disponibilidad agregada.');
-                // Actualizar la disponibilidad en la interfaz
-                cargarDisponibilidadInicial();
+                cargarDisponibilidadInicial(); // Actualizar la disponibilidad en la interfaz
             }).catch(error => {
-                console.error('Error:', error);
+                console.error('Error al agregar disponibilidad:', error);
             });
         }
 
         function guardarCambios() {
-            const disponibilidad = [];
-            document.querySelectorAll('.calendar-day.available').forEach(day => {
-                disponibilidad.push(day.textContent);
-            });
-            fetch('controlador/guardarDisponibilidad.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(disponibilidad)
-            }).then(response => response.json()).then(data => {
-                alert('Cambios guardados.');
-            }).catch(error => {
-                console.error('Error:', error);
-            });
+            // Esta función puede ser implementada según necesidades adicionales
+            alert('Guardar cambios no está implementado completamente en este ejemplo.');
         }
     </script>
 </body>
