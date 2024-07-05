@@ -67,27 +67,30 @@
                 <button type="button" onclick="nextStep(3)">Continuar</button>
             </div>
             <div id="step3" class="step-content">
-                <h2>Diligenciar Datos</h2>
-                <label for="tipo-documento">Tipo de Documento:</label>
-                <select id="tipo-documento" name="tipo-documento">
-                    <option value="CC">Cédula de Ciudadanía</option>
-                    <option value="TI">Tarjeta de Identidad</option>
-                    <!-- Otras opciones -->
-                </select>
-                <label for="numero-documento">Número de Documento:</label>
-                <input type="text" id="numero-documento" name="numero-documento">
-                <label for="nombre">Nombres y Apellidos:</label>
-                <input type="text" id="nombre" name="nombre">
-                <label for="correo">Correo electrónico:</label>
-                <input type="email" id="correo" name="correo">
-                <label for="movil">Número de móvil:</label>
-                <input type="tel" id="movil" name="movil">
-                <label>
-                    <input type="checkbox" id="politica" name="politica" required>
-                    Acepto la Política de Tratamiento de Datos
-                </label>
-                <button type="submit">Finalizar</button>
-            </div>
+    <h2>Diligenciar Datos</h2>
+    <label for="tipo-documento">Tipo de Documento:</label>
+    <select id="tipo-documento" name="tipo-documento">
+        <option value="CC">Cédula de Ciudadanía</option>
+        <option value="TI">Tarjeta de Identidad</option>
+        <!-- Otras opciones -->
+    </select>
+    <label for="numero-documento">Número de Documento:</label>
+    <input type="text" id="numero-documento" name="numero-documento">
+    <label for="numero-contrato">Número de Contrato:</label> <!-- Nueva etiqueta -->
+    <input type="text" id="numero-contrato" name="numero-contrato">
+    <label for="nombre">Nombres y Apellidos:</label>
+    <input type="text" id="nombre" name="nombre">
+    <label for="correo">Correo electrónico:</label>
+    <input type="email" id="correo" name="correo">
+    <label for="movil">Número de móvil:</label>
+    <input type="tel" id="movil" name="movil">
+    <label for="direccion">Dirección:</label> <!-- Nueva etiqueta -->
+    <input type="text" id="direccion" name="direccion">
+    <label>
+        <input type="checkbox" id="politica" name="politica" required> Acepto la Política de Tratamiento de Datos</label>
+    <button type="submit">Finalizar</button>
+</div>
+
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -1,33 +1,38 @@
-function cargarMunicipios(departamentoId) {
-    fetch(`controlador/cargarMunicipios.php?departamento_id=${departamentoId}`)
-        .then(response => response.json())
-        .then(data => {
-            const municipioSelect = document.getElementById('municipio');
-            municipioSelect.innerHTML = '<option value="">Selecciona un municipio</option>';
-            data.forEach(municipio => {
-                municipioSelect.innerHTML += `<option value="${municipio.id}">${municipio.nombre}</option>`;
-            });
-        });
-}
-
-function cargarDisponibilidad(municipioId) {
-    fetch(`controlador/cargarDisponibilidad.php?municipio_id=${municipioId}`)
-        .then(response => response.json())
-        .then(data => {
-            const events = data.map(d => ({ title: 'Disponible', start: d.fecha, allDay: true }));
-            $('#calendar').fullCalendar('removeEvents');
-            $('#calendar').fullCalendar('addEventSource', events);
-        });
-}
-
+// citas.js
 document.addEventListener('DOMContentLoaded', function() {
-    $('#calendar').fullCalendar();
+    cargarCitas();
 });
 
-function goToStep(step) {
-    document.querySelectorAll('.step, .step-content').forEach(element => {
-        element.classList.remove('active');
-    });
-    document.querySelector(`.step[data-step="${step}"]`).classList.add('active');
-    document.getElementById(`step${step}`).classList.add('active');
+function cargarCitas() {
+    fetch('controlador/cargarCitas.php')
+        .then(response => response.json())
+        .then(data => {
+            // Lógica para cargar las citas en la interfaz
+        });
+}
+
+function cancelar(id) {
+    fetch(`controlador/cancelarCita.php?id=${id}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                cargarCitas();
+            }
+        });
+}
+
+function reagendar(id) {
+    const nuevaFecha = prompt('Ingrese la nueva fecha (YYYY-MM-DD):');
+    const nuevaHora = prompt('Ingrese la nueva hora (HH:MM):');
+    if (nuevaFecha && nuevaHora) {
+        fetch('controlador/reagendarCita.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id, fecha: nuevaFecha, hora: nuevaHora })
+        }).then(response => response.json()).then(data => {
+            if (data.status === 'success') {
+                cargarCitas();
+            }
+        });
+    }
 }

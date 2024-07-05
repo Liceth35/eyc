@@ -10,45 +10,71 @@
     <div class="header">
         <h1>Panel de Administración</h1>
     </div>
+    <h2><center>Administración de Citas Agendadas</center></h2>
 
-    <div class="container">
-        <div class="menu">
-            <a href="admin_gestion.php">Gestión Principal</a>
-            <a href="admin_disponibilidad.php">Gestión de Disponibilidad</a>
-            <a href="admin_citas.php">Gestión de Citas</a>
-        </div>
-
-        <div class="content">
-            <!-- Contenido dinámico de acuerdo a la opción seleccionada -->
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Fecha de cita</th>
-                            <th>Hora de cita</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Filas de datos de citas -->
-                        <tr>
-                            <td>Maria Perez</td>
-                            <td>2024-07-15</td>
-                            <td>10:00 am</td>
-                            <td>
-                                <div class="action-buttons">
-                                    <a href="#">Reagendar</a>
-                                    <a href="#">Cancelar</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <!-- Más filas según la información de la base de datos -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
+    <div class="menu">
+        <a href="admin_disponibilidad.php">Gestión de Disponibilidad</a>
     </div>
 
+    <div class="content">
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Departamento</th>
+                        <th>Municipio</th>
+                        <th>Dirección</th>
+                        <th>Fecha</th>
+                        <th>Horario</th>
+                        <th>Número de Documento</th>
+                        <th>Tipo de Documento</th>
+                        <th>Número de contrato</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Móvil</th>
+                        <th>Acepto Política</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="citas-table">
+                    <!-- Contenido dinámico generado por PHP -->
+                    <?php
+                    // Incluir el archivo de conexión a la base de datos y gestionCitas.php
+                    include_once './controlador/conexion.php';
+                    include_once './controlador/gestionCitas.php';
+
+                    // Cargar las citas desde la base de datos
+                    $citas = cargarCitas();
+                    if ($citas) {
+                        foreach ($citas as $cita) {
+                            echo "<tr>";
+                            echo "<td>" . $cita['id'] . "</td>";
+                            echo "<td>" . $cita['departamento'] . "</td>";
+                            echo "<td>" . $cita['municipio'] . "</td>";
+                            echo "<td>" . $cita['direccion'] . "</td>";
+                            echo "<td>" . $cita['fecha'] . "</td>";
+                            echo "<td>" . $cita['horario'] . "</td>";
+                            echo "<td>" . $cita['numero_documento'] . "</td>";
+                            echo "<td>" . $cita['tipo_documento'] . "</td>";
+                            echo "<td>" . $cita['numero_contrato'] . "</td>";
+                            echo "<td>" . $cita['nombre'] . "</td>";
+                            echo "<td>" . $cita['correo'] . "</td>";
+                            echo "<td>" . $cita['movil'] . "</td>";
+                            echo "<td>" . ($cita['acepto_politica'] ? 'Sí' : 'No') . "</td>";
+                            echo "<td>";
+                            echo "<a href='./controlador/reagendarCita.php' onclick='reagendar(" . $cita['id'] . ")'>Reagendar</a> | ";
+                            echo "<a href='./controlador/cancelarCita.php' onclick='cancelar(" . $cita['id'] . ")'>Cancelar</a>";
+                            echo "</td>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='14'>No hay citas disponibles</td></tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
