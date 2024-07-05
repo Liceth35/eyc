@@ -1,108 +1,64 @@
 <?php
 require_once './conexion.php';
 
-class AgendarCita {
-    private $db;
-
-    public function __construct() {
-        $this->db = new PDODB();
-        $this->db->conectar();
-    }
-
-    public function guardarCita($data) {
-        $sql = "INSERT INTO citas (departamento, municipio, fecha, horario, tipo_documento, numero_documento, nombre, correo, movil, acepto_politica)
-                VALUES (:departamento, :municipio, :fecha, :horario, :tipo_documento, :numero_documento, :nombre, :correo, :movil, :acepto_politica)";
-        $params = [
-            ':departamento' => $data['departamento'],
-            ':municipio' => $data['municipio'],
-            ':fecha' => $data['fecha'],
-            ':horario' => $data['horario'],
-            ':tipo_documento' => $data['tipo-documento'],
-            ':numero_documento' => $data['numero-documento'],
-            ':nombre' => $data['nombre'],
-            ':correo' => $data['correo'],
-            ':movil' => $data['movil'],
-            ':acepto_politica' => isset($data['acepto_politica']) ? 1 : 0
-        ];
-        return $this->db->consulta($sql, $params);
-    }
-}
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Verificar la existencia de cada campo antes de acceder a ellos
-    $departamento = isset($_POST['departamento']) ? $_POST['departamento'] : null;
-    $municipio = isset($_POST['municipio']) ? $_POST['municipio'] : null;
-    $fecha = isset($_POST['fecha']) ? $_POST['fecha'] : null;
-    $horario = isset($_POST['horario']) ? $_POST['horario'] : null;
-    $tipo_documento = isset($_POST['tipo-documento']) ? $_POST['tipo-documento'] : null;
-    $numero_documento = isset($_POST['numero-documento']) ? $_POST['numero-documento'] : null;
-    $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
-    $correo = isset($_POST['correo']) ? $_POST['correo'] : null;
-    $movil = isset($_POST['movil']) ? $_POST['movil'] : null;
-    $acepto_politica = isset($_POST['politica']) ? true : false; // Para campos checkbox, verificar si está marcado
+    $errors = [];
 
-    // Validar que los campos obligatorios no estén vacíos
-    $errors = array();
-    if (empty($departamento)) {
+    if (empty($_POST["departamento"])) {
         $errors[] = "El campo departamento es obligatorio.";
     }
-    if (empty($municipio)) {
+    if (empty($_POST["municipio"])) {
         $errors[] = "El campo municipio es obligatorio.";
     }
-    if (empty($fecha)) {
+    if (empty($_POST["fecha"])) {
         $errors[] = "El campo fecha es obligatorio.";
     }
-    if (empty($horario)) {
+    if (empty($_POST["horario"])) {
         $errors[] = "El campo horario es obligatorio.";
     }
-    if (empty($numero_documento)) {
-        $errors[] = "El campo numero_documento es obligatorio.";
+    if (empty($_POST["numero-documento"])) {
+        $errors[] = "El campo número de documento es obligatorio.";
     }
-    if (empty($tipo_documento)) {
-        $errors[] = "El campo tipo_documento es obligatorio.";
+    if (empty($_POST["tipo-documento"])) {
+        $errors[] = "El campo tipo de documento es obligatorio.";
     }
-    if (!$acepto_politica) {
-        $errors[] = "Debe aceptar la Política de Tratamiento de Datos.";
+    if (empty($_POST["politica"])) {
+        $errors[] = "El campo acepto política es obligatorio.";
     }
 
-    // Si hay errores, imprimirlos y detener el script
-    if (!empty($errors)) {
+    if (count($errors) > 0) {
         foreach ($errors as $error) {
-            echo "$error <br>";
+            echo "<p>$error</p>";
         }
-        exit; // Detener la ejecución si hay errores
-    }
-
-    // Procesar los datos (insertar en la base de datos u otro procesamiento)
-    // Ejemplo de inserción en la base de datos usando PDO
-    require_once('conexion.php'); // Asegúrate de que la conexión esté incluida correctamente
-    $db = new PDODB();
-    $db->conectar();
-
-    // Preparar la consulta SQL para insertar los datos en la tabla 'citas'
-    $sql = "INSERT INTO citas (departamento, municipio, fecha, horario, numero_documento, tipo_documento, nombre, correo, movil, acepto_politica)
-            VALUES (:departamento, :municipio, :fecha, :horario, :numero_documento, :tipo_documento, :nombre, :correo, :movil, :acepto_politica)";
-    $stmt = $db->prepare($sql);
-
-    // Bind de parámetros
-    $stmt->bindParam(':departamento', $departamento, PDO::PARAM_STR);
-    $stmt->bindParam(':municipio', $municipio, PDO::PARAM_STR);
-    $stmt->bindParam(':fecha', $fecha, PDO::PARAM_STR);
-    $stmt->bindParam(':horario', $horario, PDO::PARAM_STR);
-    $stmt->bindParam(':numero_documento', $numero_documento, PDO::PARAM_STR);
-    $stmt->bindParam(':tipo_documento', $tipo_documento, PDO::PARAM_STR);
-    $stmt->bindParam(':nombre', $nombre, PDO::PARAM_STR);
-    $stmt->bindParam(':correo', $correo, PDO::PARAM_STR);
-    $stmt->bindParam(':movil', $movil, PDO::PARAM_STR);
-    $stmt->bindParam(':acepto_politica', $acepto_politica, PDO::PARAM_BOOL);
-
-    // Ejecutar la consulta
-    if ($stmt->execute()) {
-        echo "Cita agendada correctamente.";
     } else {
-        echo "Error al agendar la cita. Por favor, inténtelo nuevamente.";
-    }
+        $departamento = $_POST["departamento"];
+        $municipio = $_POST["municipio"];
+        $fecha = $_POST["fecha"];
+        $horario = $_POST["horario"];
+        $numeroDocumento = $_POST["numero-documento"];
+        $tipoDocumento = $_POST["tipo-documento"];
+        $nombre = $_POST["nombre"];
+        $correo = $_POST["correo"];
+        $movil = $_POST["movil"];
+        $aceptoPolitica = $_POST["politica"];
 
-    // Cerrar la conexión
-    $db->close();
+        $db = new PDODB();
+        $db->conectar();
+
+        $query = "INSERT INTO citas (departamento, municipio, fecha, horario, numero_documento, tipo_documento, nombre, correo, movil, acepto_politica) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $params = [$departamento, $municipio, $fecha, $horario, $numeroDocumento, $tipoDocumento, $nombre, $correo, $movil, $aceptoPolitica];
+
+        $result = $db->consulta($query, $params);
+
+        if ($result = true) {
+            echo "<p>Cita agendada correctamente.</p>";
+        } else {
+            echo "<p>Error al agendar la cita.</p>";
+        }
+
+        $db->close();
+    }
+} else {
+    echo "<p>Solicitud inválida.</p>";
 }
+?>
