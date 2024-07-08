@@ -1,27 +1,41 @@
 <?php
-// Verificar si se recibieron los parámetros id, fecha y hora
-if (!isset($_POST['id']) || !isset($_POST['fecha']) || !isset($_POST['hora'])) {
-    die("No se proporcionaron todos los datos necesarios.");
+header('Content-Type: application/json');
+
+// Verificar si se recibieron los datos necesarios en la solicitud POST
+$data = json_decode(file_get_contents('php://input'), true);
+if (!$data || !isset($data['id']) || !isset($data['fecha']) || !isset($data['hora_inicio']) || !isset($data['hora_fin'])) {
+    die(json_encode(['status' => 'error', 'message' => 'No se proporcionaron todos los datos necesarios.']));
 }
 
-$cita_id = $_POST['id'];
-$nueva_fecha = $_POST['fecha'];
-$nueva_hora = $_POST['hora'];
+$cita_id = $data['id'];
+$nueva_fecha = $data['fecha'];
+$nueva_hora_inicio = $data['hora_inicio'];
+$nueva_hora_fin = $data['hora_fin'];
 
 include_once './conexion.php';
 $db = new PDODB();
 $db->conectar();
 
-// Construir y ejecutar la consulta SQL para reagendar la cita
-$sql = "UPDATE citas SET fecha = :fecha, hora = :hora WHERE id = :id";
-$stmt = $db->prepare($sql);
-$stmt->bindParam(':id', $cita_id, PDO::PARAM_INT);
-$stmt->bindParam(':fecha', $nueva_fecha, PDO::PARAM_STR);
-$stmt->bindParam(':hora', $nueva_hora, PDO::PARAM_STR);
+// Verificar disponibilidad de la nueva fecha y hora en la tabla de disponibilidad
+$sql_disponibilidad = "SELECT * FROM disponibilidad WHERE fecha = :fecha AND hora_inicio <= :hora_inicio AND hora_fin >= :hora_fin AND disponible = 'Disponible'";
+$stmt_disponibilidad = $db->getConexion()->prepare($sql_disponibilidad);
+$stmt_disponibilidad->bindParam(':fecha', $nueva_fecha, PDO::PARAM_STR);
+$stmt_disponibilidad->bindParam(':hora_inicio', $nueva_hora_inicio, PDO::PARAM_STR);
+$stmt_disponibilidad->bindParam(':hora_fin', $nueva_hora_fin, PDO::PARAM_STR);
+$stmt_disponibilidad->execute();
 
-$resultado = $stmt->execute();
+if ($stmt_disponibilidad->rowCount() === 0) {
+    die(json_encode(['status' => 'error', 'message' => 'La fecha y hora seleccionadas no están disponibles']));
+}
 
-if ($resultado) {
+// Actualizar la cita con la nueva fecha y hora
+$sql_actualizar_cita = "UPDATE citas SET fecha = :fecha, horario = :hora_inicio WHERE id = :id";
+$stmt_actualizar_cita = $db->getConexion()->prepare($sql_actualizar_cita);
+$stmt_actualizar_cita->bindParam(':id', $cita_id, PDO::PARAM_INT);
+$stmt_actualizar_cita->bindParam(':fecha', $nueva_fecha, PDO::PARAM_STR);
+$stmt_actualizar_cita->bindParam(':hora_inicio', $nueva_hora_inicio, PDO::PARAM_STR);
+
+if ($stmt_actualizar_cita->execute()) {
     echo json_encode(['status' => 'success']);
 } else {
     echo json_encode(['status' => 'error', 'message' => 'No se pudo reagendar la cita']);

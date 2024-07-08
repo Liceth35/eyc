@@ -14,10 +14,6 @@
     </a>
     <nav>
         <ul>
-            <li><a href="https://epm-vwapp01/PerdiGas" target="_blank">PerdiGas</a></li>
-            <li><a href="https://dynamics.microsoft.com/es-es/" target="_blank">Dynamics 365</a></li>
-            <li><a href="https://epm-vwapp05.corp.epm.com.co/" target="_blank">Gaspar</a></li>
-            <li><a href="https://eic.godoworks.com/es/base/Login/index" target="_blank">Go do works</a></li>
             <button type="button" class="btn btn-warning cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
                 <script>
                     function cerrarSesion() {

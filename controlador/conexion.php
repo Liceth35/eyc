@@ -34,10 +34,19 @@ class PDODB
         }
     }
 
+    function prepare($query)
+    {
+        try {
+            return $this->conexion->prepare($query);
+        } catch (PDOException $e) {
+            die("Error al preparar la consulta: " . $e->getMessage());
+        }
+    }
+
     function consulta($query, $params = array())
     {
         try {
-            $statement = $this->conexion->prepare($query);
+            $statement = $this->prepare($query);
             $statement->execute($params);
             return $statement->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
@@ -59,7 +68,7 @@ class PDODB
             }
             return $datos;
         } catch (Throwable $th) {
-            die("¡oh no!, hubo un error en la consulta de obtener resultados");
+            die("¡Oh no!, hubo un error en la consulta de obtener resultados");
         }
     }
 
@@ -77,7 +86,7 @@ class PDODB
             }
             return $datos;
         } catch (Throwable $th) {
-            die("¡oh no!, hubo un error en la consulta de login");
+            die("¡Oh no!, hubo un error en la consulta de login");
         }
     }
 
@@ -86,8 +95,8 @@ class PDODB
         try {
             $resultados = $this->conexion->query($sql);
             return $resultados;
-        } catch (exception $e) {
-            die("¡oh no!, hubo un error en la consulta de ejecutar instruccion");
+        } catch (Exception $e) {
+            die("¡Oh no!, hubo un error en la consulta de ejecutar instrucción");
         }
     }
 
@@ -102,14 +111,14 @@ class PDODB
     }
 }
 
-// Ejemplo de uso:
+// Ejemplo básico de uso:
 // Instanciar la conexión
 $pdo = new PDODB();
 $pdo->conectar();
 
-// Ejemplo de consulta
-$query = "SELECT * FROM tabla_ejemplo WHERE columna = :valor";
-$params = array(':valor' => 'ejemplo');
+// Ejemplo de preparar una consulta
+$query = "SELECT * FROM citas WHERE id = :id";
+$params = array(':id' => 1);
 $resultado = $pdo->consulta($query, $params);
 
 // Procesar $resultado según necesites

@@ -4,7 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administración de Citas</title>
-    <link rel="stylesheet" href="css/admin_gestion.css">
+    <link rel="stylesheet" href="./css/admin_gestion.css">
+    <script>
+        // Función para cancelar una cita
+        function cancelar(id) {
+            if (confirm('¿Está seguro de que desea cancelar esta cita?')) {
+                fetch(`./controlador/cancelarCita.php?id=${id}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'success') {
+                            alert('Cita cancelada exitosamente.');
+                            location.reload();
+                        } else {
+                            alert('Error al cancelar la cita.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Hubo un error al procesar la solicitud.');
+                    });
+            }
+        }
+
+        // Función para reagendar una cita
+        function reagendar(id) {
+            const nueva_fecha = prompt("Ingrese la nueva fecha (AÑO-MM-DD):");
+            const nueva_hora_inicio = prompt("Ingrese la nueva hora de inicio (HH):");
+            const nueva_hora_fin = prompt("Ingrese la nueva hora de fin (HH):");
+
+            if (nueva_fecha && nueva_hora_inicio && nueva_hora_fin) {
+                fetch('./controlador/reagendarCita.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: id, fecha: nueva_fecha, hora_inicio: nueva_hora_inicio, hora_fin: nueva_hora_fin })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        alert('Cita reagendada exitosamente.');
+                        location.reload();
+                    } else {
+                        alert(data.message || 'Error al reagendar la cita.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Hubo un error al procesar la solicitud.');
+                });
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="header">
@@ -13,7 +62,8 @@
     <h2><center>Administración de Citas Agendadas</center></h2>
 
     <div class="menu">
-        <a href="admin_disponibilidad.php">Gestión de Disponibilidad</a>
+        <a href="admin_disponibilidad.php">Cargar disponibilidad</a>
+        <a href="./cargarDisponibilidad.php">Gestión de Disponibilidad</a>
     </div>
 
     <div class="content">
@@ -32,20 +82,24 @@
                         <th>Número de contrato</th>
                         <th>Nombre</th>
                         <th>Correo</th>
-                        <th>Móvil</th>
-                        <th>Acepto Política</th>
+                        <th>Teléfono</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody id="citas-table">
                     <!-- Contenido dinámico generado por PHP -->
                     <?php
-                    // Incluir el archivo de conexión a la base de datos y gestionCitas.php
+                    // Incluir el archivo de conexión a la base de datos
                     include_once './controlador/conexion.php';
-                    include_once './controlador/gestionCitas.php';
 
-                    // Cargar las citas desde la base de datos
-                    $citas = cargarCitas();
+                    // Instanciar la conexión
+                    $pdo = new PDODB();
+                    $pdo->conectar();
+
+                    // Consulta para obtener las citas
+                    $query = "SELECT * FROM citas";
+                    $citas = $pdo->consulta($query);
+
                     if ($citas) {
                         foreach ($citas as $cita) {
                             echo "<tr>";
@@ -61,16 +115,17 @@
                             echo "<td>" . $cita['nombre'] . "</td>";
                             echo "<td>" . $cita['correo'] . "</td>";
                             echo "<td>" . $cita['movil'] . "</td>";
-                            echo "<td>" . ($cita['acepto_politica'] ? 'Sí' : 'No') . "</td>";
                             echo "<td>";
-                            echo "<a href='./controlador/reagendarCita.php' onclick='reagendar(" . $cita['id'] . ")'>Reagendar</a> | ";
-                            echo "<a href='./controlador/cancelarCita.php' onclick='cancelar(" . $cita['id'] . ")'>Cancelar</a>";
+                            echo "<a href='javascript:void(0);' onclick='reagendar(" . $cita['id'] . ")'>Reagendar</a> | ";
+                            echo "<a href='javascript:void(0);' onclick='cancelar(" . $cita['id'] . ")'>Cancelar</a>";
                             echo "</td>";
                             echo "</tr>";
                         }
                     } else {
                         echo "<tr><td colspan='14'>No hay citas disponibles</td></tr>";
                     }
+
+                    $pdo->close();
                     ?>
                 </tbody>
             </table>

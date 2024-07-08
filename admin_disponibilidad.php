@@ -3,47 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administrar Disponibilidad</title>
+    <title>Cargar Disponibilidad</title>
     <link rel="stylesheet" href="css/admin_disponibilidad.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/calendario.js"></script>
 </head>
 <body>
     <header>
-        <h1>Administrar Disponibilidad de Citas</h1>
+        <h1>Cargar Disponibilidad de Citas</h1>
     </header>
     <div class="menu-botton">
-        <a href="./admin_gestion.php">Gestión de Disponibilidad</a>
+        <a href="./admin_gestion.php">Panel Administración</a>
+        <a href="./cargarDisponibilidad.php">Gestión de disponibilidad</a>
     </div>
-    <div class="container">
-        <div class="calendar-container">
-            <div class="calendar-header">Calendario de disponibilidad</div>
-            <div id="calendar"></div>
-        </div>
-        <div class="time-selection">
-            <div class="time-header">Horarios Disponibles</div>
-            <div class="time-slots">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Municipio</th>
-                            <th>Fecha</th>
-                            <th>Horario</th>
-                            <th>Disponible</th>
-                        </tr>
-                    </thead>
-                    <tbody id="time-table">
-                        <!-- Contenido dinámico cargado desde JavaScript -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <button class="continue-button" onclick="guardarCambios()">Guardar Cambios</button>
-    </div>
-
     <div class="container">
         <div class="form-header">Agregar Disponibilidad</div>
-        <form id="disponibilidad-form">
+        <form id="disponibilidadform">
             <label for="municipio">Municipio:</label>
             <input type="text" id="municipio" name="municipio" required><br>
 
@@ -94,7 +69,9 @@
             const municipio = document.getElementById('municipio').value;
             const fecha = document.getElementById('fecha').value;
             const rango_horario = document.getElementById('rango_horario').value;
-
+            alert(municipio);
+            alert(fecha);
+            alert(rango_horario);
             fetch('controlador/guardarDisponibilidad.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -102,6 +79,7 @@
             }).then(response => response.json())
               .then(data => {
                 alert('Disponibilidad agregada.');
+
                 cargarDisponibilidadInicial(); // Actualizar la disponibilidad en la interfaz
             }).catch(error => {
                 console.error('Error al agregar disponibilidad:', error);

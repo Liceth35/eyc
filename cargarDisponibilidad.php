@@ -13,7 +13,8 @@
         <h1>Administrar Disponibilidad de Citas</h1>
     </header>
     <div class="menu-botton">
-        <a href="admin_disponibilidad.php">Gestión de Disponibilidad</a>
+        <a href="admin_disponibilidad.php">Cargar disponibilidad</a>
+        <a href="./admin_gestion.php">Panel Administración</a>
     </div>
     <div class="container">
         <div class="calendar-container">

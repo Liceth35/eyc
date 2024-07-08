@@ -235,7 +235,7 @@
                         <ul class="list-unstyled list-inline social text-center">
                             <li class="list-inline-item"><a href="https://m.facebook.com/people/Eyc-Ingenieria-Sas/100089364634242/" style="color: white;"><i class="fa fa-facebook"></i></a></li>
                             <li class="list-inline-item"><a href="https://www.instagram.com/eycingenieria/?igsh=MXVyYWZ4NHV1ZzJ1dA%3D%3D" style="color: white;"><i class="fa fa-instagram"></i></a></li>
-                            <li class="list-inline-item"><a href="mailto:info@pqr@eyc.com.co" target="_blank" style="color: white;"><i class="fa fa-envelope"></i></a></li>
+                            <li class="list-inline-item"><a href="mailto:pqr@eyc.com.co" target="_blank" style="color: white;"><i class="fa fa-envelope"></i></a></li>
                         </ul>
 				</div>
 				<hr>
