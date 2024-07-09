@@ -62,6 +62,9 @@
 								<li class="nav-item">
 									<a class="nav-link" href="servicios.php"><strong>Servicios</strong></a>
 								</li>
+                                <li class="nav-item">
+									<a class="nav-link" href="agendar_cita.php"><strong>Agenda tu cita</strong></a>
+								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="certificado.php"><strong>Certficado</strong></a>
 								</li>

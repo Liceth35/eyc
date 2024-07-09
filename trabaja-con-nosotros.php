@@ -48,13 +48,6 @@
                         <div class="logo pull-left" style="color:white;">
                             <a href="index.php"><span class="b1">e</span><span class="b2">&</span><span class="b3">c</span><span class="b4"></span><span class="b5"></span></a>
                         </div><!-- //LOGO -->
-                        
-                        <!-- SEARCH FORM -->
-                        <div id="search-form" class="pull-right"  style="color:white;">
-                            <form method="get" action="searc.php">
-                                <input type="text" name="Search" value="Search" onFocus="if (this.value == 'Search') this.value = '';" onBlur="if (this.value == '') this.value = 'Search';" />
-                            </form>
-                        </div><!-- SEARCH FORM -->
                         <!-- MENU -->
                         <div class="pull-right">
                             <nav class="navmenu center navteam">
@@ -71,6 +64,9 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="servicios.php" style="color:black;"><strong>Servicios</strong></a>
                                     </li>
+                                    <li class="nav-item">
+									<a class="nav-link" href="agendar_cita.php"><strong>Agenda tu cita</strong></a>
+								</li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="certificado.php" style="color:black;"><strong>Certificado</strong></a>
                                     </li>
@@ -138,9 +134,35 @@
                 <input type="text" id="ciudad" name="ciudad" required>
             </div>
             <div class="form-group">
-                <label for="profesion">Profesión</label>
-                <input type="text" id="profesion" name="profesion">
+            <label for="profesion">Cargo</label>
+            <select id="profesion" name="profesion">
+                <option value="">Seleccionar</option>
+                <option value="inspector">Inspector</option>
+                <option value="inspector_aprendiz">Inspector Aprendiz</option>
+                <option value="contador">Contador</option>
+            </select>
             </div>
+        <div id="preguntas-inspector" style="display: none;">
+            <div class="form-group">
+                <label for="tiene_moto">¿Tienes moto?</label>
+                <select id="tiene_moto" name="tiene_moto">
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="tipo_moto">Tipo de moto</label>
+                <input type="text" id="tipo_moto" name="tipo_moto">
+            </div>
+            <div class="form-group">
+                <label for="modelo_moto">Modelo de moto</label>
+                <input type="text" id="modelo_moto" name="modelo_moto">
+            </div>
+            <div class="form-group">
+                <label for="estado_propiedad">A nombre de quién está la moto</label>
+                <input type="text" id="estado_propiedad" name="estado_propiedad">
+            </div>
+        </div>
             <div class="form-group">
                 <label for="mensaje">Mensaje</label>
                 <textarea id="mensaje" name="mensaje"></textarea>
@@ -217,6 +239,19 @@
             <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
             <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
             <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const selectProfesion = document.getElementById('profesion');
+                    const preguntasInspector = document.getElementById('preguntas-inspector');
+
+                    selectProfesion.addEventListener('change', function() {
+                        if (selectProfesion.value === 'inspector' || selectProfesion.value === 'inspector_aprendiz') {
+                            preguntasInspector.style.display = 'block';
+                        } else {
+                            preguntasInspector.style.display = 'none';
+                        }
+                    });
+                });
+
                 $(document).ready(function(){
                     // Controlador de eventos de clic en cualquier parte del documento
                     $(document).click(function(event) { 

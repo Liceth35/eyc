@@ -24,27 +24,21 @@
                 <select id="departamento" name="departamento">
                     <option value="">Seleccionar departamento</option>
                     <!-- Lista de departamentos -->
-                    <!-- ... opciones de departamento ... -->
-                    <option value="Amazonas"1>Amazonas</option>
-                    <option value="Antioquia"2>Antioquia</option>
-                    <option value="Arauca"3>Arauca</option>
+                    <option value="Amazonas">Amazonas</option>
+                    <option value="Antioquia">Antioquia</option>
+                    <option value="Arauca">Arauca</option>
                 </select>
                 <label for="municipio">Municipio:</label>
                 <select id="municipio" name="municipio">
                     <option value="">Seleccionar municipio</option>
                     <!-- Lista de municipios -->
-                    <!-- ... opciones de municipio ... -->
-                     <!-- Amazonas -->
-                     <option value="leticia">Leticia</option>
-                                    <!-- Antioquia -->
-                                    <option value="medellin">Medellín</option>
-                                    <option value="bello">Bello</option>
-                                    <option value="itagui">Itagüí</option>
-                                    <option value="envigado">Envigado</option>
-                                    <option value="rionegro">Rionegro</option>
-                                    <!-- Arauca -->
-                                    <option value="arauca">Arauca</option>
-                  
+                    <option value="leticia">Leticia</option>
+                    <option value="medellin">Medellín</option>
+                    <option value="bello">Bello</option>
+                    <option value="itagui">Itagüí</option>
+                    <option value="envigado">Envigado</option>
+                    <option value="rionegro">Rionegro</option>
+                    <option value="arauca">Arauca</option>
                 </select>
                 <button type="button" onclick="nextStep(2)">Continuar</button>
             </div>
@@ -67,32 +61,34 @@
                 <button type="button" onclick="nextStep(3)">Continuar</button>
             </div>
             <div id="step3" class="step-content">
-    <h2>Diligenciar Datos</h2>
-    <label for="tipo-documento">Tipo de Documento:</label>
-    <select id="tipo-documento" name="tipo-documento">
-        <option value="CC">Cédula de Ciudadanía</option>
-        <option value="TI">Tarjeta de Identidad</option>
-        <!-- Otras opciones -->
-    </select>
-    <label for="numero-documento">Número de Documento:</label>
-    <input type="text" id="numero-documento" name="numero-documento">
-    <label for="numero-contrato">Número de Contrato:</label> <!-- Nueva etiqueta -->
-    <input type="text" id="numero-contrato" name="numero-contrato">
-    <label for="nombre">Nombres y Apellidos:</label>
-    <input type="text" id="nombre" name="nombre">
-    <label for="correo">Correo electrónico:</label>
-    <input type="email" id="correo" name="correo">
-    <label for="movil">Número de móvil:</label>
-    <input type="tel" id="movil" name="movil">
-    <label for="direccion">Dirección:</label> <!-- Nueva etiqueta -->
-    <input type="text" id="direccion" name="direccion">
-    <label>
-        <input type="checkbox" id="politica" name="politica" required> Acepto la Política de Tratamiento de Datos</label>
-    <button type="submit">Finalizar</button>
-</div>
-
+                <h2>Diligenciar Datos</h2>
+                <label for="tipo-documento">Tipo de Documento:</label>
+                <select id="tipo-documento" name="tipo-documento">
+                    <option value="CC">Cédula de Ciudadanía</option>
+                    <option value="TI">Tarjeta de Identidad</option>
+                </select>
+                <label for="numero-documento">Número de Documento:</label>
+                <input type="text" id="numero-documento" name="numero-documento">
+                <label for="numero-contrato">Número de Contrato:</label> <!-- Nueva etiqueta -->
+                <input type="text" id="numero-contrato" name="numero-contrato">
+                <label for="nombre">Nombres y Apellidos:</label>
+                <input type="text" id="nombre" name="nombre">
+                <label for="correo">Correo electrónico:</label>
+                <input type="email" id="correo" name="correo">
+                <label for="movil">Número de móvil:</label>
+                <input type="tel" id="movil" name="movil">
+                <label for="direccion">Dirección:</label> <!-- Nueva etiqueta -->
+                <input type="text" id="direccion" name="direccion">
+                <label>
+                    <input type="checkbox" id="politica" name="politica" required> Acepto la Política de Tratamiento de Datos
+                </label>
+                <button type="submit">Finalizar</button>
+            </div>
         </form>
     </div>
+     <footer>
+        <p> 2024 E&C INGENIERÍA S.A.S. Todos los derechos reservados.</p>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/calendario.js" defer></script>
     <script>

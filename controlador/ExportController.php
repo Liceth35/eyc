@@ -13,7 +13,7 @@ class ExportController {
         $db->conectar();
 
         // Consultar la base de datos
-        $sql = "SELECT * FROM hoja_de_vida";
+        $sql = "SELECT id, nombre, correo, celular, tipo_documento, numero_documento, departamento, ciudad, profesion, tipo_moto, modelo_moto, estado_propiedad, mensaje, archivo_adjunto FROM hoja_de_vida";
         $result = $db->getData($sql);
 
         // Crear un nuevo objeto Spreadsheet
@@ -30,8 +30,11 @@ class ExportController {
         $sheet->setCellValue('G1', 'Departamento');
         $sheet->setCellValue('H1', 'Ciudad');
         $sheet->setCellValue('I1', 'Profesión');
-        $sheet->setCellValue('J1', 'Mensaje');
-        $sheet->setCellValue('K1', 'Archivo Adjunto');
+        $sheet->setCellValue('J1', 'Tipo Moto');
+        $sheet->setCellValue('K1', 'Modelo Moto');
+        $sheet->setCellValue('L1', 'Estado Propiedad');
+        $sheet->setCellValue('M1', 'Mensaje');
+        $sheet->setCellValue('N1', 'Archivo Adjunto');
 
         // Iterar sobre los resultados de la consulta y escribir en el archivo Excel
         $row = 2;
@@ -45,8 +48,11 @@ class ExportController {
             $sheet->setCellValue('G' . $row, $row_data['departamento']);
             $sheet->setCellValue('H' . $row, $row_data['ciudad']);
             $sheet->setCellValue('I' . $row, $row_data['profesion']);
-            $sheet->setCellValue('J' . $row, $row_data['mensaje']);
-            $sheet->setCellValue('K' . $row, $row_data['archivo_adjunto']);
+            $sheet->setCellValue('J' . $row, $row_data['tipo_moto']);
+            $sheet->setCellValue('K' . $row, $row_data['modelo_moto']);
+            $sheet->setCellValue('L' . $row, $row_data['estado_propiedad']);
+            $sheet->setCellValue('M' . $row, $row_data['mensaje']);
+            $sheet->setCellValue('N' . $row, $row_data['archivo_adjunto']);
             $row++;
         }
 

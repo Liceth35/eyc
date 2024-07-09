@@ -26,33 +26,47 @@
             }
         }
 
-        // Función para reagendar una cita
         function reagendar(id) {
-            const nueva_fecha = prompt("Ingrese la nueva fecha (AÑO-MM-DD):");
-            const nueva_hora_inicio = prompt("Ingrese la nueva hora de inicio (HH):");
-            const nueva_hora_fin = prompt("Ingrese la nueva hora de fin (HH):");
+    const nueva_fecha = prompt("Ingrese la nueva fecha (AÑO-MM-DD):");
+    const nueva_hora_inicio = prompt("Ingrese la nueva hora de inicio (HH):");
+    const nueva_hora_fin = prompt("Ingrese la nueva hora de fin (HH):");
 
-            if (nueva_fecha && nueva_hora_inicio && nueva_hora_fin) {
-                fetch('./controlador/reagendarCita.php', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ id: id, fecha: nueva_fecha, hora_inicio: nueva_hora_inicio, hora_fin: nueva_hora_fin })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.status === 'success') {
-                        alert('Cita reagendada exitosamente.');
-                        location.reload();
-                    } else {
-                        alert(data.message || 'Error al reagendar la cita.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Hubo un error al procesar la solicitud.');
-                });
-            }
-        }
+    if (nueva_fecha && nueva_hora_inicio && nueva_hora_fin) {
+        // Consultar disponibilidad antes de reagendar
+        fetch(`./controlador/verificarDisponibilidad.php?fecha=${nueva_fecha}&hora_inicio=${nueva_hora_inicio}&hora_fin=${nueva_hora_fin}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.disponible === true) {
+                    // Si la disponibilidad es confirmada, proceder con el reagendamiento
+                    fetch('./controlador/reagendarCita.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ id: id, fecha: nueva_fecha, hora_inicio: nueva_hora_inicio, hora_fin: nueva_hora_fin })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'success') {
+                            alert('Cita reagendada exitosamente.');
+                            location.reload();
+                        } else {
+                            alert(data.message || 'Error al reagendar la cita.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Hubo un error al procesar la solicitud.');
+                    });
+                } else {
+                    alert('La fecha y hora seleccionadas no están disponibles. Por favor elija otra.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Hubo un error al verificar la disponibilidad.');
+            });
+    }
+}
+
     </script>
 </head>
 <body>

@@ -21,7 +21,7 @@ if ($stmt) {
         $eventos[] = [
             'municipio' => $disponibilidad['municipio'],
             'fecha' => $disponibilidad['fecha'],
-            'horario' => $disponibilidad['hora_inicio'] . ' - ' . $disponibilidad['hora_fin'],
+            'horario' => substr($disponibilidad['hora_inicio'], 0, 5) . ' - ' . substr($disponibilidad['hora_fin'], 0, 5),
             'disponible' => $disponibilidad['disponible']
         ];
     }

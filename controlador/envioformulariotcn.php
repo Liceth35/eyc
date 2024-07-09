@@ -1,6 +1,7 @@
 <?php
-require_once './conexion.php';
+require_once './conexion.php'; // Incluir el archivo de conexión
 
+// Verificar si el formulario se envió usando el método POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener los datos del formulario
     $nombre = $_POST['nombre'];
@@ -11,6 +12,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $departamento = $_POST['departamento'];
     $ciudad = $_POST['ciudad'];
     $profesion = $_POST['profesion'];
+    $tipo_moto = $_POST['tipo_moto'];
+    $modelo_moto = $_POST['modelo_moto'];
+    $estado_propiedad = $_POST['estado_propiedad'];
     $mensaje = $_POST['mensaje'];
 
     // Directorio donde se guardarán los archivos subidos
@@ -42,7 +46,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $db->conectar();
 
             // Consulta SQL para insertar en la base de datos
-            $sql = "INSERT INTO hoja_de_vida (nombre, correo, celular, tipo_documento, numero_documento, departamento, ciudad, profesion, mensaje, archivo_adjunto) VALUES (:nombre, :correo, :celular, :tipo_documento, :numero_documento, :departamento, :ciudad, :profesion, :mensaje, :archivo_adjunto)";
+            $sql = "INSERT INTO hoja_de_vida 
+                    (nombre, correo, celular, tipo_documento, numero_documento, departamento, ciudad, profesion, tipo_moto, modelo_moto, estado_propiedad, mensaje, archivo_adjunto) 
+                    VALUES 
+                    (:nombre, :correo, :celular, :tipo_documento, :numero_documento, :departamento, :ciudad, :profesion, :tipo_moto, :modelo_moto, :estado_propiedad, :mensaje, :archivo_adjunto)";
             $stmt = $db->prepare($sql);
 
             // Vincular parámetros
@@ -54,6 +61,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bindParam(':departamento', $departamento);
             $stmt->bindParam(':ciudad', $ciudad);
             $stmt->bindParam(':profesion', $profesion);
+            $stmt->bindParam(':tipo_moto', $tipo_moto);
+            $stmt->bindParam(':modelo_moto', $modelo_moto);
+            $stmt->bindParam(':estado_propiedad', $estado_propiedad);
             $stmt->bindParam(':mensaje', $mensaje);
             $stmt->bindParam(':archivo_adjunto', $target_file); // Almacenar la ruta completa del archivo
 
@@ -62,9 +72,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Redirigir si la inserción fue exitosa
                 header("location: ../trabaja-con-nosotros.php");
                 exit;
-                if ($resultado = true) {
-                    echo "Formulario enviado exitosamente.";
-                } 
             } else {
                 echo "Error al enviar el formulario.";
             }
@@ -74,9 +81,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
-        if ($resultado = true) {
-            echo "Formulario enviado exitosamente.";
-        } 
     } else {
         echo "Error al subir el archivo PDF.";
     }

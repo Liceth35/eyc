@@ -48,6 +48,9 @@ $db->close();  // Cerrar la conexión después de obtener los datos
                     <th>Departamento</th>
                     <th>Ciudad</th>
                     <th>Profesión</th>
+                    <th>Tipo de Moto</th>
+                    <th>Modelo de Moto</th>
+                    <th>Estado de Propiedad</th>
                     <th>Mensaje</th>
                     <th>Archivo Adjunto</th>
                     <th>Acciones</th>
@@ -66,6 +69,9 @@ $db->close();  // Cerrar la conexión después de obtener los datos
                             <td><?php echo $row['departamento'] ?></td>
                             <td><?php echo $row['ciudad'] ?></td>
                             <td><?php echo $row['profesion'] ?></td>
+                            <td><?php echo $row['tipo_moto'] ?></td>
+                            <td><?php echo $row['modelo_moto'] ?></td>
+                            <td><?php echo $row['estado_propiedad'] ?></td>
                             <td><?php echo $row['mensaje'] ?></td>
                             <td><a href='controlador/<?php echo $row['archivo_adjunto'] ?>'>Ver Archivo</a></td>
                             <td>
@@ -76,7 +82,7 @@ $db->close();  // Cerrar la conexión después de obtener los datos
                     <?php } ?>
                 <?php } else { ?>
                     <tr>
-                        <td colspan="12" class="text-center">No se encontraron registros.</td>
+                        <td colspan="14" class="text-center">No se encontraron registros.</td>
                     </tr>
                 <?php } ?>
             </tbody>

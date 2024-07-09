@@ -19,18 +19,22 @@ if (!$data || empty($data['municipio']) || empty($data['fecha']) || empty($data[
     exit;
 }
 
-// Instanciar la clase de conexión a la base de datos
-$db = new PDODB();
-$db->conectar();
-
 // Dividir el rango horario en inicio y fin
 list($hora_inicio, $hora_fin) = explode('-', $data['rango_horario']);
 $hora_inicio = $hora_inicio . ':00:00';
 $hora_fin = $hora_fin . ':00:00';
 
-// Preparar la consulta SQL para insertar disponibilidad
-$query = "INSERT INTO disponibilidad (municipio, fecha, hora_inicio, hora_fin, disponible) 
-          VALUES (:municipio, :fecha, :hora_inicio, :hora_fin, 1)";
+// Instanciar la clase de conexión a la base de datos
+$db = new PDODB();
+$db->conectar();
+
+// Consultar disponibilidad desde la base de datos
+$query = "SELECT id FROM disponibilidad 
+          WHERE municipio = :municipio 
+          AND fecha = :fecha 
+          AND hora_inicio = :hora_inicio 
+          AND hora_fin = :hora_fin 
+          AND disponible = 1";
 
 $stmt = $db->getConexion()->prepare($query);
 
@@ -40,14 +44,14 @@ $stmt->bindParam(':fecha', $data['fecha']);
 $stmt->bindParam(':hora_inicio', $hora_inicio);
 $stmt->bindParam(':hora_fin', $hora_fin);
 
-$resultado = $stmt->execute();
+$stmt->execute();
+$resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Verificar el resultado de la inserción
+// Verificar el resultado de la consulta
 if ($resultado) {
-    echo json_encode(['success' => true]);
+    echo json_encode(['disponible' => true]);
 } else {
-    http_response_code(500);
-    echo json_encode(['error' => 'Error al guardar la disponibilidad']);
+    echo json_encode(['disponible' => false]);
 }
 
 // Cerrar la conexión a la base de datos

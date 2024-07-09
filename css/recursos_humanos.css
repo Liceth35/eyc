@@ -6,16 +6,18 @@ body {
 }
 
 .contenedor_padre {
-    width: 100%;
+    width: 95%;
+    max-width: 1400px;
     margin: 20px auto;
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 20px; /* Añade espacio inferior a los encabezados */
+    margin-bottom: 20px;
 }
 
 table {
@@ -26,7 +28,8 @@ table {
 
 table th, table td {
     border: 1px solid #ccc;
-    padding: 8px;
+    padding: 6px; /* Reducir el padding para hacer los campos más pequeños */
+    font-size: 12px; /* Reducir el tamaño de fuente */
     text-align: left;
 }
 
@@ -47,8 +50,8 @@ table td a:hover {
 /* Estilos para el botón de cerrar sesión */
 .btn {
     font-family: Arial, sans-serif;
-    font-size: 16px;
-    padding: 10px 20px;
+    font-size: 14px; /* Ajustar el tamaño de fuente del botón */
+    padding: 8px 16px; /* Ajustar el padding del botón */
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -70,9 +73,8 @@ table td a:hover {
 
 /* Estilos para alinear el botón de Cerrar Sesión a la derecha */
 .btn-cerrar {
-    float: right; /* Alinear a la derecha */
-    margin-right: 20px; /* Margen derecho */
-    margin-top: 10px; /* Margen superior opcional */
+    float: right;
+    margin-top: 10px;
 }
 
 /* Estilos para el modal */

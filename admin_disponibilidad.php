@@ -3,40 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cargar Disponibilidad</title>
+    <title>Administrar Disponibilidad</title>
     <link rel="stylesheet" href="css/admin_disponibilidad.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/calendario.js"></script>
 </head>
 <body>
     <header>
-        <h1>Cargar Disponibilidad de Citas</h1>
+        <h1>Administrar Disponibilidad de Citas</h1>
     </header>
     <div class="menu-botton">
+        <a href="./cargarDisponibilidad.php">Cargar disponibilidad</a>
         <a href="./admin_gestion.php">Panel Administración</a>
-        <a href="./cargarDisponibilidad.php">Gestión de disponibilidad</a>
     </div>
     <div class="container">
-        <div class="form-header">Agregar Disponibilidad</div>
-        <form id="disponibilidadform">
-            <label for="municipio">Municipio:</label>
-            <input type="text" id="municipio" name="municipio" required><br>
-
-            <label for="fecha">Fecha:</label>
-            <input type="date" id="fecha" name="fecha" required><br>
-
-            <label for="rango_horario">Rango Horario:</label>
-            <select id="rango_horario" name="rango_horario" required>
-                <option value="7-9">7:00AM - 9:00AM</option>
-                <option value="9-12">9:00AM - 12:00PM</option>
-                <option value="13-15">1:00PM - 3:00PM</option>
-                <option value="15-17">3:00PM - 5:00PM</option>
-            </select><br>
-
-            <button type="button" onclick="agregarDisponibilidad()">Agregar Disponibilidad</button>
-        </form>
+        <div class="calendar-container">
+            <div class="calendar-header">Calendario de disponibilidad</div>
+            <div id="calendar">
+                <div class="calendar-weekdays">
+                    <div class="calendar-weekday">Dom</div>
+                    <div class="calendar-weekday">Lun</div>
+                    <div class="calendar-weekday">Mar</div>
+                    <div class="calendar-weekday">Mié</div>
+                    <div class="calendar-weekday">Jue</div>
+                    <div class="calendar-weekday">Vie</div>
+                    <div class="calendar-weekday">Sáb</div>
+                </div>
+                <div class="calendar-days">
+                    <!-- Contenido dinámico cargado desde JavaScript -->
+                </div>
+            </div>
+        </div>
+        <div class="time-selection">
+            <div class="time-header">Horarios Disponibles</div>
+            <div class="time-slots">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Municipio</th>
+                            <th>Fecha</th>
+                            <th>Horario</th>
+                            <th>Disponible</th>
+                        </tr>
+                    </thead>
+                    <tbody id="time-table">
+                        <!-- Contenido dinámico cargado desde JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             cargarDisponibilidadInicial();
@@ -46,49 +62,24 @@
             fetch('controlador/cargarDisponibilidad.php')
                 .then(response => response.json())
                 .then(data => {
-                    // Limpiar tabla antes de actualizar
-                    const tableBody = document.getElementById('time-table');
-                    tableBody.innerHTML = '';
-
-                    // Iterar sobre los datos recibidos y construir filas de la tabla
-                    data.forEach(item => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
-                            <td>${item.municipio}</td>
-                            <td>${item.fecha}</td>
-                            <td>${item.horario}</td>
-                            <td>${item.disponible}</td>
-                        `;
-                        tableBody.appendChild(row);
-                    });
-                })
-                .catch(error => console.error('Error al cargar disponibilidad:', error));
+                    mostrarDisponibilidad(data);
+                });
         }
 
-        function agregarDisponibilidad() {
-            const municipio = document.getElementById('municipio').value;
-            const fecha = document.getElementById('fecha').value;
-            const rango_horario = document.getElementById('rango_horario').value;
-            alert(municipio);
-            alert(fecha);
-            alert(rango_horario);
-            fetch('controlador/guardarDisponibilidad.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ municipio, fecha, rango_horario })
-            }).then(response => response.json())
-              .then(data => {
-                alert('Disponibilidad agregada.');
+        function mostrarDisponibilidad(data) {
+            const tableBody = document.getElementById('time-table');
+            tableBody.innerHTML = '';
 
-                cargarDisponibilidadInicial(); // Actualizar la disponibilidad en la interfaz
-            }).catch(error => {
-                console.error('Error al agregar disponibilidad:', error);
+            data.forEach(disponibilidad => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${disponibilidad.municipio}</td>
+                    <td>${disponibilidad.fecha}</td>
+                    <td>${disponibilidad.horario}</td>
+                    <td><input type="checkbox" ${disponibilidad.disponible ? 'checked' : ''}></td>
+                `;
+                tableBody.appendChild(row);
             });
-        }
-
-        function guardarCambios() {
-            // Esta función puede ser implementada según necesidades adicionales
-            alert('Guardar cambios no está implementado completamente en este ejemplo.');
         }
     </script>
 </body>
