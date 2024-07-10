@@ -13,45 +13,32 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $data = json_decode(file_get_contents('php://input'), true);
 
 // Verificar que los datos requeridos estén presentes y no estén vacíos
-if (!$data || empty($data['municipio']) || empty($data['fecha']) || empty($data['rango_horario'])) {
+if (!$data || empty($data['id']) || empty($data['fecha']) || empty($data['hora_inicio']) || empty($data['hora_fin'])) {
     http_response_code(400);
     echo json_encode(['error' => 'Datos incompletos']);
     exit;
 }
 
-// Dividir el rango horario en inicio y fin
-list($hora_inicio, $hora_fin) = explode('-', $data['rango_horario']);
-$hora_inicio = $hora_inicio . ':00:00';
-$hora_fin = $hora_fin . ':00:00';
-
 // Instanciar la clase de conexión a la base de datos
 $db = new PDODB();
 $db->conectar();
 
-// Consultar disponibilidad desde la base de datos
-$query = "SELECT id FROM disponibilidad 
-          WHERE municipio = :municipio 
-          AND fecha = :fecha 
-          AND hora_inicio = :hora_inicio 
-          AND hora_fin = :hora_fin 
-          AND disponible = 1";
+// Actualizar la cita en la base de datos
+$query = "UPDATE citas SET fecha = :fecha, hora_inicio = :hora_inicio, hora_fin = :hora_fin 
+        WHERE id = :id";
 
 $stmt = $db->getConexion()->prepare($query);
 
 // Asignar parámetros y ejecutar la consulta
-$stmt->bindParam(':municipio', $data['municipio']);
 $stmt->bindParam(':fecha', $data['fecha']);
-$stmt->bindParam(':hora_inicio', $hora_inicio);
-$stmt->bindParam(':hora_fin', $hora_fin);
+$stmt->bindParam(':hora_inicio', $data['hora_inicio']);
+$stmt->bindParam(':hora_fin', $data['hora_fin']);
+$stmt->bindParam(':id', $data['id']);
 
-$stmt->execute();
-$resultado = $stmt->fetch(PDO::FETCH_ASSOC);
-
-// Verificar el resultado de la consulta
-if ($resultado) {
-    echo json_encode(['disponible' => true]);
+if ($stmt->execute()) {
+    echo json_encode(['status' => 'success']);
 } else {
-    echo json_encode(['disponible' => false]);
+    echo json_encode(['status' => 'error', 'message' => 'Error al reagendar la cita']);
 }
 
 // Cerrar la conexión a la base de datos

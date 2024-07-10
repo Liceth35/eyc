@@ -10,7 +10,7 @@
 
 <header class="navbar">
     <a href="index.php" class="logo">
-        <img src="./images/Logo.png" alt="Logo">
+        <img src="./images/New Logo EyC2024 (verde) Slogan.jpg" alt="Logo">
     </a>
     <nav>
         <ul>
@@ -35,42 +35,62 @@
     <h1>Interfaz Corporativa</h1>
     <div class="link-container">
         <div class="link-box">
-            <img src="./images/perdigas.jpeg" alt="PerdiGas Logo">
-            <a href="https://epm-vwapp01/PerdiGas" target="_blank">PerdiGas</a>
+            <a href="https://epm-vwapp01/PerdiGas" target="_blank">
+                <img src="./images/perdigas.jpeg" alt="PerdiGas Logo">
+                PerdiGas
+            </a>
         </div>
         <div class="link-box">
-            <img src="./images/Dynamics Logo_365.jpg" alt="Dynamics 365 Logo">
-            <a href="https://dynamics.microsoft.com/es-es/" target="_blank">Dynamics 365</a>
+            <a href="https://dynamics.microsoft.com/es-es/" target="_blank">
+                <img src="./images/Dynamics Logo_365.jpg" alt="Dynamics 365 Logo">
+                Dynamics 365
+            </a>
         </div>
         <div class="link-box">
-            <img src="./images/gaspar.jpeg" alt="EPM Gaspar Logo">
-            <a href="https://epm-vwapp05.corp.epm.com.co/" target="_blank">Gaspar</a>
+            <a href="https://epm-vwapp05.corp.epm.com.co/" target="_blank">
+                <img src="./images/gaspar.jpeg" alt="EPM Gaspar Logo">
+                Gaspar
+            </a>
         </div>
         <div class="link-box">
-            <img src="./images/godoworks.png" alt="Go do works Logo">
-            <a href="https://eic.godoworks.com/es/base/Login/index" target="_blank">Go do works</a>
+            <a href="https://eic.godoworks.com/es/base/Login/index" target="_blank">
+                <img src="./images/godoworks.png" alt="Go do works Logo">
+                Go do works
+            </a>
         </div>
         <div class="link-box">
-            <img src="./images/tuercas.png" alt="Blog">
-            <a href="./login_blog.php" target="_blank">Blog</a>
+            <a href="./login_blog.php" target="_blank">
+                <img src="./images/tuercas.png" alt="Blog">
+                Blog
+            </a>
         </div>
         <div class="link-box">
-            <img src="./images/PQRS.png" alt="PQRS">
-            <a href="./login_pqrs.php" target="_blank">PQRS</a>
+            <a href="./login_pqrs.php" target="_blank">
+                <img src="./images/PQRS.png" alt="PQRS">
+                PQRS
+            </a>
         </div>
         <div class="link-box">
-            <img src="./images/hoja-de-vida.webp" alt="Hojas de vida">
-            <a href="./loginrh.php" target="_blank">Recursos humanos</a>
+            <a href="./loginrh.php" target="_blank">
+                <img src="./images/hoja-de-vida.webp" alt="Hojas de vida">
+                Recursos humanos
+            </a>
         </div>
         <div class="link-box">
-            <img src="./images/certificados-ssl-de-un-año.png" alt="Certificados">
-            <a href="./login_certificados.php" target="_blank">Cargar certificados</a>
+            <a href="./login_certificados.php" target="_blank">
+                <img src="./images/certificados-ssl-de-un-año.png" alt="Certificados">
+                Cargar certificados
+            </a>
         </div>
         <div class="link-box">
-            <img src="./images/images.png" alt="Citas">
-            <a href="./login_citas.php" target="_blank">Citas</a>
+            <a href="./login_citas.php" target="_blank">
+                <img src="./images/images.png" alt="Citas">
+                Citas
+            </a>
         </div>
     </div>
+</div>
+
 </div>
 <footer>
         <p> 2024 E&C INGENIERÍA S.A.S. Todos los derechos reservados.</p>

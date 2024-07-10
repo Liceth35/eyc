@@ -5,8 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administración de Citas</title>
     <link rel="stylesheet" href="./css/admin_gestion.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+    <style>
+        #calendar-container {
+            display: none;
+            position: fixed;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, 0);
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        #close-calendar {
+            float: right;
+            cursor: pointer;
+            color: red;
+        }
+    </style>
     <script>
-        // Función para cancelar una cita
         function cancelar(id) {
             if (confirm('¿Está seguro de que desea cancelar esta cita?')) {
                 fetch(`./controlador/cancelarCita.php?id=${id}`)
@@ -27,46 +48,63 @@
         }
 
         function reagendar(id) {
-    const nueva_fecha = prompt("Ingrese la nueva fecha (AÑO-MM-DD):");
-    const nueva_hora_inicio = prompt("Ingrese la nueva hora de inicio (HH):");
-    const nueva_hora_fin = prompt("Ingrese la nueva hora de fin (HH):");
+            $('#calendar-container').show();
+            $('#calendar').fullCalendar('destroy'); // Destruir cualquier instancia anterior
+            $('#calendar').fullCalendar({
+                events: './controlador/cargarDisponibilidad.php', // URL de tu controlador que devuelve eventos en formato JSON
+                selectable: true,
+                selectHelper: true,
+                select: function(start, end) {
+                    var nueva_fecha = moment(start).format('YYYY-MM-DD');
 
-    if (nueva_fecha && nueva_hora_inicio && nueva_hora_fin) {
-        // Consultar disponibilidad antes de reagendar
-        fetch(`./controlador/verificarDisponibilidad.php?fecha=${nueva_fecha}&hora_inicio=${nueva_hora_inicio}&hora_fin=${nueva_hora_fin}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.disponible === true) {
-                    // Si la disponibilidad es confirmada, proceder con el reagendamiento
-                    fetch('./controlador/reagendarCita.php', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ id: id, fecha: nueva_fecha, hora_inicio: nueva_hora_inicio, hora_fin: nueva_hora_fin })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.status === 'success') {
-                            alert('Cita reagendada exitosamente.');
-                            location.reload();
-                        } else {
-                            alert(data.message || 'Error al reagendar la cita.');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('Hubo un error al procesar la solicitud.');
-                    });
-                } else {
-                    alert('La fecha y hora seleccionadas no están disponibles. Por favor elija otra.');
+                    fetch(`./controlador/obtenerHoraDisponible.php?fecha=${nueva_fecha}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.disponible) {
+                                var nueva_hora_inicio = data.hora_inicio;
+                                var nueva_hora_fin = data.hora_fin;
+
+                                if (confirm(`¿Está seguro de que desea reagendar la cita para el ${nueva_fecha} de ${nueva_hora_inicio} a ${nueva_hora_fin}?`)) {
+                                    fetch('./controlador/reagendarCita.php', {
+                                        method: 'POST',
+                                        headers: { 'Content-Type': 'application/json' },
+                                        body: JSON.stringify({ id: id, fecha: nueva_fecha, hora_inicio: nueva_hora_inicio, hora_fin: nueva_hora_fin })
+                                    })
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        if (data.status === 'success') {
+                                            alert('Cita reagendada exitosamente.');
+                                            location.reload();
+                                        } else {
+                                            alert(data.message || 'Error al reagendar la cita.');
+                                        }
+                                    })
+                                    .catch(error => {
+                                        console.error('Error:', error);
+                                        alert('Hubo un error al procesar la solicitud.');
+                                    });
+                                }
+                            } else {
+                                alert('No hay horas disponibles para la fecha seleccionada. Por favor elija otra.');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert('Hubo un error al verificar la disponibilidad.');
+                        });
+
+                    $('#calendar').fullCalendar('unselect');
+                    $('#calendar-container').hide();
                 }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Hubo un error al verificar la disponibilidad.');
             });
-    }
-}
+        }
 
+        $(document).ready(function() {
+            $('#calendar-container').hide(); // Esconder el calendario al cargar la página
+            $('#close-calendar').click(function() {
+                $('#calendar-container').hide();
+            });
+        });
     </script>
 </head>
 <body>
@@ -136,14 +174,21 @@
                             echo "</tr>";
                         }
                     } else {
-                        echo "<tr><td colspan='14'>No hay citas disponibles</td></tr>";
+                        echo "<tr><td colspan='13'>No hay citas agendadas.</td></tr>";
                     }
 
+                    // Cerrar la conexión
                     $pdo->close();
                     ?>
                 </tbody>
             </table>
         </div>
     </div>
+
+    <div id="calendar-container">
+        <span id="close-calendar">[Cerrar]</span>
+        <div id="calendar"></div>
+    </div>
+    <script src="./js/cargarDisponibilidad.js"></script>
 </body>
 </html>
