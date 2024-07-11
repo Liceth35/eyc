@@ -88,10 +88,10 @@
 					
 					<!-- LOGO -->
 					<div class="logo pull-left">
-						<a href="index.php" ><span class="b1">e</span><span class="b2">&</span><span class="b3">c</span><span class="b4"></span><span class="b5"></span></a>
+					<a class="" href="index.php"><img class="logo_index" src="./images/New_Logo_EyC2024-removebg-preview.png" alt=""></a>
 					</div><!-- //LOGO -->
 					<!-- MENU -->
-					<div class="pull-right">
+					<div class="pull-right menu_index">
 						<nav class="navmenu center">
 							<ul>
 								<li class="nav-item">

@@ -40,10 +40,10 @@
             <div class="container">
                 <!-- LOGO -->
                 <div class="logo-servicios">
-                    <a href="index.php"><span class="b1">E</span><span class="b2">&</span><span class="b3">C</span></a>
+                    <a class="" href="index.php"><img class="logo" src="./images/New_Logo_EyC2024-removebg-preview.png" alt=""></a>
                 </div>
                 <!-- Menu -->
-                <nav class="navmenu">
+                <nav class="navmenu_servicios">
                     <ul>
                         <li class="nav-item"><a class="nav-link" href="index.php"><strong>INICIO</strong></a></li>
                         <li class="nav-item"><a class="nav-link" href="nosotros.php"><strong>NOSOTROS</strong></a></li>

@@ -1,6 +1,12 @@
 body {
     font-family: sans-serif;
 }
+.navmenu{
+    margin-left: 8%;
+}
+.menu_index{
+    margin-top: 1%!important;
+}
 
 /* footer */
 
@@ -65,7 +71,7 @@ ul.navbar-nav.me-auto.mb-2.mb-lg-0 {
 
 .logo{
     
-    width: 210px!important;
+    width: 155px!important;
 }
 .pull-left{
 
@@ -138,9 +144,7 @@ nav ul li {
         color: black; /* Color del texto */
     }
     
-    .logo-servicios .b1,
-    .logo-servicios .b2,
-    .logo-servicios .b3 {
+    .logo-servicios {
         margin-right: 5px; /* Espacio entre letras */
     }
     

@@ -1,131 +1,135 @@
-body {
-    font-family: sans-serif;
+/* Navbar Styles */
+.navbar-color {
+    height: 80px; /* Ajusta la altura del navbar */
 }
 
-.container-fluid {
+.navbar {
+    background-color: white; /* Fondo blanco */
+    border-bottom: 2px solid #f0f0f0; /* Borde inferior gris claro opcional */
+    padding: 0.5rem 1rem; /* Ajusta el padding según sea necesario */
+    position: fixed;
     width: 100%;
-    background-color: rgb(57, 87, 184);
-    border: 0% !important;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #333; /* Color del texto en la barra */
 }
 
-/* footer */
-
-.listItem{
-    display: inline-flex;
-    text-align: left;
+.navbar-brand img {
+    height: 60px; /* Ajusta el tamaño del logo */
 }
 
-.negrita{
+.navbar-nav {
+    margin-left: auto; /* Mueve los elementos del menú a la derecha */
+}
+
+.navbar-nav .nav-item {
+    margin-left: 10px; /* Espacio entre los elementos del menú */
+}
+
+.navbar-nav .nav-link {
+    font-size: 0.8rem;
+    margin: 0 10px;
+}
+
+.nav-item.dropdown .dropdown-menu {
+    background-color: #f8f9fa;
+    font-size: 1rem; /* Tamaño de letra para los elementos del menú desplegable */
+}
+
+.navbar-brand {
+    font-size: 2.5rem;
     font-weight: bold;
     color: black;
+    text-decoration: none;
 }
 
-i.fa.fa-angle-double-right {
-    color: black;
+.dropdown-team-politicas {
+    background-color: black!important; /* Fondo negro */
 }
 
-.fa-solid, .fas {
-    font-weight: 900;
-    color: black;
-    padding-right: 16px;
+.dropdown-menu a {
+    color: white !important; /* Texto blanco */
 }
 
-.col-md-4 {
-    text-align: left;
+.dropdown-menu a:hover {
+    background-color: transparent !important; /* Elimina el color de fondo */
+    color: white !important; /* Cambia el color del texto a negro */
 }
 
-.containerDos {
-    --bs-gutter-x: 1.5rem;
-    --bs-gutter-y: 0;
+.logo {
+    width: 241%;
+    margin: -73%;
+    margin-top: -99%;
+    margin-left: -130%;
+}
+
+.navmenu {
     display: flex;
-    flex-wrap: wrap;
-    margin-top: calc(-1* var(--bs-gutter-y));
-    margin-right: calc(-.5* var(--bs-gutter-x));
-    margin-left: calc(-.5* var(--bs-gutter-x));
-    justify-content: center;
 }
 
-.list-unstyled.quick-links{
-    cursor: pointer;
+.navmenu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-size: 12px;
 }
 
-/*  */
-
-
-.container-fluid{
-    width: 100%;
-    background-color: rgb(57, 87, 184);
-    border: 0% !important;
-}
-.elemento-activo {
-    background-color: #ca0c1c;
-    color: #bdbdbd;
-    border-radius: 8px;
+.navmenu ul li {
+    margin-left: 20px;
+    position: relative;
 }
 
-ul.navbar-nav.me-auto.mb-2.mb-lg-0 {
-    gap: 12px;
-}
-
-.logo{
-    
-    width: 210px;
-}
-nav ul li {
-    transition: background-color 0.5s ease;
-}
-.tituloServicios{
-    text-align: center;
-    font-size: 3.5rem;
-    font-family: sans-serif;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    padding-top: 5%;
-}
-.textServicios{
-    padding-left: 10%;
-    padding-right: 10%;
-    justify-content: center;
-    font-size: 1.3rem;
-    text-align: justify;
-}
-.subtitulo{
-    text-align: center;
-    font-weight: bold;
-}
-.gasencasa{
-    width: 100%;
-    height: 156px;
-    object-fit: cover;
-}
-.gasComercial{
-    width: 100%;
-    height: 156px;
-    object-fit: cover;
-}
-.gasIndustrial{
-    width: 100%;
-    height: 156px;
-    object-fit: cover;
-}
-#btnSubir {
-    display: none; 
-    position: fixed; 
-    bottom: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-    background-color: white ; 
+.navmenu ul li a {
     color: black;
-    border: none;
-    border-radius: 50%; 
-    cursor: pointer;
-    }
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    display: block;
+}
 
-#btnSubir:hover {
-    background-color: #0056b3; 
-    }
+.navmenu ul li ul {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background-color: black;
+    padding: 10px 0;
+    border-radius: 4px;
+}
+
+.navmenu ul li ul li {
+    width: 200px;
+    margin: 0;
+}
+
+.navmenu ul li ul li a {
+    padding: 8px 15px;
+}
+
+.navmenu ul li:hover ul {
+    background-color: black;
+}
+
+.navmenu ul li a {
+    transition: none; /* Elimina la transición para evitar movimientos */
+}
+.nosotros_nav{
+    margin-left: 4%!important;
+}
+.img {
+    outline: 0;
+    vertical-align: top;
+    border: 0;
+    max-width: 100.1%;
+    height: auto;
+}
+
+.services_block{
+    margin-top: 4%;
+}
+
 section {
     padding: 60px 0;
 }
@@ -136,36 +140,29 @@ section .section-title {
     margin-bottom: 50px;
     text-transform: uppercase;
 }
-
-/* Footer */
-@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-section {
-    padding: 34px 0;
+.text-center{
+    color: white;
+    
 }
-
-section .section-title {
-    text-align: center;
-    color: black;
-    margin-bottom: 50px;
-    text-transform: uppercase;
+.text-justify{
+    font-size: 1.2rem;
 }
+.hr_border{
+    color: white!important;}
 #footer {
-    background:#001a33!important;
-    border: 100% !important;
+    background: #001a33 !important;
 }
-
-h5 {margin:40px 0 48px; line-height:20px; font-size:15px;}
 
 #footer h5 {
     padding-left: 10px;
-    border-left: 3px solid white;
+    border-left: 3px solid #eeeeee;
     padding-bottom: 6px;
     margin-bottom: 20px;
-    color: black;
+    color: #ffffff;
 }
 
 #footer a {
-    color: black;
+    color: #ffffff;
     text-decoration: none !important;
     background-color: transparent;
     -webkit-text-decoration-skip: objects;
@@ -190,15 +187,11 @@ h5 {margin:40px 0 48px; line-height:20px; font-size:15px;}
 
 #footer ul.social li a,
 #footer ul.quick-links li a {
-    color: white;
+    color: #ffffff;
 }
 
 #footer ul.social li a:hover {
-    color: black;
-}
-
-.text-white {
-    color: #000 !important;
+    color: #eeeeee;
 }
 
 #footer ul.quick-links li {
@@ -220,4 +213,13 @@ h5 {margin:40px 0 48px; line-height:20px; font-size:15px;}
 
 #footer ul.quick-links li:hover a i {
     font-weight: 700;
+}
+
+@media (max-width: 767px) {
+    #footer h5 {
+        padding-left: 0;
+        border-left: transparent;
+        padding-bottom: 0px;
+        margin-bottom: 10px;
+    }
 }

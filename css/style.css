@@ -41,7 +41,7 @@ section .slogan{
 }
 
 
-.container {padding-left:48px; padding-right:80px;max-inline-size:-webkit-fill-available;}
+.container {padding-left:48px; padding-right:80px;max-inline-size:-webkit-fill-available;margin-top: 5%;}
 .colorformulario{
 	background-color: #001a33!important;
 }
@@ -140,7 +140,7 @@ h4 b {font-weight:500;}
 h5 {margin:40px 0 48px; line-height:20px; font-size:15px;background-color: white;padding: 8px;}
 h6 {margin:0 0 15px; line-height:20px; font-size:12px;}
 
-.center {text-align:center;}
+.center {text-align:center; margin-top: -7%;}
 .right {text-align:right;}
 
 .color_text {color:#30a67c;}
@@ -228,7 +228,10 @@ header {
 
 
 /* __________ Logo __________ */
-.logo {float:left;}
+.logo {float:left;
+	width: 35%;
+    margin: -7%;
+    margin-top: -6%;}
 .logo a {
 	text-transform:uppercase;
 	line-height:80px;
@@ -243,6 +246,11 @@ header {
 .logo a span.b2 {font-weight:700;}
 .logo a span.b3 {font-weight:400;}
 
+.logo_index{
+	width: 32%;
+    margin-top: 3%;
+    margin-left: 20%;
+}
 /* __________ Menu __________ */
 .menu_block {
 	position:fixed;

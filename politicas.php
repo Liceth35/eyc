@@ -11,91 +11,52 @@
 	<link rel="shortcut icon" href="images/favicon.ico">
     
 	<!-- CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="./css/politicas.css">
-	<link href="css/style.css" rel="stylesheet" type="text/css" />
-    
-	<!-- FONTS -->
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500italic,700,500,700italic,900,900italic' rel='stylesheet' type='text/css'>
-	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">	
-    
-	<!-- SCRIPTS -->
-	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <!--[if IE]><html class="ie" lang="en"> <![endif]-->
-	
-	<script src="js/jquery.min.js" type="text/javascript"></script>
-	<script src="js/bootstrap.min.js" type="text/javascript"></script>
-	<script src="js/myscript.js" type="text/javascript"></script>
-	
-<!-- PRELOADER -->
-<img id="preloader" src="images/preloader.gif" alt="" />
-<!-- //PRELOADER -->
-<div class="preloader_hide">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-	<!-- PAGE -->
-	<div id="page">
-	
-		<!-- HEADER -->
-		<header>
-			
-			<!-- MENU BLOCK -->
-			<div class="menu_block">
-			
-				<!-- CONTAINER -->
-				<div class="container clearfix">
-					
-					<!-- LOGO -->
-					<div class="logo pull-left">
-						<a href="index.php" ><span class="b1">e</span><span class="b2">&</span><span class="b3">c</span><span class="b4"></span><span class="b5"></span></a>
-					</div><!-- //LOGO -->
-					<!-- MENU -->
-					<div class="pull-right">
-						<nav class="navmenu center">
-							<ul>
-								<li class="nav-item">
-									<a class="nav-link" href="index.php"><strong>Inicio</strong></a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="nosotros.php"><strong>Nosotros</strong></a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="contactos.php"><strong>Contactos</strong></a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="servicios.php"><strong>Servicios</strong></a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="agendar_cita.php"><strong>Agenda tu cita</strong></a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="certificado.php"><strong>Certficado</strong></a>
-								</li>
-								<li class="sub-menu">
-									<a href="javascript:void(0);" style="color:black;" >Team</a>
-									<ul>
-										<li class="scroll_btn"><a href="index.php#team"style="color:white!important;">Team</a></li>
-										<li class="scroll_btn"><a href="index.php#news"style="color:white!important;">News</a></li>
-										<li class="scroll_btn"><a href="#projects"style="color:white!important;">Proyectos</a></li>
-										<li><a href="trabaja-con-nosotros.php"style="color:white!important;">trabaja con nosotros</a></li>
-									</ul>
-									<li class="nav-item">
-										<a class="nav-link" href="login.php"><strong>Corporativo</strong></a>
-									</li>								
-									<li class="sub-menu">
-									<a href="javascript:void(0);"  style="color:black;">Politicas</a>
-									<ul>
-										<li><a href="politicas.php"style="color:white!important;" >Politicas seguridad</a></li>
-										<li><a href="politicastratamiento.php"style="color:white!important;" >Politica tratamiento</a></li>
-										<li><a href="politicasetica.php"style="color:white!important;" >politica etica</a></li>
-									</ul>
-								</li>
-							</ul>
-						</nav>
-					</div><!-- //MENU -->
-				</div><!-- //MENU BLOCK -->
-			</div><!-- //CONTAINER -->
-		</header><!-- //HEADER -->
-					<img fetchpriority="high" decoding="async" class="wp-image-114501 alignnone size-full entered lazyloaded" alt="" width="1700" height="2200" data-lazy-srcset="https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01.jpg 1700w, https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01-1280x1656.jpg 1280w, https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01-980x1268.jpg 980w, https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01-480x621.jpg 480w" data-lazy-sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) and (max-width: 1280px) 1280px, (min-width: 1281px) 1700px, 100vw" data-lazy-src="https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01.jpg" src="https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01.jpg" data-ll-status="loaded" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) and (max-width: 1280px) 1280px, (min-width: 1281px) 1700px, 100vw" srcset="https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01.jpg 1700w, https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01-1280x1656.jpg 1280w, https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01-980x1268.jpg 980w, https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01-480x621.jpg 480w">
+<!-- Navbar -->
+<header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top navbar-color">
+            <div class="container">
+                <!-- LOGO -->
+                <a class="" href="index.php"><img class="logo" src="./images/New_Logo_EyC2024-removebg-preview.png" alt=""></a>
+                <!-- Toggler/collapsibe Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Navbar links -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.php"><strong>INICIO</strong></a></li>
+                        <li class="nav-item"><a class="nav-link" href="nosotros.php"><strong>NOSOTROS</strong></a></li>
+                        <li class="nav-item"><a class="nav-link" href="contactos.php"><strong>CONTACTOS</strong></a></li>
+                        <li class="nav-item"><a class="nav-link" href="servicios.php"><strong>SERVICIOS</strong></a></li>
+                        <li class="nav-item"><a class="nav-link" href="agendar_cita.php"><strong>AGENDA TU CITA</strong></a></li>
+                        <li class="nav-item"><a class="nav-link" href="certificado.php"><strong>CERTIFICADO</strong></a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"><strong>TEAM</strong></a>
+                            <ul class="dropdown-menu dropdown-team-politicas" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="index.php#team">TEAM</a></li>
+                                <li><a class="dropdown-item" href="index.php#news">NEWS</a></li>
+                                <li><a class="dropdown-item" href="index.php#projects">PROYECTOS</a></li>
+                                <li><a class="dropdown-item" href="trabaja-con-nosotros.php">TRABAJA CON NOSOTROS</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="./login.php"><strong>CORPORATIVO</strong></a></li>
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPoliticas" role="button"data-bs-toggle="dropdown" aria-expanded="false">POLÍTICAS</a>
+                        <ul class="dropdown-menu dropdown-team-politicas" aria-labelledby="navbarDropdownPoliticas">
+                            <li><a class="dropdown-item" href="./politicas.php">Políticas</a></li>
+                            <li><a class="dropdown-item" href="./politicasetica.php">Política ética</a></li>
+                            <li><a class="dropdown-item" href="./politicastratamiento.php">Políticas tratamiento</a></li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+					<img fetchpriority="high" decoding="async" class="img_politica" alt="" width="1700" height="2200" data-lazy-srcset="https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01.jpg 1700w, https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01-1280x1656.jpg 1280w, https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01-980x1268.jpg 980w, https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01-480x621.jpg 480w" data-lazy-sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) and (max-width: 1280px) 1280px, (min-width: 1281px) 1700px, 100vw" data-lazy-src="https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01.jpg" src="https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01.jpg" data-ll-status="loaded" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) and (max-width: 1280px) 1280px, (min-width: 1281px) 1700px, 100vw" srcset="https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01.jpg 1700w, https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01-1280x1656.jpg 1280w, https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01-980x1268.jpg 980w, https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01-480x621.jpg 480w">
 					
 	<!------ Include the above in your HEAD tag ---------->
 
@@ -145,17 +106,17 @@
 							<li class="list-inline-item"><a href="mailto:info@inspecta.com.co" target="_blank"><i class="fa fa-envelope"></i></a></li>
                         </ul>
 				</div>
-				<hr>
+				<hr class="hr_border">
 			</div>	
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-black">
 				<li style="color: white;"><p class="h6">© 2024 E&C INGENIERÍA S.A.S. Todos los derechos reservados.</p></li>
-				<hr>
+				<hr class="hr_border">
 			</div>	
 		</div>
 	</section>
 	<!-- ./Footer -->
-	
-	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>
