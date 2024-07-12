@@ -8,7 +8,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	
-	<link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="shortcut icon" href="images/New_Logo_EyC2024_vertical-removebg-preview.png">
     
 	<!-- CSS -->
 	<link rel="stylesheet" href="./css/politicas.css">

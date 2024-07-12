@@ -5,28 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interfaz Corporativa</title>
     <link rel="stylesheet" href="./css/corporativa.css">
+    <link rel="shortcut icon" href="images/New_Logo_EyC2024_vertical-removebg-preview.png">
 </head>
 <body>
-
 <header class="navbar">
     <a href="index.php" class="logo">
-        <img src="./images/New Logo EyC2024 (verde) Slogan.jpg" alt="Logo">
+        <img src="./images/New_Logo_EyC2024__verde__Slogan-removebg-preview.png" alt="Logo">
     </a>
     <nav>
         <ul>
-            <button type="button" class="btn btn-warning cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
-                <script>
-                    function cerrarSesion() {
-                        var xhttp = new XMLHttpRequest();
-                        xhttp.onreadystatechange = function() {
-                            if (this.readyState == 4 && this.status == 200) {
-                                window.location.href = "./index.php";
-                            }
-                        };
-                        xhttp.open("GET", "./controlador/logaout.php", true);
-                        xhttp.send();
-                    }
-                </script>
+            <li>
+                <button type="button" class="btn btn-warning cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
+            </li>
         </ul>
     </nav>
 </header>
@@ -37,63 +27,75 @@
         <div class="link-box">
             <a href="https://epm-vwapp01/PerdiGas" target="_blank">
                 <img src="./images/perdigas.jpeg" alt="PerdiGas Logo">
-                PerdiGas
+                <span>PerdiGas</span>
             </a>
         </div>
         <div class="link-box">
             <a href="https://dynamics.microsoft.com/es-es/" target="_blank">
                 <img src="./images/Dynamics Logo_365.jpg" alt="Dynamics 365 Logo">
-                Dynamics 365
+                <span>Dynamics 365</span>
             </a>
         </div>
         <div class="link-box">
             <a href="https://epm-vwapp05.corp.epm.com.co/" target="_blank">
-                <img src="./images/gaspar.jpeg" alt="EPM Gaspar Logo">
-                Gaspar
+                <img src="./images/EPM.png" alt="EPM Gaspar Logo">
+                <span>Gaspar</span>
             </a>
         </div>
         <div class="link-box">
             <a href="https://eic.godoworks.com/es/base/Login/index" target="_blank">
                 <img src="./images/godoworks.png" alt="Go do works Logo">
-                Go do works
+                <span>Go do works</span>
             </a>
         </div>
         <div class="link-box">
             <a href="./login_blog.php" target="_blank">
                 <img src="./images/tuercas.png" alt="Blog">
-                Blog
+                <span>Blog</span>
             </a>
         </div>
         <div class="link-box">
             <a href="./login_pqrs.php" target="_blank">
                 <img src="./images/PQRS.png" alt="PQRS">
-                PQRS
+                <span>PQRS</span>
             </a>
         </div>
         <div class="link-box">
             <a href="./loginrh.php" target="_blank">
                 <img src="./images/hoja-de-vida.webp" alt="Hojas de vida">
-                Recursos humanos
+                <span>Recursos humanos</span>
             </a>
         </div>
         <div class="link-box">
             <a href="./login_certificados.php" target="_blank">
                 <img src="./images/certificados-ssl-de-un-año.png" alt="Certificados">
-                Cargar certificados
+                <span>Cargar certificados</span>
             </a>
         </div>
         <div class="link-box">
             <a href="./login_citas.php" target="_blank">
                 <img src="./images/images.png" alt="Citas">
-                Citas
+                <span>Citas</span>
             </a>
         </div>
     </div>
 </div>
 
-</div>
 <footer>
-        <p> 2024 E&C INGENIERÍA S.A.S. Todos los derechos reservados.</p>
+    <p> 2024 E&C INGENIERÍA S.A.S. Todos los derechos reservados.</p>
 </footer>
+
+<script>
+    function cerrarSesion() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                window.location.href = "./index.php";
+            }
+        };
+        xhttp.open("GET", "./controlador/logaout.php", true);
+        xhttp.send();
+    }
+</script>
 </body>
 </html>

@@ -6,6 +6,7 @@
     <title>Agendamiento de Citas</title>
     <link rel="stylesheet" href="css/citas.css">
     <link rel="stylesheet" href="css/calendario.css">
+    <link rel="shortcut icon" href="images/New_Logo_EyC2024_vertical-removebg-preview.png">
 </head>
 <body>
     <header>

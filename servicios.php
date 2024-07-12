@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="shortcut icon" href="images/New_Logo_EyC2024_vertical-removebg-preview.png">
     
     <!-- CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -49,7 +49,7 @@
                         <li class="nav-item"><a class="nav-link" href="nosotros.php"><strong>NOSOTROS</strong></a></li>
                         <li class="nav-item"><a class="nav-link" href="contactos.php"><strong>CONTACTOS</strong></a></li>
                         <li class="nav-item"><a class="nav-link" href="servicios.php"><strong>SERVICIOS</strong></a></li>
-                        <li class="nav-item"><a class="nav-link" href="agendar_cita.php"><strong>Agenda tu cita</strong></a></li>
+                        <li class="nav-item"><a class="nav-link" href="agendar_cita.php"><strong>AGENDA TU CITA</strong></a></li>
                         <li class="nav-item"><a class="nav-link" href="certificado.php"><strong>CERTIFICADO</strong></a></li>
                         <li class="sub-menu">
                             <a href="javascript:void(0);"><strong>TEAM</strong></a>

@@ -94,7 +94,13 @@ h1 {
     color: white;
     font-weight: bold;
 }
-/* Estilos para el botón de cerrar sesión */
+
+.link-box span {
+    display: block;
+    color: white;
+    font-weight: bold;
+}
+
 .btn {
     font-family: Arial, sans-serif;
     font-size: 16px;
@@ -119,14 +125,15 @@ h1 {
 }
 
 .cerrar {
-    margin-left: auto; /* Alinea el botón a la derecha */
-    margin-right: 30px; /* Ajusta el margen derecho */
+    margin-left: auto;
+    margin-right: 30px;
 }
+
 footer {
-    background-color: #001a33 ;
+    background-color: #001a33;
     color: white;
     text-align: center;
-    padding: 0rem;
+    padding: 0.5rem;
     position: fixed;
     bottom: 0;
     width: 100%;

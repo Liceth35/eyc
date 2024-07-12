@@ -17,12 +17,13 @@ $posts = $db->getData($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog de Inspección de Gas</title>
     <link rel="stylesheet" href="./css/blog.css">
+    <link rel="shortcut icon" href="images/New_Logo_EyC2024_vertical-removebg-preview.png">
 </head>
 <body>
 
 <header class="navbar">
     <a href="index.php" class="logo">
-        <img src="./images/Logo.png" alt="Logo">
+        <img src="./images/New_Logo_EyC2024__verde__Slogan-removebg-preview.png" alt="Logo">
     </a>
     <nav>
         <ul>

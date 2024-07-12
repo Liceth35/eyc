@@ -9,7 +9,7 @@
 	<meta name="author" content="">
 	
 	
-	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="shortcut icon" href="images/New_Logo_EyC2024_vertical-removebg-preview.png">
     
 	<!-- CSS -->
 	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -151,7 +151,7 @@
 							<p class="title4 captionDelay7 FromBottom">Personal Competente, Comprometido con la Calidad
 							Nuestro equipo está formado por profesionales altamente competentes que han adoptado la calidad como su filosofía de vida. Cada inspección es realizada con meticulosidad y precisión para asegurar el cumplimiento de los más altos estándares.</p>
 						</div>
-						<a class="slide_btn FromRight" href="Preguntas Frecuentes.php" >Preguntas Frecuentes</a>
+						<a class="slide_btn FromRight" href="./Preguntas_Frecuentes.php" >Preguntas Frecuentes</a>
 					<li class="slide2">
 						<div class="flex_caption1">
 							<p class="title1 captionDelay6 FromLeft">E&C Ingeniería </p>
@@ -159,7 +159,7 @@
 							<p class="title3 captionDelay2 FromLeft"></p>
 							<p class="title4 captionDelay7 FromLeft">Desde 2008, hemos formado un equipo de alto rendimiento. En septiembre de 2015, nos acreditamos como organismo de inspección tipo A. En noviembre de 2015, obtuvimos certificación en normas clave. Desde entonces, hemos realizado inspecciones en Antioquia, Valle del Cauca y el Eje Cafetero. Actualmente, nos capacitamos para acreditarnos en nuevas áreas y estamos preparando nuestra entrada a Bogotá y la Costa Caribe. E&C Ingeniería SAS se destaca por su dedicación a la excelencia en servicios.</p>
 						</div>
-						<a class="slide_btn FromRight" href="Preguntas Frecuentes.php" >Preguntas Frecuentes </a>
+						<a class="slide_btn FromRight" href="./Preguntas_Frecuentes.php" >Preguntas Frecuentes </a>
 					</li>
 					<li class="slide3">
 						<div class="flex_caption1">
@@ -168,7 +168,7 @@
 							<p class="title3 captionDelay3 FromBottom">Background</p>
 							<p class="title4 captionDelay5 FromBottom">The template is suitable for any company and the direction that appreciates style, purity and quality of the web site.</p>
 						</div>
-						<a class="slide_btn FromRight" href="Preguntas Frecuentes.php" >Preguntas Frecuentes </a>
+						<a class="slide_btn FromRight" href="./Preguntas_Frecuentes.php" >Preguntas Frecuentes </a>
 						<!-- VIDEO BACKGROUND -->
 						<a id="P2" class="player" data-property="{videoURL:'tDvBwPzJ7dY',containment:'.top_slider .slide3',autoPlay:true, mute:true, startAt:0, opacity:1}" ></a>
 						<!-- //VIDEO BACKGROUND -->
@@ -200,7 +200,7 @@
 					<!-- work1 -->
 					<div class="item">
 						<div class="work_item">
-							<div class="work_img">
+							<div class="work_img work_botones">
 								<img src="images/works/1.jpg" alt="" />
 								<a class="zoom" href="images/works/1.jpg" rel="prettyPhoto[portfolio1]" ></a>
 							</div>

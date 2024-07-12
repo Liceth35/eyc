@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Cargar Certificado</title>
     <link rel="stylesheet" href="../css/cargar_certificado.css">
+    <link rel="shortcut icon" href="../images/New_Logo_EyC2024_vertical-removebg-preview.png">
 </head>
 <body>
     <h2>Cargar Certificado</h2>

@@ -47,6 +47,7 @@ function mostrarArticulos($articulos) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrar Artículos</title>
     <link rel="stylesheet" href="./css/admin_edit.css">
+    <link rel="shortcut icon" href="images/New_Logo_EyC2024_vertical-removebg-preview.png">
 </head>
 <body>
     <h1>Administrar Artículos</h1>

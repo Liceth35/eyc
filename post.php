@@ -27,11 +27,12 @@ if (isset($_GET['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($article['titulo']); ?> - Blog de Inspección de Gas</title>
     <link rel="stylesheet" href="./css/post.css"> <!-- Incluye tu CSS para la página de post -->
+    <link rel="shortcut icon" href="images/New_Logo_EyC2024_vertical-removebg-preview.png">
 </head>
 <body>
     <header>
     <a href="./blog.php" class="logo">
-        <img src="./images/Logo.png" alt="Logo">
+        <img src="./images/New_Logo_EyC2024__verde__Slogan-removebg-preview.png" alt="Logo">
     </a>
         <div class="header-container">
             <nav>
