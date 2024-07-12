@@ -330,15 +330,8 @@
 						
 						<!-- TESTIMONIAL1 -->
 						<div class="item">
-							<div class="testim_content">“Protegiendo Tu Hogar y Negocio: Inspecciones de Gas Confiables para una Vida Más Segura y Tranquila.”</div>
-							<div class="testim_author">—  Anna Balashova, <b>Philosopher</b></div>
+							<div class="testim_content">Certificamos seguridad,garantizamos confianza.</div>
 						</div><!-- TESTIMONIAL1 -->
-						
-						<!-- TESTIMONIAL2 -->
-						<div class="item">
-							<div class="testim_content">“Los de la calcomania roja.”</div>
-							<div class="testim_author">—  Anna Balashova, <b>Philosopher</b></div>
-						</div><!-- TESTIMONIAL2 -->
 					</div><!-- TESTIMONIALS SLIDER -->
 				</div><!-- //TESTIMONIALS -->
 				
