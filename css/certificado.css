@@ -347,5 +347,5 @@ form button:hover {
     color: #ccc;
 }
 .hr-border{
-    background-color: white;
+    background-color: white!important;
 }

@@ -1,3 +1,14 @@
+<?php
+session_start();
+if (!isset($_SESSION['correo_usuario'])) {
+    header("Location: login.php");
+    exit();
+}
+
+header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1
+header("Pragma: no-cache"); // HTTP 1.0
+header("Expires: 0"); // Proxies
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -82,19 +93,30 @@
 </div>
 
 <footer>
-    <p> 2024 E&C INGENIERÍA S.A.S. Todos los derechos reservados.</p>
+    <p>2024 E&C INGENIERÍA S.A.S. Todos los derechos reservados.</p>
 </footer>
 
 <script>
     function cerrarSesion() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                window.location.href = "./index.php";
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    console.log("Sesión cerrada"); // Para depurar
+                    window.location.replace("index.php");
+                } else {
+                    console.log("Error al cerrar sesión"); // Para depurar
+                }
             }
         };
         xhttp.open("GET", "./controlador/logaout.php", true);
         xhttp.send();
+    }
+
+    window.onload = function() {
+        if (window.history.length > 1) {
+            window.history.forward();
+        }
     }
 </script>
 </body>

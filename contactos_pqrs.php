@@ -11,7 +11,7 @@
     <div class="container">
         <!-- Botón para descargar archivo Excel -->
        <form action="controlador/exportar_excel.php" method="post">
-            <button type="submit" class="btn btn-success">Descargar Hoja de Vida en Excel</button>
+            <button type="submit" class="btn btn-success">Descargar PQRS en Excel</button>
         </form>
         <h1>Lista de Contactos</h1>
         <table>

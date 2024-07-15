@@ -40,6 +40,35 @@ th {
 tr:nth-child(even) {
     background-color: #f9f9f9;
 }
+/* Estilos para el botón de cerrar sesión */
+.btn {
+    font-family: Arial, sans-serif;
+    font-size: 14px; /* Ajustar el tamaño de fuente del botón */
+    padding: 8px 16px; /* Ajustar el padding del botón */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-warning {
+    background-color: #f0ad4e;
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #ec971f;
+}
+
+.btn-warning:active {
+    background-color: #d58512;
+}
+
+/* Estilos para alinear el botón de Cerrar Sesión a la derecha */
+.btn-cerrar {
+    float: right;
+    margin-top: 10px;
+}
 /* Estilos para el botón de descarga de Excel */
 .btn-success {
     display: inline-block;

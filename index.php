@@ -345,7 +345,7 @@
 								<a class="link" href="./blog.php" ></a>
 							</div>
 							<div class="post_item_content">
-								<a class="title" href="./blog.php" ></a>
+								<a class="title" href="./blog.php" >Nuevo récord</a>
 							</div>
 						</div>
 					</div>

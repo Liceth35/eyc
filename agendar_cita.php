@@ -22,24 +22,45 @@
             <div id="step1" class="step-content active">
                 <h2>Seleccionar Oficina</h2>
                 <label for="departamento">Departamento:</label>
-                <select id="departamento" name="departamento">
+                <select id="departamento" name="departamento" onchange="cargarMunicipios()">
                     <option value="">Seleccionar departamento</option>
                     <!-- Lista de departamentos -->
                     <option value="Amazonas">Amazonas</option>
                     <option value="Antioquia">Antioquia</option>
                     <option value="Arauca">Arauca</option>
+                    <option value="Atlántico">Atlántico</option>
+                    <option value="Bolívar">Bolívar</option>
+                    <option value="Boyacá">Boyacá</option>
+                    <option value="Caldas">Caldas</option>
+                    <option value="Caquetá">Caquetá</option>
+                    <option value="Casanare">Casanare</option>
+                    <option value="Cauca">Cauca</option>
+                    <option value="Cesar">Cesar</option>
+                    <option value="Chocó">Chocó</option>
+                    <option value="Córdoba">Córdoba</option>
+                    <option value="Cundinamarca">Cundinamarca</option>
+                    <option value="Guainía">Guainía</option>
+                    <option value="Guaviare">Guaviare</option>
+                    <option value="Huila">Huila</option>
+                    <option value="La Guajira">La Guajira</option>
+                    <option value="Magdalena">Magdalena</option>
+                    <option value="Meta">Meta</option>
+                    <option value="Nariño">Nariño</option>
+                    <option value="Norte de Santander">Norte de Santander</option>
+                    <option value="Putumayo">Putumayo</option>
+                    <option value="Quindío">Quindío</option>
+                    <option value="Risaralda">Risaralda</option>
+                    <option value="San Andrés y Providencia">San Andrés y Providencia</option>
+                    <option value="Santander">Santander</option>
+                    <option value="Sucre">Sucre</option>
+                    <option value="Tolima">Tolima</option>
+                    <option value="Valle del Cauca">Valle del Cauca</option>
+                    <option value="Vaupés">Vaupés</option>
+                    <option value="Vichada">Vichada</option>
                 </select>
                 <label for="municipio">Municipio:</label>
                 <select id="municipio" name="municipio">
                     <option value="">Seleccionar municipio</option>
-                    <!-- Lista de municipios -->
-                    <option value="leticia">Leticia</option>
-                    <option value="medellin">Medellín</option>
-                    <option value="bello">Bello</option>
-                    <option value="itagui">Itagüí</option>
-                    <option value="envigado">Envigado</option>
-                    <option value="rionegro">Rionegro</option>
-                    <option value="arauca">Arauca</option>
                 </select>
                 <button type="button" onclick="nextStep(2)">Continuar</button>
             </div>
@@ -70,7 +91,7 @@
                 </select>
                 <label for="numero-documento">Número de Documento:</label>
                 <input type="text" id="numero-documento" name="numero-documento">
-                <label for="numero-contrato">Número de Contrato:</label> <!-- Nueva etiqueta -->
+                <label for="numero-contrato">Número de Contrato:</label>
                 <input type="text" id="numero-contrato" name="numero-contrato">
                 <label for="nombre">Nombres y Apellidos:</label>
                 <input type="text" id="nombre" name="nombre">
@@ -78,7 +99,7 @@
                 <input type="email" id="correo" name="correo">
                 <label for="movil">Número de móvil:</label>
                 <input type="tel" id="movil" name="movil">
-                <label for="direccion">Dirección:</label> <!-- Nueva etiqueta -->
+                <label for="direccion">Dirección:</label>
                 <input type="text" id="direccion" name="direccion">
                 <label>
                     <input type="checkbox" id="politica" name="politica" required> Acepto la Política de Tratamiento de Datos
@@ -93,6 +114,59 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/calendario.js" defer></script>
     <script>
+        const municipiosPorDepartamento = {
+            "Amazonas": ["Leticia"],
+            "Antioquia": ["Medellín", "Bello", "Itagüí", "Envigado", "Rionegro"],
+            "Arauca": ["Arauca"],
+            "Atlántico": ["Barranquilla", "Soledad"],
+            "Bolívar": ["Cartagena", "Magangué"],
+            "Boyacá": ["Tunja", "Sogamoso", "Duitama"],
+            "Caldas": ["Manizales", "Villamaría"],
+            "Caquetá": ["Florencia"],
+            "Casanare": ["Yopal"],
+            "Cauca": ["Popayán", "Santander de Quilichao"],
+            "Cesar": ["Valledupar"],
+            "Chocó": ["Quibdó"],
+            "Córdoba": ["Montería", "Lorica"],
+            "Cundinamarca": ["Bogotá", "Soacha", "Chía"],
+            "Guainía": ["Inírida"],
+            "Guaviare": ["San José del Guaviare"],
+            "Huila": ["Neiva", "Garzón"],
+            "La Guajira": ["Riohacha", "Maicao"],
+            "Magdalena": ["Santa Marta", "Ciénaga"],
+            "Meta": ["Villavicencio"],
+            "Nariño": ["Pasto", "Tumaco"],
+            "Norte de Santander": ["Cúcuta", "Ocaña"],
+            "Putumayo": ["Mocoa"],
+            "Quindío": ["Armenia"],
+            "Risaralda": ["Pereira", "Dosquebradas"],
+            "San Andrés y Providencia": ["San Andrés"],
+            "Santander": ["Bucaramanga", "Floridablanca", "Girón"],
+            "Sucre": ["Sincelejo"],
+            "Tolima": ["Ibagué"],
+            "Valle del Cauca": ["Cali", "Palmira", "Buenaventura"],
+            "Vaupés": ["Mitú"],
+            "Vichada": ["Puerto Carreño"]
+
+        };
+
+        function cargarMunicipios() {
+            const departamento = document.getElementById("departamento").value;
+            const municipiosSelect = document.getElementById("municipio");
+
+            // Limpiar los municipios anteriores
+            municipiosSelect.innerHTML = '<option value="">Seleccionar municipio</option>';
+
+            if (municipiosPorDepartamento[departamento]) {
+                municipiosPorDepartamento[departamento].forEach(municipio => {
+                    const option = document.createElement("option");
+                    option.value = municipio;
+                    option.textContent = municipio;
+                    municipiosSelect.appendChild(option);
+                });
+            }
+        }
+
         function nextStep(step) {
             document.querySelectorAll('.step-content').forEach(function(content) {
                 content.classList.remove('active');
