@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-07-2024 a las 22:19:04
+-- Tiempo de generación: 16-07-2024 a las 22:54:17
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -42,7 +42,8 @@ CREATE TABLE `admin_blog` (
 --
 
 INSERT INTO `admin_blog` (`id`, `titulo`, `resumen`, `contenido`, `url_imagen`, `fecha_creacion`, `fecha_actualizacion`) VALUES
-(1, 'Inspección de Gas: ¿Por qué es Importante?', 'Descubre la importancia de realizar inspecciones regulares de gas para garantizar la seguridad en el hogar.', 'Las inspecciones de gas son fundamentales para asegurar que todos los sistemas de gas en el hogar funcionen de manera segura y eficiente. Un sistema de gas defectuoso puede provocar fugas peligrosas y aumentar el riesgo de incendios. En este artículo, exploraremos los beneficios de las inspecciones regulares y cómo pueden ayudar a prevenir accidentes graves.\n', './images/clean_code_bg.jpg', '2024-06-27 12:39:23', '2024-06-27 15:19:52');
+(1, 'Inspección de Gas: ¿Por qué es Importante?', 'Descubre la importancia de realizar inspecciones regulares de gas para garantizar la seguridad en el hogar.', 'Las inspecciones de gas son fundamentales para asegurar que todos los sistemas de gas en el hogar funcionen de manera segura y eficiente. Un sistema de gas defectuoso puede provocar fugas peligrosas y aumentar el riesgo de incendios. En este artículo, exploraremos los beneficios de las inspecciones regulares y cómo pueden ayudar a prevenir accidentes graves.\n', './images/clean_code_bg.jpg', '2024-06-27 12:39:23', '2024-06-27 15:19:52'),
+(4, ' Inspección de Gas', 'Inspección de gas', 'Inspecciones', './images/Captura de pantalla (77).png', '2024-07-08 20:05:59', '2024-07-08 20:05:59');
 
 -- --------------------------------------------------------
 
@@ -63,7 +64,10 @@ CREATE TABLE `certificados` (
 
 INSERT INTO `certificados` (`id`, `numero_cedula`, `codigo_verificacion`, `ubicacion_certificado`) VALUES
 (1, '1027956039', '1234565ABC', './admin/uploads_certificado/ejemplo.pdf'),
-(3, '22024737', '12345CCC', './admin/uploads_certificado/ejemplo.pdf');
+(3, '22024737', '12345CCC', './admin/uploads_certificado/ejemplo.pdf'),
+(5, '1027956039', 'kizj0v5965', './admin/uploads_certificado/ejemplo-de-descarga-pdfpdf.pdf'),
+(6, '1027956039', 'stgHGkaTNp', './admin/uploads_certificado/ejemplo-de-descarga-pdfpdf.pdf'),
+(7, '1027956039', 'mofabjYE5f', './admin/uploads_certificado/ejemplo-de-descarga-pdfpdf.pdf');
 
 -- --------------------------------------------------------
 
@@ -92,7 +96,9 @@ CREATE TABLE `citas` (
 --
 
 INSERT INTO `citas` (`id`, `departamento`, `municipio`, `fecha`, `horario`, `numero_documento`, `tipo_documento`, `nombre`, `correo`, `movil`, `acepto_politica`, `numero_contrato`, `direccion`) VALUES
-(6, 'Amazonas', 'leticia', '2024-07-12', '7:00-9:00', '1027956039', 'CC', 'Kelly meneses', 'kelly20@gmail.com', '3107098865', 0, '556495964554', 'calle 101c');
+(6, 'Antioquia', 'Medellin', '2024-07-19', '07:00:00', '1027956039', 'CC', 'Kelly meneses', 'kelly20@gmail.com', '3107098865', 1, '556495964554', 'calle 101c'),
+(11, 'Antioquia', 'medellin', '2024-07-19', '07:00:00', '1027956039', 'CC', 'David Andrade', 'david@gmail.com', '3107098865', 1, '556495964554', 'calle 101c'),
+(12, 'Amazonas', 'Leticia', '2024-07-10', '7:00-9:00', '1027956039', 'CC', 'Liceth Valderrama', 'liceth3@gmail.com', '3107098865', 1, '556495964554', 'calle 101c');
 
 -- --------------------------------------------------------
 
@@ -115,10 +121,11 @@ CREATE TABLE `contactos` (
 INSERT INTO `contactos` (`id`, `nombre`, `telefono`, `correo`, `mensaje`) VALUES
 (1, 'Liceth', '31055', 'liceth2006valderrama@gmail.com', 'HOLA'),
 (2, 'Liceth', '31055', 'liceth2006valderrama@gmail.com', 'Hola'),
-(3, 'David Andrade', '310555', 'est.lmonsalve824@smart.edu.co', 'Buenos dias, me gustaria comunicarme con ustedes para una inspecion de gas'),
 (4, 'Alejandro', '31055', 'est.lmonsalve824@smart.edu.co', 'Hola necesito ayuda'),
 (5, 'DAVID ', '321184332', 'est.lmonsalve824@smart.edu.co', 'Quiero poner una queja'),
-(6, 'Liceth', '31055', 'liceth2006valderrama@gmail.com', 'prueba33');
+(6, 'Liceth', '31055', 'liceth2006valderrama@gmail.com', 'prueba33'),
+(9, 'David Andrade', '31055', 'liceth2006valderrama@gmail.com', 'Hola'),
+(10, 'ds', 'ds', 'liceth2006valderrama@gmail.com', 'ds');
 
 -- --------------------------------------------------------
 
@@ -128,18 +135,27 @@ INSERT INTO `contactos` (`id`, `nombre`, `telefono`, `correo`, `mensaje`) VALUES
 
 CREATE TABLE `disponibilidad` (
   `id` int(11) NOT NULL,
-  `municipio` varchar(255) NOT NULL,
-  `fecha` date NOT NULL,
-  `horario` time NOT NULL,
-  `disponible` tinyint(1) NOT NULL DEFAULT 1
+  `municipio` varchar(100) DEFAULT NULL,
+  `fecha` date DEFAULT NULL,
+  `hora_inicio` time DEFAULT NULL,
+  `hora_fin` time DEFAULT NULL,
+  `disponible` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `disponibilidad`
 --
 
-INSERT INTO `disponibilidad` (`id`, `municipio`, `fecha`, `horario`, `disponible`) VALUES
-(1, '', '0000-00-00', '00:00:00', 1);
+INSERT INTO `disponibilidad` (`id`, `municipio`, `fecha`, `hora_inicio`, `hora_fin`, `disponible`) VALUES
+(1, 'Leticia', '2024-07-10', '07:00:00', '09:00:00', 1),
+(2, 'Medellin', '2024-07-09', '07:00:00', '09:00:00', 1),
+(3, 'Medellin', '2024-07-27', '15:00:00', '17:00:00', 1),
+(4, 'San rafael', '2024-07-26', '13:00:00', '15:00:00', 1),
+(5, 'Medellin', '2024-07-19', '13:00:00', '15:00:00', 1),
+(6, 'Medellin', '2024-07-19', '15:00:00', '17:00:00', 1),
+(7, 'Medellin', '2024-07-19', '07:00:00', '09:00:00', 1),
+(8, 'Medellin', '2024-07-27', '13:00:00', '15:00:00', 1),
+(9, 'Medellin', '2024-07-27', '09:00:00', '12:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -149,27 +165,29 @@ INSERT INTO `disponibilidad` (`id`, `municipio`, `fecha`, `horario`, `disponible
 
 CREATE TABLE `hoja_de_vida` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(255) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
   `correo` varchar(100) NOT NULL,
-  `celular` varchar(30) NOT NULL,
-  `tipo_documento` varchar(50) NOT NULL,
-  `numero_documento` varchar(30) NOT NULL,
-  `departamento` varchar(100) NOT NULL,
-  `ciudad` varchar(100) NOT NULL,
+  `celular` varchar(20) NOT NULL,
+  `tipo_documento` varchar(20) NOT NULL,
+  `numero_documento` varchar(20) NOT NULL,
+  `departamento` varchar(50) NOT NULL,
+  `ciudad` varchar(50) NOT NULL,
   `profesion` varchar(100) NOT NULL,
-  `mensaje` text NOT NULL,
-  `archivo_adjunto` varchar(255) NOT NULL
+  `tipo_moto` varchar(50) DEFAULT NULL,
+  `modelo_moto` varchar(50) DEFAULT NULL,
+  `estado_propiedad` varchar(50) DEFAULT NULL,
+  `mensaje` text DEFAULT NULL,
+  `archivo_adjunto` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `hoja_de_vida`
 --
 
-INSERT INTO `hoja_de_vida` (`id`, `nombre`, `correo`, `celular`, `tipo_documento`, `numero_documento`, `departamento`, `ciudad`, `profesion`, `mensaje`, `archivo_adjunto`) VALUES
-(1, 'David Andrade', 'david@gmail.com', '3107098865', 'cedula', '1027956039', 'Antioquia', 'medellin', 'desarrollador', 'PRUEBA20', 'uploads/Ejemplo-de-descarga-pdf.pdf'),
-(2, 'Kelly meneses', 'kelly20@gmail.com', '3125556632', 'cedula', '1029659880', 'Antioquia', 'Apartado', 'Contadora', 'Buenos dias, esta es mu cv', 'uploads/Hoja de vida profesional azul.pdf'),
-(3, 'henry vargas', 'henry@gmail.com', '32235', 'cedula_extranjeria', '58487', 'Antioquia', 'medellin', 'desarrollador', 'prueba50', 'uploads/Hoja de vida profesional azul.pdf'),
-(8, 'Kevin Montoya', 'kevin@gmail.com', '312835269898', 'cedula', '21165656', 'Antioquia', 'Medellin', 'Diseñador grafico', 'ESTO ES UNA PRUEBA', 'uploads/Hoja de Vida Administrador Sencillo Blanco y Negro.pdf');
+INSERT INTO `hoja_de_vida` (`id`, `nombre`, `correo`, `celular`, `tipo_documento`, `numero_documento`, `departamento`, `ciudad`, `profesion`, `tipo_moto`, `modelo_moto`, `estado_propiedad`, `mensaje`, `archivo_adjunto`) VALUES
+(1, 'Liceth', 'liceth3@gmail.com', '3107098865', 'cedula', '1027956039', 'Antioquia', 'medellin', 'inspector', 'Deportiva', '2024', 'David andrade', 'PRUEBAAAAAAAAA', 'uploads/Hoja de Vida Administrador Sencillo Blanco y Negro.pdf'),
+(2, 'David Andrade', 'liceth3@gmail.com', '3107098865', 'cedula', '1027956039', 'Antioquia', 'medellin', 'inspector', 'Deportiva', '2024', 'David andrade', 'bendito', 'uploads/Hoja de Vida Administrador Sencillo Blanco y Negro.pdf'),
+(3, 'Liceth Valderrama', 'liceth3@gmail.com', '3107098865', 'cedula', '1027956039', 'Antioquia', 'medellin', 'contador', '', '', '', 'Eston es una prueba', 'uploads/Hoja de Vida Administrador Sencillo Blanco y Negro.pdf');
 
 -- --------------------------------------------------------
 
@@ -181,16 +199,17 @@ CREATE TABLE `usuarios` (
   `id` int(12) NOT NULL,
   `nombre` varchar(40) NOT NULL,
   `correo` varchar(100) NOT NULL,
-  `contrasenna` int(30) NOT NULL
+  `contrasenna` int(30) NOT NULL,
+  `rol` enum('admin','usuarios') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `contrasenna`) VALUES
-(1, 'Liceth Valderrama', 'liceth3@gmail.com', 1234),
-(3, 'Juan Perez', 'juan.perez@example.com', 12);
+INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `contrasenna`, `rol`) VALUES
+(1, 'Liceth Valderrama', 'liceth3@gmail.com', 1234, 'admin'),
+(3, 'Juan Perez', 'juan.perez@example.com', 12, 'admin');
 
 -- --------------------------------------------------------
 
@@ -377,37 +396,37 @@ ALTER TABLE `usuarios_rh`
 -- AUTO_INCREMENT de la tabla `admin_blog`
 --
 ALTER TABLE `admin_blog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `certificados`
 --
 ALTER TABLE `certificados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `citas`
 --
 ALTER TABLE `citas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `contactos`
 --
 ALTER TABLE `contactos`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `disponibilidad`
 --
 ALTER TABLE `disponibilidad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `hoja_de_vida`
 --
 ALTER TABLE `hoja_de_vida`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
