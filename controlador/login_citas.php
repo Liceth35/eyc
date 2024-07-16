@@ -1,5 +1,6 @@
 <?php
 require_once './conexion.php';
+session_start(); // Mover session_start() al inicio
 
 if (isset($_POST['btn_login'])) {
     $conexion = new PDODB();
@@ -15,10 +16,9 @@ if (isset($_POST['btn_login'])) {
         ':contrasenna' => $contrasena
     ]);
 
-    session_start();
     if ($resultados) {
         foreach ($resultados as $valor) {
-            $_SESSION['cedula'] = $valor['cedula'];
+            $_SESSION['cedula_usuarios'] = $valor['cedula']; // Cambiar clave a 'cedula_usuarios'
             $_SESSION['nombre_usuario'] = $valor['nombre'];
         }
 

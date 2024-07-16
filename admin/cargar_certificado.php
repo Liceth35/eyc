@@ -1,5 +1,14 @@
+<?php
+session_start();
+
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['cedula'])) {
+    header("Location: ../login_certificados.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Cargar Certificado</title>
@@ -7,6 +16,7 @@
     <link rel="shortcut icon" href="../images/New_Logo_EyC2024_vertical-removebg-preview.png">
 </head>
 <body>
+    <button type="button" class="btn btn-warning cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
     <h2>Cargar Certificado</h2>
     <form action="procesar_carga.php" method="POST" enctype="multipart/form-data">
         <label for="numero_cedula">Número de Cédula:</label><br>
@@ -21,7 +31,6 @@
         <button type="submit">Subir Certificado</button>
     </form>
 
-    <!-- Función PHP para generar código único -->
     <?php
     function generarCodigo($longitud = 10) {
         $caracteres = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -32,5 +41,28 @@
         return $codigo;
     }
     ?>
+    
+    <script>
+        function cerrarSesion() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                    if (this.status == 200) {
+                        console.log("Sesión cerrada");
+                        window.location.replace("../login_certificados.php");
+                    } else {
+                        console.log("Error al cerrar sesión");
+                    }
+                }
+            };
+            xhttp.open("GET", "../controlador/logaout.php", true);
+            xhttp.send();
+        }
+        window.onload = function() {
+        if (window.history.length > 1) {
+            window.history.forward();
+        }
+    }
+    </script>
 </body>
 </html>

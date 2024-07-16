@@ -88,3 +88,32 @@ tr:nth-child(even) {
 .btn-success:hover {
     background-color: #45a049; /* Color verde oscuro al pasar el mouse */
 }
+
+.btn {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-warning {
+    background-color: #f0ad4e;
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: rgb(240, 206, 143);
+}
+
+.btn-warning:active {
+    background-color: rgb(240, 206, 143);
+}
+
+.cerrar {
+    margin-left: 87%;
+    margin-right: 30px;
+    margin-top: 1%;
+}

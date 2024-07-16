@@ -1,6 +1,10 @@
 <?php
-require_once './controlador/conexion.php';
-
+include './controlador/conexion.php';
+session_start();
+if (!isset($_SESSION['correo_usuarios_blog'])) {
+    header("Location: login_blog.php");
+    exit();
+}
 $db = new PDODB();
 $db->conectar();
 
@@ -50,6 +54,12 @@ function mostrarArticulos($articulos) {
     <link rel="shortcut icon" href="images/New_Logo_EyC2024_vertical-removebg-preview.png">
 </head>
 <body>
+<button type="button" class="btn btn-warning cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
+<div class="button-container">
+    <a href="./admin_create.php" class="button">Agregar</a>
+    <a href="./admin_delete.php" class="button button-delete">Eliminar</a>
+    <a href="./blog.php" class="button-blog">Blog</a>
+</div>
     <h1>Administrar Artículos</h1>
 
     <!-- Lista de artículos con enlaces directos a la edición -->
@@ -92,5 +102,28 @@ function mostrarArticulos($articulos) {
 
         </form>
     <?php endif; ?>
+    <script>
+    function cerrarSesion() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    console.log("Sesión cerrada"); // Para depurar
+                    window.location.replace("index.php");
+                } else {
+                    console.log("Error al cerrar sesión"); // Para depurar
+                }
+            }
+        };
+        xhttp.open("GET", "./controlador/logaout.php", true);
+        xhttp.send();
+    }
+
+    window.onload = function() {
+        if (window.history.length > 1) {
+            window.history.forward();
+        }
+    }
+</script>
 </body>
 </html>

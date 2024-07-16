@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (isset($_SESSION['correo_usuarios'])) {
+    session_unset();
+    session_destroy();
+    session_start(); // Reiniciar la sesión después de destruirla
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -7,7 +12,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="./css/login.css"> <!-- Enlace a tu hoja de estilos CSS -->
+    <link rel="stylesheet" href="./css/login.css">
     <link rel="shortcut icon" href="images/New_Logo_EyC2024_vertical-removebg-preview.png">
 </head>
 <body>

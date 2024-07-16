@@ -1,3 +1,14 @@
+<?php
+session_start();
+if (!isset($_SESSION['cedula_usuarios'])) {
+    header("Location: login_citas.php");
+    exit();
+}
+
+header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1
+header("Pragma: no-cache"); // HTTP 1.0
+header("Expires: 0"); // Proxies
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -110,13 +121,14 @@
 </head>
 <body>
     <div class="header">
+    <button type="button" class="btn btn-warning cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
         <h1>Panel de Administración</h1>
     </div>
     <h2><center>Administración de Citas Agendadas</center></h2>
 
     <div class="menu">
-        <a href="admin_disponibilidad.php">Cargar disponibilidad</a>
-        <a href="./cargarDisponibilidad.php">Gestión de Disponibilidad</a>
+        <a href="./cargarDisponibilidad.php">Cargar disponibilidad</a>
+        <a href="./admin_disponibilidad.php">Gestión de Disponibilidad</a>
     </div>
 
     <div class="content">
@@ -191,5 +203,29 @@
         <div id="calendar"></div>
     </div>
     <script src="./js/cargarDisponibilidad.js"></script>
+    <script>
+        
+    function cerrarSesion() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    console.log("Sesión cerrada"); // Para depurar
+                    window.location.replace("index.php");
+                } else {
+                    console.log("Error al cerrar sesión"); // Para depurar
+                }
+            }
+        };
+        xhttp.open("GET", "./controlador/logaout.php", true);
+        xhttp.send();
+    }
+
+    window.onload = function() {
+        if (window.history.length > 1) {
+            window.history.forward();
+        }
+    }
+    </script>
 </body>
 </html>

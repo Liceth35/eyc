@@ -1,3 +1,12 @@
+<?php
+session_start(); // Llama a session_start() solo una vez
+
+if (isset($_SESSION['cedula_usuarios'])) {
+    session_unset();
+    session_destroy();
+    session_start(); // Reiniciar la sesión después de destruirla
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,7 +20,6 @@
     <div class="login-container">
         <h2>Iniciar Sesión</h2>
         <?php
-        session_start();
         if (isset($_SESSION['error_login']) && $_SESSION['error_login'] == "si") {
             echo "<p class='error-message'>Cédula o contraseña incorrectos. Inténtalo de nuevo.</p>";
             unset($_SESSION['error_login']);

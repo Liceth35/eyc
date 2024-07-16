@@ -18,7 +18,7 @@ if (isset($_POST['btn_login'])) {
     session_start();
     if ($resultados) {
         foreach ($resultados as $valor) {
-            $_SESSION['cedula'] = $valor['cedula'];
+            $_SESSION['cedula_usuarios'] = $valor['cedula'];
             $_SESSION['nombre_usuario'] = $valor['nombre'];
         }
 

@@ -16,10 +16,9 @@ if (isset($_POST['btn_login'])) {
     ]);
 
     session_start();
-    if ($resultados) {
+    if ($resultados && count($resultados) > 0) {
         foreach ($resultados as $valor) {
-            $_SESSION['id_usuario'] = $valor['id'];
-            $_SESSION['nombre_usuario'] = $valor['nombre'];
+            $_SESSION['correo_usuarios_blog'] = $valor['correo'];
             header("Location: ../admin_create.php");
             exit();
         }

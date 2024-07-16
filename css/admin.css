@@ -106,3 +106,29 @@ form button[type="submit"]:focus {
 .button-container .button-blog:focus {
     outline: none;
 }
+.btn {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-warning {
+    background-color: #f0ad4e;
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: rgb(240, 206, 143);
+}
+
+.btn-warning:active {
+    background-color: rgb(240, 206, 143);
+}
+
+.cerrar {
+    margin-left: 67%;
+    margin-right: 30px;}

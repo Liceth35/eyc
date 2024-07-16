@@ -1,5 +1,6 @@
 <?php
 require_once './conexion.php';
+session_start(); // Iniciar la sesión aquí
 
 if (isset($_POST['btn_login'])) {
     $conexion = new PDODB();
@@ -15,18 +16,17 @@ if (isset($_POST['btn_login'])) {
         ':contrasenna' => $contrasena
     ]);
 
-    session_start();
     if ($resultados) {
         foreach ($resultados as $valor) {
             $_SESSION['cedula'] = $valor['cedula'];
             $_SESSION['nombre_usuario'] = $valor['nombre'];
         }
 
-        header("Location: ../admin/cargar_certificado.php");
+        header("Location: ../admin/cargar_certificado.php"); // Redirigir a cargar_certificado.php
         exit();
     } else {
         $_SESSION['error_login'] = "si";
-        header("Location: ../login_certificados.php");
+        header("Location: ../login_certificados.php"); // Redirigir a login si hay error
         exit();
     }
 } else {

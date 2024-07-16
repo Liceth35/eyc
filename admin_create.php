@@ -1,6 +1,10 @@
 <?php
 include './controlador/conexion.php';
-
+session_start();
+if (!isset($_SESSION['correo_usuarios_blog'])) {
+    header("Location: login_blog.php");
+    exit();
+}
 // Conectamos a la base de datos
 $db = new PDODB();
 $db->conectar();
@@ -58,6 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="shortcut icon" href="images/New_Logo_EyC2024_vertical-removebg-preview.png">
 </head>
 <body>
+<button type="button" class="btn btn-warning cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
 <div class="button-container">
     <a href="./admin_edit.php" class="button">Editar</a>
     <a href="./admin_delete.php" class="button button-delete">Eliminar</a>
@@ -79,5 +84,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <button type="submit">Crear</button>
     </form>
+    <script>
+    function cerrarSesion() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    console.log("Sesión cerrada"); // Para depurar
+                    window.location.replace("index.php");
+                } else {
+                    console.log("Error al cerrar sesión"); // Para depurar
+                }
+            }
+        };
+        xhttp.open("GET", "./controlador/logaout.php", true);
+        xhttp.send();
+    }
+
+    window.onload = function() {
+        if (window.history.length > 1) {
+            window.history.forward();
+        }
+    }
+</script>
 </body>
 </html>

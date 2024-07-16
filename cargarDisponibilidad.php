@@ -1,3 +1,14 @@
+<?php
+session_start();
+if (!isset($_SESSION['cedula_usuarios'])) {
+    header("Location: login_citas.php");
+    exit();
+}
+
+header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1
+header("Pragma: no-cache"); // HTTP 1.0
+header("Expires: 0"); // Proxies
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,6 +21,7 @@
 </head>
 <body>
     <header>
+    <button type="button" class="btn btn-warning cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
         <h1>Cargar Disponibilidad de Citas</h1>
     </header>
     <div class="menu">
@@ -84,6 +96,27 @@
                 console.error('Error al agregar disponibilidad:', error);
             });
         }
+    function cerrarSesion() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    console.log("Sesión cerrada"); // Para depurar
+                    window.location.replace("index.php");
+                } else {
+                    console.log("Error al cerrar sesión"); // Para depurar
+                }
+            }
+        };
+        xhttp.open("GET", "./controlador/logaout.php", true);
+        xhttp.send();
+    }
+
+    window.onload = function() {
+        if (window.history.length > 1) {
+            window.history.forward();
+        }
+    }
     </script>
 </body>
 </html>

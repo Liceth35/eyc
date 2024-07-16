@@ -1,5 +1,15 @@
 <?php
 require_once './controlador/conexion.php';
+session_start();
+
+if (!isset($_SESSION['cedula_usuarios'])) {
+    header("Location: loginrh.php");
+    exit();
+}
+
+header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1
+header("Pragma: no-cache"); // HTTP 1.0
+header("Expires: 0"); // Proxies
 
 $db = new PDODB();
 $db->conectar();
@@ -8,7 +18,7 @@ $db->conectar();
 $sql = "SELECT * FROM hoja_de_vida";
 $result = $db->getData($sql);
 
-$db->close();  // Cerrar la conexión después de obtener los datos
+$db->close(); // Cerrar la conexión después de obtener los datos
 ?>
 
 <!DOCTYPE html>
@@ -18,23 +28,18 @@ $db->close();  // Cerrar la conexión después de obtener los datos
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E&C | Ingeniería S.A.S</title>
     <link rel="stylesheet" href="./css/recursos_humanos.css">
-    <!-- Agregar Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="shortcut icon" href="images/New_Logo_EyC2024_vertical-removebg-preview.png">
 </head>
 <body>
-    <!-- Botón para cerrar sesión -->
     <button type="button" class="btn btn-warning cerrar btn-cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
-    <div class=" contenedor_padre">
-        
-        <!-- Botón para descargar archivo Excel -->
+    <div class="contenedor_padre">
         <form action="controlador/ExportController.php" method="post">
             <button type="submit" class="btn btn-success">Descargar Hoja de Vida en Excel</button>
         </form>
         <h1>Subir Archivos</h1>
         <form id="uploadForm" action="upload.php" method="POST" enctype="multipart/form-data">
             <!-- Campos del formulario -->
-            <!-- ... -->
         </form>
 
         <table class="table">
@@ -76,7 +81,6 @@ $db->close();  // Cerrar la conexión después de obtener los datos
                             <td><?php echo $row['mensaje'] ?></td>
                             <td><a href='controlador/<?php echo $row['archivo_adjunto'] ?>'>Ver Archivo</a></td>
                             <td>
-                                <!-- Botón para abrir el modal -->
                                 <button class="btn btn-primary" onclick="openModal('<?php echo $row['archivo_adjunto'] ?>')">Ver Archivo Modal</button>
                             </td>
                         </tr>
@@ -90,7 +94,6 @@ $db->close();  // Cerrar la conexión después de obtener los datos
         </table>
     </div>
 
-    <!-- Modal para mostrar el archivo -->
     <div class="modal fade" id="archivoModal" tabindex="-1" role="dialog" aria-labelledby="archivoModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -110,20 +113,16 @@ $db->close();  // Cerrar la conexión después de obtener los datos
         </div>
     </div>
 
-    <!-- Scripts al final del body -->
-    <!-- Bootstrap JS, jQuery, y script para abrir el modal -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
     <script>
-        // Función para abrir el modal con el archivo adjunto
         function openModal(url) {
             $('#archivoIframe').attr('src', 'controlador/' + url);
             $('#archivoModal').modal('show');
         }
 
-        // Función para cerrar sesión
         function cerrarSesion() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
