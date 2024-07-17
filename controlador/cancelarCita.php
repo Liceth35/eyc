@@ -1,27 +1,16 @@
 <?php
-// Verificar si se recibió el parámetro id
-if (!isset($_GET['id'])) {
-    die("No se proporcionó el ID de la cita.");
-}
+header('Content-Type: application/json');
 
-$cita_id = $_GET['id'];
+// Supongamos que ya tienes la lógica para conectar a la base de datos
 
-include_once './conexion.php';
-$db = new PDODB();
-$db->conectar();
+try {
+    // Lógica para cancelar la cita
+    // ...
 
-// Construir y ejecutar la consulta SQL para cancelar la cita
-$sql = "DELETE FROM citas WHERE id = :id";
-$stmt = $db->prepare($sql);
-$stmt->bindParam(':id', $cita_id, PDO::PARAM_INT);
-
-$resultado = $stmt->execute();
-
-if ($resultado) {
+    // Respuesta exitosa
     echo json_encode(['status' => 'success']);
-} else {
-    echo json_encode(['status' => 'error', 'message' => 'No se pudo cancelar la cita']);
+} catch (Exception $e) {
+    // Captura de errores
+    echo json_encode(['status' => 'error', 'message' => $e->getMessage()]);
 }
-
-$db->close();
 ?>

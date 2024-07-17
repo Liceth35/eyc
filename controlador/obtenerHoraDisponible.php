@@ -1,5 +1,4 @@
 <?php
-// Incluir el archivo de conexión a la base de datos
 require_once './conexion.php';
 
 // Verificar que se reciba una solicitud GET con la fecha
@@ -18,18 +17,28 @@ $db->conectar();
 // Consultar disponibilidad desde la base de datos
 $query = "SELECT hora_inicio, hora_fin FROM disponibilidad 
         WHERE fecha = :fecha AND disponible = 1 
-        ORDER BY hora_inicio ASC LIMIT 1";
+        ORDER BY hora_inicio ASC";
 
 $stmt = $db->getConexion()->prepare($query);
 
 // Asignar parámetros y ejecutar la consulta
 $stmt->bindParam(':fecha', $fecha);
 $stmt->execute();
-$resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+$resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Verificar el resultado de la consulta
 if ($resultado) {
-    echo json_encode(['disponible' => true, 'hora_inicio' => $resultado['hora_inicio'], 'hora_fin' => $resultado['hora_fin']]);
+    $horas = [];
+    foreach ($resultado as $row) {
+        if (!in_array($row['hora_inicio'], $horas)) {
+            $horas[] = $row['hora_inicio'];
+        }
+        if (!in_array($row['hora_fin'], $horas)) {
+            $horas[] = $row['hora_fin'];
+        }
+    }
+    sort($horas); // Ordenar horas
+    echo json_encode(['disponible' => true, 'horas' => $horas]);
 } else {
     echo json_encode(['disponible' => false]);
 }
