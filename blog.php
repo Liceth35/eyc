@@ -11,7 +11,21 @@ $posts = $db->getData($sql);
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es">Cargar Certificado
+Número de Cédula:
+
+
+
+Código de Verificación:
+
+wboaQ5qsSy
+
+
+Certificado PDF:
+
+Sin archivos seleccionados
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

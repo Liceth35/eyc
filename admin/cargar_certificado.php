@@ -16,7 +16,10 @@ if (!isset($_SESSION['cedula'])) {
     <link rel="shortcut icon" href="../images/New_Logo_EyC2024_vertical-removebg-preview.png">
 </head>
 <body>
-    <button type="button" class="btn btn-warning cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
+    <div class="header-buttons">
+        <a href="../vista_certificados.php" class="btn btn-primary certificados">Certificados</a>
+        <button type="button" class="btn btn-warning cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
+    </div>
     <h2>Cargar Certificado</h2>
     <form action="procesar_carga.php" method="POST" enctype="multipart/form-data">
         <label for="numero_cedula">Número de Cédula:</label><br>
@@ -58,11 +61,16 @@ if (!isset($_SESSION['cedula'])) {
             xhttp.open("GET", "../controlador/logaout.php", true);
             xhttp.send();
         }
-        window.onload = function() {
-        if (window.history.length > 1) {
-            window.history.forward();
+
+        function irACertificados() {
+            window.location.href = "../certificados.php";
         }
-    }
+
+        window.onload = function() {
+            if (window.history.length > 1) {
+                window.history.forward();
+            }
+        }
     </script>
 </body>
 </html>

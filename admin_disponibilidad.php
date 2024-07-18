@@ -18,35 +18,20 @@ header("Expires: 0"); // Proxies
     <link rel="stylesheet" href="css/admin_disponibilidad.css">
     <link rel="shortcut icon" href="images/New_Logo_EyC2024_vertical-removebg-preview.png">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/calendario.js"></script>
 </head>
 <body>
     <header>
-    <button type="button" class="btn btn-warning cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
+        <button type="button" class="btn btn-warning cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
         <h1>Administrar Disponibilidad de Citas</h1>
     </header>
     <div class="menu-botton">
         <a href="./cargarDisponibilidad.php">Cargar disponibilidad</a>
         <a href="./admin_gestion.php">Panel Administración</a>
+        <form action="controlador/ExportController.php" method="post">
+            <button type="submit" class="btn btn-success">Descargar Disponibilidad en Excel</button>
+        </form>
     </div>
     <div class="container">
-        <div class="calendar-container">
-            <div class="calendar-header">Calendario de disponibilidad</div>
-            <div id="calendar">
-                <div class="calendar-weekdays">
-                    <div class="calendar-weekday">Dom</div>
-                    <div class="calendar-weekday">Lun</div>
-                    <div class="calendar-weekday">Mar</div>
-                    <div class="calendar-weekday">Mié</div>
-                    <div class="calendar-weekday">Jue</div>
-                    <div class="calendar-weekday">Vie</div>
-                    <div class="calendar-weekday">Sáb</div>
-                </div>
-                <div class="calendar-days">
-                    <!-- Contenido dinámico cargado desde JavaScript -->
-                </div>
-            </div>
-        </div>
         <div class="time-selection">
             <div class="time-header">Horarios Disponibles</div>
             <div class="time-slots">
@@ -56,7 +41,6 @@ header("Expires: 0"); // Proxies
                             <th>Municipio</th>
                             <th>Fecha</th>
                             <th>Horario</th>
-                            <th>Disponible</th>
                         </tr>
                     </thead>
                     <tbody id="time-table">
@@ -89,32 +73,36 @@ header("Expires: 0"); // Proxies
                     <td>${disponibilidad.municipio}</td>
                     <td>${disponibilidad.fecha}</td>
                     <td>${disponibilidad.horario}</td>
-                    <td><input type="checkbox" ${disponibilidad.disponible ? 'checked' : ''}></td>
                 `;
                 tableBody.appendChild(row);
             });
         }
-    function cerrarSesion() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4) {
-                if (this.status == 200) {
-                    console.log("Sesión cerrada"); // Para depurar
-                    window.location.replace("index.php");
-                } else {
-                    console.log("Error al cerrar sesión"); // Para depurar
-                }
-            }
-        };
-        xhttp.open("GET", "./controlador/logaout.php", true);
-        xhttp.send();
-    }
 
-    window.onload = function() {
-        if (window.history.length > 1) {
-            window.history.forward();
+        function cerrarSesion() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                    if (this.status == 200) {
+                        console.log("Sesión cerrada"); // Para depurar
+                        window.location.replace("index.php");
+                    } else {
+                        console.log("Error al cerrar sesión"); // Para depurar
+                    }
+                }
+            };
+            xhttp.open("GET", "./controlador/logaout.php", true);
+            xhttp.send();
         }
-    }
+
+        function descargarExcel() {
+            window.location.href = './controlador/excel_citas.php';
+        }
+
+        window.onload = function() {
+            if (window.history.length > 1) {
+                window.history.forward();
+            }
+        }
     </script>
 </body>
 </html>

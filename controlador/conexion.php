@@ -109,6 +109,17 @@ class PDODB
     {
         $this->conexion = null;
     }
+
+    // Función nueva_fecha para convertir la fecha en el formato deseado
+    function nueva_fecha($fecha)
+    {
+        try {
+            $nuevaFecha = date('Y-m-d', strtotime($fecha));
+            return $nuevaFecha;
+        } catch (Exception $e) {
+            die("Error al convertir la fecha: " . $e->getMessage());
+        }
+    }
 }
 
 // Ejemplo básico de uso:

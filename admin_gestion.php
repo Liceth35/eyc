@@ -198,15 +198,18 @@ header("Expires: 0"); // Proxies
         </div>
     </div>
     <div id="reagendar-form" style="display: none;">
-    <h3>Selecciona la hora para reagendar</h3>
-    <label for="hora_inicio">Hora de inicio:</label>
-    <select id="hora_inicio"></select>
-    <br>
-    <label for="hora_fin">Hora de fin:</label>
-    <select id="hora_fin"></select>
+    <h3>Selecciona el horario para reagendar</h3>
+    <label for="horario">Horario:</label>
+    <select id="horario">
+        <option value="7:00 AM - 9:00 AM">7:00 AM - 9:00 AM</option>
+        <option value="9:00 AM - 12:00 PM">9:00 AM - 12:00 PM</option>
+        <option value="1:00 PM - 3:00 PM">1:00 PM - 3:00 PM</option>
+        <option value="3:00 PM - 5:00 PM">3:00 PM - 5:00 PM</option>
+    </select>
     <br>
     <button id="submit-reagendar">Reagendar</button>
 </div>
+
 
     <div id="calendar-container">
         <span id="close-calendar">[Cerrar]</span>
