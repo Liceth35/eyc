@@ -40,7 +40,8 @@ $db->close(); // Cerrar la conexión después de obtener los datos
         <button type="submit" class="btn btn-success">Descargar certificados Excel</button>
     </form>
      <button type="button" class="btn btn-warning btn-cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
-    
+    <!-- Nuevo botón para cargar certificado -->
+    <a href="cargar_certificado.php" class="btn-cargar-certificado">Cargar Certificado</a>
     <div class="contenedor_padre">
         <h1>Certificados</h1>
         <table class="table">

@@ -121,3 +121,18 @@ h1 {
      right: 82%!important;
      z-index: 1000; /* Asegura que el botón esté por encima de otros contenidos */
  }
+ .btn-cargar-certificado {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cargar-certificado:hover {
+    background-color: #0056b3;
+}   
