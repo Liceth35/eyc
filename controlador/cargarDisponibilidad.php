@@ -4,8 +4,18 @@ include_once 'conexion.php';
 $pdo = new PDODB();
 $pdo->conectar();
 
+// Obtener municipio de la solicitud
+$municipio = isset($_GET['municipio']) ? $_GET['municipio'] : '';
+
 $query = "SELECT * FROM disponibilidad WHERE disponible = 1";
-$disponibilidad = $pdo->consulta($query);
+$params = array();
+
+if ($municipio) {
+    $query .= " AND municipio = ?";
+    $params[] = $municipio;
+}
+
+$disponibilidad = $pdo->consulta($query, $params);
 
 $events = array();
 

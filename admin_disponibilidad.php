@@ -27,7 +27,7 @@ header("Expires: 0"); // Proxies
     <div class="menu-botton">
         <a href="./cargarDisponibilidad.php">Cargar disponibilidad</a>
         <a href="./admin_gestion.php">Panel Administración</a>
-        <form action="controlador/ExportController.php" method="post">
+        <form action="controlador/excel_citas.php" method="post">
             <button type="submit" class="btn btn-success">Descargar Disponibilidad en Excel</button>
         </form>
     </div>
