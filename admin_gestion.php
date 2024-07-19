@@ -69,44 +69,68 @@ header("Expires: 0"); // Proxies
                 select: function(start, end) {
                     var nueva_fecha = moment(start).format('YYYY-MM-DD');
 
-                    fetch(`./controlador/obtenerHoraDisponible.php?fecha=${nueva_fecha}`)
-                        .then(response => response.json())
-                        .then(data => {
+                    $.ajax({
+                        url: './controlador/obtenerHoraDisponible.php',
+                        type: 'GET',
+                        data: { fecha: nueva_fecha },
+                        dataType: 'json',
+                        success: function(data) {
                             if (data.disponible) {
-                                var nueva_hora_inicio = data.hora_inicio;
-                                var nueva_hora_fin = data.hora_fin;
+                                // Limpiar el contenido del dropdown
+                                $('#hora_inicio').empty();
+                                $('#hora_fin').empty();
 
-                                if (confirm(`¿Está seguro de que desea reagendar la cita para el ${nueva_fecha} de ${nueva_hora_inicio} a ${nueva_hora_fin}?`)) {
-                                    fetch('./controlador/reagendarCita.php', {
-                                        method: 'POST',
-                                        headers: { 'Content-Type': 'application/json' },
-                                        body: JSON.stringify({ id: id, fecha: nueva_fecha, hora_inicio: nueva_hora_inicio, hora_fin: nueva_hora_fin })
-                                    })
-                                    .then(response => response.json())
-                                    .then(data => {
-                                        if (data.status === 'success') {
-                                            alert('Cita reagendada exitosamente.');
-                                            location.reload();
-                                        } else {
-                                            alert(data.message || 'Error al reagendar la cita.');
+                                // Crear las opciones del dropdown
+                                data.horas.forEach(hora => {
+                                    $('#hora_inicio').append(`<option value="${hora}">${hora}</option>`);
+                                    $('#hora_fin').append(`<option value="${hora}">${hora}</option>`);
+                                });
+
+                                // Mostrar el formulario para seleccionar hora
+                                $('#reagendar-form').show();
+
+                                // Manejar el envío del formulario
+                                $('#submit-reagendar').off('click').on('click', function() {
+                                    var nueva_hora_inicio = $('#hora_inicio').val();
+                                    var nueva_hora_fin = $('#hora_fin').val();
+
+                                    if (nueva_hora_inicio && nueva_hora_fin) {
+                                        if (confirm(`¿Está seguro de que desea reagendar la cita para el ${nueva_fecha} de ${nueva_hora_inicio} a ${nueva_hora_fin}?`)) {
+                                            $.ajax({
+                                                url: './controlador/reagendarCita.php',
+                                                type: 'POST',
+                                                contentType: 'application/json',
+                                                data: JSON.stringify({ id: id, fecha: nueva_fecha, hora_inicio: nueva_hora_inicio, hora_fin: nueva_hora_fin }),
+                                                dataType: 'json',
+                                                success: function(data) {
+                                                    if (data.status === 'success') {
+                                                        alert('Cita reagendada exitosamente.');
+                                                        location.reload();
+                                                    } else {
+                                                        alert(data.message || 'Error al reagendar la cita.');
+                                                    }
+                                                },
+                                                error: function(xhr, status, error) {
+                                                    console.error('Error:', error);
+                                                    alert('Hubo un error al procesar la solicitud.');
+                                                }
+                                            });
                                         }
-                                    })
-                                    .catch(error => {
-                                        console.error('Error:', error);
-                                        alert('Hubo un error al procesar la solicitud.');
-                                    });
-                                }
+                                    } else {
+                                        alert('Hora de inicio y/o fin no seleccionadas.');
+                                    }
+                                });
                             } else {
                                 alert('No hay horas disponibles para la fecha seleccionada. Por favor elija otra.');
                             }
-                        })
-                        .catch(error => {
+                        },
+                        error: function(xhr, status, error) {
                             console.error('Error:', error);
                             alert('Hubo un error al verificar la disponibilidad.');
-                        });
+                        }
+                    });
 
                     $('#calendar').fullCalendar('unselect');
-                    $('#calendar-container').hide();
                 }
             });
         }
@@ -121,7 +145,7 @@ header("Expires: 0"); // Proxies
 </head>
 <body>
     <div class="header">
-    <button type="button" class="btn btn-warning cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
+        <button type="button" class="btn btn-warning cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
         <h1>Panel de Administración</h1>
     </div>
     <h2><center>Administración de Citas Agendadas</center></h2>
@@ -152,16 +176,12 @@ header("Expires: 0"); // Proxies
                     </tr>
                 </thead>
                 <tbody id="citas-table">
-                    <!-- Contenido dinámico generado por PHP -->
                     <?php
-                    // Incluir el archivo de conexión a la base de datos
                     include_once './controlador/conexion.php';
 
-                    // Instanciar la conexión
                     $pdo = new PDODB();
                     $pdo->conectar();
 
-                    // Consulta para obtener las citas
                     $query = "SELECT * FROM citas";
                     $citas = $pdo->consulta($query);
 
@@ -190,7 +210,6 @@ header("Expires: 0"); // Proxies
                         echo "<tr><td colspan='13'>No hay citas agendadas.</td></tr>";
                     }
 
-                    // Cerrar la conexión
                     $pdo->close();
                     ?>
                 </tbody>
@@ -198,128 +217,16 @@ header("Expires: 0"); // Proxies
         </div>
     </div>
     <div id="reagendar-form" style="display: none;">
-    <h3>Selecciona el horario para reagendar</h3>
-    <label for="horario">Horario:</label>
-    <select id="horario">
-        <option value="7:00 AM - 9:00 AM">7:00 AM - 9:00 AM</option>
-        <option value="9:00 AM - 12:00 PM">9:00 AM - 12:00 PM</option>
-        <option value="1:00 PM - 3:00 PM">1:00 PM - 3:00 PM</option>
-        <option value="3:00 PM - 5:00 PM">3:00 PM - 5:00 PM</option>
-    </select>
-    <br>
-    <button id="submit-reagendar">Reagendar</button>
-</div>
-
-
+        <h3>Selecciona el horario para reagendar</h3>
+        <label for="hora_inicio">Hora de inicio:</label>
+        <select id="hora_inicio"></select>
+        <label for="hora_fin">Hora de fin:</label>
+        <select id="hora_fin"></select>
+        <button id="submit-reagendar">Reagendar</button>
+    </div>
     <div id="calendar-container">
-        <span id="close-calendar">[Cerrar]</span>
+        <span id="close-calendar">X</span>
         <div id="calendar"></div>
     </div>
-    <script src="./js/cargarDisponibilidad.js"></script>
-    <script>
-function reagendar(id) {
-    $('#calendar-container').show();
-    $('#calendar').fullCalendar('destroy'); // Destruir cualquier instancia anterior
-    $('#calendar').fullCalendar({
-        events: './controlador/cargarDisponibilidad.php', // URL de tu controlador que devuelve eventos en formato JSON
-        selectable: true,
-        selectHelper: true,
-        select: function(start, end) {
-            var nueva_fecha = moment(start).format('YYYY-MM-DD');
-
-            $.ajax({
-                url: './controlador/obtenerHoraDisponible.php',
-                type: 'GET',
-                data: { fecha: nueva_fecha },
-                dataType: 'json',
-                success: function(data) {
-                    if (data.disponible) {
-                        // Limpiar el contenido del dropdown
-                        $('#hora_inicio').empty();
-                        $('#hora_fin').empty();
-
-                        // Crear las opciones del dropdown
-                        data.horas.forEach(hora => {
-                            $('#hora_inicio').append(`<option value="${hora}">${hora}</option>`);
-                            $('#hora_fin').append(`<option value="${hora}">${hora}</option>`);
-                        });
-
-                        // Mostrar el formulario para seleccionar hora
-                        $('#reagendar-form').show();
-
-                        // Manejar el envío del formulario
-                        $('#submit-reagendar').off('click').on('click', function() {
-                            var nueva_hora_inicio = $('#hora_inicio').val();
-                            var nueva_hora_fin = $('#hora_fin').val();
-
-                            if (nueva_hora_inicio && nueva_hora_fin) {
-                                if (confirm(`¿Está seguro de que desea reagendar la cita para el ${nueva_fecha} de ${nueva_hora_inicio} a ${nueva_hora_fin}?`)) {
-                                    $.ajax({
-                                        url: './controlador/reagendarCita.php',
-                                        type: 'POST',
-                                        contentType: 'application/json',
-                                        data: JSON.stringify({ id: id, fecha: nueva_fecha, hora_inicio: nueva_hora_inicio, hora_fin: nueva_hora_fin }),
-                                        dataType: 'json',
-                                        success: function(data) {
-                                            if (data.status === 'success') {
-                                                alert('Cita reagendada exitosamente.');
-                                                location.reload();
-                                            } else {
-                                                alert(data.message || 'Error al reagendar la cita.');
-                                            }
-                                        },
-                                        error: function(xhr, status, error) {
-                                            console.error('Error:', error);
-                                            alert('Hubo un error al procesar la solicitud.');
-                                        }
-                                    });
-                                }
-                            } else {
-                                alert('Hora de inicio y/o fin no seleccionadas.');
-                            }
-                        });
-                    } else {
-                        alert('No hay horas disponibles para la fecha seleccionada. Por favor elija otra.');
-                    }
-                },
-                error: function(xhr, status, error) {
-                    console.error('Error:', error);
-                    alert('Hubo un error al verificar la disponibilidad.');
-                }
-            });
-
-            $('#calendar').fullCalendar('unselect');
-        }
-    });
-}
-
-
-
-        
-    function cerrarSesion() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4) {
-                if (this.status == 200) {
-                    console.log("Sesión cerrada"); // Para depurar
-                    window.location.replace("index.php");
-                } else {
-                    console.log("Error al cerrar sesión"); // Para depurar
-                }
-            }
-        };
-        xhttp.open("GET", "./controlador/logaout.php", true);
-        xhttp.send();
-    }
-
-    window.onload = function() {
-        if (window.history && window.history.pushState) {
-            window.history.pushState(null, null, window.location.href);
-            window.addEventListener('popstate', function() {
-                window.history.pushState(null, null, window.location.href);
-            });
-        }
-    }
-    </script>
 </body>
 </html>

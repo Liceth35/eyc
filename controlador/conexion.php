@@ -100,6 +100,16 @@ class PDODB
         }
     }
 
+    function ejecutar($query, $params = array())
+    {
+        try {
+            $statement = $this->prepare($query);
+            return $statement->execute($params);
+        } catch (PDOException $e) {
+            die("Error al ejecutar la consulta: " . $e->getMessage());
+        }
+    }
+
     function getConexion()
     {
         return $this->conexion;

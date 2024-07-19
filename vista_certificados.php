@@ -16,7 +16,9 @@ $db = new PDODB();
 $db->conectar();
 
 // Consultar la base de datos
-$sql = "SELECT * FROM certificados";
+$sql = "SELECT c.id, c.numero_cedula, c.codigo_verificacion,a.nombre, a.correo, a.movil 
+        FROM certificados c
+        LEFT JOIN citas a ON c.numero_cedula = a.numero_documento";
 $result = $db->getData($sql);
 
 $db->close(); // Cerrar la conexión después de obtener los datos
@@ -31,9 +33,14 @@ $db->close(); // Cerrar la conexión después de obtener los datos
     <link rel="stylesheet" href="./css/vista_certificados.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="shortcut icon" href="images/New_Logo_EyC2024_vertical-removebg-preview.png">
+    
 </head>
 <body>
-    <button type="button" class="btn btn-warning cerrar btn-cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
+   <form action="controlador/certificados_excel.php" method="post" class="btn-descargar">
+        <button type="submit" class="btn btn-success">Descargar certificados Excel</button>
+    </form>
+     <button type="button" class="btn btn-warning btn-cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
+    
     <div class="contenedor_padre">
         <h1>Certificados</h1>
         <table class="table">
@@ -42,7 +49,9 @@ $db->close(); // Cerrar la conexión después de obtener los datos
                     <th>ID</th>
                     <th>Número de Cédula</th>
                     <th>Código de Verificación</th>
-                    <th>Ubicación del Certificado</th>
+                    <th>Nombre</th>
+                    <th>Celular</th>
+                    <th>Email</th>
                 </tr>
             </thead>
             <tbody>
@@ -52,12 +61,14 @@ $db->close(); // Cerrar la conexión después de obtener los datos
                             <td><?php echo $row['id'] ?></td>
                             <td><?php echo $row['numero_cedula'] ?></td>
                             <td><?php echo $row['codigo_verificacion'] ?></td>
-                            <td><a href='controlador/<?php echo $row['ubicacion_certificado'] ?>'>Ver Certificado</a></td>
+                            <td><?php echo $row['nombre'] ?></td>
+                            <td><?php echo $row['movil'] ?></td>
+                            <td><?php echo $row['correo'] ?></td>
                         </tr>
                     <?php } ?>
                 <?php } else { ?>
                     <tr>
-                        <td colspan="4" class="text-center">No se encontraron registros.</td>
+                        <td colspan="7" class="text-center">No se encontraron registros.</td>
                     </tr>
                 <?php } ?>
             </tbody>

@@ -18,6 +18,7 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 3%;
 }
 
 /* Título principal */
@@ -105,10 +106,18 @@ h1 {
     padding: 10px;
     text-align: right;
 }
-/* Alinear el botón "Cerrar Sesión" a la izquierda */
+  /* Estilo del botón "Cerrar Sesión" */
 .btn-cerrar {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: 1000; /* Asegura que el botón esté por encima de otros contenidos */
-}
+     position: absolute;
+     top: 20px;
+     left: 90%;
+     z-index: 1000; /* Asegura que el botón esté por encima de otros contenidos */
+  }
+
+/* Estilo del botón "Descargar certificados Excel" */
+ .btn-descargar {
+     position: absolute;
+     top: 20px;
+     right: 82%!important;
+     z-index: 1000; /* Asegura que el botón esté por encima de otros contenidos */
+ }
