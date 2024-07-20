@@ -93,9 +93,34 @@
             <label for="profesion">Cargo</label>
             <select id="profesion" name="profesion">
                 <option value="">Seleccionar</option>
+                <option value="aprendiz_sena">Aprendiz SENA</option>
+                <option value="asegurador_metrologico">Asegurador Metrológico</option>
+                <option value="asistente_gerencia">Asistente de Gerencia</option>
+                <option value="auxiliar_calidad">Auxiliar de Calidad</option>
+                <option value="auxiliar_contable">Auxiliar Contable</option>
+                <option value="auxiliar_metrologico">Auxiliar Metrológico</option>
+                <option value="auxiliar_programacion">Auxiliar de Programación</option>
+                <option value="auxiliar_sistemas">Auxiliar de Sistemas</option>
+                <option value="auxiliar_sst">Auxiliar SST</option>
+                <option value="auxiliar_talento_humano">Auxiliar de Talento Humano</option>
+                <option value="coordinador_desarrollo_personas">Coordinador Gestión de Desarrollo de Personas</option>
+                <option value="coordinador_hseq_sst">Coordinador HSEQ-SST</option>
+                <option value="coordinador_nomina">Coordinador de Nómina</option>
+                <option value="coordinador_seleccion_vinculacion">Coordinador de Selección y Vinculación</option>
+                <option value="contador">Contador</option>
+                <option value="digitador">Digitador</option>
+                <option value="director_administrativo">Director Administrativo</option>
+                <option value="director_informatica">Director de Informática</option>
+                <option value="director_operaciones">Director de Operaciones</option>
+                <option value="director_proyecto">Director de Proyecto</option>
+                <option value="gestor_pqrs">Gestor PQRS</option>
                 <option value="inspector">Inspector</option>
                 <option value="inspector_aprendiz">Inspector Aprendiz</option>
-                <option value="contador">Contador</option>
+                <option value="inspector_industria">Inspector de Industria</option>
+                <option value="mensajero">Mensajero</option>
+                <option value="oficios_generales">Oficios Generales</option>
+                <option value="profesional_sst">Profesional SST</option>
+                <option value="programador_enrutamiento">Programador (Enrutamiento)</option>
             </select>
             </div>
         <div id="preguntas-inspector" style="display: none;">
