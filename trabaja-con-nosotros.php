@@ -215,7 +215,26 @@
 		</div>
 	</section>
 	<!-- ./Footer -->
+     <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const profesionSelect = document.getElementById('profesion');
+    const preguntasInspector = document.getElementById('preguntas-inspector');
 
+    function toggleInspectorFields() {
+        if (profesionSelect.value === 'inspector' || profesionSelect.value === 'inspector_aprendiz') {
+            preguntasInspector.style.display = 'block';
+        } else {
+            preguntasInspector.style.display = 'none';
+        }
+    }
+
+    // Ejecutar al cargar la página para ajustar el estado inicial
+    toggleInspectorFields();
+
+    // Ejecutar al cambiar la selección del tipo de puesto
+    profesionSelect.addEventListener('change', toggleInspectorFields);
+});
+</script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
