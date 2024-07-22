@@ -17,7 +17,12 @@ header("Expires: 0"); // Proxies
     <title>Administrar Disponibilidad</title>
     <link rel="stylesheet" href="css/admin_disponibilidad.css">
     <link rel="shortcut icon" href="images/New_Logo_EyC2024_vertical-removebg-preview.png">
+    <!-- FullCalendar CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.css">
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- FullCalendar JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.js"></script>
 </head>
 <body>
     <header>
@@ -34,68 +39,57 @@ header("Expires: 0"); // Proxies
     <div class="container">
         <div class="time-selection">
             <div class="time-header">Horarios Disponibles</div>
-            <div class="time-slots">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Municipio</th>
-                            <th>Fecha</th>
-                            <th>Horario</th>
-                        </tr>
-                    </thead>
-                    <tbody id="time-table">
-                        <!-- Contenido dinámico cargado desde JavaScript -->
-                    </tbody>
-                </table>
-            </div>
+            <div id="calendar"></div>
         </div>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            cargarDisponibilidadInicial();
-        });
+            // Verifica que FullCalendar está cargado
+            console.log('DOM fully loaded and parsed');
+            console.log('FullCalendar:', typeof FullCalendar);
 
-        function cargarDisponibilidadInicial() {
-            fetch('controlador/cargarDisponibilidad.php')
-                .then(response => response.json())
-                .then(data => {
-                    mostrarDisponibilidad(data);
-                });
-        }
+            if (typeof FullCalendar === 'undefined') {
+                console.error('FullCalendar is not defined');
+                return;
+            }
 
-        function mostrarDisponibilidad(data) {
-            const tableBody = document.getElementById('time-table');
-            tableBody.innerHTML = '';
-
-            data.forEach(disponibilidad => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${disponibilidad.municipio}</td>
-                    <td>${disponibilidad.fecha}</td>
-                    <td>${disponibilidad.horario}</td>
-                `;
-                tableBody.appendChild(row);
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                events: function(fetchInfo, successCallback, failureCallback) {
+                    fetch('controlador/cargarDisponibilidad.php')
+                        .then(response => response.json())
+                        .then(data => {
+                            let events = data.map(disponibilidad => ({
+                                title: disponibilidad.municipio,
+                                start: disponibilidad.fecha + 'T' + disponibilidad.horario.split(' - ')[0],
+                                end: disponibilidad.fecha + 'T' + disponibilidad.horario.split(' - ')[1]
+                            }));
+                            successCallback(events);
+                        })
+                        .catch(error => {
+                            console.error('Error al cargar eventos:', error);
+                            failureCallback(error);
+                        });
+                }
             });
-        }
+            calendar.render();
+        });
 
         function cerrarSesion() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4) {
                     if (this.status == 200) {
-                        console.log("Sesión cerrada"); // Para depurar
+                        console.log("Sesión cerrada");
                         window.location.replace("index.php");
                     } else {
-                        console.log("Error al cerrar sesión"); // Para depurar
+                        console.log("Error al cerrar sesión");
                     }
                 }
             };
             xhttp.open("GET", "./controlador/logaout.php", true);
             xhttp.send();
-        }
-
-        function descargarExcel() {
-            window.location.href = './controlador/excel_citas.php';
         }
 
         window.onload = function() {
