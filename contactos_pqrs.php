@@ -28,7 +28,7 @@ header("Expires: 0"); // Proxies
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>#</th>
                     <th>Nombre</th>
                     <th>Teléfono</th>
                     <th>Correo</th>

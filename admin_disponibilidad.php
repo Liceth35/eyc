@@ -17,86 +17,104 @@ header("Expires: 0"); // Proxies
     <title>Administrar Disponibilidad</title>
     <link rel="stylesheet" href="css/admin_disponibilidad.css">
     <link rel="shortcut icon" href="images/New_Logo_EyC2024_vertical-removebg-preview.png">
-    <!-- FullCalendar CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.css">
-    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- FullCalendar JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.js"></script>
+    <script src="js/calendario.js"></script>
 </head>
 <body>
     <header>
-        <button type="button" class="btn btn-warning cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
+    <button type="button" class="btn btn-warning cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
         <h1>Administrar Disponibilidad de Citas</h1>
     </header>
     <div class="menu-botton">
         <a href="./cargarDisponibilidad.php">Cargar disponibilidad</a>
         <a href="./admin_gestion.php">Panel Administración</a>
-        <form action="controlador/excel_citas.php" method="post">
-            <button type="submit" class="btn btn-success">Descargar Disponibilidad en Excel</button>
-        </form>
     </div>
     <div class="container">
+        <div class="calendar-container">
+            <div class="calendar-header">Calendario de disponibilidad</div>
+            <div id="calendar">
+                <div class="calendar-weekdays">
+                    <div class="calendar-weekday">Dom</div>
+                    <div class="calendar-weekday">Lun</div>
+                    <div class="calendar-weekday">Mar</div>
+                    <div class="calendar-weekday">Mié</div>
+                    <div class="calendar-weekday">Jue</div>
+                    <div class="calendar-weekday">Vie</div>
+                    <div class="calendar-weekday">Sáb</div>
+                </div>
+                <div class="calendar-days">
+                    <!-- Contenido dinámico cargado desde JavaScript -->
+                </div>
+            </div>
+        </div>
         <div class="time-selection">
             <div class="time-header">Horarios Disponibles</div>
-            <div id="calendar"></div>
+            <div class="time-slots">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Municipio</th>
+                            <th>Fecha</th>
+                            <th>Horario</th>
+                            <th>Disponible</th>
+                        </tr>
+                    </thead>
+                    <tbody id="time-table">
+                        <!-- Contenido dinámico cargado desde JavaScript -->
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Verifica que FullCalendar está cargado
-            console.log('DOM fully loaded and parsed');
-            console.log('FullCalendar:', typeof FullCalendar);
-
-            if (typeof FullCalendar === 'undefined') {
-                console.error('FullCalendar is not defined');
-                return;
-            }
-
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                events: function(fetchInfo, successCallback, failureCallback) {
-                    fetch('controlador/cargarDisponibilidad.php')
-                        .then(response => response.json())
-                        .then(data => {
-                            let events = data.map(disponibilidad => ({
-                                title: disponibilidad.municipio,
-                                start: disponibilidad.fecha + 'T' + disponibilidad.horario.split(' - ')[0],
-                                end: disponibilidad.fecha + 'T' + disponibilidad.horario.split(' - ')[1]
-                            }));
-                            successCallback(events);
-                        })
-                        .catch(error => {
-                            console.error('Error al cargar eventos:', error);
-                            failureCallback(error);
-                        });
-                }
-            });
-            calendar.render();
+            cargarDisponibilidadInicial();
         });
 
-        function cerrarSesion() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4) {
-                    if (this.status == 200) {
-                        console.log("Sesión cerrada");
-                        window.location.replace("index.php");
-                    } else {
-                        console.log("Error al cerrar sesión");
-                    }
-                }
-            };
-            xhttp.open("GET", "./controlador/logaout.php", true);
-            xhttp.send();
+        function cargarDisponibilidadInicial() {
+            fetch('controlador/cargarDisponibilidad.php')
+                .then(response => response.json())
+                .then(data => {
+                    mostrarDisponibilidad(data);
+                });
         }
 
-        window.onload = function() {
-            if (window.history.length > 1) {
-                window.history.forward();
-            }
+        function mostrarDisponibilidad(data) {
+            const tableBody = document.getElementById('time-table');
+            tableBody.innerHTML = '';
+
+            data.forEach(disponibilidad => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${disponibilidad.municipio}</td>
+                    <td>${disponibilidad.fecha}</td>
+                    <td>${disponibilidad.horario}</td>
+                    <td><input type="checkbox" ${disponibilidad.disponible ? 'checked' : ''}></td>
+                `;
+                tableBody.appendChild(row);
+            });
         }
+    function cerrarSesion() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    console.log("Sesión cerrada"); // Para depurar
+                    window.location.replace("index.php");
+                } else {
+                    console.log("Error al cerrar sesión"); // Para depurar
+                }
+            }
+        };
+        xhttp.open("GET", "./controlador/logaout.php", true);
+        xhttp.send();
+    }
+
+    window.onload = function() {
+        if (window.history.length > 1) {
+            window.history.forward();
+        }
+    }
     </script>
 </body>
 </html>

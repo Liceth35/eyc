@@ -1,37 +1,39 @@
 <?php
-include_once 'conexion.php';
+// Incluir archivo de conexión a la base de datos
+require_once './conexion.php';
 
-$pdo = new PDODB();
-$pdo->conectar();
+// Instanciar la clase de conexión a la base de datos
+$db = new PDODB();
+$db->conectar();
 
-// Obtener municipio de la solicitud
-$municipio = isset($_GET['municipio']) ? $_GET['municipio'] : '';
+// Consultar disponibilidad desde la base de datos
+$query = "SELECT municipio, fecha, hora_inicio, hora_fin, disponible FROM disponibilidad";
+$stmt = $db->getConexion()->query($query);
 
-$query = "SELECT * FROM disponibilidad WHERE disponible = 1";
-$params = array();
+// Verificar si se obtuvieron resultados
+if ($stmt) {
+    // Obtener resultados como un array asociativo
+    $disponibilidades = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-if ($municipio) {
-    $query .= " AND municipio = ?";
-    $params[] = $municipio;
-}
-
-$disponibilidad = $pdo->consulta($query, $params);
-
-$events = array();
-
-if ($disponibilidad) {
-    foreach ($disponibilidad as $slot) {
-        $events[] = array(
-            'id' => $slot['id'],
-            'title' => 'Disponible',
-            'start' => $slot['fecha'] . 'T' . $slot['hora_inicio'],
-            'end' => $slot['fecha'] . 'T' . $slot['hora_fin']
-        );
+    // Crear array de eventos para el calendario
+    $eventos = [];
+    foreach ($disponibilidades as $disponibilidad) {
+        $eventos[] = [
+            'municipio' => $disponibilidad['municipio'],
+            'fecha' => $disponibilidad['fecha'],
+            'horario' => substr($disponibilidad['hora_inicio'], 0, 5) . ' - ' . substr($disponibilidad['hora_fin'], 0, 5),
+            'disponible' => $disponibilidad['disponible']
+        ];
     }
+
+    // Devolver eventos como JSON
+    echo json_encode($eventos);
+} else {
+    // Error al ejecutar la consulta
+    http_response_code(500);
+    echo json_encode(['error' => 'Error al cargar disponibilidad']);
 }
 
-$pdo->close();
-
-header('Content-Type: application/json');
-echo json_encode($events);
+// Cerrar la conexión a la base de datos
+$db->close();
 ?>

@@ -42,9 +42,9 @@
                         <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPoliticas" role="button"data-bs-toggle="dropdown" aria-expanded="false">POLÍTICAS</a>
                         <ul class="dropdown-menu dropdown-team-politicas" aria-labelledby="navbarDropdownPoliticas">
-                            <li><a class="dropdown-item" href="./politicas.php">POLÍTICAS</a></li>
-                            <li><a class="dropdown-item" href="./politicasetica.php">POLÍTICAS ÉTICA</a></li>
-                            <li><a class="dropdown-item" href="./politicastratamiento.php">POLÍTICAS TRATAMIENTO</a></li>
+                            <li><a class="dropdown-item" href="./politicas.php">Políticas</a></li>
+                            <li><a class="dropdown-item" href="./politicasetica.php">Política ética</a></li>
+                            <li><a class="dropdown-item" href="./politicastratamiento.php">Políticas tratamiento</a></li>
                         </ul>
                     </ul>
                 </div>

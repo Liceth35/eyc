@@ -100,16 +100,6 @@ class PDODB
         }
     }
 
-    function ejecutar($query, $params = array())
-    {
-        try {
-            $statement = $this->prepare($query);
-            return $statement->execute($params);
-        } catch (PDOException $e) {
-            die("Error al ejecutar la consulta: " . $e->getMessage());
-        }
-    }
-
     function getConexion()
     {
         return $this->conexion;
@@ -118,17 +108,6 @@ class PDODB
     function close()
     {
         $this->conexion = null;
-    }
-
-    // Función nueva_fecha para convertir la fecha en el formato deseado
-    function nueva_fecha($fecha)
-    {
-        try {
-            $nuevaFecha = date('Y-m-d', strtotime($fecha));
-            return $nuevaFecha;
-        } catch (Exception $e) {
-            die("Error al convertir la fecha: " . $e->getMessage());
-        }
     }
 }
 

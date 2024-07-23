@@ -17,7 +17,7 @@ form {
     max-width: 500px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #b3d7ff!important;
+    background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -60,14 +60,7 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #0056b3;
 }
-
-/* Estilos para los botones de la cabecera */
-.header-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
+/* Estilos para el botón de cerrar sesión */
 .btn {
     font-family: Arial, sans-serif;
     font-size: 14px; /* Ajustar el tamaño de fuente del botón */
@@ -91,25 +84,56 @@ button[type="submit"]:hover {
     background-color: #d58512;
 }
 
-.btn-primary {
-    background-color: #007bff;
+/* Estilos para alinear el botón de Cerrar Sesión a la derecha */
+.btn-cerrar {
+    float: right;
+    margin-top: 10px;
+}
+/* Estilos para el botón de descarga de Excel */
+.btn-success {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    background-color: #4CAF50; /* Color verde */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: #45a049; /* Color verde oscuro al pasar el mouse */
+}
+
+.btn {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-warning {
+    background-color: #f0ad4e;
     color: white;
 }
 
-.btn-primary:hover {
-    background-color: #0056b3;
+.btn-warning:hover {
+    background-color: rgb(240, 206, 143);
 }
 
-.btn-primary:active {
-    background-color: #004085;
+.btn-warning:active {
+    background-color: rgb(240, 206, 143);
 }
 
-/* Alinear el botón de Certificados a la izquierda */
-.certificados {
-    margin-left: 0;
-}
-
-/* Alinear el botón de Cerrar Sesión a la derecha */
 .cerrar {
-    margin-right: 0;
+    margin-left: 87%;
+    margin-right: 30px;
+    margin-top: 1%;
 }
