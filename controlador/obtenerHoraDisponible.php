@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET' || !isset($_GET['fecha'])) {
 }
 
 $fecha = $_GET['fecha'];
+$id_nueva_fecha = $_GET['id_nueva_fecha'];
 
 // Instanciar la clase de conexión a la base de datos
 $db = new PDODB();

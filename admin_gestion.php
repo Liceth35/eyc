@@ -59,7 +59,8 @@ header("Expires: 0"); // Proxies
             }
         }
 
-        function reagendar(id) {
+        function reagendar(id) { 
+            alert(id);
             $('#calendar-container').show();
             $('#calendar').fullCalendar('destroy'); // Destruir cualquier instancia anterior
             $('#calendar').fullCalendar({
@@ -215,6 +216,7 @@ header("Expires: 0"); // Proxies
     <script src="./js/cargarDisponibilidad.js"></script>
     <script>
 function reagendar(id) {
+    alert(id);
     $('#calendar-container').show();
     $('#calendar').fullCalendar('destroy'); // Destruir cualquier instancia anterior
     $('#calendar').fullCalendar({
@@ -223,11 +225,12 @@ function reagendar(id) {
         selectHelper: true,
         select: function(start, end) {
             var nueva_fecha = moment(start).format('YYYY-MM-DD');
+            alert(nueva_fecha);
 
             $.ajax({
                 url: './controlador/obtenerHoraDisponible.php',
                 type: 'GET',
-                data: { fecha: nueva_fecha },
+                data: { fecha: nueva_fecha,id_nueva_fecha:id },
                 dataType: 'json',
                 success: function(data) {
                     if (data.disponible) {
