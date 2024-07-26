@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-07-2024 a las 22:54:17
+-- Tiempo de generación: 26-07-2024 a las 21:36:06
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -43,7 +43,8 @@ CREATE TABLE `admin_blog` (
 
 INSERT INTO `admin_blog` (`id`, `titulo`, `resumen`, `contenido`, `url_imagen`, `fecha_creacion`, `fecha_actualizacion`) VALUES
 (1, 'Inspección de Gas: ¿Por qué es Importante?', 'Descubre la importancia de realizar inspecciones regulares de gas para garantizar la seguridad en el hogar.', 'Las inspecciones de gas son fundamentales para asegurar que todos los sistemas de gas en el hogar funcionen de manera segura y eficiente. Un sistema de gas defectuoso puede provocar fugas peligrosas y aumentar el riesgo de incendios. En este artículo, exploraremos los beneficios de las inspecciones regulares y cómo pueden ayudar a prevenir accidentes graves.\n', './images/clean_code_bg.jpg', '2024-06-27 12:39:23', '2024-06-27 15:19:52'),
-(4, ' Inspección de Gas', 'Inspección de gas', 'Inspecciones', './images/Captura de pantalla (77).png', '2024-07-08 20:05:59', '2024-07-08 20:05:59');
+(4, ' Inspección de Gas', 'Inspección de gas', 'Inspecciones', './images/Captura de pantalla (77).png', '2024-07-08 20:05:59', '2024-07-08 20:05:59'),
+(14, 'Liceth', 'Esta es una prueba ', 'hola', './images/WhatsApp Image 2024-07-03 at 8.56.21 AM.jpeg', '2024-07-17 20:29:54', '2024-07-17 20:29:54');
 
 -- --------------------------------------------------------
 
@@ -63,11 +64,8 @@ CREATE TABLE `certificados` (
 --
 
 INSERT INTO `certificados` (`id`, `numero_cedula`, `codigo_verificacion`, `ubicacion_certificado`) VALUES
-(1, '1027956039', '1234565ABC', './admin/uploads_certificado/ejemplo.pdf'),
-(3, '22024737', '12345CCC', './admin/uploads_certificado/ejemplo.pdf'),
-(5, '1027956039', 'kizj0v5965', './admin/uploads_certificado/ejemplo-de-descarga-pdfpdf.pdf'),
-(6, '1027956039', 'stgHGkaTNp', './admin/uploads_certificado/ejemplo-de-descarga-pdfpdf.pdf'),
-(7, '1027956039', 'mofabjYE5f', './admin/uploads_certificado/ejemplo-de-descarga-pdfpdf.pdf');
+(3, '22024737', '12345CCCCC', './admin/uploads_certificado/ejemplo.pdf'),
+(5, '1027956039', 'kizj0v5965', './admin/uploads_certificado/ejemplo-de-descarga-pdfpdf.pdf');
 
 -- --------------------------------------------------------
 
@@ -96,8 +94,8 @@ CREATE TABLE `citas` (
 --
 
 INSERT INTO `citas` (`id`, `departamento`, `municipio`, `fecha`, `horario`, `numero_documento`, `tipo_documento`, `nombre`, `correo`, `movil`, `acepto_politica`, `numero_contrato`, `direccion`) VALUES
-(6, 'Antioquia', 'Medellin', '2024-07-19', '07:00:00', '1027956039', 'CC', 'Kelly meneses', 'kelly20@gmail.com', '3107098865', 1, '556495964554', 'calle 101c'),
-(11, 'Antioquia', 'medellin', '2024-07-19', '07:00:00', '1027956039', 'CC', 'David Andrade', 'david@gmail.com', '3107098865', 1, '556495964554', 'calle 101c'),
+(6, 'Antioquia', 'Medellin', '2024-07-27', '09:00:00 - 12:00:00', '102795656', 'CC', 'Kelly meneses', 'kelly20@gmail.com', '3107098865', 1, '556495964554', 'calle 101c'),
+(11, 'Antioquia', 'medellin', '2024-07-27', '15:00:00 - 17:00:00', '22024737', 'CC', 'David Andrade', 'david@gmail.com', '3107098865', 1, '556495964554', 'calle 101c'),
 (12, 'Amazonas', 'Leticia', '2024-07-10', '7:00-9:00', '1027956039', 'CC', 'Liceth Valderrama', 'liceth3@gmail.com', '3107098865', 1, '556495964554', 'calle 101c');
 
 -- --------------------------------------------------------
@@ -155,7 +153,8 @@ INSERT INTO `disponibilidad` (`id`, `municipio`, `fecha`, `hora_inicio`, `hora_f
 (6, 'Medellin', '2024-07-19', '15:00:00', '17:00:00', 1),
 (7, 'Medellin', '2024-07-19', '07:00:00', '09:00:00', 1),
 (8, 'Medellin', '2024-07-27', '13:00:00', '15:00:00', 1),
-(9, 'Medellin', '2024-07-27', '09:00:00', '12:00:00', 1);
+(9, 'Medellin', '2024-07-27', '09:00:00', '12:00:00', 1),
+(10, 'Medellin', '2024-08-19', '07:00:00', '09:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -396,19 +395,19 @@ ALTER TABLE `usuarios_rh`
 -- AUTO_INCREMENT de la tabla `admin_blog`
 --
 ALTER TABLE `admin_blog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `certificados`
 --
 ALTER TABLE `certificados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `citas`
 --
 ALTER TABLE `citas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `contactos`
@@ -420,7 +419,7 @@ ALTER TABLE `contactos`
 -- AUTO_INCREMENT de la tabla `disponibilidad`
 --
 ALTER TABLE `disponibilidad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `hoja_de_vida`
