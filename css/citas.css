@@ -94,8 +94,9 @@ button {
 button:hover {
     background-color: #004494;
 }
+
 footer {
-    background-color: #001a33 ;
+    background-color: #001a33;
     color: white;
     text-align: center;
     padding: 0rem;
