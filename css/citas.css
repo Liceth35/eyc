@@ -1,106 +1,170 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #001a33;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
 }
 
 header {
     background-color: #001a33;
-    color: white;
+    padding: 20px;
     text-align: center;
-    padding: 1em 0;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .stepper {
     display: flex;
-    justify-content: center;
-    margin: 20px 0;
+    justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .step {
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    background-color: #b4daff;
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin: 0 10px;
+    justify-content: center;
     cursor: pointer;
-    color: white;
+    transition: background-color 0.3s;
 }
 
-.step.step1 {
-    background-color: #b4daff; /* Azul claro */
+.step:nth-child(1) {
+    background-color: #b4daff;
 }
 
-.step.step2 {
-    background-color: #d8b4ff; /* Lila */
+.step:nth-child(2) {
+    background-color: #ffb4d8;
 }
 
-.step.step3 {
-    background-color: #a4c639; /* Verde */
+.step:nth-child(3) {
+    background-color: #a4c639;
 }
 
 .step.active, .step.completed {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.step.step1.active, .step.step1.completed {
-    background-color: #b4daff; /* Azul claro */
-}
-
-.step.step2.active, .step.step2.completed {
-    background-color: #d8b4ff; /* Lila */
-}
-
-.step.step3.active, .step.step3.completed {
-    background-color: #a4c639; /* Verde */
+    font-weight: bold;
+    color: #fff;
 }
 
 .step-content {
     display: none;
-    padding: 20px;
-    background-color: white;
-    margin: 20px auto;
-    width: 80%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .step-content.active {
     display: block;
 }
 
-label {
+form label {
     display: block;
     margin: 10px 0 5px;
+    font-weight: bold;
 }
 
-input, select, button {
-    width: 95%;
+form select, form input, form button {
+    width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
-button {
-    background-color: #001a33;
-    color: white;
+form button {
+    background-color: #a4c639;
+    color: #fff;
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #004494;
+form button:hover {
+    background-color: #8fbf2a;
+}
+
+.calendar-container {
+    margin-bottom: 20px;
+}
+
+.calendar-header {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-day {
+    padding: 10px;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.calendar-day.available {
+    background-color: #b4daff;
+}
+
+.calendar-day.unavailable {
+    background-color: #eee;
+    cursor: not-allowed;
+}
+
+.calendar-day.selected {
+    background-color: #a4c639;
+    color: #fff;
+}
+
+.time-selection {
+    margin-bottom: 20px;
+}
+
+.time-header {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.time-slots label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.continue-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #a4c639;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.continue-button:hover {
+    background-color: #8fbf2a;
 }
 
 footer {
+    text-align: center;
+    padding: 10px;
     background-color: #001a33;
     color: white;
-    text-align: center;
-    padding: 0rem;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    font-size: 0.9em;
 }
