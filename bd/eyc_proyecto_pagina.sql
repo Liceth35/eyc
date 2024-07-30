@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-07-2024 a las 21:36:06
+-- Tiempo de generación: 30-07-2024 a las 22:51:30
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -273,6 +273,28 @@ INSERT INTO `usuarios_citas` (`id`, `cedula`, `contrasenna`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `usuarios_eyc`
+--
+
+CREATE TABLE `usuarios_eyc` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `nivel` int(11) DEFAULT 1,
+  `puntos` int(11) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios_eyc`
+--
+
+INSERT INTO `usuarios_eyc` (`id`, `nombre`, `email`, `nivel`, `puntos`) VALUES
+(1, 'Juan Pérez', 'juan.perez@example.com', 1, 10),
+(2, 'Ana Gómez', 'ana.gomez@example.com', 2, 20);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuarios_pqrs`
 --
 
@@ -376,6 +398,13 @@ ALTER TABLE `usuarios_citas`
   ADD UNIQUE KEY `cedula` (`cedula`);
 
 --
+-- Indices de la tabla `usuarios_eyc`
+--
+ALTER TABLE `usuarios_eyc`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
 -- Indices de la tabla `usuarios_pqrs`
 --
 ALTER TABLE `usuarios_pqrs`
@@ -450,6 +479,12 @@ ALTER TABLE `usuarios_cert`
 --
 ALTER TABLE `usuarios_citas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios_eyc`
+--
+ALTER TABLE `usuarios_eyc`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios_pqrs`
