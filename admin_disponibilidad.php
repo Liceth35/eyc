@@ -30,23 +30,6 @@ header("Expires: 0"); // Proxies
         <a href="./admin_gestion.php">Panel Administración</a>
     </div>
     <div class="container">
-        <div class="calendar-container">
-            <div class="calendar-header">Calendario de disponibilidad</div>
-            <div id="calendar">
-                <div class="calendar-weekdays">
-                    <div class="calendar-weekday">Dom</div>
-                    <div class="calendar-weekday">Lun</div>
-                    <div class="calendar-weekday">Mar</div>
-                    <div class="calendar-weekday">Mié</div>
-                    <div class="calendar-weekday">Jue</div>
-                    <div class="calendar-weekday">Vie</div>
-                    <div class="calendar-weekday">Sáb</div>
-                </div>
-                <div class="calendar-days">
-                    <!-- Contenido dinámico cargado desde JavaScript -->
-                </div>
-            </div>
-        </div>
         <div class="time-selection">
             <div class="time-header">Horarios Disponibles</div>
             <div class="time-slots">
