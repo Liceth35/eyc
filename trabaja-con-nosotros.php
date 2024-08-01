@@ -171,7 +171,7 @@
             <div class="form-group">
                 <label for="hoja_vida">Sube tu hoja de vida *</label>
                 <input type="file" id="hoja_vida" name="hoja_vida" required>
-                <small>Haz clic o arrastra un archivo a esta área para subirlo.</small>
+                <small>Haz clic o arrastra un archivo PDF a esta área para subirlo.</small>
             </div>
             <div class="form-group">
                 <input type="checkbox" id="autorizacion" name="autorizacion" required>
