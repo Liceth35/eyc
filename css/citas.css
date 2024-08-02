@@ -27,7 +27,21 @@ header {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     flex: 1;  /* Para que el contenedor principal ocupe el espacio disponible */
 }
-
+#calendar-container {
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+#close-calendar {
+    float: right;
+    cursor: pointer;
+    color:red;}
 .stepper {
     display: flex;
     justify-content: space-between;

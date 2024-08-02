@@ -21,24 +21,7 @@ header("Expires: 0"); // Proxies
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
-    <style>
-        #calendar-container {
-            display: none;
-            position: fixed;
-            top: 10%;
-            left: 50%;
-            transform: translate(-50%, 0);
-            background: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            z-index: 1000;
-        }
-        #close-calendar {
-            float: right;
-            cursor: pointer;
-            color: red;
-        }
-    </style>
+    <script src="./js/cargarDisponibilidad.js"></script>
     <script>
         function cancelar(id) {
             if (confirm('¿Está seguro de que desea cancelar esta cita?')) {
@@ -93,14 +76,23 @@ header("Expires: 0"); // Proxies
                                 $('#submit-reagendar').off('click').on('click', function() {
                                     var nueva_hora_inicio = $('#hora_inicio').val();
                                     var nueva_hora_fin = $('#hora_fin').val();
+                                    var direccion = $('#direccion').val();
+                                    var numero_contrato = $('#numero_contrato').val();
 
-                                    if (nueva_hora_inicio && nueva_hora_fin) {
+                                    if (nueva_hora_inicio && nueva_hora_fin && direccion && numero_contrato) {
                                         if (confirm(`¿Está seguro de que desea reagendar la cita para el ${nueva_fecha} de ${nueva_hora_inicio} a ${nueva_hora_fin}?`)) {
                                             $.ajax({
                                                 url: './controlador/reagendarCita.php',
                                                 type: 'POST',
-                                                contentType: 'application/json',
-                                                data: JSON.stringify({ id: id, fecha: nueva_fecha, hora_inicio: nueva_hora_inicio, hora_fin: nueva_hora_fin }),
+                                                contentType: 'application/x-www-form-urlencoded',
+                                                data: {
+                                                    id: id,
+                                                    fecha: nueva_fecha,
+                                                    hora_inicio: nueva_hora_inicio,
+                                                    hora_fin: nueva_hora_fin,
+                                                    direccion: direccion,
+                                                    numero_contrato: numero_contrato
+                                                },
                                                 dataType: 'json',
                                                 success: function(data) {
                                                     if (data.status === 'success') {
@@ -117,7 +109,7 @@ header("Expires: 0"); // Proxies
                                             });
                                         }
                                     } else {
-                                        alert('Hora de inicio y/o fin no seleccionadas.');
+                                        alert('Hora de inicio, hora de fin, dirección y número de contrato son necesarios.');
                                     }
                                 });
                             } else {
@@ -222,8 +214,13 @@ header("Expires: 0"); // Proxies
         <select id="hora_inicio"></select>
         <label for="hora_fin">Hora de fin:</label>
         <select id="hora_fin"></select>
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" />
+        <label for="numero_contrato">Número de contrato:</label>
+        <input type="text" id="numero_contrato" />
         <button id="submit-reagendar">Reagendar</button>
     </div>
+
     <div id="calendar-container">
         <span id="close-calendar">X</span>
         <div id="calendar"></div>
