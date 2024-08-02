@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-07-2024 a las 22:51:30
+-- Tiempo de generación: 02-08-2024 a las 14:51:27
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -94,7 +94,7 @@ CREATE TABLE `citas` (
 --
 
 INSERT INTO `citas` (`id`, `departamento`, `municipio`, `fecha`, `horario`, `numero_documento`, `tipo_documento`, `nombre`, `correo`, `movil`, `acepto_politica`, `numero_contrato`, `direccion`) VALUES
-(6, 'Antioquia', 'Medellin', '2024-07-27', '09:00:00 - 12:00:00', '102795656', 'CC', 'Kelly meneses', 'kelly20@gmail.com', '3107098865', 1, '556495964554', 'calle 101c'),
+(6, 'Antioquia', 'Medellin', '2024-08-19', '07:00:00 - 09:00:00', '102795656', 'CC', 'Kelly meneses', 'kelly20@gmail.com', '3107098865', 1, '556495964554', 'calle 101c'),
 (11, 'Antioquia', 'medellin', '2024-07-27', '15:00:00 - 17:00:00', '22024737', 'CC', 'David Andrade', 'david@gmail.com', '3107098865', 1, '556495964554', 'calle 101c'),
 (12, 'Amazonas', 'Leticia', '2024-07-10', '7:00-9:00', '1027956039', 'CC', 'Liceth Valderrama', 'liceth3@gmail.com', '3107098865', 1, '556495964554', 'calle 101c');
 
@@ -154,7 +154,8 @@ INSERT INTO `disponibilidad` (`id`, `municipio`, `fecha`, `hora_inicio`, `hora_f
 (7, 'Medellin', '2024-07-19', '07:00:00', '09:00:00', 1),
 (8, 'Medellin', '2024-07-27', '13:00:00', '15:00:00', 1),
 (9, 'Medellin', '2024-07-27', '09:00:00', '12:00:00', 1),
-(10, 'Medellin', '2024-08-19', '07:00:00', '09:00:00', 1);
+(10, 'Medellin', '2024-08-19', '07:00:00', '09:00:00', 1),
+(11, 'Betania', '2024-08-01', '09:00:00', '12:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -448,7 +449,7 @@ ALTER TABLE `contactos`
 -- AUTO_INCREMENT de la tabla `disponibilidad`
 --
 ALTER TABLE `disponibilidad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `hoja_de_vida`
