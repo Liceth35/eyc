@@ -172,7 +172,6 @@
 					<h5>Contactos</h5>
 					<ul class="list-unstyled quick-links">
 						<li><a href="./contactos.php"><i class="fa fa-angle-double-right"></i>Contactos</a></li>
-                        <li><a href="./contactos.php">Contactos</a></li>
                         <li>Teléfono: (604) 4480265</li>
                         <li>Sede Principal Medellín (Antioquia)</li>
                         <li>CALLE 10 SUR 48 - 62 Barrio Aguacatala 2</li>
