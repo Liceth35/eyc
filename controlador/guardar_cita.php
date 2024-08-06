@@ -5,11 +5,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $errors = [];
 
     // Validación de campos obligatorios
-    $requiredFields = ["departamento", "municipio", "fecha", "horario", "numero-documento", "tipo-documento", "politica", "numero-contrato", "direccion"];
-    foreach ($requiredFields as $field) {
-        if (empty($_POST[$field])) {
-            $errors[] = "El campo $field es obligatorio.";
-        }
+    if (empty($_POST["departamento"])) {
+        $errors[] = "El campo departamento es obligatorio.";
+    }
+    if (empty($_POST["municipio"])) {
+        $errors[] = "El campo municipio es obligatorio.";
+    }
+    if (empty($_POST["fecha"])) {
+        $errors[] = "El campo fecha es obligatorio.";
+    }
+    if (empty($_POST["horario"])) {
+        $errors[] = "El campo horario es obligatorio.";
+    }
+    if (empty($_POST["numero-documento"])) {
+        $errors[] = "El campo número de documento es obligatorio.";
+    }
+    if (empty($_POST["tipo-documento"])) {
+        $errors[] = "El campo tipo de documento es obligatorio.";
+    }
+    if (empty($_POST["politica"])) {
+        $errors[] = "El campo acepto política es obligatorio.";
+    }
+    if (empty($_POST["numero-contrato"])) {
+        $errors[] = "El campo número de contrato es obligatorio.";
+    }
+    if (empty($_POST["direccion"])) {
+        $errors[] = "El campo dirección es obligatorio.";
     }
 
     // Si hay errores, los mostramos
@@ -44,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = $db->consulta($query, $params);
 
         // Verificamos si la consulta se ejecutó correctamente
-        if ($result) {
+        if ($result = true) {
             echo "<p>Cita agendada correctamente.</p>";
         } else {
             echo "<p>Error al agendar la cita.</p>";

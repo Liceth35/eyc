@@ -1,51 +1,21 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    color: #001a33;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    background-color: #f4f4f4;
 }
 
 header {
     background-color: #001a33;
-    padding: 20px;
-    text-align: center;
     color: white;
-    font-size: 1.0em;
-    font-weight: bold;
+    text-align: center;
+    padding: 1em 0;
 }
 
-.container {
-    max-width: 800px;
-    margin: 20px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    flex: 1;  /* Para que el contenedor principal ocupe el espacio disponible */
-}
-#calendar-container {
-    display: none;
-    position: fixed;
-    top: 10%;
-    left: 50%;
-    transform: translate(-50%, 0);
-    background: white;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    z-index: 1000;
-}
-#close-calendar {
-    float: right;
-    cursor: pointer;
-    color:red;}
 .stepper {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    justify-content: center;
+    margin: 20px 0;
 }
 
 .step {
@@ -53,136 +23,83 @@ header {
     height: 30px;
     border-radius: 50%;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    margin: 0 10px;
     cursor: pointer;
-    transition: background-color 0.3s;
-    color: #fff;
+    color: white;
 }
 
-.step:nth-child(1) {
-    background-color: #b4daff;
+.step.step1 {
+    background-color: #b4daff; /* Azul claro */
 }
 
-.step:nth-child(2) {
-    background-color: #ffb4d8;
+.step.step2 {
+    background-color: #d8b4ff; /* Lila */
 }
 
-.step:nth-child(3) {
-    background-color: #a4c639;
+.step.step3 {
+    background-color: #a4c639; /* Verde */
 }
 
 .step.active, .step.completed {
-    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.step.step1.active, .step.step1.completed {
+    background-color: #b4daff; /* Azul claro */
+}
+
+.step.step2.active, .step.step2.completed {
+    background-color: #d8b4ff; /* Lila */
+}
+
+.step.step3.active, .step.step3.completed {
+    background-color: #a4c639; /* Verde */
 }
 
 .step-content {
     display: none;
+    padding: 20px;
+    background-color: white;
+    margin: 20px auto;
+    width: 80%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .step-content.active {
     display: block;
 }
 
-form label {
+label {
     display: block;
     margin: 10px 0 5px;
-    font-weight: bold;
 }
 
-form select, form input, form button {
-    width: 100%;
+input, select, button {
+    width: 95%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+    border-radius: 5px;
 }
 
-form button {
-    background-color: #a4c639;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-form button:hover {
-    background-color: #8fbf2a;
-}
-
-.calendar-container {
-    margin-bottom: 20px;
-}
-
-.calendar-header {
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-#calendar {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-}
-
-.calendar-day {
-    padding: 10px;
-    text-align: center;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.calendar-day.available {
-    background-color: #b4daff;
-}
-
-.calendar-day.unavailable {
-    background-color: #eee;
-    cursor: not-allowed;
-}
-
-.calendar-day.selected {
-    background-color: #a4c639;
-    color: #fff;
-}
-
-.time-selection {
-    margin-bottom: 20px;
-}
-
-.time-header {
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.time-slots label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.continue-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #a4c639;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.continue-button:hover {
-    background-color: #8fbf2a;
-}
-
-footer {
-    text-align: center;
-    padding: 10px;
+button {
     background-color: #001a33;
     color: white;
-    font-size: 0.9em;
-    margin-top: auto;  /* Para asegurar que el footer se mantenga al fondo */
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #004494;
+}
+footer {
+    background-color: #001a33 ;
+    color: white;
+    text-align: center;
+    padding: 0rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
