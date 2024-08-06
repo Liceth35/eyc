@@ -228,5 +228,28 @@ header("Expires: 0"); // Proxies
         <span id="close-calendar">X</span>
         <div id="calendar"></div>
     </div>
+    <script>
+         function cerrarSesion() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    console.log("Sesión cerrada"); // Para depurar
+                    window.location.replace("index.php");
+                } else {
+                    console.log("Error al cerrar sesión"); // Para depurar
+                }
+            }
+        };
+        xhttp.open("GET", "./controlador/logaout.php", true);
+        xhttp.send();
+    }
+
+    window.onload = function() {
+        if (window.history.length > 1) {
+            window.history.forward();
+        }
+    }
+    </script>
 </body>
 </html>
