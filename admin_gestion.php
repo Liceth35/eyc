@@ -5,251 +5,151 @@ if (!isset($_SESSION['cedula_usuarios'])) {
     exit();
 }
 
-header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1
-header("Pragma: no-cache"); // HTTP 1.0
-header("Expires: 0"); // Proxies
+// Array para mapear los números de mes a sus nombres
+$meses = [
+    1 => 'Enero',
+    2 => 'Febrero',
+    3 => 'Marzo',
+    4 => 'Abril',
+    5 => 'Mayo',
+    6 => 'Junio',
+    7 => 'Julio',
+    8 => 'Agosto',
+    9 => 'Septiembre',
+    10 => 'Octubre',
+    11 => 'Noviembre',
+    12 => 'Diciembre'
+];
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administración de Citas</title>
-    <link rel="stylesheet" href="./css/admin_gestion.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
     <link rel="shortcut icon" href="images/New_Logo_EyC2024_vertical-removebg-preview.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css">
+    <link rel="stylesheet" href="./css/admin_gestion.css">
+    <!-- iconops de boostrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
-    <style>
-        #calendar-container {
-            display: none;
-            position: fixed;
-            top: 10%;
-            left: 50%;
-            transform: translate(-50%, 0);
-            background: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            z-index: 1000;
-        }
-        #close-calendar {
-            float: right;
-            cursor: pointer;
-            color: red;
-        }
-    </style>
-    <script>
-        function cancelar(id) {
-            if (confirm('¿Está seguro de que desea cancelar esta cita?')) {
-                fetch(`./controlador/cancelarCita.php?id=${id}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.status === 'success') {
-                            alert('Cita cancelada exitosamente.');
-                            location.reload();
-                        } else {
-                            alert('Error al cancelar la cita.');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('Hubo un error al procesar la solicitud.');
-                    });
-            }
-        }
 
-        function reagendar(id) {
-            $('#calendar-container').show();
-            $('#calendar').fullCalendar('destroy'); // Destruir cualquier instancia anterior
-            $('#calendar').fullCalendar({
-                events: './controlador/cargarDisponibilidad.php', // URL de tu controlador que devuelve eventos en formato JSON
-                selectable: true,
-                selectHelper: true,
-                select: function(start, end) {
-                    var nueva_fecha = moment(start).format('YYYY-MM-DD');
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
 
-                    $.ajax({
-                        url: './controlador/obtenerHoraDisponible.php',
-                        type: 'GET',
-                        data: { fecha: nueva_fecha },
-                        dataType: 'json',
-                        success: function(data) {
-                            if (data.disponible) {
-                                // Limpiar el contenido del dropdown
-                                $('#hora_inicio').empty();
-                                $('#hora_fin').empty();
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
 
-                                // Crear las opciones del dropdown
-                                data.horas.forEach(hora => {
-                                    $('#hora_inicio').append(`<option value="${hora}">${hora}</option>`);
-                                    $('#hora_fin').append(`<option value="${hora}">${hora}</option>`);
-                                });
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
-                                // Mostrar el formulario para seleccionar hora
-                                $('#reagendar-form').show();
-
-                                // Manejar el envío del formulario
-                                $('#submit-reagendar').off('click').on('click', function() {
-                                    var nueva_hora_inicio = $('#hora_inicio').val();
-                                    var nueva_hora_fin = $('#hora_fin').val();
-
-                                    if (nueva_hora_inicio && nueva_hora_fin) {
-                                        if (confirm(`¿Está seguro de que desea reagendar la cita para el ${nueva_fecha} de ${nueva_hora_inicio} a ${nueva_hora_fin}?`)) {
-                                            $.ajax({
-                                                url: './controlador/reagendarCita.php',
-                                                type: 'POST',
-                                                contentType: 'application/json',
-                                                data: JSON.stringify({ id: id, fecha: nueva_fecha, hora_inicio: nueva_hora_inicio, hora_fin: nueva_hora_fin }),
-                                                dataType: 'json',
-                                                success: function(data) {
-                                                    if (data.status === 'success') {
-                                                        alert('Cita reagendada exitosamente.');
-                                                        location.reload();
-                                                    } else {
-                                                        alert(data.message || 'Error al reagendar la cita.');
-                                                    }
-                                                },
-                                                error: function(xhr, status, error) {
-                                                    console.error('Error:', error);
-                                                    alert('Hubo un error al procesar la solicitud.');
-                                                }
-                                            });
-                                        }
-                                    } else {
-                                        alert('Hora de inicio y/o fin no seleccionadas.');
-                                    }
-                                });
-                            } else {
-                                alert('No hay horas disponibles para la fecha seleccionada. Por favor elija otra.');
-                            }
-                        },
-                        error: function(xhr, status, error) {
-                            console.error('Error:', error);
-                            alert('Hubo un error al verificar la disponibilidad.');
-                        }
-                    });
-
-                    $('#calendar').fullCalendar('unselect');
-                }
-            });
-        }
-
-        $(document).ready(function() {
-            $('#calendar-container').hide(); // Esconder el calendario al cargar la página
-            $('#close-calendar').click(function() {
-                $('#calendar-container').hide();
-            });
-        });
-    </script>
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 <body>
-    <div class="header">
-        <button type="button" class="btn btn-warning cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
-        <h1>Panel de Administración</h1>
-    </div>
-    <h2><center>Administración de Citas Agendadas</center></h2>
+    <div class="m-5">
+        <div class="align-items-center mb-4 header">
+            <h2 class="text-center mb-4">Administración de Citas Agendadas</h2>
+            <button type="button" class="btn btn-warning" onclick="cerrarSesion()">Cerrar Sesión</button>
+        </div>
 
-    <div class="menu">
-        <a href="./cargarDisponibilidad.php">Cargar disponibilidad</a>
-        <a href="./admin_disponibilidad.php">Gestión de Disponibilidad</a>
-    </div>
+        <div class="mb-4 text-center">
+            <a href="./cargarDisponibilidad.php" class="btn btn-primary me-2">Cargar Disponibilidad</a>
+            <a href="./admin_disponibilidad.php" class="btn btn-secondary">Gestión de Disponibilidad</a>
+        </div>
 
-    <div class="content">
-        <div class="table-container">
-            <table>
-                <thead>
+        <div class="table-responsive">
+            <table id="citas-table" class="table table-striped table-bordered table-hover">
+                <thead class="table-light">
                     <tr>
                         <th>ID</th>
-                        <th>Departamento</th>
-                        <th>Municipio</th>
-                        <th>Dirección</th>
-                        <th>Fecha</th>
-                        <th>Horario</th>
-                        <th>Número de Documento</th>
-                        <th>Tipo de Documento</th>
-                        <th>Número de contrato</th>
+                        <th>Tipo Doc.</th>
+                        <th>N° Documento</th>
+                        <th>N° Contrato</th>
                         <th>Nombre</th>
                         <th>Correo</th>
-                        <th>Teléfono</th>
+                        <th>Celular</th>
+                        <th>Dirección</th>
+                        <th>Horario</th>
+                        <th>Dia</th>
+                        <th>Mes</th>
+                        <th>Municipio</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
-                <tbody id="citas-table">
+                <tbody>
                     <?php
                     include_once './controlador/conexion.php';
 
                     $pdo = new PDODB();
                     $pdo->conectar();
 
-                    $query = "SELECT * FROM citas";
+                    // Consulta para obtener las citas
+                    $query = "SELECT citas.*, municipios.nombre AS nombre_municipio
+                                FROM citas
+                                JOIN municipios ON citas.municipio_id = municipios.id";
                     $citas = $pdo->consulta($query);
 
+                    // Verifica si hay citas
                     if ($citas) {
                         foreach ($citas as $cita) {
-                            echo "<tr>";
-                            echo "<td>" . $cita['id'] . "</td>";
-                            echo "<td>" . $cita['departamento'] . "</td>";
-                            echo "<td>" . $cita['municipio'] . "</td>";
-                            echo "<td>" . $cita['direccion'] . "</td>";
-                            echo "<td>" . $cita['fecha'] . "</td>";
-                            echo "<td>" . $cita['horario'] . "</td>";
-                            echo "<td>" . $cita['numero_documento'] . "</td>";
-                            echo "<td>" . $cita['tipo_documento'] . "</td>";
-                            echo "<td>" . $cita['numero_contrato'] . "</td>";
-                            echo "<td>" . $cita['nombre'] . "</td>";
-                            echo "<td>" . $cita['correo'] . "</td>";
-                            echo "<td>" . $cita['movil'] . "</td>";
-                            echo "<td>";
-                            echo "<a href='javascript:void(0);' onclick='reagendar(" . $cita['id'] . ")'>Reagendar</a> | ";
-                            echo "<a href='javascript:void(0);' onclick='cancelar(" . $cita['id'] . ")'>Cancelar</a>";
-                            echo "</td>";
-                            echo "</tr>";
+                            // Obtener el nombre del mes
+                            $nombre_mes = $meses[$cita['mes']] ?? 'Mes desconocido';
+                            // es mejor esta estructura para incrustar php con html, ya que evitamos el echo una y otra vez
+                    ?>
+                            <tr>
+                                <td><?= $cita['id'] ?></td>
+                                <td><?= $cita['tipo_documento'] ?></td>
+                                <td><?= $cita['numero_documento'] ?></td>
+                                <td><?= $cita['numero_contrato'] ?></td>
+                                <td><?= $cita['nombre'] ?></td>
+                                <td><?= $cita['email'] ?></td>
+                                <td><?= $cita['telefono'] ?></td>
+                                <td><?= $cita['direccion'] ?></td>
+                                <td><?= $cita['franja'] ?></td>
+                                <td><?= $cita['dia'] ?></td>
+                                <td><?= $nombre_mes ?></td>
+                                <td><?= $cita['nombre_municipio'] ?></td>
+                                <td class='d-flex'>
+                                    <a href="reagendar_cita.php?id=<?= $cita['id'] ?>&tipo_documento=<?= urlencode($cita['tipo_documento']) ?>&numero_documento=<?= urlencode($cita['numero_documento']) ?>&numero_contrato=<?= urlencode($cita['numero_contrato']) ?>&nombre=<?= urlencode($cita['nombre']) ?>&correo=<?= urlencode($cita['email']) ?>&celular=<?= urlencode($cita['telefono']) ?>&direccion=<?= urlencode($cita['direccion']) ?>&franja=<?= urlencode($cita['franja']) ?>&dia=<?= urlencode($cita['dia']) ?>&mes=<?= urlencode($cita['mes']) ?>&municipio=<?= urlencode($cita['nombre_municipio']) ?>" class='btn btn-warning btn-sm me-2'>
+                                        <i class='bi bi-arrow-clockwise'></i>
+                                    </a>
+                                    <a href='javascript:void(0);' class='btn btn-danger btn-sm' onclick="cancelarCita(<?= $cita['id'] ?>)">
+                                        <i class='bi bi-x'></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php
                         }
                     } else {
-                        echo "<tr><td colspan='13'>No hay citas agendadas.</td></tr>";
+                        ?>
+                        <tr>
+                            <td colspan='13' class='text-center'>No hay citas agendadas.</td>
+                        </tr>
+                    <?php
                     }
 
                     $pdo->close();
                     ?>
                 </tbody>
+
+
             </table>
         </div>
-    </div>
-    <div id="reagendar-form" style="display: none;">
-        <h3>Selecciona el horario para reagendar</h3>
-        <label for="hora_inicio">Hora de inicio:</label>
-        <select id="hora_inicio"></select>
-        <label for="hora_fin">Hora de fin:</label>
-        <select id="hora_fin"></select>
-        <button id="submit-reagendar">Reagendar</button>
-    </div>
-    <div id="calendar-container">
-        <span id="close-calendar">X</span>
-        <div id="calendar"></div>
-    </div>
-    <script>
-         function cerrarSesion() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4) {
-                if (this.status == 200) {
-                    console.log("Sesión cerrada"); // Para depurar
-                    window.location.replace("index.php");
-                } else {
-                    console.log("Error al cerrar sesión"); // Para depurar
-                }
-            }
-        };
-        xhttp.open("GET", "./controlador/logaout.php", true);
-        xhttp.send();
-    }
-
-    window.onload = function() {
-        if (window.history.length > 1) {
-            window.history.forward();
-        }
-    }
-    </script>
+        <footer>
+            <p> 2024 E&C INGENIERÍA S.A.S. Todos los derechos reservados.</p>
+        </footer>cancelarCita
+        <!-- traduccion del datatables a españoñs -->
+        <script src="js/admin_gestion.js"></script>
 </body>
+
 </html>

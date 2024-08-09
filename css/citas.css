@@ -1,105 +1,271 @@
+/* General body styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
 }
 
 header {
     background-color: #001a33;
     color: white;
     text-align: center;
-    padding: 1em 0;
+    padding: 5px 0;
 }
 
-.stepper {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-.step {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 10px;
-    cursor: pointer;
-    color: white;
-}
-
-.step.step1 {
-    background-color: #b4daff; /* Azul claro */
-}
-
-.step.step2 {
-    background-color: #d8b4ff; /* Lila */
-}
-
-.step.step3 {
-    background-color: #a4c639; /* Verde */
-}
-
-.step.active, .step.completed {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.step.step1.active, .step.step1.completed {
-    background-color: #b4daff; /* Azul claro */
-}
-
-.step.step2.active, .step.step2.completed {
-    background-color: #d8b4ff; /* Lila */
-}
-
-.step.step3.active, .step.step3.completed {
-    background-color: #a4c639; /* Verde */
-}
-
-.step-content {
-    display: none;
-    padding: 20px;
-    background-color: white;
-    margin: 20px auto;
-    width: 80%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.step-content.active {
-    display: block;
-}
-
-label {
-    display: block;
-    margin: 10px 0 5px;
-}
-
-input, select, button {
-    width: 95%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button {
+footer {
     background-color: #001a33;
     color: white;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #004494;
-}
-footer {
-    background-color: #001a33 ;
-    color: white;
     text-align: center;
-    padding: 0rem;
+    padding: 0;
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+/* Header styles */
+h1, h3 {
+    text-align: center;
+    color: #222;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+label {
+    font-size: 1.1em;
+    display: block;
+    margin: 0 0 10px 0;
+    color: #251717;
+}
+
+/* Select and input styles */
+select, input[type="text"], input[type="email"], input[type="tel"] {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    transition: border-color 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+select:focus, input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Button styles */
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+button:active {
+    background-color: #004494;
+}
+
+/* Calendar styles */
+#calendario {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    max-width: 700px;
+    margin: 15px auto;
+    padding: 10px;
+}
+
+.dia {
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #dcdcdc;
+    background-color: #f9f9f9;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    margin: 4px;
+}
+
+.dia:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dia.inactivo {
+    background-color: #f0f0f0;
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+.dia.inactivo:hover {
+    background-color: #f0f0f0;
+    transform: none;
+    box-shadow: none;
+}
+
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 6px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    font-size: 0.9em;
+}
+
+.close {
+    color: #999;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #e70000;
+}
+
+.modal-header {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+#franjas-horarias {
+    margin-top: 10px;
+}
+
+/* Centered container styles */
+.centrado {
+    display: grid;
+    justify-content: center;
+    margin: 20px;
+}
+
+/* Form styles */
+form {
+    display: grid;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group {
+    flex: 1;
+}
+
+form label {
+    font-size: 1em;
+    color: #333;
+}
+
+/* Styles for form inputs */
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="tel"]:focus,
+form select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.content-btn-cita {
+    display: flex;
+    justify-content: center;
+}
+
+form button {
+    background-color: #28a745;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 50%;
+    justify-content: center;
+}
+
+form button:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+form button:active {
+    background-color: #1e7e34;
+}
+
+p.franja {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    margin: 5px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+p.franja:hover {
+    background-color: #0056b3;
+}
+
+p.franja.selected {
+    background-color: #0056b3;
+    border: 1px solid #004085;
+    transform: scale(1.05);
 }

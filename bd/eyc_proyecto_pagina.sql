@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-08-2024 a las 14:51:27
+-- Tiempo de generación: 09-08-2024 a las 05:03:18
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Versión de PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -49,6 +49,29 @@ INSERT INTO `admin_blog` (`id`, `titulo`, `resumen`, `contenido`, `url_imagen`, 
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `calendario`
+--
+
+CREATE TABLE `calendario` (
+  `id` int(11) NOT NULL,
+  `municipio_id` int(11) NOT NULL,
+  `dia` int(11) NOT NULL,
+  `mes` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `calendario`
+--
+
+INSERT INTO `calendario` (`id`, `municipio_id`, `dia`, `mes`) VALUES
+(1, 1, 3, 8),
+(2, 1, 10, 8),
+(3, 2, 5, 8),
+(4, 3, 15, 8);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `certificados`
 --
 
@@ -75,28 +98,18 @@ INSERT INTO `certificados` (`id`, `numero_cedula`, `codigo_verificacion`, `ubica
 
 CREATE TABLE `citas` (
   `id` int(11) NOT NULL,
-  `departamento` varchar(100) DEFAULT NULL,
-  `municipio` varchar(100) DEFAULT NULL,
-  `fecha` date DEFAULT NULL,
-  `horario` varchar(20) DEFAULT NULL,
-  `numero_documento` varchar(50) DEFAULT NULL,
-  `tipo_documento` varchar(20) DEFAULT NULL,
-  `nombre` varchar(100) DEFAULT NULL,
-  `correo` varchar(100) DEFAULT NULL,
-  `movil` varchar(20) DEFAULT NULL,
-  `acepto_politica` tinyint(1) DEFAULT NULL,
-  `numero_contrato` varchar(50) DEFAULT NULL,
-  `direccion` varchar(255) DEFAULT NULL
+  `tipo_documento` varchar(10) NOT NULL,
+  `numero_documento` varchar(20) NOT NULL,
+  `numero_contrato` varchar(20) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `telefono` varchar(15) NOT NULL,
+  `direccion` varchar(255) NOT NULL,
+  `franja` varchar(20) NOT NULL,
+  `dia` int(2) NOT NULL,
+  `mes` int(2) NOT NULL,
+  `municipio_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `citas`
---
-
-INSERT INTO `citas` (`id`, `departamento`, `municipio`, `fecha`, `horario`, `numero_documento`, `tipo_documento`, `nombre`, `correo`, `movil`, `acepto_politica`, `numero_contrato`, `direccion`) VALUES
-(6, 'Antioquia', 'Medellin', '2024-08-19', '07:00:00 - 09:00:00', '102795656', 'CC', 'Kelly meneses', 'kelly20@gmail.com', '3107098865', 1, '556495964554', 'calle 101c'),
-(11, 'Antioquia', 'medellin', '2024-07-27', '15:00:00 - 17:00:00', '22024737', 'CC', 'David Andrade', 'david@gmail.com', '3107098865', 1, '556495964554', 'calle 101c'),
-(12, 'Amazonas', 'Leticia', '2024-07-10', '7:00-9:00', '1027956039', 'CC', 'Liceth Valderrama', 'liceth3@gmail.com', '3107098865', 1, '556495964554', 'calle 101c');
 
 -- --------------------------------------------------------
 
@@ -128,34 +141,27 @@ INSERT INTO `contactos` (`id`, `nombre`, `telefono`, `correo`, `mensaje`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `disponibilidad`
+-- Estructura de tabla para la tabla `franjas_horarias`
 --
 
-CREATE TABLE `disponibilidad` (
+CREATE TABLE `franjas_horarias` (
   `id` int(11) NOT NULL,
-  `municipio` varchar(100) DEFAULT NULL,
-  `fecha` date DEFAULT NULL,
-  `hora_inicio` time DEFAULT NULL,
-  `hora_fin` time DEFAULT NULL,
-  `disponible` tinyint(1) DEFAULT NULL
+  `dia` int(11) NOT NULL,
+  `mes` int(11) NOT NULL,
+  `hora_inicio` time NOT NULL,
+  `hora_fin` time NOT NULL,
+  `municipio_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `disponibilidad`
+-- Volcado de datos para la tabla `franjas_horarias`
 --
 
-INSERT INTO `disponibilidad` (`id`, `municipio`, `fecha`, `hora_inicio`, `hora_fin`, `disponible`) VALUES
-(1, 'Leticia', '2024-07-10', '07:00:00', '09:00:00', 1),
-(2, 'Medellin', '2024-07-09', '07:00:00', '09:00:00', 1),
-(3, 'Medellin', '2024-07-27', '15:00:00', '17:00:00', 1),
-(4, 'San rafael', '2024-07-26', '13:00:00', '15:00:00', 1),
-(5, 'Medellin', '2024-07-19', '13:00:00', '15:00:00', 1),
-(6, 'Medellin', '2024-07-19', '15:00:00', '17:00:00', 1),
-(7, 'Medellin', '2024-07-19', '07:00:00', '09:00:00', 1),
-(8, 'Medellin', '2024-07-27', '13:00:00', '15:00:00', 1),
-(9, 'Medellin', '2024-07-27', '09:00:00', '12:00:00', 1),
-(10, 'Medellin', '2024-08-19', '07:00:00', '09:00:00', 1),
-(11, 'Betania', '2024-08-01', '09:00:00', '12:00:00', 1);
+INSERT INTO `franjas_horarias` (`id`, `dia`, `mes`, `hora_inicio`, `hora_fin`, `municipio_id`) VALUES
+(1, 3, 8, '09:00:00', '12:00:00', 1),
+(2, 3, 8, '12:00:00', '16:00:00', 1),
+(3, 10, 8, '13:00:00', '14:00:00', 1),
+(5, 15, 8, '15:00:00', '16:00:00', 3);
 
 -- --------------------------------------------------------
 
@@ -192,6 +198,26 @@ INSERT INTO `hoja_de_vida` (`id`, `nombre`, `correo`, `celular`, `tipo_documento
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `municipios`
+--
+
+CREATE TABLE `municipios` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `municipios`
+--
+
+INSERT INTO `municipios` (`id`, `nombre`) VALUES
+(1, 'Medellin'),
+(2, 'Bello'),
+(3, 'Cali');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuarios`
 --
 
@@ -208,7 +234,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `contrasenna`, `rol`) VALUES
-(1, 'Liceth Valderrama', 'liceth3@gmail.com', 1234, 'admin'),
+(1, 'Liceth Valderrama', 'admin@gmail.com', 1234, 'admin'),
 (3, 'Juan Perez', 'juan.perez@example.com', 12, 'admin');
 
 -- --------------------------------------------------------
@@ -269,7 +295,7 @@ CREATE TABLE `usuarios_citas` (
 --
 
 INSERT INTO `usuarios_citas` (`id`, `cedula`, `contrasenna`, `nombre`) VALUES
-(1, '1027956039', '1234', 'Liceth V');
+(1, 'admin@gmail.com', '1234', 'Liceth V');
 
 -- --------------------------------------------------------
 
@@ -331,7 +357,7 @@ CREATE TABLE `usuarios_rh` (
 --
 
 INSERT INTO `usuarios_rh` (`id`, `nombre`, `cedula`, `contrasenna`) VALUES
-(1, 'Liceth V', '1027956039', '1234');
+(1, 'Liceth V', 'admin@gmail.com', '1234');
 
 --
 -- Índices para tablas volcadas
@@ -344,6 +370,13 @@ ALTER TABLE `admin_blog`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `calendario`
+--
+ALTER TABLE `calendario`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `municipio_id` (`municipio_id`);
+
+--
 -- Indices de la tabla `certificados`
 --
 ALTER TABLE `certificados`
@@ -353,7 +386,8 @@ ALTER TABLE `certificados`
 -- Indices de la tabla `citas`
 --
 ALTER TABLE `citas`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `municipio_id` (`municipio_id`);
 
 --
 -- Indices de la tabla `contactos`
@@ -362,15 +396,22 @@ ALTER TABLE `contactos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `disponibilidad`
+-- Indices de la tabla `franjas_horarias`
 --
-ALTER TABLE `disponibilidad`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `franjas_horarias`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `municipio_id` (`municipio_id`);
 
 --
 -- Indices de la tabla `hoja_de_vida`
 --
 ALTER TABLE `hoja_de_vida`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `municipios`
+--
+ALTER TABLE `municipios`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -428,6 +469,12 @@ ALTER TABLE `admin_blog`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
+-- AUTO_INCREMENT de la tabla `calendario`
+--
+ALTER TABLE `calendario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT de la tabla `certificados`
 --
 ALTER TABLE `certificados`
@@ -437,7 +484,7 @@ ALTER TABLE `certificados`
 -- AUTO_INCREMENT de la tabla `citas`
 --
 ALTER TABLE `citas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT de la tabla `contactos`
@@ -446,16 +493,22 @@ ALTER TABLE `contactos`
   MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT de la tabla `disponibilidad`
+-- AUTO_INCREMENT de la tabla `franjas_horarias`
 --
-ALTER TABLE `disponibilidad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+ALTER TABLE `franjas_horarias`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `hoja_de_vida`
 --
 ALTER TABLE `hoja_de_vida`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `municipios`
+--
+ALTER TABLE `municipios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -498,6 +551,28 @@ ALTER TABLE `usuarios_pqrs`
 --
 ALTER TABLE `usuarios_rh`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `calendario`
+--
+ALTER TABLE `calendario`
+  ADD CONSTRAINT `calendario_ibfk_1` FOREIGN KEY (`municipio_id`) REFERENCES `municipios` (`id`);
+
+--
+-- Filtros para la tabla `citas`
+--
+ALTER TABLE `citas`
+  ADD CONSTRAINT `citas_ibfk_1` FOREIGN KEY (`municipio_id`) REFERENCES `municipios` (`id`) ON DELETE CASCADE;
+
+--
+-- Filtros para la tabla `franjas_horarias`
+--
+ALTER TABLE `franjas_horarias`
+  ADD CONSTRAINT `franjas_horarias_ibfk_1` FOREIGN KEY (`municipio_id`) REFERENCES `municipios` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
