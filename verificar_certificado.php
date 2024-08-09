@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($certificado) {
         $ubicacion_certificado = $certificado['ubicacion_certificado'];
-        echo "Certificado encontrado. <a href='http://localhost/eyc/{$ubicacion_certificado}' target='_blank'>Descargar Certificado</a>";
+        echo "Certificado encontrado. <a href='http://localhost/eyc/admin/{$ubicacion_certificado}' target='_blank'>Descargar Certificado</a>";
     } else {
         echo "No se encontró ningún certificado con los datos proporcionados.";
     }

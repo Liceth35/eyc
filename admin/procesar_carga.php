@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $codigo_verificacion = generarCodigo(10);
 
     // Directorio donde se guardarán los archivos subidos
-    $target_dir = "./admin/uploads_certificado/";
+    $target_dir = "uploads_certificado/";
 
     // Verificar si el directorio existe, si no, crearlo
     if (!is_dir($target_dir)) {

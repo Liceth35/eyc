@@ -11,112 +11,53 @@ header("Expires: 0"); // Proxies
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cargar Disponibilidad</title>
-    <link rel="stylesheet" href="css/cargar_disponibilidad.css">
     <link rel="shortcut icon" href="images/New_Logo_EyC2024_vertical-removebg-preview.png">
+    <!-- css de boostrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- iconos de boostrap 5 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/cargar_disponibilidad.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
 </head>
+
 <body>
     <header>
-    <button type="button" class="btn btn-warning cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
+        <button type="button" class="btn btn-warning cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
         <h1>Cargar Disponibilidad de Citas</h1>
     </header>
     <div class="menu">
-        <a href="./admin_gestion.php">Panel Administración</a>
-        <a href="./admin_disponibilidad.php">Gestión de disponibilidad</a>
+        <a href="./admin_gestion.php">Citas Agendadas <i class="bi bi-calendar-event"></i></a>
     </div>
     <div class="container">
-        <div class="form-header">Agregar Disponibilidad</div>
-        <form id="disponibilidadform">
-            <label for="municipio">Municipio:</label>
-            <input type="text" id="municipio" name="municipio" required><br>
+        <div class="form-header">Agregar Disponibilidad <i class="bi bi-cloud-arrow-up"></i>
+        <!-- Botón para descargar la plantilla -->
+    <a href="files/plantilla disponibilidad EYC.xlsx" download class="mb-2 btn btn-primary btn-xs me-auto">
+        Descargar plantilla<i class="bi bi-filetype-xlsx"></i>
+    </a></div>
+        <span class="mb-2 ms-auto me-auto">Estimado usuario, descargue la plantilla y diligencie los campos.</span>
 
-            <label for="fecha">Fecha:</label>
-            <input type="date" id="fecha" name="fecha" required><br>
-
-            <label for="rango_horario">Rango Horario:</label>
-            <select id="rango_horario" name="rango_horario" required>
-                <option value="7-9">7:00AM - 9:00AM</option>
-                <option value="9-12">9:00AM - 12:00PM</option>
-                <option value="13-15">1:00PM - 3:00PM</option>
-                <option value="15-17">3:00PM - 5:00PM</option>
-            </select><br>
-
-            <button type="button" onclick="agregarDisponibilidad()">Agregar Disponibilidad</button>
+        <form id="cargarDisponibilidadform" method="post" enctype="multipart/form-data">
+            <input type="file" name="plantilla" id="plantilla" required>
+            <div class="d-flex justify-content-center ">
+                <button class="btn btn-success" id="subirArchivo" type="button">Enviar</button>
+            </div>
         </form>
+
+
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            cargarDisponibilidadInicial();
-        });
+    <script src="js/cargarDisponibilidad.js"></script>
+    <!-- js de boostrap5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-        function cargarDisponibilidadInicial() {
-            fetch('controlador/cargarDisponibilidad.php')
-                .then(response => response.json())
-                .then(data => {
-                    const tableBody = document.getElementById('time-table');
-                    tableBody.innerHTML = ''; // Limpiar tabla antes de actualizar
-
-                    data.forEach(item => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
-                            <td>${item.municipio}</td>
-                            <td>${item.fecha}</td>
-                            <td>${item.horario}</td>
-                            <td>${item.disponible}</td>
-                        `;
-                        tableBody.appendChild(row);
-                    });
-                })
-                .catch(error => console.error('Error al cargar disponibilidad:', error));
-        }
-
-        function agregarDisponibilidad() {
-            const municipio = document.getElementById('municipio').value;
-            const fecha = document.getElementById('fecha').value;
-            const rango_horario = document.getElementById('rango_horario').value;
-
-            fetch('controlador/guardarDisponibilidad.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ municipio, fecha, rango_horario })
-            }).then(response => response.json())
-              .then(data => {
-                if (data.success) {
-                    alert('Disponibilidad agregada.');
-                    cargarDisponibilidadInicial(); // Actualizar la disponibilidad en la interfaz
-                } else {
-                    alert('Error al agregar disponibilidad: ' + data.error);
-                }
-            }).catch(error => {
-                console.error('Error al agregar disponibilidad:', error);
-            });
-        }
-    function cerrarSesion() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4) {
-                if (this.status == 200) {
-                    console.log("Sesión cerrada"); // Para depurar
-                    window.location.replace("index.php");
-                } else {
-                    console.log("Error al cerrar sesión"); // Para depurar
-                }
-            }
-        };
-        xhttp.open("GET", "./controlador/logaout.php", true);
-        xhttp.send();
-    }
-
-    window.onload = function() {
-        if (window.history.length > 1) {
-            window.history.forward();
-        }
-    }
-    </script>
 </body>
+
 </html>

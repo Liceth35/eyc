@@ -63,8 +63,8 @@ $meses = [
         </div>
 
         <div class="mb-4 text-center">
-            <a href="./cargarDisponibilidad.php" class="btn btn-primary me-2">Cargar Disponibilidad</a>
-            <a href="./admin_disponibilidad.php" class="btn btn-secondary">Gestión de Disponibilidad</a>
+            <a href="./cargarDisponibilidad.php" class="btn btn-primary me-2">Cargar Disponibilidad <i class="bi bi-file-earmark-arrow-up"></i></a>
+            <a target="_blank" href="./agendar_cita.php" class="btn btn-success me-2">Agendar Cita <i class="bi bi-calendar"></i></a>
         </div>
 
         <div class="table-responsive">
@@ -120,7 +120,7 @@ $meses = [
                                 <td><?= $nombre_mes ?></td>
                                 <td><?= $cita['nombre_municipio'] ?></td>
                                 <td class='d-flex'>
-                                    <a href="reagendar_cita.php?id=<?= $cita['id'] ?>&tipo_documento=<?= urlencode($cita['tipo_documento']) ?>&numero_documento=<?= urlencode($cita['numero_documento']) ?>&numero_contrato=<?= urlencode($cita['numero_contrato']) ?>&nombre=<?= urlencode($cita['nombre']) ?>&correo=<?= urlencode($cita['email']) ?>&celular=<?= urlencode($cita['telefono']) ?>&direccion=<?= urlencode($cita['direccion']) ?>&franja=<?= urlencode($cita['franja']) ?>&dia=<?= urlencode($cita['dia']) ?>&mes=<?= urlencode($cita['mes']) ?>&municipio=<?= urlencode($cita['nombre_municipio']) ?>" class='btn btn-warning btn-sm me-2'>
+                                    <a target="_black" href="reagendar_cita.php?id=<?= $cita['id'] ?>&tipo_documento=<?= urlencode($cita['tipo_documento']) ?>&numero_documento=<?= urlencode($cita['numero_documento']) ?>&numero_contrato=<?= urlencode($cita['numero_contrato']) ?>&nombre=<?= urlencode($cita['nombre']) ?>&correo=<?= urlencode($cita['email']) ?>&celular=<?= urlencode($cita['telefono']) ?>&direccion=<?= urlencode($cita['direccion']) ?>&franja=<?= urlencode($cita['franja']) ?>&dia=<?= urlencode($cita['dia']) ?>&mes=<?= urlencode($cita['mes']) ?>&municipio=<?= urlencode($cita['nombre_municipio']) ?>" class='btn btn-warning btn-sm me-2'>
                                         <i class='bi bi-arrow-clockwise'></i>
                                     </a>
                                     <a href='javascript:void(0);' class='btn btn-danger btn-sm' onclick="cancelarCita(<?= $cita['id'] ?>)">
@@ -147,7 +147,7 @@ $meses = [
         </div>
         <footer>
             <p> 2024 E&C INGENIERÍA S.A.S. Todos los derechos reservados.</p>
-        </footer>cancelarCita
+        </footer>
         <!-- traduccion del datatables a españoñs -->
         <script src="js/admin_gestion.js"></script>
 </body>
