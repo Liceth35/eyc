@@ -22,8 +22,8 @@ if (!isset($_SESSION['cedula'])) {
         <label for="numero_cedula">Número de Cédula:</label><br>
         <input type="text" id="numero_cedula" name="numero_cedula" required><br><br>
 
-        <label for="codigo_verificacion">Código de Verificación:</label><br>
-        <input type="text" id="codigo_verificacion" name="codigo_verificacion" value="<?php echo generarCodigo(10); ?>" readonly required><br><br>
+        <label for="correo">Ingresa tu correo</label><br>
+        <input type="email" id="correo" name="correo" required><br><br>
 
         <label for="certificado">Certificado PDF:</label><br>
         <input type="file" id="certificado" name="certificado" accept=".pdf" required><br><br>
