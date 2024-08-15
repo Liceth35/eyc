@@ -9,10 +9,18 @@ class PDODB
 
     function __construct()
     {
-        $this->servidor = "localhost";
-        $this->usuario = "root";
-        $this->contrasena = "";
-        $this->basededatos = "eyc_proyecto_pagina";
+        // local lizeth
+        // $this->servidor = "localhost"; me tocó colgar la bd en la nuve porque el local se me estañando  ucho
+        // $this->usuario = "root";
+        // $this->contrasena = "";
+        // $this->basededatos = "eyc_proyecto_pagina";
+
+        // nube cris
+         $this->servidor = "193.203.175.97";
+         $this->usuario = "u417547970_eyc";
+         $this->contrasena = "3Sc|QO11MPum";
+         $this->basededatos = "u417547970_eyc";
+
     }
 
     function conectar()

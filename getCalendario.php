@@ -4,7 +4,7 @@ header('Content-Type: application/json');
 $municipio = $_GET['municipio'];
 
 // Conexión a la base de datos
-$conn = new mysqli('localhost', 'root', '', 'eyc_proyecto_pagina');
+$conn = new mysqli('193.203.175.97', 'u417547970_eyc', '3Sc|QO11MPum', 'u417547970_eyc');
 
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);

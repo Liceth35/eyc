@@ -1,38 +1,30 @@
 <?php
 header('Content-Type: application/json');
-
 include_once './controlador/conexion.php';
 
 try {
-    // Crear instancia de la clase PDODB y conectar
     $pdo = new PDODB();
     $pdo->conectar();
 
-    // Consulta para obtener municipios
-    $sql = "SELECT id, nombre FROM municipios";
-    
-    // Ejecutar la consulta y obtener los resultados
-    $resultados = $pdo->getData($sql);
+    // Obtener el ID del departamento desde el parámetro GET
+    $departamentoId = isset($_GET['departamento']) ? intval($_GET['departamento']) : 0;
 
-    // Verificar si se obtienen resultados
+    // Consulta para obtener municipios
+    $sql = "SELECT id, nombre FROM municipios WHERE departamento_id = :departamento_id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':departamento_id', $departamentoId, PDO::PARAM_INT);
+    $stmt->execute();
+    $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
     if ($resultados === false) {
         throw new Exception('No se encontraron municipios');
     }
-    
-    // Preparar los municipios para enviar como JSON
-    $municipios = [];
-    foreach ($resultados as $row) {
-        $municipios[] = $row;
-    }
 
-    // Cerrar la conexión
-    $pdo->close();
-
-    // Enviar los municipios en formato JSON
-    echo json_encode(['municipios' => $municipios]);
+    echo json_encode(['municipios' => $resultados]);
 
 } catch (Exception $e) {
-    // Manejo de errores
     echo json_encode(['error' => $e->getMessage()]);
+} finally {
+    $pdo->close();
 }
 ?>

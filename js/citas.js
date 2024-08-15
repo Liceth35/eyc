@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalConfirmacion = document.getElementById('modal-confirmacion');
     const closeBtns = document.querySelectorAll('.close');
     const franjasHorariasDiv = document.getElementById('franjas-horarias');
+    const departamentoSelect = document.getElementById('departamento');
     const municipioSelect = document.getElementById('municipio');
     const calendarioDiv = document.getElementById('calendario');
     const formCita = document.getElementById('form-cita');
@@ -12,21 +13,70 @@ document.addEventListener('DOMContentLoaded', function() {
     let selectedMes = null;
     let selectedMunicipio = null;
 
-    // Cargar municipios
-    fetch('getMunicipios.php')
-        .then(response => response.json())
-        .then(data => {
-            //console.log('Municipios cargados:', data);
-            data.municipios.forEach(municipio => {
-                const option = document.createElement('option');
-                option.value = municipio.id;
-                option.textContent = municipio.nombre;
-                municipioSelect.appendChild(option);
-            });
-            municipioSelect.addEventListener('change', cargarCalendario);
-            cargarCalendario(); // Cargar el calendario por defecto
+    // Cargar departamentos
+    fetch('getDepartamentos.php')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error en la respuesta del servidor');
+            }
+            return response.json();
         })
-        .catch(error => console.error('Error al cargar municipios:', error));
+        .then(data => {
+            if (data.departamentos) {
+                data.departamentos.forEach(departamento => {
+                    const option = document.createElement('option');
+                    option.value = departamento.id;
+                    option.textContent = departamento.nombre;
+                    departamentoSelect.appendChild(option);
+                });
+            } else {
+                console.error('Error en los datos recibidos:', data.error);
+            }
+        })
+        .catch(error => console.error('Error al cargar departamentos:', error));
+
+    // Cargar municipios cuando se selecciona un departamento
+    departamentoSelect.addEventListener('change', function() {
+        const departamentoId = departamentoSelect.value;
+        console.log('Departamento seleccionado:', departamentoId); // Depuración
+
+        // Limpiar municipios anteriores
+        municipioSelect.innerHTML = '<option value="">Selecciona un municipio</option>';
+
+        if (departamentoId) {
+            fetch(`getMunicipios.php?departamento=${departamentoId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error en la respuesta del servidor');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Municipios recibidos:', data.municipios); // Depuración
+                    if (data.municipios && data.municipios.length > 0) {
+                        data.municipios.forEach(municipio => {
+                            const option = document.createElement('option');
+                            option.value = municipio.id;
+                            option.textContent = municipio.nombre;
+                            municipioSelect.appendChild(option);
+                        });
+                    } else {
+                        console.warn('No se encontraron municipios para este departamento.');
+                    }
+                })
+                .catch(error => console.error('Error al cargar municipios:', error));
+        }
+    });
+
+    // Cargar calendario cuando se selecciona un municipio
+    municipioSelect.addEventListener('change', function() {
+        const municipioId = municipioSelect.value;
+        console.log('Municipio seleccionado:', municipioId); // Depuración
+
+        if (municipioId) {
+            cargarCalendario(); // Llama a cargar el calendario para el municipio seleccionado
+        }
+    });
 
     // Mostrar modal con franjas horarias
     calendarioDiv.addEventListener('click', function(event) {
@@ -34,7 +84,6 @@ document.addEventListener('DOMContentLoaded', function() {
             selectedDia = event.target.dataset.dia;
             selectedMes = event.target.dataset.mes;
             selectedMunicipio = municipioSelect.value;
-            //console.log('Fecha seleccionada:', selectedDia, selectedMes, selectedMunicipio);
             cargarFranjasHorarias(selectedDia, selectedMes, selectedMunicipio);
         }
     });
@@ -59,10 +108,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function cargarCalendario() {
         const municipio = municipioSelect.value;
+        if (!municipio) return;
+
         fetch(`getCalendario.php?municipio=${municipio}`)
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error en la respuesta del servidor');
+                }
+                return response.json();
+            })
             .then(data => {
-                //console.log('Calendario cargado:', data);
                 calendarioDiv.innerHTML = '';
                 for (let dia = 1; dia <= 31; dia++) {
                     const diaDiv = document.createElement('div');
@@ -84,9 +139,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function cargarFranjasHorarias(dia, mes, municipio) {
         fetch(`getFranjasHorarias.php?dia=${dia}&mes=${mes}&municipio=${municipio}`)
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error en la respuesta del servidor');
+                }
+                return response.json();
+            })
             .then(data => {
-                //console.log('Franjas horarias cargadas:', data);
                 franjasHorariasDiv.innerHTML = '';
                 if (data.franjas.length === 0) {
                     franjasHorariasDiv.innerHTML = '<p>No hay franjas horarias disponibles.</p>';
@@ -106,7 +165,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function seleccionarFranja(franja) {
         selectedFranja = `${franja.inicio} - ${franja.fin}`;
-        //console.log('Franja seleccionada:', selectedFranja);
         document.getElementById('franja-seleccionada').value = selectedFranja;
         document.getElementById('dia-seleccionado').value = selectedDia;
         document.getElementById('mes-seleccionado').value = selectedMes;
@@ -138,14 +196,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         })
         .then(data => {
-            //console.log('Confirmación de cita:', data);
             if (data.success) {
                 Swal.fire({
                     title: '¡Hemos agendado tu cita!',
                     html: `
                         <p><strong>Hola:</strong> ${document.getElementById('nombre').value}</p>
                         <p>Queremos confirmar tu cita</p>
-                        <p><strong>Fecha:</strong> ${document.getElementById('dia-seleccionado').value} ${obtenerNombreMes(Number(document.getElementById('mes-seleccionado').value))} a las <strong>${document.getElementById('franja-seleccionada').value} </strong></p>
+                        <p><strong>Fecha:</strong> ${document.getElementById('dia-seleccionado').value} ${obtenerNombreMes(Number(document.getElementById('mes-seleccionado').value))} a las <strong>${document.getElementById('franja-seleccionada').value}</strong></p>
                     `,
                     confirmButtonText: 'OK, gracias'
                 });

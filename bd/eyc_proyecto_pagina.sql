@@ -198,23 +198,44 @@ INSERT INTO `hoja_de_vida` (`id`, `nombre`, `correo`, `celular`, `tipo_documento
 -- --------------------------------------------------------
 
 --
+
+
+
 -- Estructura de tabla para la tabla `municipios`
 --
+-- --------------------------------------------------------
 
-CREATE TABLE `municipios` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(255) NOT NULL
+-- Estructura de tabla para la tabla `departamentos`
+CREATE TABLE `departamentos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
+-- Volcado de datos para la tabla `departamentos`
+INSERT INTO `departamentos` (`id`, `nombre`) VALUES
+(1, 'Antioquia'),
+(2, 'Valle del Cauca'),
+(3, 'Atlántico');
+
+-- --------------------------------------------------------
+
+-- Estructura de tabla para la tabla `municipios`
+CREATE TABLE `municipios` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) NOT NULL,
+  `departamento_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `departamento_id` (`departamento_id`),
+  CONSTRAINT `municipios_ibfk_1` FOREIGN KEY (`departamento_id`) REFERENCES `departamentos` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 -- Volcado de datos para la tabla `municipios`
---
-
-INSERT INTO `municipios` (`id`, `nombre`) VALUES
-(1, 'Medellin'),
-(2, 'Bello'),
-(3, 'Cali');
-
+INSERT INTO `municipios` (`id`, `nombre`, `departamento_id`) VALUES
+(1, 'Medellin', 1),
+(2, 'Bello', 1),
+(3, 'Cali', 2),
+(4, 'Barranquilla', 3);
 -- --------------------------------------------------------
 
 --

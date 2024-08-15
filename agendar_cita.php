@@ -13,12 +13,23 @@
     <header>
         <h2>Agendamiento de Citas</h2>
     </header>
-    <div class="centrado">
-        <label for="municipio">Selecciona tu ciudad:</label>
-        <select id="municipio">
-            <!-- Opciones de municipios se llenarán aquí mediante la solicitud ajax a mi bd -->
-        </select>
+
+    <div class="contenedor">
+        <div class="centrado">
+            <select id="departamento">
+                <option value="">Seleccione un departamento</option>
+                <!-- Opciones de departamentos se llenarán aquí mediante la solicitud AJAX a la BD -->
+            </select>
+        </div>
+
+        <div class="centrado">
+            <select id="municipio">
+            <option value="">Seleccione un municipio</option>
+                <!-- Opciones de municipios se llenarán aquí mediante la solicitud AJAX a la BD -->
+            </select>
+        </div>
     </div>
+
 
     <h3>Disponibilidad</h3>
     <div id="calendario">
