@@ -227,9 +227,7 @@ section .section-title {
 #footer ul.quick-links li:hover a i {
     font-weight: 700;
 }
-.hr_border{
-    color: white !important;
-}
+
 
 @media (max-width:767px){
 	#footer h5 {

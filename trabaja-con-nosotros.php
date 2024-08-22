@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="./css/trabajanosotros.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="images/New_Logo_EyC2024_vertical-removebg-preview.png">
+    <style>
+        textarea#mensaje {
+            max-height: 12em; /* Ajusta la altura según sea necesario */
+            overflow-y: auto; /* Añade una barra de desplazamiento vertical si el contenido excede la altura */
+            resize: none; /* Evita el redimensionamiento por parte del usuario */
+            width: 100%; /* Opcional: Ajusta el ancho según el contenedor */
+        }
+    </style>
 </head>
 <body>
   <!-- Navbar -->
@@ -51,10 +59,11 @@
             </div>
         </nav>
     </header>
-            <div class="form-container">
-        <h2 class="form-title">Se parte del Team</h2>
-        <p>Diligencia el siguiente formulario para ponernos en contacto contigo</p>
-        <form action="./controlador/envioformulariotcn.php" method="POST" enctype="multipart/form-data">
+    <div class="form-container">
+    <h2 class="form-title">Se parte del Team</h2>
+    <p>Diligencia el siguiente formulario para ponernos en contacto contigo</p>
+    <form action="./controlador/envioformulariotcn.php" method="POST" enctype="multipart/form-data">
+        <div class="form-row">
             <div class="form-group">
                 <label for="nombre">Nombre y apellidos *</label>
                 <input type="text" id="nombre" name="nombre" required>
@@ -63,6 +72,8 @@
                 <label for="correo">Correo electrónico</label>
                 <input type="email" id="correo" name="correo">
             </div>
+        </div>
+        <div class="form-row">
             <div class="form-group">
                 <label for="celular">Celular</label>
                 <input type="text" id="celular" name="celular">
@@ -77,6 +88,8 @@
                     <option value="otro">Otro</option>
                 </select>
             </div>
+        </div>
+        <div class="form-row">
             <div class="form-group">
                 <label for="numero_documento">Número del documento *</label>
                 <input type="text" id="numero_documento" name="numero_documento" required>
@@ -85,13 +98,15 @@
                 <label for="departamento">¿En qué departamento te encuentras? *</label>
                 <input type="text" id="departamento" name="departamento" required>
             </div>
+        </div>
+        <div class="form-row">
             <div class="form-group">
                 <label for="ciudad">¿En qué ciudad vives? *</label>
                 <input type="text" id="ciudad" name="ciudad" required>
             </div>
             <div class="form-group">
-            <label for="profesion">Cargo</label>
-            <select id="profesion" name="profesion">
+                <label for="profesion">Cargo</label>
+                <select id="profesion" name="profesion">
                 <option value="">Seleccionar</option>
                     <option value="agente_servicio_cliente">Agente de Servicio al Cliente</option>
                     <option value="analista_registros">Analista de Registros</option>
@@ -140,9 +155,9 @@
                     <option value="supervisor">Supervisor</option>
                     <option value="supervisor_call_center">Supervisor del Call Center</option>
                     <option value="supervisor_inspeccion">Supervisor de Inspección</option>
-
-            </select>
+                </select>
             </div>
+        </div>
         <div id="preguntas-inspector" style="display: none;">
             <div class="form-group">
                 <label for="tiene_moto">¿Tienes moto?</label>
@@ -164,22 +179,31 @@
                 <input type="text" id="estado_propiedad" name="estado_propiedad">
             </div>
         </div>
-            <div class="form-group">
-                <label for="mensaje">Mensaje</label>
-                <textarea id="mensaje" name="mensaje"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="hoja_vida">Sube tu hoja de vida *</label>
-                <input type="file" id="hoja_vida" name="hoja_vida" required>
-                <small>Haz clic o arrastra un archivo PDF a esta área para subirlo.</small>
-            </div>
-            <div class="form-group">
-                <input type="checkbox" id="autorizacion" name="autorizacion" required>
-                <label for="autorizacion">Autorizo a E&C Ingeniería, empresa de inspección de gas, a contactarme a través de cualquier medio con el propósito de brindar información relacionada con sus servicios, promociones, programas y actividades, utilizando los datos de contacto aquí suministrados.</label>
-            </div>
-            <button type="submit">Enviar</button>
-        </form>
-    </div>
+        <!-- Más campos -->
+        <div class="form-group">
+            <label for="mensaje">Nos gustaría saber más de ti</label>
+            <p>Cuéntanos por qué te gustaría trabajar con nosotros:
+Estamos interesados en saber qué te motiva a unirte a nuestro equipo. <p>¿Qué aspectos de nuestra empresa te atraen?</p> <p> ¿Cómo crees que podrías contribuir a nuestro crecimiento?</p>
+<p>¿A qué sede te postulas?</p>
+<p>Indica la sede en la que te gustaría trabajar. Si estás dispuesto a viajar, puedes mencionarlo aquí.</p>
+<p>¿Algo más que quieras añadir?</p>
+<p>Este es un espacio abierto para que puedas agregar cualquier información adicional que creas relevante. Puedes hablar sobre tus expectativas, disponibilidad, o cualquier otro detalle que consideres importante.</p>
+<textarea id="mensaje" name="mensaje" rows="8"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="hoja_vida">Sube tu hoja de vida *</label>
+            <input type="file" id="hoja_vida" name="hoja_vida" required>
+            <small>Haz clic o arrastra un archivo PDF a esta área para subirlo.</small>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" id="autorizacion" name="autorizacion" required>
+            <label for="autorizacion">Autorizo a E&C Ingeniería S.A.S. a contactarme a través de cualquier medio para brindarme información sobre sus servicios, promociones, programas y actividades utilizando los datos de contacto que he proporcionado.
+            </label>
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+
             <!-- Footer -->
 	<section id="footer">
 		<div class="container">

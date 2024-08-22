@@ -12,6 +12,7 @@ if (isset($_SESSION['cedula'])) {
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" href="./css/login_certificados.css">
+    <link rel="shortcut icon" href="images/New_Logo_EyC2024_vertical-removebg-preview.png">
 </head>
 <body>
     <div class="login-container">

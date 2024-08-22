@@ -163,7 +163,6 @@
                 <div class="container text-center">
                     <p>&copy; 2024 E&C Ingeniería S.A.S. Todos los derechos reservados.</p>
                 </div>
-				<hr class="hr_border">
 			</div>	
 		</div>
 	</section>

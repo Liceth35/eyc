@@ -1,316 +1,204 @@
-body {
-    font-family: sans-serif;
+/* Estilos generales para el navbar */
+.navbar-color {
+    background-color: #ffffff; /* Color de fondo del navbar */
+    border-bottom: 2px solid #dcdcdc; /* Línea inferior para separar el navbar del contenido */
+    padding: 0px 20px; /* Espaciado interno del navbar */
 }
 
-.titleDos{
-    margin-top: 24px;
+.navbar-brand .logo {
+    height: 60px; /* Ajusta la altura del logo aquí */
+    width: auto; /* Mantiene la proporción original del logo */
+    margin-left: 2%;
 }
 
-.fa-solid, .fas {
-    font-weight: 900;
-    color: #ffffff;
-    padding-right: 16px;
-}
-
-.negrita{
-    font-weight: bold;
-    color: #ffffff;
-}
-
-i.fa.fa-angle-double-right {
-    color: #ffffff;
-}
-
-.tamanoTexto{
-    font-size: 25px;
-}
-
-.col-md-4{
-    text-align: left;
-}
-
-.carousel-item img{
-    border-radius: 18px;
-}
-
-
-.list-unstyled.quick-links{
-    cursor: pointer;
-}
-
-.listItem{
-    display: inline-flex;
-    text-align: left;
-}
-
-.containerDos{
-    --bs-gutter-x: 1.5rem;
-    --bs-gutter-y: 0;
+/* Estilos para el menú principal */
+.navmenu {
     display: flex;
-    flex-wrap: wrap;
-    margin-top: calc(-1* var(--bs-gutter-y));
-    margin-right: calc(-.5* var(--bs-gutter-x));
-    margin-left: calc(-.5* var(--bs-gutter-x));
-    justify-content: center;
+    align-items: center; /* Alinea verticalmente los elementos */
+    margin-left: auto; /* Alinea el menú a la derecha */
 }
 
-.container-fluid{
-    width: 100%;
-    background-color: rgb(57, 87, 184);
-    border: 0% !important;
-}
-.elemento-activo {
-    background-color: #ca0c1c;
-    color: #bdbdbd;
-    border-radius: 8px;
-}
-.logo{
-    
-    width: 210px;
-}
-nav ul li {
-    transition: background-color 0.5s ease;
-}
-
-.encabezado {
+/* Estilos para los elementos del menú */
+.navmenu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    font-size: 18px; 
-    line-height: 1.4;
-    padding: 20px;
-}
-.titulo {
-    text-align: center;
-    font-size: 3.5rem;
-    font-family: sans-serif;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    margin-top: 25%;
-    
-}
-.gases {
-    width: 65%;
-    margin-left: 40px;
-}
-.owl-nav {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
+    margin-left: -4%;
+    font-size: 75%;
 }
 
-.owl-nav button {
-    background-color: #fff;
-    border: none;
-    border-radius: 50%;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    font-size: 16px;
-    line-height: 1;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+/* Estilos para los elementos del menú */
+.navmenu ul li {
+    margin-left: 20px;
+    position: relative;
 }
 
-.owl-nav .owl-prev {
-    left: 10px;
-}
-
-.owl-nav .owl-next {
-    right: 10px;
-}
-
-.owl-nav button:hover {
-    background-color: #ddd;
-}
-
-.card-text{
-    text-align: left;
-}
-.apertura {
-    margin-left: 7%;
-    justify-content: right;
-    flex-direction: row;
-    text-align: justify;
-}
-.deseo1:hover {
-    background-color: rgb(90, 90, 189);
-}
-
-.contactenos {
-    display: flex;
-    margin-left:auto;
-    margin-right: 40px;
-    margin-top: auto;
-    margin-bottom: 60px;
-}
-.boton1:hover {
-    background-color: orangeRED;
-}
-h3 {
-    font-weight: bold;
-    text-align: center;
-}
-.social-box .box {
-    background: #FFF;
-    border-radius: 10px; 
-    cursor: auto;
-    margin: 20px 0;
-    padding: 40px 10px;
-    transition: all 0.5s ease-out;
-    text-align: left;
-    
-}
-
-.social-box .box:hover {
-    box-shadow: 0 0 6px #4183D7;
-}
-
-.social-box .box-text {
-    font-size: 15px;
-    line-height: 30px;
-    margin: 20px 0;
-}
-
-.social-box .box-btn a {
-    color: #4183D7;
-    font-size: 16px;
-    text-decoration: none;
-}
-x .fa {
-    color: #4183D7;
-}
-.user{
-    text-align: center;
-}
-.fa-user-tie{
-    font-size: 2EM;
-}
-.wpforms{
-    text-align: center;
-}
-.fa-wpforms{
-    font-size: 2em;
-}
-.car{
-    text-align: center;
-}
-.fa-car{
-    font-size: 2em;
-}
-.columns{
-    text-align: center;
-}
-.fa-building-columns{
-    font-size: 2em;
-}
-.handshake{
-    text-align: center;
-}
-.fa-handshake{
-    font-size: 2em;
-}
-.hand{
-    text-align: center;
-}
-.fa-hand{
-    font-size: 2em;
-}
-
-.noCliquiable {
-    cursor: auto
-    ;
-    }
-
-
-section {
-    padding: 60px 0;
-}
-
-section .section-title {
-    text-align: center;
-    color: rgb(57, 87, 184);
-    margin-bottom: 50px;
-    text-transform: uppercase;
-}
-
-#footercolor {
-    background:black!important;
-    border: 100% !important;
-}
-#footer h5{
-	padding-left: 10px;
-    border-left: 3px solid white;
-    padding-bottom: 6px;
-    margin-bottom: 20px;
-    color:white;
-} 
-#footer a {
+/* Estilos para los enlaces del menú */
+.navmenu ul li a {
     color: black;
-    text-decoration: none !important;
-    background-color: transparent;
-    -webkit-text-decoration-skip: objects;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    display: block;
 }
-#footer ul.social li{
-	padding: 3px 0;
+
+/* Estilos para el menú desplegable */
+.navmenu ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%; /* Alinea el menú desplegable justo debajo del elemento principal */
+    left: 0;
+    background-color: #000000; /* Color de fondo negro */
+    padding: 10px 0;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Sombra para darle profundidad */
+    z-index: 1000; /* Asegura que el menú desplegable esté encima de otros elementos */
 }
-#footer ul.social li a i {
-    margin-right: 5px;
-	font-size:25px;
-	-webkit-transition: .5s all ease;
-	-moz-transition: .5s all ease;
-	transition: .5s all ease;
+
+/* Estilos para los elementos del menú desplegable */
+.navmenu ul li ul li {
+    width: 200px;
+    margin: 0;
 }
-#footer ul.social li:hover a i {
-	font-size:30px;
-	margin-top:-10px;
+
+/* Estilos para los enlaces del menú desplegable */
+.navmenu ul li ul li a {
+    padding: 8px 15px;
+    color: #ffffff; /* Color del texto blanco */
 }
-#footer ul.social li a,
-#footer ul.quick-links li a{
-	color:white;
+
+/* Muestra el menú desplegable cuando el cursor está sobre el elemento del menú principal */
+.navmenu ul li:hover ul {
+    display: block;
 }
-#footer ul.social li a:hover{
-	color:white;
-}
-#footer ul.quick-links li{
-	padding: 3px 0;
-	-webkit-transition: .5s all ease;
-	-moz-transition: .5s all ease;
-	transition: .5s all ease;
-}
-#footer ul.quick-links li:hover{
-	padding: 3px 0;
-	
-	font-weight:700;
-}
-#footer ul.quick-links li a i{
-	margin-right: 5px;
-}
-#footer ul.quick-links li:hover a i {
-    font-weight: 700;
+
+/* Opcional: Estilo para el enlace del menú desplegable en hover */
+.navmenu ul li ul li a:hover {
+    background-color: #333333; /* Cambia el color de fondo a un gris oscuro al pasar el cursor */
+    color: #ffffff; /* Mantiene el color del texto en blanco */
 }
 
 
-@media (max-width:767px){
-	#footer h5 {
-    padding-left: 0;
-    border-left: transparent;
-    padding-bottom: 0px;
+/* Estilos para el carrusel grande */
+#carrusel-personalizado .carousel-item {
+    height: 500px; /* Ajusta la altura según tus necesidades */
+}
+
+#carrusel-personalizado img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-caption {
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    text-align: left;
+    color: white; /* Color del texto de la descripción */
+}
+
+
+/* Estilos generales */
+.section-title {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Estilos para el carrusel estético */
+#carrusel-estetico .carousel-item {
+    height: 200px; /* Ajusta la altura según sea necesario */
+    overflow: hidden;
+}
+
+#carrusel-estetico .carousel-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro para los íconos de control */
+    border-radius: 50%;
+}
+.Titulo_trabajos{
+margin-top: 1%;
+margin-left: 41%;
+}
+.eslogan h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeIn 3s ease-in-out forwards; /* Cambié la duración a 3 segundos */
+}
+
+.eslogan p {
+    font-size: 18px;
+    color: #000000;
+    opacity: 0;
+    animation: fadeIn 3s ease-in-out 2s forwards; /* Cambié la duración a 3 segundos y el retraso a 2 segundos */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
     }
-
-    .titulo{
-        font-size: 30px;
-    }
-    
-    
 }
 
-ul.navbar-nav.me-auto.mb-2.mb-lg-0{
-    gap: 12px;
+
+.noticias {
+    background-color: #ffffff;
+    padding: 60px 20px;
+}
+
+.noticias h2 {
+    color: #000;
+    font-size: 32px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.noticias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.noticia {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.noticia img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.noticia h3 {
+    color: #00796b;
+    font-size: 20px;
+    margin: 15px;
+}
+
+.noticia p {
+    color: #333;
+    font-size: 16px;
+    margin: 0 15px 15px;
+}
+
+.noticia a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.noticia:hover {
+    transform: translateY(-5px);
 }

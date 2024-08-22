@@ -1,191 +1,150 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="utf-8">
-    <title>E&C | Ingeniería S.A.S</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    
-    <link rel="shortcut icon" href="images/New_Logo_EyC2024_vertical-removebg-preview.png">
-    
-    <!-- CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="./css/servicios.css">
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    
-    <!-- FONTS -->
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500italic,700,500,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">   
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <!-- SCRIPTS -->
-    <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <!--[if IE]><html class="ie" lang="en"> <![endif]-->
-    
-    <script src="js/jquery.min.js" type="text/javascript"></script>
-    <script src="js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="js/myscript.js" type="text/javascript"></script>
+    <link rel="shortcut icon" href="images/New_Logo_EyC2024_vertical-removebg-preview.png">
+    <title>E&C | Ingeniería S.A.S</title>
+</head>
+<body>
 
-<!-- PRELOADER -->
-<img id="preloader" src="images/preloader.gif" alt="" />
-<!-- //PRELOADER -->
-<div class="preloader_hide">
-
-    <!-- PAGE -->
-    <div id="page">
-    
-    <!-- Navbar -->
-    <header>
-        <div class="navbar">
-            <div class="container">
-                <!-- LOGO -->
-                <div class="logo-servicios">
-                    <a class="" href="index.php"><img class="logo" src="./images/New_Logo_EyC2024-removebg-preview.png" alt=""></a>
-                </div>
-                <!-- Menu -->
-                <nav class="navmenu_servicios">
+<header>
+    <div class="navbar">
+        <a href="index.php"><img src="./images/New_Logo_EyC2024-removebg-preview.png" alt="Logo" class="logo"></a>
+        <nav class="navmenu center">
+            <ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php"><strong>INICIO</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="nosotros.php"><strong>NOSOTROS</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contactos.php"><strong>CONTACTOS</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="servicios.php" class="active"><strong>SERVICIOS</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="agenda_tu_cita.php"><strong>AGENDA TU CITA</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="certificado.php"><strong>CERTIFICADO</strong></a>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:void(0);">TEAM</a>
                     <ul>
-                        <li class="nav-item"><a class="nav-link" href="index.php"><strong>INICIO</strong></a></li>
-                        <li class="nav-item"><a class="nav-link" href="nosotros.php"><strong>NOSOTROS</strong></a></li>
-                        <li class="nav-item"><a class="nav-link" href="contactos.php"><strong>CONTACTOS</strong></a></li>
-                        <li class="nav-item"><a class="nav-link" href="servicios.php"><strong>SERVICIOS</strong></a></li>
-                        <li class="nav-item"><a class="nav-link" href="agendar_cita.php"><strong>AGENDA TU CITA</strong></a></li>
-                        <li class="nav-item"><a class="nav-link" href="certificado.php"><strong>CERTIFICADO</strong></a></li>
-                        <li class="sub-menu">
-                            <a href="javascript:void(0);"><strong>TEAM</strong></a>
-                            <ul>
-                                <li class="scroll_btn-servicios"><a href="index.php#team"style="color:white!important;">TEAM</a></li>
-                                <li class="scroll_btn-servicios"><a href="index.php#news"style="color:white!important;">NEWS</a></li>
-                                <li class="scroll_btn-servicios"><a href="#projects"style="color:white!important;">PROYECTOS</a></li>
-                                <li class="scroll_btn-servicios"><a href="trabaja-con-nosotros.php"style="color:white!important;">TRABAJA CON NOSOTROS</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="login.php"><strong>CORPORATIVO</strong></a></li>
-                        <li class="sub-menu">
-                            <a href="javascript:void(0);"><strong>POLÍTICAS</strong></a>
-                            <ul>
-                                <li class="scroll_btn-servicios"><a href="politicas.php"style="color:white!important;">POLÍTICAS</a></li>
-                                <li class="scroll_btn-servicios"><a href="politicasetica.php"style="color:white!important;">POLÍTICA ÉTICA</a></li>
-                                <li class="scroll_btn-servicios"><a href="politicastratamiento.php"style="color:white!important;">POLÍTICA DE TRATAMIENTO</a></li>
-                            </ul>
-                        </li>
+                        <li class="scroll_btn"><a href="index.php#team">TEAM</a></li>
+                        <li class="scroll_btn"><a href="index.php#news">NEWS</a></li>
+                        <li class="scroll_btn"><a href="#projects">PROYECTOS</a></li>
+                        <li><a href="trabaja-con-nosotros.php">TRABAJA CON NOSOTROS</a></li>
                     </ul>
-                </nav>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.php"><strong>CORPORATIVO</strong></a>
+                </li>                                
+                <li class="sub-menu">
+                    <a href="javascript:void(0);">POLÍTICAS</a>
+                    <ul>
+                        <li><a href="politicas.php">Políticas de seguridad</a></li>
+                        <li><a href="politicastratamiento.php">Política de tratamiento</a></li>
+                        <li><a href="politicasetica.php">Política ética</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section id="servicios" class="servicios">
+  <div class="container">
+    <h2 class="section-title">Servicios</h2>
+    <p class="section-description">
+      La inspección de gas es una evaluación integral diseñada para garantizar el correcto funcionamiento y la seguridad de los sistemas de gas en su hogar, negocio o fábrica. Nuestros inspectores realizan un examen detallado de cada componente del sistema para detectar posibles fugas, defectos u otros hallazgos para prevenir problemas graves, como explosiones o intoxicaciones. Este proceso actúa como una medida preventiva crucial para proteger tanto a usted como a su propiedad, proporcionando la tranquilidad de saber que se encuentra en un entorno seguro y confiable. Nuestro alcance incluye sistemas individuales y sistemas multiusuario con todos sus componentes.
+    </p>
+    <div class="service-cards">
+      <div class="service-card">
+        <img src="./images/residencial.png" alt="Icono Residencial" class="service-icon">
+        <div class="service-content_residencial">
+          <h3 class="service-title">RESIDENCIAL</h3>
+          <p class="service-description">
+            Su Hogar, Nuestra Prioridad. Elija nuestros servicios de inspección de gas para garantizar la seguridad y tranquilidad en su casa, apartamento, o la totalidad del conjunto residencial donde se encuentre.
+          </p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="./images/comercial.png" alt="Icono Comercial" class="service-icon">
+        <div class="service-content">
+          <h3 class="service-title">COMERCIAL</h3>
+          <p class="service-description">
+            Soluciones Comerciales de Inspección de Gas. Garantizamos la seguridad y cumplimiento normativo en las instalaciones de gas en su centro comercial, conjunto de oficinas, instituciones o negocios individuales donde usted tenga diferentes necesidades del uso seguro del gas por red.
+          </p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="./images/industrial.png" alt="Icono Industrial" class="service-icon">
+        <div class="service-content">
+          <h3 class="service-title">INDUSTRIAL</h3>
+          <p class="service-description">
+            Inspección de Gas para Entornos Industriales. Contamos con procedimientos de evaluación de conformidad idóneos para proteger sus instalaciones, facilitando la continuidad de sus procesos que se abastecen de una fuente de energía más limpia accesible como lo es el gas combustible por red.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="more-info">
+      <h1 class="btn btn-info">Más Información</h1>
+      <div class="additional-buttons">
+        <a href="#" class="btn btn-secondary">Condiciones para Adquirir el Servicio</a>
+        <a href="#" class="btn btn-secondary">Contáctate con Nosotros</a>
+        <a href="#" class="btn btn-secondary">PQRS</a>
+        <a href="#" class="btn btn-secondary">Agenda tu Cita</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<section id="footer_servicios">
+    <div class="footer-container">
+        <div class="row text-center text-xs-center text-sm-left text-md-left">
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <h5>Enlaces rápidos</h5>
+                <ul class="list-unstyled quick-links">
+                    <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Inicio</a></li>
+                    <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Sobre nosotros</a></li>
+                    <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+                    <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Comenzar</a></li>
+                    <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Videos</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <h5>Contáctanos</h5>
+                <ul class="list-unstyled quick-links">
+                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Email: info@example.com</a></li>
+                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Teléfono: +123 456 789</a></li>
+                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Dirección: Calle Ejemplo, Ciudad</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <h5>Redes sociales</h5>
+                <ul class="list-unstyled quick-links">
+                    <li><a href="#"><i class="fa fa-facebook"></i>Facebook</a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i>Twitter</a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i>LinkedIn</a></li>
+                    <li><a href="#"><i class="fa fa-instagram"></i>Instagram</a></li>
+                </ul>
             </div>
         </div>
-    </header>
-        <!-- CLEAN CODE -->
-        <div class="cleancode_block">
-                
-            <!-- CONTAINER -->
-            <div class="container" data-appear-top-offset="-200" data-animated="fadeInUp">
-                
-                <!-- CASTOM TAB -->
-                <div id="myTabContent" class="tab-content">
-                    <div class="tab-pane fade in active clearfix" id="tab1">
-                        <p class="title"><b>Servicios</b> </p>
-                        <span>La inspección de gas es como una revisión completa para asegurarse de que todo esté bien en tu hogar, negocio o fábrica. Los expertos revisan cada detalle del sistema para detectar posibles fugas y evitar problemas graves, como explosiones o intoxicaciones. Es como una medida de seguridad para protegerte a ti y a tu propiedad, y así tener la tranquilidad de que estás en un ambiente seguro.</span>
-                    </div>
-                    <div class="tab-pane fade clearfix" id="tab2">
-                        <p class="title"><b>Residencial</b> </p>
-                        <span>Su Hogar, Nuestra Prioridad. Elija nuestros servicios de inspección de gas para garantizar la seguridad y tranquilidad en su residencia.</span>
-                    </div>
-                    <div class="tab-pane fade clearfix" id="tab4">
-                        <p class="title"><b>Industrial</b></p>
-                        <span>Inspección de Gas para Entornos Industriales. Cumplimos con los más altos estándares de seguridad para proteger sus instalaciones.</span>
-                    </div>
-                    <div class="tab-pane fade clearfix" id="tab5">
-                        <p class="title"><b>Comercial</b></p>
-                        <span>Soluciones Comerciales de Inspección de Gas. Aseguramos la seguridad y cumplimiento normativo en sus instalaciones.</span>
-                    </div>
-                </div>
-                <ul id="myTab" class="nav nav-tabs">
-                    <li class="active"><a class="i1" href="#tab1" data-toggle="tab" ><i></i><span>Servicios</span></a></li>
-                    <li><a class="i2" href="#tab2" data-toggle="tab" ><i></i><span>Residencial</span></a></li>
-                    <li><a class="i4" href="#tab4" data-toggle="tab" ><i></i><span>Industrial</span></a></li>
-                    <li><a class="i5" href="#tab5" data-toggle="tab" ><i></i><span>Comercial</span></a></li>
-                </ul><!-- CASTOM TAB -->
-            </div><!-- //CONTAINER -->
-        </div><!-- //CLEAN CODE -->
-        <!-- Footer -->
-        <section id="footer">
-            <div class="container">
-                <div class="row text-center text-xs-center text-sm-left text-md-left">
-                    <div class="col-xs-12 col-sm-4 col-md-4">
-                        <h5>Acessos Rápidos</h5>
-                        <ul class="list-unstyled quick-links">
-                            <li><a href="./index.php"><i class="fa fa-angle-double-right"></i>Inicio</a></li>
-                            <li><a href="./nosotros.php"><i class="fa fa-angle-double-right"></i>Nosotros</a></li>
-                            <li><a href="./servicios.php"><i class="fa fa-angle-double-right"></i>Servicios</a></li>
-                            <li><a href="./certificado.php"><i class="fa fa-angle-double-right"></i>Certificado</a></li>
-                            <li><a href="./login.php"><i class="fa fa-angle-double-right"></i>Corporativo</a></li>
-                            <li><a href="./index.php#team"><i class="fa fa-angle-double-right"></i>Team</a></li>
-                            <li><a href="./index.php#news"><i class="fa fa-angle-double-right"></i>News</a></li>
-                            <li><a href="./index.php#projects"><i class="fa fa-angle-double-right"></i>Proyectos</a></li>
-                            <li><a href="./trabaja-con-nosotros.php"><i class="fa fa-angle-double-right"></i>Trabaja con nosotros</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4">
-                        <h5>Politicas</h5>
-                        <ul class="list-unstyled quick-links">
-                            <li><a href="./politicas.php"><i class="fa fa-angle-double-right"></i>Politicas</a></li>
-                            <li><a href="./politicasetica.php"><i class="fa fa-angle-double-right"></i>Politicas etica</a></li>
-                            <li><a href="./politicastratamiento.php"><i class="fa fa-angle-double-right"></i>Politicas tratamiento</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4">
-                        <h5>Contactos</h5>
-                        <ul class="list-unstyled quick-links">
-                            <li><a href="./contactos.php"><i class="fa fa-angle-double-right"></i>Contactos</a></li>
-                            <ul class="list-unstyled quick-links">
-                                <li><i class="fa-solid fa-phone"></i>Teléfono: (604) 4480265</li>
-                                <li><i class="fa-solid fa-map-location-dot"></i>Sede Principal Medellín(Antioquia)</li>
-                                <li><i class="fa-solid fa-map-location-dot"></i>CALLE 10 SUR 48 - 62 Barrio Aguacatala 2</li>
-                            </ul>
-                        </ul>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
-                        <ul class="list-unstyled list-inline social text-center">
-                        <li class="list-inline-item"><a href="https://m.facebook.com/people/Eyc-Ingenieria-Sas/100089364634242/" style="color: black;"><i class="fa fa-facebook"></i></a></li>
-                        <li class="list-inline-item"><a href="https://www.instagram.com/eycingenieria/?igsh=MXVyYWZ4NHV1ZzJ1dA%3D%3D" style="color: black;"><i class="fa fa-instagram"></i></a></li>
-                        <li class="list-inline-item"><a href="mailto:pqr@eyc.com.co" target="_blank" style="color: black;"><i class="fa fa-envelope"></i></a></li>
-                        </ul>
-				</div>
-				<hr>
-			</div>	
-			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-black">
-                <li style="color: black;"><p class="h6">© 2024 E&C INGENIERÍA S.A.S. Todos los derechos reservados.</p></li>
-				<hr>
-			</div>	
-		</div>
-	</section>
-	<!-- ./Footer -->
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script>
-	$(document).ready(function(){
-        // Controlador de eventos de clic en cualquier parte del documento
-        $(document).click(function(event) { 
-            // Verificar si el clic no se realizó en un elemento .sub-menu
-            if(!$(event.target).closest('.sub-menu').length) {
-                // Ocultar todas las listas secundarias
-                $('.sub-menu ul').hide();
-            }        
-        });
-        
-        // Controlador de eventos de clic en los elementos .sub-menu
-        $('.sub-menu').click(function(event){
-            // Detener la propagación del evento para evitar que el clic se propague al documento
-            event.stopPropagation();
-            // Ocultar todas las listas secundarias
-            $('.sub-menu ul').hide();
-            // Mostrar u ocultar la lista secundaria del elemento clicado
-            $(this).children('ul').toggle();
-        });
-    });
-</script>				
+        <div class="footer-bottom">
+            <p class="text-xs-center">&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Scripts -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
-</html>  
+</html>

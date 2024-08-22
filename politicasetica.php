@@ -111,7 +111,6 @@
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-black">
 				<li style="color: white;"><p class="h6">© 2024 E&C INGENIERÍA S.A.S. Todos los derechos reservados.</p></li>
-				<hr class="hr_border">
 			</div>	
 		</div>
 	</section>

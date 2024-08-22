@@ -187,11 +187,9 @@
 					</ul>
 				</div>		
 			</div>	
-            <hr class="hr-border">
                 <div class="container text-center">
                     <p>&copy; 2024 E&C Ingeniería S.A.S. Todos los derechos reservados.</p>
                 </div>
-				<hr class="hr-border">
 			</div>	
 		</div>
 	</section>

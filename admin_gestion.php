@@ -145,9 +145,6 @@ $meses = [
 
             </table>
         </div>
-        <footer>
-            <p> 2024 E&C INGENIERÍA S.A.S. Todos los derechos reservados.</p>
-        </footer>
         <!-- traduccion del datatables a españoñs -->
         <script src="js/admin_gestion.js"></script>
 </body>

@@ -299,10 +299,11 @@ form button:hover {
 }
 
 #footer h5 {
-    background: white;
+    background: #001a33;
     margin-bottom: 15px;
     font-weight: bold;
-    color: black;
+    color: white;
+    border-left: 3px solid #eeeeee;
 }
 
 #footer ul.quick-links {
