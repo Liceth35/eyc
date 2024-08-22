@@ -94,12 +94,11 @@
       </div>
     </div>
     <div class="more-info">
-      <h1 class="btn btn-info">Más Información</h1>
+      <h1>Más Información</h1>
       <div class="additional-buttons">
-        <a href="#" class="btn btn-secondary">Condiciones para Adquirir el Servicio</a>
-        <a href="#" class="btn btn-secondary">Contáctate con Nosotros</a>
-        <a href="#" class="btn btn-secondary">PQRS</a>
-        <a href="#" class="btn btn-secondary">Agenda tu Cita</a>
+        <a href="./condiciones.php" class="btn btn-secondary">Condiciones para Adquirir el Servicio</a>
+        <a href="./contactos.php" class="btn btn-secondary">Contáctate con Nosotros-PQRS</a>
+        <a href="./agenda_tu_cita.php" class="btn btn-secondary">Agenda tu Cita</a>
       </div>
     </div>
   </div>

@@ -93,7 +93,9 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
-
+<div class="additional-buttons">
+    <a href="./preguntas_frecuentes.php" class="btn btn-secondary" id="btn-preguntas-frecuentes">PREGUNTAS FRECUENTES</a>
+</div>
 <h1 class="Titulo_trabajos">Nuestros trabajos</h1>
 
 <!-- Cartas -->
@@ -155,7 +157,9 @@
         </div>
     </div>
 </div>
-
+<div class="additional-buttons">
+    <a href="./trabaja-con-nosotros.php" class="btn btn-secondary" id="btn-trabaja-con-nosotros">UNETE AL TEAM</a>
+</div>
 <section id="eslogan" class="eslogan">
     <div class="container">
         <h2>Slogan E & C</h2>
