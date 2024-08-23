@@ -33,14 +33,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="certificado.php"><strong>CERTIFICADO</strong></a>
                 </li>
-                <li class="sub-menu">
-                    <a href="javascript:void(0);">TEAM</a>
-                    <ul>
-                        <li class="scroll_btn"><a href="index.php#team">TEAM</a></li>
-                        <li class="scroll_btn"><a href="index.php#news">NEWS</a></li>
-                        <li class="scroll_btn"><a href="#projects">PROYECTOS</a></li>
-                        <li><a href="trabaja-con-nosotros.php">TRABAJA CON NOSOTROS</a></li>
-                    </ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="trabaja-con-nosotros.php"><strong>TEAM</strong></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="login.php"><strong>CORPORATIVO</strong></a>
@@ -105,42 +99,56 @@
 </section>
 
 <!-- Footer -->
-<section id="footer_servicios">
-    <div class="footer-container">
-        <div class="row text-center text-xs-center text-sm-left text-md-left">
-            <div class="col-xs-12 col-sm-4 col-md-4">
-                <h5>Enlaces rápidos</h5>
-                <ul class="list-unstyled quick-links">
-                    <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Inicio</a></li>
-                    <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Sobre nosotros</a></li>
-                    <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-                    <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Comenzar</a></li>
-                    <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Videos</a></li>
-                </ul>
-            </div>
-            <div class="col-xs-12 col-sm-4 col-md-4">
-                <h5>Contáctanos</h5>
-                <ul class="list-unstyled quick-links">
-                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Email: info@example.com</a></li>
-                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Teléfono: +123 456 789</a></li>
-                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Dirección: Calle Ejemplo, Ciudad</a></li>
-                </ul>
-            </div>
-            <div class="col-xs-12 col-sm-4 col-md-4">
-                <h5>Redes sociales</h5>
-                <ul class="list-unstyled quick-links">
-                    <li><a href="#"><i class="fa fa-facebook"></i>Facebook</a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i>Twitter</a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i>LinkedIn</a></li>
-                    <li><a href="#"><i class="fa fa-instagram"></i>Instagram</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p class="text-xs-center">&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
-        </div>
-    </div>
-</section>
+<section id="footer">
+		<div class="container">
+			<div class="row text-center text-xs-center text-sm-left text-md-left">
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h5>Accesos Rápidos</h5>
+					<ul class="list-unstyled quick-links">
+						<li><a href="./index.php"><i class="fa fa-angle-double-right"></i>Inicio</a></li>
+						<li><a href="./nosotros.php"><i class="fa fa-angle-double-right"></i>Nosotros</a></li>
+						<li><a href="./servicios.php"><i class="fa fa-angle-double-right"></i>Servicios</a></li>
+            <li><a href="./agenda_tu_cita.php"><i class="fa fa-angle-double-right"></i>Agenda tu cita</a></li>
+						<li><a href="./certificado.php"><i class="fa fa-angle-double-right"></i>Certificado</a></li>
+						<li><a href="./corporativo.php"><i class="fa fa-angle-double-right"></i>Corporativo</a></li>
+                        <li><a href="./trabaja-con-nosotros.php"><i class="fa fa-angle-double-right"></i>Trabaja con nosotros</a></li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h5>Políticas</h5>
+					<ul class="list-unstyled quick-links">
+						<li><a href="./politicas.php"><i class="fa fa-angle-double-right"></i>Políticas</a></li>
+						<li><a href="./politicasetica.php"><i class="fa fa-angle-double-right"></i>Políticas etica</a></li>
+						<li><a href="./politicastratamiento.php"><i class="fa fa-angle-double-right"></i>Políticas tratamiento</a></li>
+            <li><a href="./condiciones.php"></li><i class="fa fa-angle-double-right"></i>Condiciones para el servicio</a></li>
+          </ul>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h5>Contactos</h5>
+					<ul class="list-unstyled quick-links">
+						<li><a href="./contactos.php"><i class="fa fa-angle-double-right"></i>Contactos</a></li>
+                        <li>Teléfono: (604) 4480265</li>
+                        <li>Sede Principal Medellín (Antioquia)</li>
+                        <li>CALLE 10 SUR 48 - 62 Barrio Aguacatala 2</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+					<ul class="list-unstyled list-inline social text-center">
+						<li class="list-inline-item"><a href="https://m.facebook.com/people/Eyc-Ingenieria-Sas/100089364634242/"><i class="fa fa-facebook"></i></a></li>
+						<li class="list-inline-item"><a href="https://www.instagram.com/eycingenieria/?igsh=MXVyYWZ4NHV1ZzJ1dA%3D%3D"><i class="fa fa-instagram"></i></a></li>
+						<li class="list-inline-item"><a href="mailto:pqr@eyc.com.co" target="_blank"><i class="fa fa-envelope"></i></a></li>
+					</ul>
+				</div>		
+			</div>	
+                <div class="container text-center">
+                    <p>&copy; 2024 E&C Ingeniería S.A.S. Todos los derechos reservados.</p>
+                </div>
+			</div>	
+		</div>
+	</section>
+	<!-- ./Footer -->
 
 <!-- Scripts -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

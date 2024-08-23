@@ -28,14 +28,8 @@
                         <li class="nav-item"><a class="nav-link" href="servicios.php"><strong>SERVICIOS</strong></a></li>
                         <li class="nav-item"><a class="nav-link" href="agendar_cita.php"><strong>AGENDA TU CITA</strong></a></li>
                         <li class="nav-item"><a class="nav-link" href="certificado.php"><strong>CERTIFICADO</strong></a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"><strong>TEAM</strong></a>
-                            <ul class="dropdown-menu dropdown-team-politicas" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="index.php#team">TEAM</a></li>
-                                <li><a class="dropdown-item" href="index.php#news">NEWS</a></li>
-                                <li><a class="dropdown-item" href="index.php#projects">PROYECTOS</a></li>
-                                <li><a class="dropdown-item" href="trabaja-con-nosotros.php">TRABAJA CON NOSOTROS</a></li>
-                            </ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="trabaja-con-nosotros.php"><strong>TEAM</strong></a>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="./login.php"><strong>CORPORATIVO</strong></a></li>
                         <li class="nav-item dropdown">

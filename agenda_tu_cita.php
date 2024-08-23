@@ -20,16 +20,6 @@
                     <li><a href="agendar_cita.php"><strong>AGENDA TU CITA</strong></a></li>
                     <li><a href="certificado.php"><strong>CERTIFICADO</strong></a></li>
                     <li>
-                        <a href="#">TEAM</a>
-                        <ul>
-                            <li><a href="index.php#team">TEAM</a></li>
-                            <li><a href="index.php#news">NEWS</a></li>
-                            <li><a href="index.php#projects">PROYECTOS</a></li>
-                            <li><a href="trabaja-con-nosotros.php">TRABAJA CON NOSOTROS</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="./login.php"><strong>CORPORATIVO</strong></a></li>
-                    <li>
                         <a href="#">POLÍTICAS</a>
                         <ul>
                             <li><a href="./politicas.php">Políticas</a></li>
@@ -37,6 +27,10 @@
                             <li><a href="./politicastratamiento.php">Políticas tratamiento</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="trabaja-con-nosotros.php"><strong>TEAM</strong></a>
+                    </li>
+                    <li><a href="./login.php"><strong>CORPORATIVO</strong></a></li>
                 </ul>
             </div>
         </nav>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E&C | Ingeniería S.A.S</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="shortcut icon" href="./images/New_Logo_EyC2024_vertical-removebg-preview.png">
     <link href="./css/home.css" rel="stylesheet">
 </head>
@@ -35,18 +36,6 @@
                     <a class="nav-link" href="certificado.php"><strong>CERTIFICADO</strong></a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a href="javascript:void(0);" class="nav-link">TEAM</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="index.php#team">TEAM</a></li>
-                        <li><a href="index.php#news">NEWS</a></li>
-                        <li><a href="#projects">PROYECTOS</a></li>
-                        <li><a href="trabaja-con-nosotros.php">TRABAJA CON NOSOTROS</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="login.php"><strong>CORPORATIVO</strong></a>
-                </li>                                
-                <li class="nav-item dropdown">
                     <a href="javascript:void(0);" class="nav-link">POLÍTICAS</a>
                     <ul class="dropdown-menu">
                         <li><a href="politicas.php">Políticas de seguridad</a></li>
@@ -54,6 +43,12 @@
                         <li><a href="politicasetica.php">Política ética</a></li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="trabaja-con-nosotros.php"><strong>TEAM</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.php"><strong>CORPORATIVO</strong></a>
+                </li>                                
             </ul>
         </nav>
     </div>
@@ -196,8 +191,63 @@
     </div>
 </section>
 
+<!-- Footer -->
+<section id="footer">
+		<div class="container">
+			<div class="row text-center text-xs-center text-sm-left text-md-left">
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h5>Accesos Rápidos</h5>
+					<ul class="list-unstyled quick-links">
+						<li><a href="./index.php"><i class="fa fa-angle-double-right"></i>Inicio</a></li>
+						<li><a href="./nosotros.php"><i class="fa fa-angle-double-right"></i>Nosotros</a></li>
+						<li><a href="./servicios.php"><i class="fa fa-angle-double-right"></i>Servicios</a></li>
+                        <li><a href="./agenda_tu_cita.php"><i class="fa fa-angle-double-right"></i>Agenda tu cita</a></li>
+						<li><a href="./certificado.php"><i class="fa fa-angle-double-right"></i>Certificado</a></li>
+						<li><a href="./corporativo.php"><i class="fa fa-angle-double-right"></i>Corporativo</a></li>
+                        <li><a href="./trabaja-con-nosotros.php"><i class="fa fa-angle-double-right"></i>Trabaja con nosotros</a></li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h5>Políticas</h5>
+					<ul class="list-unstyled quick-links">
+						<li><a href="./politicas.php"><i class="fa fa-angle-double-right"></i>Políticas</a></li>
+						<li><a href="./politicasetica.php"><i class="fa fa-angle-double-right"></i>Políticas etica</a></li>
+						<li><a href="./politicastratamiento.php"><i class="fa fa-angle-double-right"></i>Políticas tratamiento</a></li>
+                        <li><a href="./condiciones.php"></li><i class="fa fa-angle-double-right"></i>Condiciones para el servicio</a></li>
+                    </ul>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h5>Contactos</h5>
+					<ul class="list-unstyled quick-links">
+						<li><a href="./contactos.php"><i class="fa fa-angle-double-right"></i>Contactos</a></li>
+                        <li>Teléfono: (604) 4480265</li>
+                        <li>Sede Principal Medellín (Antioquia)</li>
+                        <li>CALLE 10 SUR 48 - 62 Barrio Aguacatala 2</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+					<ul class="list-unstyled list-inline social text-center">
+						<li class="list-inline-item"><a href="https://m.facebook.com/people/Eyc-Ingenieria-Sas/100089364634242/"><i class="fa fa-facebook"></i></a></li>
+						<li class="list-inline-item"><a href="https://www.instagram.com/eycingenieria/?igsh=MXVyYWZ4NHV1ZzJ1dA%3D%3D"><i class="fa fa-instagram"></i></a></li>
+						<li class="list-inline-item"><a href="mailto:pqr@eyc.com.co" target="_blank"><i class="fa fa-envelope"></i></a></li>
+					</ul>
+				</div>		
+			</div>	
+                <div class="container text-center">
+                    <p>&copy; 2024 E&C Ingeniería S.A.S. Todos los derechos reservados.</p>
+                </div>
+			</div>	
+		</div>
+	</section>
+	<!-- ./Footer -->
+
 <!-- Scripts de Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 </body>
 </html>

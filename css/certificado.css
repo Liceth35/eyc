@@ -350,3 +350,7 @@ form button:hover {
 .hr-border{
     background-color: white!important;
 }
+#footer a {
+    color: white !important; /* Asegura que los enlaces en el footer sean blancos */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+}

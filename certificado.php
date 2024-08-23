@@ -27,16 +27,10 @@
                         <li class="nav-item"><a class="nav-link" href="nosotros.php"><strong>NOSOTROS</strong></a></li>
                         <li class="nav-item"><a class="nav-link" href="contactos.php"><strong>CONTACTOS</strong></a></li>
                         <li class="nav-item"><a class="nav-link" href="servicios.php"><strong>SERVICIOS</strong></a></li>
-                        <li class="nav-item"><a class="nav-link" href="agendar_cita.php"><strong>AGENDA TU CITA</strong></a></li>
+                        <li class="nav-item"><a class="nav-link" href="agenda_tu_cita.php"><strong>AGENDA TU CITA</strong></a></li>
                         <li class="nav-item"><a class="nav-link" href="certificado.php"><strong>CERTIFICADO</strong></a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"><strong>TEAM</strong></a>
-                            <ul class="dropdown-menu dropdown-team-politicas" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="index.php#team">TEAM</a></li>
-                                <li><a class="dropdown-item" href="index.php#news">NEWS</a></li>
-                                <li><a class="dropdown-item" href="index.php#projects">PROYECTOS</a></li>
-                                <li><a class="dropdown-item" href="trabaja-con-nosotros.php">TRABAJA CON NOSOTROS</a></li>
-                            </ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="trabaja-con-nosotros.php"><strong>TEAM</strong></a>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="./login.php"><strong>CORPORATIVO</strong></a></li>
                         <li class="nav-item dropdown">
@@ -71,11 +65,9 @@
 						<li><a href="./index.php"><i class="fa fa-angle-double-right"></i>Inicio</a></li>
 						<li><a href="./nosotros.php"><i class="fa fa-angle-double-right"></i>Nosotros</a></li>
 						<li><a href="./servicios.php"><i class="fa fa-angle-double-right"></i>Servicios</a></li>
+                        <li><a href="./agenda_tu_cita.php"><i class="fa fa-angle-double-right"></i>Agenda tu cita</a></li>
 						<li><a href="./certificado.php"><i class="fa fa-angle-double-right"></i>Certificado</a></li>
 						<li><a href="./corporativo.php"><i class="fa fa-angle-double-right"></i>Corporativo</a></li>
-                        <li><a href="./index.php#team"><i class="fa fa-angle-double-right"></i>Team</a></li>
-                        <li><a href="./index.php#news"><i class="fa fa-angle-double-right"></i>News</a></li>
-                        <li><a href="./index.php#projects"><i class="fa fa-angle-double-right"></i>Proyectos</a></li>
                         <li><a href="./trabaja-con-nosotros.php"><i class="fa fa-angle-double-right"></i>Trabaja con nosotros</a></li>
 					</ul>
 				</div>
@@ -85,13 +77,13 @@
 						<li><a href="./politicas.php"><i class="fa fa-angle-double-right"></i>Políticas</a></li>
 						<li><a href="./politicasetica.php"><i class="fa fa-angle-double-right"></i>Políticas etica</a></li>
 						<li><a href="./politicastratamiento.php"><i class="fa fa-angle-double-right"></i>Políticas tratamiento</a></li>
-					</ul>
+                        <li><a href="./condiciones.php"></li><i class="fa fa-angle-double-right"></i>Condiciones para el servicio</a></li>
+                    </ul>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<h5>Contactos</h5>
 					<ul class="list-unstyled quick-links">
-						<li><a href="./contactos.php"><i class="fa fa-angle-double-right"></i>Contactos</a></li>
-                        <li><a href="./contactos.php">Contactos</a></li>
+						<li ><a href="./contactos.php" style="color: white!important"><i class="color_condiciones fa fa-angle-double-right"></i>Contactos</a></li>
                         <li>Teléfono: (604) 4480265</li>
                         <li>Sede Principal Medellín (Antioquia)</li>
                         <li>CALLE 10 SUR 48 - 62 Barrio Aguacatala 2</li>
