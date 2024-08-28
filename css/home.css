@@ -1,3 +1,6 @@
+body{
+    background-color: #f4f4f4;
+}
 /* Estilos generales para el navbar */
 .navbar-color {
     background-color: #ffffff; /* Color de fondo del navbar */
@@ -128,8 +131,117 @@ margin-top: 1%;
 margin-left: 41%;
 color: #3b88d3;
 }
+.ranking-container{
+    background-color: #f4f4f4 ;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    }
+    
+.ranking-title{
+    color: #3b88d3;
+}
+
+.podium {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    margin-bottom: 40px;
+    margin-top: 7%;
+}
+
+.position {
+    text-align: center;
+}
+
+.podium-box {
+    background-color: #ddd;
+    padding: 10px;
+    border-radius: 10px;
+    width: 120px;
+    position: relative;
+}
+
+.position.first .podium-box {
+    background-color: wheat;
+    padding: 20px;
+    top: -20px; /* Elevación del primer lugar */
+    width: 140%;
+}
+
+.position.second .podium-box {
+    background-color: #8ebce9;
+    padding: 15px;
+    top: -10px; /* Elevación del segundo lugar */
+    width: 140%;
+}
+
+.position.third .podium-box {
+    background-color: #b2dfdb;
+    padding: 10px;
+    width: 150%;
+}
+
+.podium-box img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.podium-box span {
+    font-size: 2em;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.podium-box p {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.podium-box .score {
+    font-size: 1em;
+    color: #555;
+}
+
+.other-workers {
+    margin-top: 30px;
+}
+.tittle_trabajadores{
+    color: #3b88d3;
+}
+.other-workers ul {
+    list-style: none;
+    padding: 0;
+}
+
+.other-workers li {
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: left;
+}
+
+#view-more-btn {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#view-more-btn:hover {
+    background-color: #0056b3;
+}
+
 .eslogan h2 {
-    font-size: 36px;
+    font-size: 42px;
     font-weight: bold;
     color: #3b88d3;
     margin-bottom: 10px;
@@ -138,10 +250,11 @@ color: #3b88d3;
 }
 
 .eslogan p {
-    font-size: 18px;
+    font-size: 25px;
     color: #000000;
     opacity: 0;
     animation: fadeIn 3s ease-in-out 2s forwards; /* Cambié la duración a 3 segundos y el retraso a 2 segundos */
+    margin-top: 3%;
 }
 
 @keyframes fadeIn {
@@ -152,7 +265,7 @@ color: #3b88d3;
 
 
 .noticias {
-    background-color: #ffffff;
+    background-color: #f4f4f4;
     padding: 60px 20px;
 }
 
@@ -170,7 +283,7 @@ color: #3b88d3;
 }
 
 .noticia {
-    background-color: #f5f5f5;
+    background-color: #efe7e7;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);

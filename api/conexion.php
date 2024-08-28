@@ -16,7 +16,7 @@ class PDODB
         // $this->basededatos = "eyc_proyecto_pagina";
 
         // nube cris
-         $this->servidor = "186.115.96.227/phpmyadmin";
+         $this->servidor = "192.168.1.30";
          $this->usuario = "eycPracticas";
          $this->contrasena = "hPR6A+1>|eMz5%}%9<w}";
          $this->basededatos = "eyccom_bd_enrutadores";

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+|<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -31,6 +31,10 @@
                     <th>ID</th>
                     <th>Nombre</th>
                     <th>Acciones</th>
+                    <th>Preguntaid</th>
+                    <th>Respuesta texto</th>
+                    <th>Respuesta escala</th>
+                    <th>Opcion pregunta</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,6 +43,11 @@
                         <tr>
                             <td><?php echo $row['id'] ?></td>
                             <td><?php echo $row['nombre'] ?></td>
+                            <td><?php echo $row['Acciones'] ?></td>
+                            <td><?php echo $row['preguntaid'] ?></td>
+                            <td><?php echo $row['respuestatexto'] ?></td>
+                            <td><?php echo $row['respuestaescala'] ?></td>
+                            <td><?php echo $row['opcionPregunta'] ?></td>
                             <td>
                                 <button class="btn btn-primary" onclick="openModal('<?php echo $row['archivo_adjunto'] ?>')">Ver Archivo Modal</button>
                             </td>

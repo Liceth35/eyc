@@ -155,6 +155,46 @@
 <div class="additional-buttons">
     <a href="./trabaja-con-nosotros.php" class="btn btn-secondary" id="btn-trabaja-con-nosotros">UNETE AL TEAM</a>
 </div>
+<div class="ranking-container">
+    <h1 class="ranking-title">Ranking de Trabajadores</h1>
+    <div class="podium">
+        <div class="position second">
+            <div class="podium-box">
+                <span class="podium-number">2</span>
+                <img src="./images/img2.jfif" alt="Trabajador 2" class="worker-img">
+                <p class="worker-name">Nombre 2</p>
+                <p class="score">90 puntos</p>
+            </div>
+        </div>
+        <div class="position first">
+            <div class="podium-box">
+                <span class="podium-number">1</span>
+                <img src="./images/img1.jfif" alt="Trabajador 1" class="worker-img">
+                <p class="worker-name">Nombre 1</p>
+                <p class="score">95 puntos</p>
+            </div>
+        </div>
+        <div class="position third">
+            <div class="podium-box">
+                <span class="podium-number">3</span>
+                <img src="./images/img3.jfif" alt="Trabajador 3" class="worker-img">
+                <p class="worker-name">Nombre 3</p>
+                <p class="score">85 puntos</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="other-workers">
+        <h3 class="tittle_trabajadores">Otros Trabajadores</h3>
+        <ul id="worker-list">
+            <li>Trabajador 4 - 80 puntos</li>
+            <li>Trabajador 5 - 75 puntos</li>
+            <li>Trabajador 6 - 70 puntos</li>
+        </ul>
+        <button id="view-more-btn" class="btn btn-primary">Ver más</button>
+    </div>
+</div>
+
 <section id="eslogan" class="eslogan">
     <div class="container">
         <h2>Slogan E & C</h2>
@@ -244,6 +284,7 @@
 	<!-- ./Footer -->
 
 <!-- Scripts de Bootstrap -->
+<script src="./js/ranking.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

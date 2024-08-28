@@ -197,9 +197,9 @@
             ¡Gracias por utilizar nuestro servicio
         </div>
         <div class="social-links">
-            <a href="#" target="_blank" title="Facebook"><img src="https://caballosrevelo.com/img/facebook.png" width="30" alt="logo facebook"></a>
+            <a href="https://m.facebook.com/people/Eyc-Ingenieria-Sas/100089364634242/" target="_blank" title="Facebook"><img src="https://caballosrevelo.com/img/facebook.png" width="30" alt="logo facebook"></a>
             <a href="#" target="_blank" title="Grupo Informacion"><img src="https://caballosrevelo.com/img/whatsapp.png" width="30" alt="logo whatsapp"></a>
-            <a href="#" target="_blank" title="Instagram"><img src="https://caballosrevelo.com/img/social.png" width="30" alt="logo instagram"></a>
+            <a href="https://www.instagram.com/eycingenieria/?igsh=MXVyYWZ4NHV1ZzJ1dA%3D%3D" target="_blank" title="Instagram"><img src="https://caballosrevelo.com/img/social.png" width="30" alt="logo instagram"></a>
         </div>
     </div>
 </body>
