@@ -12,39 +12,52 @@
 <body>
   <!-- Navbar -->
   <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top navbar-color">
-            <div class="container">
-                <!-- LOGO -->
-                <a class="" href="index.php"><img class="logo" src="./images/New_Logo_EyC2024-removebg-preview.png" alt=""></a>
-                <!-- Toggler/collapsibe Button -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <!-- Navbar links -->
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="index.php"><strong>INICIO</strong></a></li>
-                        <li class="nav-item"><a class="nav-link" href="nosotros.php"><strong>NOSOTROS</strong></a></li>
-                        <li class="nav-item"><a class="nav-link" href="contactos.php"><strong>CONTACTOS</strong></a></li>
-                        <li class="nav-item"><a class="nav-link" href="servicios.php"><strong>SERVICIOS</strong></a></li>
-                        <li class="nav-item"><a class="nav-link" href="agenda_tu_cita.php"><strong>AGENDA TU CITA</strong></a></li>
-                        <li class="nav-item"><a class="nav-link" href="certificado.php"><strong>CERTIFICADO</strong></a></li>
-                        <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPoliticas" role="button"data-bs-toggle="dropdown" aria-expanded="false">POLÍTICAS</a>
-                        <ul class="dropdown-menu dropdown-team-politicas" aria-labelledby="navbarDropdownPoliticas">
-                            <li><a class="dropdown-item" href="./politicas.php">Políticas</a></li>
-                            <li><a class="dropdown-item" href="./politicasetica.php">Política ética</a></li>
-                            <li><a class="dropdown-item" href="./politicastratamiento.php">Políticas tratamiento</a></li>
-                        </ul>
-                        <li class="nav-item">
-                            <a class="nav-link" href="trabaja-con-nosotros.php"><strong>TEAM</strong></a>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="./login.php"><strong>CORPORATIVO</strong></a></li>
+    <div class="navbar navbar-expand-lg navbar-color fixed-top">
+        <a href="index.php" class="navbar-brand">
+            <img src="./images/New_Logo_EyC2024-removebg-preview.png" alt="Logo" class="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <nav class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php"><strong>INICIO</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="nosotros.php"><strong>NOSOTROS</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contactos.php"><strong>CONTACTOS</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="servicios.php"><strong>SERVICIOS</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="agenda_tu_cita.php"><strong>AGENDA TU CITA</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="certificado.php"><strong>CERTIFICADO</strong></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="javascript:void(0);" class="nav-link dropdown-toggle" id="dropdownMenu" data-bs-toggle="dropdown" aria-expanded="false">POLÍTICAS</a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                        <li><a class="dropdown-item" href="politicas.php">Políticas de seguridad</a></li>
+                        <li><a class="dropdown-item" href="politicastratamiento.php">Política de tratamiento</a></li>
+                        <li><a class="dropdown-item" href="politicasetica.php">Política ética</a></li>
                     </ul>
-                </div>
-            </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="trabaja-con-nosotros.php"><strong>TEAM</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.php"><strong>CORPORATIVO</strong></a>
+                </li>                                
+            </ul>
         </nav>
-    </header>
+    </div>
+</header>
+
 
 <div class="container my-4 pt-5">
     <div class="row">

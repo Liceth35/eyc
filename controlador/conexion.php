@@ -65,36 +65,36 @@ class PDODB
     function getData($sql)
     {
         try {
-            $datos = array();
+            $datos = [];
             $resultados = $this->conexion->query($sql);
             if ($resultados->rowCount() > 0) {
                 while ($row = $resultados->fetch(PDO::FETCH_ASSOC)) {
-                    array_push($datos, $row);
+                    $datos[] = $row;
                 }
             } else {
                 $datos = false;
             }
             return $datos;
         } catch (Throwable $th) {
-            die("¡Oh no!, hubo un error en la consulta de obtener resultados");
+            die("¡Oh no!, hubo un error en la consulta de obtener resultados: " . $th->getMessage());
         }
     }
 
     function login($sql)
     {
         try {
-            $datos = array();
+            $datos = [];
             $resultados = $this->conexion->query($sql);
             if ($resultados->rowCount() > 0) {
                 while ($row = $resultados->fetch(PDO::FETCH_ASSOC)) {
-                    array_push($datos, $row);
+                    $datos[] = $row;
                 }
             } else {
                 $datos = false;
             }
             return $datos;
         } catch (Throwable $th) {
-            die("¡Oh no!, hubo un error en la consulta de login");
+            die("¡Oh no!, hubo un error en la consulta de login: " . $th->getMessage());
         }
     }
 
@@ -104,12 +104,11 @@ class PDODB
             $resultados = $this->conexion->query($sql);
             return $resultados;
         } catch (Exception $e) {
-            die("¡Oh no!, hubo un error en la consulta de ejecutar instrucción");
+            die("¡Oh no!, hubo un error en la consulta de ejecutar instrucción: " . $e->getMessage());
         }
     }
 
-
-    function ejecutar($query, $params = array())
+    function ejecutar($query, $params = [])
     {
         try {
             $statement = $this->prepare($query);
@@ -128,19 +127,14 @@ class PDODB
     {
         $this->conexion = null;
     }
+
+    function lastInsertId()
+    {
+        if ($this->conexion) {
+            return $this->conexion->lastInsertId();
+        } else {
+            throw new Exception("Conexión no está activa.");
+        }
+    }
 }
-
-// Ejemplo básico de uso:
-// Instanciar la conexión
-$pdo = new PDODB();
-$pdo->conectar();
-
-// Ejemplo de preparar una consulta
-$query = "SELECT * FROM citas WHERE id = :id";
-$params = array(':id' => 1);
-$resultado = $pdo->consulta($query, $params);
-
-// Procesar $resultado según necesites
-
-$pdo->close();
 ?>

@@ -1,69 +1,110 @@
-/* Navbar */
-.navbar {
+body{
+    background-color: #f4f4f4;
+}
+/* Estilos generales para el navbar */
+.navbar-color {
+    background-color: #ffffff; /* Color de fondo del navbar */
+    border-bottom: 2px solid #dcdcdc; /* Línea inferior para separar el navbar del contenido */
+    padding: 10px 20px; /* Espaciado interno del navbar */
+}
+
+.navbar-brand .logo {
+    height: 60px;
+    width: auto;
+    margin-left: 2%;
+}
+
+/* Estilos para el menú principal */
+.navmenu {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background-color: #f0f0f0; /* color del fondo */
-    padding: 10px 20px;
+    margin-left: auto;
 }
 
-.navbar a {
-    color: #000; /* color del texto */
-    text-decoration: none;
-}
-
-.navbar a:hover {
-    text-decoration: underline;
-}
-
-/* Estilos del logo en la navbar */
-.navbar .logo {
-    max-width: 18%; /* ajusta el tamaño del logo */
-    height: auto;
-    margin-left: 0%;
-}
-
-/* Nuevas opciones de navegación */
-.navbar ul {
+/* Estilos para los elementos del menú */
+.navmenu ul {
     list-style: none;
-    margin: -4%;
+    margin: 0;
     padding: 0;
     display: flex;
-    font-size: 14px;
-    align-items: center;
-    margin-left: 18%;
+    
+    font-size: 12px;
 }
 
-.navbar ul li {
-    position: relative;
+.navmenu ul li {
     margin-left: 20px;
+    position: relative;
 }
 
-.navbar ul li ul {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    display: none;
-    background-color: black;
-    list-style: none;
-    padding: 10px 0;
-    margin: 0;
-}
-
-.navbar ul li:hover ul {
+.navmenu ul li a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
     display: block;
 }
 
-.navbar ul li ul li {
+.navmenu ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #000000;
+    padding: 10px 0;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.navmenu ul li ul li {
     width: 200px;
-    padding: 10px;
+    margin: 0;
 }
 
-.navbar ul li ul li a {
-    color: #fff;
-    text-decoration: none;
+.navmenu ul li ul li a {
+    padding: 8px 15px;
+    color: #ffffff;
 }
 
+.navmenu ul li:hover ul {
+    display: block;
+}
+
+.navmenu ul li ul li a:hover {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 992px) {
+    .navbar-nav {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navmenu ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navmenu ul li {
+        margin-left: 0;
+    }
+
+    .navbar-collapse {
+        background-color: #fff;
+        border-top: 1px solid #dcdcdc;
+    }
+
+    .navbar-toggler {
+        margin-left: auto;
+    }
+
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+    }
+}
 
 /* Contenedor principal */
 .container {

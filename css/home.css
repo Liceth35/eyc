@@ -5,20 +5,20 @@ body{
 .navbar-color {
     background-color: #ffffff; /* Color de fondo del navbar */
     border-bottom: 2px solid #dcdcdc; /* Línea inferior para separar el navbar del contenido */
-    padding: 0px 20px; /* Espaciado interno del navbar */
+    padding: 10px 20px; /* Espaciado interno del navbar */
 }
 
 .navbar-brand .logo {
-    height: 60px; /* Ajusta la altura del logo aquí */
-    width: auto; /* Mantiene la proporción original del logo */
+    height: 60px;
+    width: auto;
     margin-left: 2%;
 }
 
 /* Estilos para el menú principal */
 .navmenu {
     display: flex;
-    align-items: center; /* Alinea verticalmente los elementos */
-    margin-left: auto; /* Alinea el menú a la derecha */
+    align-items: center;
+    margin-left: auto;
 }
 
 /* Estilos para los elementos del menú */
@@ -27,17 +27,15 @@ body{
     margin: 0;
     padding: 0;
     display: flex;
-    margin-left: -4%;
-    font-size: 75%;
+    
+    font-size: 12px;
 }
 
-/* Estilos para los elementos del menú */
 .navmenu ul li {
     margin-left: 20px;
     position: relative;
 }
 
-/* Estilos para los enlaces del menú */
 .navmenu ul li a {
     color: black;
     text-decoration: none;
@@ -46,41 +44,68 @@ body{
     display: block;
 }
 
-/* Estilos para el menú desplegable */
 .navmenu ul li ul {
     display: none;
     position: absolute;
-    top: 100%; /* Alinea el menú desplegable justo debajo del elemento principal */
+    top: 100%;
     left: 0;
-    background-color: #000000; /* Color de fondo negro */
+    background-color: #000000;
     padding: 10px 0;
     border-radius: 4px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Sombra para darle profundidad */
-    z-index: 1000; /* Asegura que el menú desplegable esté encima de otros elementos */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }
 
-/* Estilos para los elementos del menú desplegable */
 .navmenu ul li ul li {
     width: 200px;
     margin: 0;
 }
 
-/* Estilos para los enlaces del menú desplegable */
 .navmenu ul li ul li a {
     padding: 8px 15px;
-    color: #ffffff; /* Color del texto blanco */
+    color: #ffffff;
 }
 
-/* Muestra el menú desplegable cuando el cursor está sobre el elemento del menú principal */
 .navmenu ul li:hover ul {
     display: block;
 }
 
-/* Opcional: Estilo para el enlace del menú desplegable en hover */
 .navmenu ul li ul li a:hover {
-    background-color: #333333; /* Cambia el color de fondo a un gris oscuro al pasar el cursor */
-    color: #ffffff; /* Mantiene el color del texto en blanco */
+    background-color: #333333;
+    color: #ffffff;
 }
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 992px) {
+    .navbar-nav {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navmenu ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navmenu ul li {
+        margin-left: 0;
+    }
+
+    .navbar-collapse {
+        background-color: #fff;
+        border-top: 1px solid #dcdcdc;
+    }
+
+    .navbar-toggler {
+        margin-left: auto;
+    }
+
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+    }
+}
+
 
 
 /* Estilos para el carrusel grande */
@@ -336,8 +361,8 @@ color: #3b88d3;
 /* Estilo específico para el botón de preguntas frecuentes */
 #btn-preguntas-frecuentes {
     position: relative;
-    top: -20px; /* Ajusta según necesites para que quede encima del carrusel */
-    margin-left: 82%;
+    top: 10px; /* Ajusta según necesites para que quede encima del carrusel */
+    margin-left: 29%;
     margin-top: 2%;
 }
 

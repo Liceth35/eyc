@@ -1,78 +1,33 @@
-/* Navbar Styles */
+body{
+    background-color: #f4f4f4;
+}
+/* Estilos generales para el navbar */
 .navbar-color {
-    height: 80px; /* Ajusta la altura del navbar */
+    background-color: #ffffff; /* Color de fondo del navbar */
+    border-bottom: 2px solid #dcdcdc; /* Línea inferior para separar el navbar del contenido */
+    padding: 10px 20px; /* Espaciado interno del navbar */
 }
 
-.navbar {
-    background-color: white; /* Fondo blanco */
-    border-bottom: 2px solid #f0f0f0; /* Borde inferior gris claro opcional */
-    padding: 0.5rem 1rem; /* Ajusta el padding según sea necesario */
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    color: #333; /* Color del texto en la barra */
+.navbar-brand .logo {
+    height: 60px;
+    width: auto;
+    margin-left: 2%;
 }
 
-.navbar-brand img {
-    height: 60px; /* Ajusta el tamaño del logo */
-}
-
-.navbar-nav {
-    margin-left: auto; /* Mueve los elementos del menú a la derecha */
-}
-
-.navbar-nav .nav-item {
-    margin-left: 10px; /* Espacio entre los elementos del menú */
-}
-
-.navbar-nav .nav-link {
-    font-size: 0.8rem;
-    margin: 0 10px;
-}
-
-.nav-item.dropdown .dropdown-menu {
-    background-color: #f8f9fa;
-    font-size: 1rem; /* Tamaño de letra para los elementos del menú desplegable */
-}
-
-.navbar-brand {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: black;
-    text-decoration: none;
-}
-
-.dropdown-team-politicas {
-    background-color: black!important; /* Fondo negro */
-}
-
-.dropdown-menu a {
-    color: white !important; /* Texto blanco */
-}
-
-.dropdown-menu a:hover {
-    background-color: transparent !important; /* Elimina el color de fondo */
-    color: white !important; /* Cambia el color del texto a negro */
-}
-
-.logo {
-    width: 195%;
-    margin: -73%;
-    margin-top: -99%;
-    margin-left: -106%;
-}
-
+/* Estilos para el menú principal */
 .navmenu {
     display: flex;
+    align-items: center;
+    margin-left: auto;
 }
 
+/* Estilos para los elementos del menú */
 .navmenu ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
+    
     font-size: 12px;
 }
 
@@ -92,11 +47,13 @@
 .navmenu ul li ul {
     display: none;
     position: absolute;
-    top: 40px;
+    top: 100%;
     left: 0;
-    background-color: black;
+    background-color: #000000;
     padding: 10px 0;
     border-radius: 4px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }
 
 .navmenu ul li ul li {
@@ -106,15 +63,49 @@
 
 .navmenu ul li ul li a {
     padding: 8px 15px;
+    color: #ffffff;
 }
 
 .navmenu ul li:hover ul {
-    background-color: black;
+    display: block;
 }
 
-.navmenu ul li a {
-    transition: none; /* Elimina la transición para evitar movimientos */
+.navmenu ul li ul li a:hover {
+    background-color: #333333;
+    color: #ffffff;
 }
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 992px) {
+    .navbar-nav {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navmenu ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navmenu ul li {
+        margin-left: 0;
+    }
+
+    .navbar-collapse {
+        background-color: #fff;
+        border-top: 1px solid #dcdcdc;
+    }
+
+    .navbar-toggler {
+        margin-left: auto;
+    }
+
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+    }
+}
+
 .nosotros_nav{
     margin-left: 4%!important;
 }

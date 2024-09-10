@@ -9,18 +9,11 @@ class PDODB
 
     function __construct()
     {
-        // local lizeth
-        // $this->servidor = "localhost"; me tocó colgar la bd en la nuve porque el local se me estañando  ucho
-        // $this->usuario = "root";
-        // $this->contrasena = "";
-        // $this->basededatos = "eyc_proyecto_pagina";
-
-        // nube cris
-         $this->servidor = "192.168.1.30";
-         $this->usuario = "eycPracticas";
-         $this->contrasena = "hPR6A+1>|eMz5%}%9<w}";
-         $this->basededatos = "eyccom_bd_enrutadores";
-
+        // Configuración de conexión
+        $this->servidor = "192.168.1.30";
+        $this->usuario = "eycPracticas";
+        $this->contrasena = "hPR6A+1>|eMz5%}%9<w}";
+        $this->basededatos = "eyccom_bd_enrutadores";
     }
 
     function conectar()
@@ -108,7 +101,6 @@ class PDODB
         }
     }
 
-
     function ejecutar($query, $params = array())
     {
         try {
@@ -128,19 +120,10 @@ class PDODB
     {
         $this->conexion = null;
     }
+
+    function lastInsertId()
+    {
+        return $this->conexion->lastInsertId();
+    }
 }
-
-// Ejemplo básico de uso:
-// Instanciar la conexión
-$pdo = new PDODB();
-$pdo->conectar();
-
-// Ejemplo de preparar una consulta
-$query = "SELECT * FROM citas WHERE id = :id";
-$params = array(':id' => 1);
-$resultado = $pdo->consulta($query, $params);
-
-// Procesar $resultado según necesites
-
-$pdo->close();
 ?>

@@ -11,10 +11,15 @@
 <body>
 
 <header>
-    <div class="navbar">
-        <a href="index.php"><img src="./images/New_Logo_EyC2024-removebg-preview.png" alt="Logo" class="logo"></a>
-        <nav class="navmenu center">
-            <ul>
+    <div class="navbar navbar-expand-lg navbar-color fixed-top">
+        <a href="index.php" class="navbar-brand">
+            <img src="./images/New_Logo_EyC2024-removebg-preview.png" alt="Logo" class="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <nav class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="index.php"><strong>INICIO</strong></a>
                 </li>
@@ -25,7 +30,7 @@
                     <a class="nav-link" href="contactos.php"><strong>CONTACTOS</strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="servicios.php" class="active"><strong>SERVICIOS</strong></a>
+                    <a class="nav-link" href="servicios.php"><strong>SERVICIOS</strong></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="agenda_tu_cita.php"><strong>AGENDA TU CITA</strong></a>
@@ -33,20 +38,20 @@
                 <li class="nav-item">
                     <a class="nav-link" href="certificado.php"><strong>CERTIFICADO</strong></a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a href="javascript:void(0);" class="nav-link dropdown-toggle" id="dropdownMenu" data-bs-toggle="dropdown" aria-expanded="false">POLÍTICAS</a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                        <li><a class="dropdown-item" href="politicas.php">Políticas de seguridad</a></li>
+                        <li><a class="dropdown-item" href="politicastratamiento.php">Política de tratamiento</a></li>
+                        <li><a class="dropdown-item" href="politicasetica.php">Política ética</a></li>
+                    </ul>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="trabaja-con-nosotros.php"><strong>TEAM</strong></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="login.php"><strong>CORPORATIVO</strong></a>
                 </li>                                
-                <li class="sub-menu">
-                    <a href="javascript:void(0);">POLÍTICAS</a>
-                    <ul>
-                        <li><a href="politicas.php">Políticas de seguridad</a></li>
-                        <li><a href="politicastratamiento.php">Política de tratamiento</a></li>
-                        <li><a href="politicasetica.php">Política ética</a></li>
-                    </ul>
-                </li>
             </ul>
         </nav>
     </div>
@@ -151,6 +156,8 @@
 	<!-- ./Footer -->
 
 <!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
