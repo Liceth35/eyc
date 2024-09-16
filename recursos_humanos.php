@@ -59,6 +59,7 @@ $db->close(); // Cerrar la conexión después de obtener los datos
                     <th>Estado de Propiedad</th>
                     <th>Mensaje</th>
                     <th>Archivo Adjunto</th>
+                    <th>Fecha de Creación</th> <!-- Nueva columna -->
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -66,28 +67,29 @@ $db->close(); // Cerrar la conexión después de obtener los datos
                 <?php if (!empty($result)) { ?>
                     <?php foreach ($result as $row) { ?>
                         <tr>
-                            <td><?php echo $row['id'] ?></td>
-                            <td><?php echo $row['nombre'] ?></td>
-                            <td><?php echo $row['correo'] ?></td>
-                            <td><?php echo $row['celular'] ?></td>
-                            <td><?php echo $row['tipo_documento'] ?></td>
-                            <td><?php echo $row['numero_documento'] ?></td>
-                            <td><?php echo $row['departamento'] ?></td>
-                            <td><?php echo $row['ciudad'] ?></td>
-                            <td><?php echo $row['profesion'] ?></td>
-                            <td><?php echo $row['tipo_moto'] ?></td>
-                            <td><?php echo $row['modelo_moto'] ?></td>
-                            <td><?php echo $row['estado_propiedad'] ?></td>
-                            <td><?php echo $row['mensaje'] ?></td>
-                            <td><a href='controlador/<?php echo $row['archivo_adjunto'] ?>'>Ver Archivo</a></td>
+                            <td><?php echo htmlspecialchars($row['id']); ?></td>
+                            <td><?php echo htmlspecialchars($row['nombre']); ?></td>
+                            <td><?php echo htmlspecialchars($row['correo']); ?></td>
+                            <td><?php echo htmlspecialchars($row['celular']); ?></td>
+                            <td><?php echo htmlspecialchars($row['tipo_documento']); ?></td>
+                            <td><?php echo htmlspecialchars($row['numero_documento']); ?></td>
+                            <td><?php echo htmlspecialchars($row['departamento']); ?></td>
+                            <td><?php echo htmlspecialchars($row['ciudad']); ?></td>
+                            <td><?php echo htmlspecialchars($row['profesion']); ?></td>
+                            <td><?php echo htmlspecialchars($row['tipo_moto']); ?></td>
+                            <td><?php echo htmlspecialchars($row['modelo_moto']); ?></td>
+                            <td><?php echo htmlspecialchars($row['estado_propiedad']); ?></td>
+                            <td><?php echo htmlspecialchars($row['mensaje']); ?></td>
+                            <td><a href='controlador/<?php echo htmlspecialchars($row['archivo_adjunto']); ?>'>Ver Archivo</a></td>
+                            <td><?php echo htmlspecialchars($row['created_at']); ?></td> <!-- Muestra la fecha de creación -->
                             <td>
-                                <button class="btn btn-primary" onclick="openModal('<?php echo $row['archivo_adjunto'] ?>')">Ver Archivo Modal</button>
+                                <button class="btn btn-primary" onclick="openModal('<?php echo htmlspecialchars($row['archivo_adjunto']); ?>')">Ver Archivo Modal</button>
                             </td>
                         </tr>
                     <?php } ?>
                 <?php } else { ?>
                     <tr>
-                        <td colspan="14" class="text-center">No se encontraron registros.</td>
+                        <td colspan="15" class="text-center">No se encontraron registros.</td>
                     </tr>
                 <?php } ?>
             </tbody>

@@ -10,7 +10,7 @@ class PDODB
     function __construct()
     {
         // Configuración de conexión
-        $this->servidor = "192.168.1.30";
+        $this->servidor = "192.168.02.54";
         $this->usuario = "eycPracticas";
         $this->contrasena = "hPR6A+1>|eMz5%}%9<w}";
         $this->basededatos = "eyccom_bd_enrutadores";

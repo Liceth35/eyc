@@ -100,7 +100,7 @@
                             <select class="form-select" id="horas" multiple>
                                 <option value="07:00-09:00">07:00 am - 09:00 am</option>
                                 <option value="09:00-12:00">09:00 am - 12:00 pm</option>
-                                <option value="01:00-12:00">01:00 pm - 12:00 pm</option>
+                                <option value="01:00-12:00">01:00 pm - 03:00 pm</option>
                                 <option value="03:00-05:00">03:00 pm - 05:00 pm</option>
                             </select>
                         </div>

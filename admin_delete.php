@@ -9,9 +9,9 @@ if (!isset($_SESSION['correo_usuarios_blog'])) {
 $db = new PDODB();
 $db->conectar();
 
-// Eliminar artículo si se recibió el ID
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+// Eliminar un artículo si se recibe el ID a través de una solicitud POST
+if (isset($_POST['id'])) {
+    $id = $_POST['id'];
 
     $sql = "DELETE FROM admin_blog WHERE id = :id";
     $stmt = $db->prepare($sql);
@@ -21,6 +21,18 @@ if (isset($_GET['id'])) {
         echo "Artículo eliminado exitosamente.";
     } else {
         echo "Error al eliminar el artículo.";
+    }
+}
+
+// Eliminar todos los artículos
+if (isset($_POST['eliminar_todos'])) {
+    $sql = "DELETE FROM admin_blog";
+    $stmt = $db->prepare($sql);
+
+    if ($stmt->execute()) {
+        echo "Todos los artículos fueron eliminados.";
+    } else {
+        echo "Error al eliminar los artículos.";
     }
 }
 
@@ -45,14 +57,11 @@ $posts = $db->getData($sql);
     <a href="./admin_create.php" class="button button-delete">Agregar</a>
     <a href="./blog.php" class="button-blog">Blog</a>
 </div>
-    <h1>Eliminar Artículo</h1>
-    <form action="admin_delete.php" method="get">
-        <label for="id">ID del Artículo a Eliminar:</label>
-        <input type="number" id="id" name="id" required><br>
-        <button type="submit">Eliminar</button>
-    </form>
 
-    <h2>Lista de Artículos</h2>
+<h1>Eliminar Artículo</h1>
+
+<h2>Lista de Artículos</h2>
+<form action="admin_delete.php" method="post">
     <table>
         <thead>
             <tr>
@@ -63,6 +72,7 @@ $posts = $db->getData($sql);
                 <th>URL Imagen</th>
                 <th>Fecha Creación</th>
                 <th>Fecha Actualización</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -76,37 +86,46 @@ $posts = $db->getData($sql);
                         <td><?php echo htmlspecialchars($post['url_imagen']); ?></td>
                         <td><?php echo htmlspecialchars($post['fecha_creacion']); ?></td>
                         <td><?php echo htmlspecialchars($post['fecha_actualizacion']); ?></td>
+                        <td>
+                            <button type="submit" name="id" value="<?php echo $post['id']; ?>">Eliminar</button>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             <?php else: ?>
                 <tr>
-                    <td colspan="7">No hay artículos disponibles.</td>
+                    <td colspan="8">No hay artículos disponibles.</td>
                 </tr>
             <?php endif; ?>
         </tbody>
     </table>
-    <script>
-    function cerrarSesion() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4) {
-                if (this.status == 200) {
-                    console.log("Sesión cerrada"); // Para depurar
-                    window.location.replace("index.php");
-                } else {
-                    console.log("Error al cerrar sesión"); // Para depurar
-                }
-            }
-        };
-        xhttp.open("GET", "./controlador/logaout.php", true);
-        xhttp.send();
-    }
+</form>
 
-    window.onload = function() {
-        if (window.history.length > 1) {
-            window.history.forward();
+<form action="admin_delete.php" method="post">
+    <button type="submit" name="eliminar_todos">Eliminar Todos los Artículos</button>
+</form>
+
+<script>
+function cerrarSesion() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+            if (this.status == 200) {
+                console.log("Sesión cerrada");
+                window.location.replace("index.php");
+            } else {
+                console.log("Error al cerrar sesión");
+            }
         }
+    };
+    xhttp.open("GET", "./controlador/logaout.php", true);
+    xhttp.send();
+}
+
+window.onload = function() {
+    if (window.history.length > 1) {
+        window.history.forward();
     }
+}
 </script>
 </body>
 </html>
