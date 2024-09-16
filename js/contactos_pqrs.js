@@ -26,6 +26,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 cellMensaje.textContent = contact.mensaje;
                 row.appendChild(cellMensaje);
 
+                // Agregar la celda de la fecha
+                const cellFecha = document.createElement('td');
+                cellFecha.textContent = contact.created_ate;
+                row.appendChild(cellFecha);
+
                 tableBody.appendChild(row);
             });
         })
