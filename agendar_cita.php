@@ -105,7 +105,7 @@
                 <input type="hidden" id="municipio-seleccionado" name="municipio">
 
                 <div class="content-btn-cita">
-                    <button type="submit">Confirmar Cita</button>
+                    <button id="btn-cita" type="submit">Confirmar Cita</button>
 
                 </div>
             </form>

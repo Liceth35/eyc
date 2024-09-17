@@ -1,6 +1,13 @@
 $(document).ready(function() {
     $('#form-reagendar-cita').on('submit', function(event) {
         event.preventDefault();
+        
+        // Deshabilitar el botón y cambiar el texto
+        let boton = document.getElementById('btn_reagendar');
+        boton.textContent = 'Espere por favor...';
+        boton.disabled = true;
+        boton.style.backgroundColor = "#28a74587";
+        
 
         // Recoger datos del formulario
         var formData = $(this).serialize();
