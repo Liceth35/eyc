@@ -1,59 +1,32 @@
 <?php
-// Incluye el archivo de conexión a la base de datos
-include_once './controlador/conexion.php'; // Asegúrate de que la ruta es correcta
-
-// Configura el encabezado para JSON
 header('Content-Type: application/json');
+include_once './controlador/conexion.php';
 
-// Conecta a la base de datos
-$mysqli = new mysqli('localhost', 'root', '', 'eyc_proyecto_pagina');
+try {
+    $pdo = new PDODB();
+    $pdo->conectar();
 
-// Verifica la conexión
-if ($mysqli->connect_error) {
-    $response = [
-        'status' => 'error',
-        'message' => 'Conexión fallida: ' . $mysqli->connect_error
-    ];
-    echo json_encode($response);
-    exit;
-}
+    // Obtener el ID del departamento desde el parámetro GET
+    $citaId = isset($_POST['id']) ? intval($_POST['id']) : 0;
 
-// Obtén el ID de la cita desde la solicitud POST
-$citaId = isset($_POST['id']) ? $_POST['id'] : null;
+    // Consulta para eliminar la cita
+    $sql = "DELETE FROM citas WHERE id = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':id', $citaId, PDO::PARAM_INT);
+    $stmt->execute();
 
-$response = [];
-
-if ($citaId) {
-    // Consulta para cancelar la cita
-    $query = "DELETE FROM citas WHERE id = ?";
-    $stmt = $mysqli->prepare($query);
-    $stmt->bind_param('i', $citaId);
-
-    if ($stmt->execute()) {
-        if ($stmt->affected_rows > 0) {
-            $response['status'] = 'success';
-            $response['message'] = 'La cita ha sido cancelada.';
-        } else {
-            // No se encontró ninguna fila afectada (cita no existe)
-            $response['status'] = 'error';
-            $response['message'] = 'No se encontró la cita con el ID proporcionado.';
-        }
+    // Verificar si se eliminó la cita
+    if ($stmt->rowCount() > 0) {
+        $response = ['status' => 'success', 'id' => $citaId];
     } else {
-        error_log('Error al cancelar la cita. ID: ' . $citaId . ' - ' . $stmt->error); // Agrega esta línea para depurar
-        $response['status'] = 'error';
-        $response['message'] = 'Hubo un problema al cancelar la cita.';
+        $response = ['status' => 'error', 'message' => 'No se eliminó la cita ' . $citaId];
     }
 
-    $stmt->close();
-} else {
-    error_log('ID de cita no proporcionado'); // Agrega esta línea para depurar
-    $response['status'] = 'error';
-    $response['message'] = 'ID de cita no proporcionado.';
+    echo json_encode($response);
+
+} catch (Exception $e) {
+    echo json_encode(['error' => $e->getMessage()]);
+} finally {
+    $pdo->close();
 }
-
-// Cierra la conexión
-$mysqli->close();
-
-// Envía la respuesta JSON
-echo json_encode($response);
 ?>

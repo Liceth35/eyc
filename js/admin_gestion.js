@@ -47,6 +47,7 @@ window.onload = function() {
         window.history.forward();
     }
 }
+
 // cancelar cita
 function confirmarCancelacion(citaId) {
     Swal.fire({
@@ -64,8 +65,9 @@ function confirmarCancelacion(citaId) {
             cancelarCita(citaId);
         }
     });
+    console.log(citaId);
 }
-
+// confirmar laa cancelación de la cita
 function cancelarCita(citaId) {
   Swal.fire({
       title: '¿Estás seguro?',
@@ -82,7 +84,7 @@ function cancelarCita(citaId) {
           $.ajax({
               url: 'cancelarCita.php', // Asegúrate de que la ruta es correcta
               type: 'POST',
-              data: { id: citaId },
+              data: { id: citaId }, // Envía el ID de la cita
               success: function(response) {
                   console.log("Respuesta del servidor:", response); // Agrega esta línea para depurar
                   if (response.status === 'success') {
