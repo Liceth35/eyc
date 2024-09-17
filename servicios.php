@@ -18,7 +18,7 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
           </button>
-          <nav class="collapse navbar-collapse" id="navbarNav">
+          <nav class="collapse navbar-collapse servicios_nav" id="navbarNav">
               <ul class="navbar-nav ms-auto">
                   <li class="nav-item">
                       <a class="nav-link" href="index.php"><strong>INICIO</strong></a>
@@ -58,7 +58,7 @@
   </header>
 
   <section id="servicios" class="servicios">
-    <div class="container">
+    <div class="container_servicios">
       <h2 class="section-title">Servicios</h2>
       <p class="section-description">
         La inspección de gas es una evaluación integral diseñada para garantizar el correcto funcionamiento y la seguridad de los sistemas de gas en su hogar, negocio o fábrica. Nuestros inspectores realizan un examen detallado de cada componente del sistema para detectar posibles fugas, defectos u otros hallazgos para prevenir problemas graves, como explosiones o intoxicaciones. Este proceso actúa como una medida preventiva crucial para proteger tanto a usted como a su propiedad, proporcionando la tranquilidad de saber que se encuentra en un entorno seguro y confiable. Nuestro alcance incluye sistemas individuales y sistemas multiusuario con todos sus componentes.

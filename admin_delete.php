@@ -5,34 +5,67 @@ if (!isset($_SESSION['correo_usuarios_blog'])) {
     header("Location: login_blog.php");
     exit();
 }
+
 // Conectamos a la base de datos
 $db = new PDODB();
 $db->conectar();
 
-// Eliminar un artículo si se recibe el ID a través de una solicitud POST
-if (isset($_POST['id'])) {
-    $id = $_POST['id'];
+// Eliminar un artículo si se recibe el ID a través de una solicitud GET
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
 
     $sql = "DELETE FROM admin_blog WHERE id = :id";
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':id', $id);
 
     if ($stmt->execute()) {
-        echo "Artículo eliminado exitosamente.";
+        echo "<script>
+            Swal.fire({
+                title: '¡Eliminado!',
+                text: 'El artículo ha sido eliminado.',
+                icon: 'success'
+            }).then(() => {
+                window.location.href = 'admin_delete.php';
+            });
+        </script>";
     } else {
-        echo "Error al eliminar el artículo.";
+        echo "<script>
+            Swal.fire({
+                title: 'Error',
+                text: 'No se pudo eliminar el artículo.',
+                icon: 'error'
+            }).then(() => {
+                window.location.href = 'admin_delete.php';
+            });
+        </script>";
     }
 }
 
 // Eliminar todos los artículos
-if (isset($_POST['eliminar_todos'])) {
+if (isset($_GET['eliminar_todos'])) {
     $sql = "DELETE FROM admin_blog";
     $stmt = $db->prepare($sql);
 
     if ($stmt->execute()) {
-        echo "Todos los artículos fueron eliminados.";
+        echo "<script>
+            Swal.fire({
+                title: '¡Eliminado!',
+                text: 'Todos los artículos han sido eliminados.',
+                icon: 'success'
+            }).then(() => {
+                window.location.href = 'admin_delete.php';
+            });
+        </script>";
     } else {
-        echo "Error al eliminar los artículos.";
+        echo "<script>
+            Swal.fire({
+                title: 'Error',
+                text: 'No se pudieron eliminar los artículos.',
+                icon: 'error'
+            }).then(() => {
+                window.location.href = 'admin_delete.php';
+            });
+        </script>";
     }
 }
 
@@ -49,6 +82,8 @@ $posts = $db->getData($sql);
     <title>Eliminar Artículo</title>
     <link rel="stylesheet" href="./css/admin_delete.css">
     <link rel="shortcut icon" href="images/New_Logo_EyC2024_vertical-removebg-preview.png">
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 <body>
 <button type="button" class="btn btn-warning cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
@@ -61,7 +96,7 @@ $posts = $db->getData($sql);
 <h1>Eliminar Artículo</h1>
 
 <h2>Lista de Artículos</h2>
-<form action="admin_delete.php" method="post">
+<form id="deleteArticleForm" action="admin_delete.php" method="post">
     <table>
         <thead>
             <tr>
@@ -87,7 +122,7 @@ $posts = $db->getData($sql);
                         <td><?php echo htmlspecialchars($post['fecha_creacion']); ?></td>
                         <td><?php echo htmlspecialchars($post['fecha_actualizacion']); ?></td>
                         <td>
-                            <button type="submit" name="id" value="<?php echo $post['id']; ?>">Eliminar</button>
+                            <button type="button" class="btn btn-danger delete-button" data-id="<?php echo $post['id']; ?>">Eliminar</button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -101,10 +136,55 @@ $posts = $db->getData($sql);
 </form>
 
 <form action="admin_delete.php" method="post">
-    <button type="submit" name="eliminar_todos">Eliminar Todos los Artículos</button>
+    <button type="button" id="deleteAllButton" class="btn btn-danger">Eliminar Todos los Artículos</button>
 </form>
 
+<!-- SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 <script>
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.delete-button').forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            const postId = this.getAttribute('data-id');
+
+            Swal.fire({
+                title: "¿Estás seguro?",
+                text: "¡No podrás revertir esto!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Sí, elimínalo!",
+                cancelButtonText: "Cancelar"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = `admin_delete.php?id=${postId}`;
+                }
+            });
+        });
+    });
+
+    document.getElementById('deleteAllButton').addEventListener('click', function(event) {
+        event.preventDefault();
+
+        Swal.fire({
+            title: "¿Estás seguro?",
+            text: "¡Esto eliminará todos los artículos!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Sí, elimínalos!",
+            cancelButtonText: "Cancelar"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = 'admin_delete.php?eliminar_todos=true';
+            }
+        });
+    });
+});
+
 function cerrarSesion() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {

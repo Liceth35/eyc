@@ -6,15 +6,20 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class CertificadosExcel {
-    public function exportToExcel() {
+    public function exportToExcel($startDate, $endDate) {
         // Conectar a la base de datos
         $db = new PDODB();
         $db->conectar();
 
-        // Consultar la base de datos
+        // Consultar la base de datos con el rango de fechas
         $sql = "SELECT id, numero_cedula, correo, codigo_verificacion, ubicacion_certificado, created_ate 
-                FROM certificados";
-        $result = $db->getData($sql);
+                FROM certificados 
+                WHERE created_ate BETWEEN ? AND ?";
+        
+        // Preparar y ejecutar la consulta
+        $stmt = $db->prepare($sql);
+        $stmt->execute([$startDate . ' 00:00:00', $endDate . ' 23:59:59']);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         // Crear un nuevo objeto Spreadsheet
         $spreadsheet = new Spreadsheet();
@@ -57,7 +62,12 @@ class CertificadosExcel {
     }
 }
 
-// Instanciar el controlador y llamar al método para exportar a Excel
-$certificadosExcel = new CertificadosExcel();
-$certificadosExcel->exportToExcel();
+// Instanciar el controlador y llamar al método para exportar a Excel con las fechas recibidas
+if (isset($_POST['start_date']) && isset($_POST['end_date'])) {
+    $startDate = $_POST['start_date'];
+    $endDate = $_POST['end_date'];
+    
+    $certificadosExcel = new CertificadosExcel();
+    $certificadosExcel->exportToExcel($startDate, $endDate);
+}
 ?>
