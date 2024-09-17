@@ -12,9 +12,8 @@ class CertificadosExcel {
         $db->conectar();
 
         // Consultar la base de datos
-        $sql = "SELECT c.id, c.numero_cedula, c.codigo_verificacion, a.nombre, a.movil, a.correo 
-                FROM certificados c
-                LEFT JOIN citas a ON c.numero_cedula = a.numero_documento";
+        $sql = "SELECT id, numero_cedula, correo, codigo_verificacion, ubicacion_certificado, created_ate 
+                FROM certificados";
         $result = $db->getData($sql);
 
         // Crear un nuevo objeto Spreadsheet
@@ -24,20 +23,20 @@ class CertificadosExcel {
         // Encabezados de columna
         $sheet->setCellValue('A1', 'ID');
         $sheet->setCellValue('B1', 'Número de Cédula');
-        $sheet->setCellValue('C1', 'Código de Verificación');
-        $sheet->setCellValue('D1', 'Nombre');
-        $sheet->setCellValue('E1', 'Celular');
-        $sheet->setCellValue('F1', 'Email');
+        $sheet->setCellValue('C1', 'Correo');
+        $sheet->setCellValue('D1', 'Código de Verificación');
+        $sheet->setCellValue('E1', 'Ubicación del Certificado');
+        $sheet->setCellValue('F1', 'Fecha de Creación');
 
         // Iterar sobre los resultados de la consulta y escribir en el archivo Excel
         $row = 2;
         foreach ($result as $row_data) {
             $sheet->setCellValue('A' . $row, $row_data['id']);
             $sheet->setCellValue('B' . $row, $row_data['numero_cedula']);
-            $sheet->setCellValue('C' . $row, $row_data['codigo_verificacion']);
-            $sheet->setCellValue('D' . $row, $row_data['nombre']);
-            $sheet->setCellValue('E' . $row, $row_data['movil']);
-            $sheet->setCellValue('F' . $row, $row_data['correo']);
+            $sheet->setCellValue('C' . $row, $row_data['correo']);
+            $sheet->setCellValue('D' . $row, $row_data['codigo_verificacion']);
+            $sheet->setCellValue('E' . $row, $row_data['ubicacion_certificado']);
+            $sheet->setCellValue('F' . $row, $row_data['created_ate']);
             $row++;
         }
 
