@@ -26,14 +26,14 @@ if (isset($_GET['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($article['titulo']); ?> - Blog de Inspección de Gas</title>
-    <link rel="stylesheet" href="./css/post.css"> <!-- Incluye tu CSS para la página de post -->
+    <link rel="stylesheet" href="./css/post.css">
     <link rel="shortcut icon" href="images/New_Logo_EyC2024_vertical-removebg-preview.png">
 </head>
 <body>
     <header>
-    <a href="./blog.php" class="logo">
-        <img src="./images/New_Logo_EyC2024__verde__Slogan-removebg-preview.png" alt="Logo">
-    </a>
+        <a href="./blog.php" class="logo">
+            <img src="./images/New_Logo_EyC2024__verde__Slogan-removebg-preview.png" alt="Logo">
+        </a>
         <div class="header-container">
             <nav>
                 <ul>
@@ -47,7 +47,25 @@ if (isset($_GET['id'])) {
     <main>
         <article class="post">
             <h2><?php echo htmlspecialchars($article['titulo']); ?></h2>
-            <img src="<?php echo htmlspecialchars($article['url_imagen']); ?>" alt="<?php echo htmlspecialchars($article['titulo']); ?>">
+            <!-- Mostrar imagen o video, no ambos -->
+            <?php if (!empty($article['url_imagen'])): ?>
+                <?php $imagenes = explode(',', $article['url_imagen']); ?>
+                <?php foreach ($imagenes as $imagen): ?>
+                    <?php if (!empty($imagen)): ?>
+                        <img src="<?php echo htmlspecialchars($imagen); ?>" alt="<?php echo htmlspecialchars($article['titulo']); ?>">
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php elseif (!empty($article['url_videos'])): ?>
+                <?php $videos = explode(',', $article['url_videos']); ?>
+                <?php foreach ($videos as $video): ?>
+                    <?php if (!empty($video)): ?>
+                        <video controls style="max-width: 100%; height: auto; margin: 10px 0;">
+                            <source src="<?php echo htmlspecialchars($video); ?>" type="video/mp4">
+                            Tu navegador no soporta la etiqueta de video.
+                        </video>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
             <p><?php echo htmlspecialchars($article['contenido']); ?></p>
         </article>
     </main>

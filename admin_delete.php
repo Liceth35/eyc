@@ -5,7 +5,7 @@ if (!isset($_SESSION['correo_usuarios_blog'])) {
     header("Location: login_blog.php");
     exit();
 }
-
+date_default_timezone_set('America/Bogota'); // Ajusta según tu zona horaria
 // Conectamos a la base de datos
 $db = new PDODB();
 $db->conectar();
@@ -70,7 +70,7 @@ if (isset($_GET['eliminar_todos'])) {
 }
 
 // Consultar todos los artículos
-$sql = "SELECT id, titulo, resumen, contenido, url_imagen, fecha_creacion, fecha_actualizacion FROM admin_blog";
+$sql = "SELECT id, titulo, resumen, contenido, url_imagen, url_videos, fecha_creacion, fecha_actualizacion FROM admin_blog";
 $posts = $db->getData($sql);
 ?>
 
@@ -105,6 +105,7 @@ $posts = $db->getData($sql);
                 <th>Resumen</th>
                 <th>Contenido</th>
                 <th>URL Imagen</th>
+                <th>URL Video</th>
                 <th>Fecha Creación</th>
                 <th>Fecha Actualización</th>
                 <th>Acciones</th>
@@ -119,6 +120,7 @@ $posts = $db->getData($sql);
                         <td><?php echo htmlspecialchars($post['resumen']); ?></td>
                         <td><?php echo htmlspecialchars($post['contenido']); ?></td>
                         <td><?php echo htmlspecialchars($post['url_imagen']); ?></td>
+                        <td><?php echo htmlspecialchars($post['url_videos']); ?></td>
                         <td><?php echo htmlspecialchars($post['fecha_creacion']); ?></td>
                         <td><?php echo htmlspecialchars($post['fecha_actualizacion']); ?></td>
                         <td>
@@ -128,7 +130,7 @@ $posts = $db->getData($sql);
                 <?php endforeach; ?>
             <?php else: ?>
                 <tr>
-                    <td colspan="8">No hay artículos disponibles.</td>
+                    <td colspan="9">No hay artículos disponibles.</td>
                 </tr>
             <?php endif; ?>
         </tbody>

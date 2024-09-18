@@ -79,6 +79,13 @@ main {
     margin-right: auto;
 }
 
+.post video {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px; /* Limita la altura del video */
+    margin-bottom: 1rem;
+}
+
 .post p {
     font-size: 1rem;
     line-height: 1.6;
