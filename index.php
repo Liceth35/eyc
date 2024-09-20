@@ -295,6 +295,16 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const toggler = document.querySelector(".navbar-toggler");
+    const menu = document.querySelector(".navmenu ul");
+
+    toggler.addEventListener("click", function() {
+        menu.classList.toggle("active");
+    });
+});
+</script>
 </body>
 
 </html>

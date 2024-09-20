@@ -362,7 +362,7 @@ color: #3b88d3;
 #btn-preguntas-frecuentes {
     position: relative;
     top: 10px; /* Ajusta según necesites para que quede encima del carrusel */
-    margin-left: 29%;
+    margin-left: 9%;
     margin-top: 2%;
 }
 
@@ -371,7 +371,7 @@ color: #3b88d3;
     margin-top: 20px;
     display: block; /* Asegura que se alinee debajo de la sección de trabajos */
     width: 12%;
-    margin-left: 79%;
+    margin-left: 45%;
 }
 /* Footer */
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
@@ -454,4 +454,54 @@ section .section-title {
     padding-bottom: 0px;
     margin-bottom: 10px;
 }
+}
+/* Ocultar el menú por defecto en pantallas pequeñas y mostrar el ícono de "sándwich" */
+@media (max-width: 992px) {
+    .navmenu ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #fff;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 999;
+    }
+
+    .navmenu ul.active {
+        display: flex; /* Mostrar el menú cuando esté activo */
+    }
+
+    .navbar-toggler {
+        display: block; /* Mostrar el ícono de "sándwich" */
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 24px;
+        color: #000;
+    }
+
+    /* Alinear el ícono del menú a la derecha */
+    .navbar-toggler {
+        margin-left: auto;
+    }
+
+    /* Ocultar el menú horizontal en dispositivos móviles */
+    .navmenu {
+        display: none;
+    }
+
+    /* Mostrar el icono en pantallas pequeñas */
+    .navbar-toggler {
+        display: inline-block;
+    }
+
+    /* Estilos del ícono de "sándwich" */
+    .navbar-toggler-icon {
+        display: block;
+        width: 30px;
+        height: 3px;
+        background-color: #000;
+        margin: 6px 0;
+    }
 }

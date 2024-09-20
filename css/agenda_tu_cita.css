@@ -167,3 +167,48 @@ footer {
     position: relative;
     width: 100%;
 }
+/* Estilos del menú hamburguesa */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-left: auto; /* Alinear a la derecha */
+}
+
+.bar {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    margin: 3px 0;
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Mostrar el botón hamburguesa en móviles */
+    }
+
+    .nav_citas {
+        display: none; /* Ocultar el menú por defecto */
+        width: 100%;
+        flex-direction: column; /* Cambiar a columna */
+        background-color: #001a33; /* Fondo del menú */
+        position: absolute; /* Posicionarlo de forma absoluta */
+        top: 60px; /* Ajustar según la altura de tu navbar */
+        left: 0;
+        z-index: 10;
+    }
+
+    .nav_citas.active {
+        display: flex; /* Mostrar el menú cuando está activo */
+    }
+
+    .navbar ul {
+        flex-direction: column; /* Cambiar a columna */
+        width: 100%; /* Ancho completo */
+    }
+
+    .navbar ul li {
+        margin: 10px 0; /* Espaciado entre elementos */
+    }
+}

@@ -66,5 +66,15 @@
     <footer>
         <p>&copy; 2024 E&C Ingeniería S.A.S. Todos los derechos reservados.</p>
     </footer>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navCitas = document.querySelector('.nav_citas');
+
+    menuToggle.addEventListener('click', () => {
+        navCitas.classList.toggle('active'); // Agrega o quita la clase 'active'
+    });
+});
+</script>
 </body>
 </html>
