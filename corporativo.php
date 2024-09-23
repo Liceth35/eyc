@@ -37,13 +37,13 @@ header("Expires: 0"); // Proxies
     <div class="link-container">
         <div class="link-box">
             <a href="https://epm-vwapp01/PerdiGas" target="_blank">
-                <img src="./images/perdigas.jpeg" alt="PerdiGas Logo">
+                <img src="./images/perdigas.png" alt="PerdiGas Logo">
                 <span>PerdiGas</span>
             </a>
         </div>
         <div class="link-box">
             <a href="https://dynamics.microsoft.com/es-es/" target="_blank">
-                <img src="./images/Dynamics Logo_365.jpg" alt="Dynamics 365 Logo">
+                <img src="./images/Dynamics.png" alt="Dynamics 365 Logo">
                 <span>Dynamics 365</span>
             </a>
         </div>
@@ -55,13 +55,13 @@ header("Expires: 0"); // Proxies
         </div>
         <div class="link-box">
             <a href="https://eic.godoworks.com/es/base/Login/index" target="_blank">
-                <img src="./images/godoworks.png" alt="Go do works Logo">
+                <img src="./images/go_do_works.png" alt="Go do works Logo">
                 <span>Go do works</span>
             </a>
         </div>
         <div class="link-box">
             <a href="./login_blog.php" target="_blank">
-                <img src="./images/tuercas.png" alt="Blog">
+                <img src="./images/blog.png" alt="Blog">
                 <span>Blog</span>
             </a>
         </div>
@@ -73,19 +73,19 @@ header("Expires: 0"); // Proxies
         </div>
         <div class="link-box">
             <a href="./loginrh.php" target="_blank">
-                <img src="./images/hoja-de-vida.webp" alt="Hojas de vida">
+                <img src="./images/hoja_de_vida_corporativo-removebg-preview.png" alt="Hojas de vida">
                 <span>Recursos humanos</span>
             </a>
         </div>
         <div class="link-box">
             <a href="./login_certificados.php" target="_blank">
-                <img src="./images/certificados-ssl-de-un-año.png" alt="Certificados">
+                <img src="./images/certificado.png" alt="Certificados">
                 <span>Cargar certificados</span>
             </a>
         </div>
         <div class="link-box">
             <a href="./login_citas.php" target="_blank">
-                <img src="./images/images.png" alt="Citas">
+                <img src="./images/citas.png" alt="Citas">
                 <span>Citas</span>
             </a>
         </div>
