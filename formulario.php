@@ -99,6 +99,12 @@
                             <div class="modal-body">
                                 <label for="nombreInspector">Nombre del Inspector:</label>
                                 <input type="text" id="nombreInspector" name="nombre" value="Inspector 1" required>
+
+                                <label for="cedulaInspector">Cédula del Inspector:</label>
+                                <input type="text" id="cedulaInspector" name="cedula" value="123456789" required>
+
+                                <label for="supervisorInspector">Supervisor del Inspector:</label>
+                                <input type="text" id="supervisorInspector" name="id_supervisor" value="2" required>
                                 
                                 <input type="hidden" name="editar_inspector" value="1">
                             </div>
@@ -125,6 +131,12 @@
                     <div class="modal-body">
                         <label for="nombreNuevoInspector">Nombre del Inspector:</label>
                         <input type="text" id="nombreNuevoInspector" name="nombre" required>
+
+                        <label for="cedulaNuevoInspector">Cédula del Inspector:</label>
+                        <input type="text" id="cedulaNuevoInspector" name="cedula" required>
+
+                        <label for="supervisorNuevoInspector">Supervisor del Inspector:</label>
+                        <input type="text" id="supervisorNuevoInspector" name="id_supervisor" required>
 
                         <input type="hidden" name="crear_inspector" value="1">
                     </div>
