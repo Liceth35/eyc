@@ -5,7 +5,7 @@ $pdo = new PDODB();
 $pdo->conectar();
 
 // Consulta para obtener las citas
-$query = "SELECT * from Bonos_cali";
+$query = "SELECT * from comisiona_inspector_qr_evaluacion";
 $admin = $pdo->consulta($query);
 
 ?>
@@ -41,7 +41,6 @@ $admin = $pdo->consulta($query);
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th>Acciones</th>
                     <th>Preguntaid</th>
                     <th>Respuesta texto</th>
                     <th>Respuesta escala</th>
@@ -53,8 +52,12 @@ $admin = $pdo->consulta($query);
                     <?php foreach ($admin as $row) { ?>
                         <tr>
                             <td><?php echo $row['id'] ?></td>
-                            <td><?php echo $row['icono'] ?></td>
-                            <td><?php echo $row['nombre_principal'] ?></td>
+                            <td><?php echo $row['nombre'] ?></td>
+                            <td><?php echo $row['preguntaid'] ?></td>
+                            <td><?php echo $row['respuestatexto'] ?></td>
+                            <td><?php echo $row['respuestaescala'] ?></td>
+                            <td><?php echo $row['opcionPregunta'] ?></td>
+
 
                         </tr>
                     <?php } ?>
