@@ -1,11 +1,15 @@
-body{
+body {
     background-color: #f4f4f4;
 }
+
 /* Estilos generales para el navbar */
 .navbar-color {
-    background-color: #ffffff; /* Color de fondo del navbar */
-    border-bottom: 2px solid #dcdcdc; /* Línea inferior para separar el navbar del contenido */
-    padding: 10px 20px; /* Espaciado interno del navbar */
+    background-color: #ffffff;
+    /* Color de fondo del navbar */
+    border-bottom: 2px solid #dcdcdc;
+    /* Línea inferior para separar el navbar del contenido */
+    padding: 10px 20px;
+    /* Espaciado interno del navbar */
 }
 
 .navbar-brand .logo {
@@ -27,13 +31,19 @@ body{
     margin: 0;
     padding: 0;
     display: flex;
-    
+
     font-size: 12px;
 }
 
 .navmenu ul li {
     margin-left: 20px;
     position: relative;
+}
+
+.navbar-color.fixed-top {
+    background-color: #ffffff;
+    border-bottom: 2px solid #dcdcdc;
+    padding: 10px 20px;
 }
 
 .navmenu ul li a {
@@ -100,6 +110,7 @@ body{
     .navbar-toggler {
         margin-left: auto;
     }
+
     .dropdown-menu {
         position: static;
         width: 100%;
@@ -111,28 +122,29 @@ body{
     background: #001a33 !important;
     max-width: 1140px;
 }
+
 .container_servicios {
-background-color: white;
+    background-color: white;
 }
 
 .servicios {
     background-color: #fff;
-    padding: 60px 0;
+    padding: 50px 0;
 }
-.servicios_nav{
-    margin-left: 11%;
-    color: #333!important;
+
+.servicios_nav {
+    /* margin-left: 11%; */
+    color: #333 !important;
 }
+
 .btn-info {
     color: #fff !important;
     background-color: #17a2b8;
     border-color: #17a2b8;
 }
+
 .section-title {
-    text-align: center;
-    color: #3b88d3;
-    font-size: 4.5rem;
-    margin-bottom: 30px;
+    font-size: calc(1.375rem + 1.5vw);
 }
 
 .section-description {
@@ -149,14 +161,34 @@ background-color: white;
     flex-wrap: wrap;
 }
 
+strong {
+    font-weight: 600 !important;
+}
+
+
 .service-card {
-    background-color: wheat;
+    background-color: #d6eaf8;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 15px;
     width: 324px;
     overflow: hidden;
     text-align: center;
+}
+
+a.nav-link:hover {
+    color: #3b88d3 !important;
+    /* Color del texto al pasar el mouse */
+}
+
+.container_servicios {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1100px;
+}
+
+.col-xs-12.col-sm-4.col-md-4 {
+    text-align: left;
 }
 
 .service-icon {
@@ -170,14 +202,15 @@ background-color: white;
 
 .service-title {
     color: #001a33;
-    font-size: 1.5rem;
+    font-size: 20px;
     margin-bottom: 10px;
     margin-top: 10%;
 }
 
 .service-description {
-    color: #555;
-    font-size: 1rem;
+    /* color: #555; */
+    font-size: 16px;
+    padding: 0px 13px;
 }
 
 /* Más información */
@@ -200,90 +233,152 @@ background-color: white;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
+    border: none;
+}
+
+.btn:hover {
+    background-color: #001a33 !important;
 }
 
 
 
 /* Footer */
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
 section {
-    padding: 60px 0;
+    padding: 50px 0;
 }
-.hr-border{
-    color: white!important;
+
+.hr-border {
+    color: white !important;
 }
-.text-center{
+
+.text-center {
     color: white;
 }
 
 section .section-title {
     text-align: center;
     color: #3b88d3;
-    margin-bottom: 50px;
+    margin-bottom: 35px;
     text-transform: uppercase;
-    margin-top: 4%;
+    margin-top: 45px;
 }
 
 #footer {
     background: #001a33 !important;
 }
-#footer h5{
-	padding-left: 10px;
+
+#footer h5 {
+    padding-left: 10px;
     border-left: 3px solid #eeeeee;
     padding-bottom: 6px;
     margin-bottom: 20px;
-    color:#ffffff;
+    color: #ffffff;
 }
+
 #footer a {
     color: #ffffff;
     text-decoration: none !important;
     background-color: transparent;
     -webkit-text-decoration-skip: objects;
 }
-#footer ul.social li{
-	padding: 3px 0;
+
+#footer ul.social li {
+    padding: 3px 0;
 }
+
 #footer ul.social li a i {
     margin-right: 5px;
-	font-size:25px;
-	-webkit-transition: .5s all ease;
-	-moz-transition: .5s all ease;
-	transition: .5s all ease;
+    font-size: 2rem;
+    -webkit-transition: .5s all ease;
+    -moz-transition: .5s all ease;
+    transition: .5s all ease;
 }
+
 #footer ul.social li:hover a i {
-	font-size:30px;
-	margin-top:-10px;
+    font-size: 30px;
+    margin-top: -10px;
 }
+
 #footer ul.social li a,
-#footer ul.quick-links li a{
-	color:#ffffff;
+#footer ul.quick-links li a {
+    color: #ffffff;
 }
-#footer ul.social li a:hover{
-	color:#eeeeee;
+
+#footer ul.social li a:hover {
+    color: #eeeeee;
 }
-#footer ul.quick-links li{
-	padding: 3px 0;
-	-webkit-transition: .5s all ease;
-	-moz-transition: .5s all ease;
-	transition: .5s all ease;
+
+#footer ul.quick-links li {
+    padding: .3125rem 0;
+    -webkit-transition: .5s all ease;
+    -moz-transition: .5s all ease;
+    transition: .5s all ease;
 }
-#footer ul.quick-links li:hover{
-	padding: 3px 0;
-	margin-left:5px;
-	font-weight:700;
+
+#footer ul.quick-links li:hover {
+    padding: 3px 0;
+    margin-left: 5px;
+    font-weight: 700;
 }
-#footer ul.quick-links li a i{
-	margin-right: 5px;
+
+#footer ul.quick-links li a i {
+    margin-right: 5px;
 }
+
 #footer ul.quick-links li:hover a i {
     font-weight: 700;
 }
 
-@media (max-width:767px){
-	#footer h5 {
-    padding-left: 0;
-    border-left: transparent;
-    padding-bottom: 0px;
-    margin-bottom: 10px;
-}
+
+
+@media (max-width:767px) {
+    #footer h5 {
+        padding-left: 0;
+        border-left: transparent;
+        padding-bottom: 0px;
+        margin-bottom: 10px;
+    }
+
+    h2.section-title {
+        margin-bottom: 20px;
+        padding-top: 45px
+    }
+
+    .section-description {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .service-cards {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .more-info {
+        margin: 20px 0;
+    }
+
+    .service-title {
+        margin-top: 20px;
+    }
+
+    .service-content {
+        padding: 0px 20px;
+    }
+
+    .servicios {
+        padding: 20px 0;
+    }
+
+    .container {
+        padding: 0px 30px !important;
+    }
+
+    i.fa.fa-angle-double-right {
+        padding-right: 5px;
+    }
 }

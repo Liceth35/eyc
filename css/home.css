@@ -376,7 +376,7 @@ color: #3b88d3;
 /* Footer */
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 section {
-    padding: 60px 0;
+    padding: 50px 0;
 }
 .hr-border{
     color: white!important;
@@ -471,15 +471,15 @@ section .section-title {
     .navmenu ul.active {
         display: flex; /* Mostrar el menú cuando esté activo */
     }
-
+/* 
     .navbar-toggler {
-        display: block; /* Mostrar el ícono de "sándwich" */
+        display: block; 
         background-color: transparent;
         border: none;
         cursor: pointer;
         font-size: 24px;
         color: #000;
-    }
+    } */
 
     /* Alinear el ícono del menú a la derecha */
     .navbar-toggler {
@@ -497,11 +497,11 @@ section .section-title {
     }
 
     /* Estilos del ícono de "sándwich" */
-    .navbar-toggler-icon {
+    /* .navbar-toggler-icon {
         display: block;
         width: 30px;
         height: 3px;
         background-color: #000;
         margin: 6px 0;
-    }
+    } */
 }
