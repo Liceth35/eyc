@@ -100,7 +100,6 @@ $posts = $db->getData($sql);
     <table>
         <thead>
             <tr>
-                <th>ID</th>
                 <th>Título</th>
                 <th>Resumen</th>
                 <th>Contenido</th>
@@ -115,7 +114,6 @@ $posts = $db->getData($sql);
             <?php if ($posts): ?>
                 <?php foreach ($posts as $post): ?>
                     <tr>
-                        <td><?php echo htmlspecialchars($post['id']); ?></td>
                         <td><?php echo htmlspecialchars($post['titulo']); ?></td>
                         <td><?php echo htmlspecialchars($post['resumen']); ?></td>
                         <td><?php echo htmlspecialchars($post['contenido']); ?></td>

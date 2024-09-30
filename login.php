@@ -26,7 +26,7 @@ if (isset($_SESSION['correo_usuarios'])) {
             unset($_SESSION['error_login']);
         }
         ?>
-        <form id="loginForm" action="./controlador/login_blog.php" method="POST">
+        <form id="loginForm" action="./controlador/controlador_login.php" method="POST">
             <label for="correo">Correo:</label>
             <input type="email" id="correo" name="correo" required>
             <label for="contrasenna">Contraseña:</label>
