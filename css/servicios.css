@@ -144,7 +144,7 @@ body {
 }
 
 .section-title {
-    font-size: calc(1.375rem + 1.5vw);
+    font-size: 2.5rem;
 }
 
 .section-description {
@@ -220,7 +220,7 @@ a.nav-link:hover {
 }
 
 .more-info h1 {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     color: #3b88d3;
     margin-bottom: 20px;
 }
@@ -246,7 +246,7 @@ a.nav-link:hover {
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 section {
-    padding: 50px 0;
+    padding: 20px 0;
 }
 
 .hr-border {
@@ -260,8 +260,8 @@ section {
 section .section-title {
     text-align: center;
     color: #3b88d3;
-    margin-bottom: 35px;
-    text-transform: uppercase;
+    margin-bottom: 20px;
+    /* text-transform: uppercase; */
     margin-top: 45px;
 }
 
@@ -331,7 +331,11 @@ section .section-title {
     font-weight: 700;
 }
 
+/* Estilo muevo footer */
 
+.col-xs-12.col-sm-4.col-md-4 {
+    text-align: left;
+}
 
 @media (max-width:767px) {
     #footer h5 {
@@ -340,6 +344,7 @@ section .section-title {
         padding-bottom: 0px;
         margin-bottom: 10px;
     }
+    
 
     h2.section-title {
         margin-bottom: 20px;
@@ -381,4 +386,6 @@ section .section-title {
     i.fa.fa-angle-double-right {
         padding-right: 5px;
     }
+
+
 }

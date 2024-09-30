@@ -1,11 +1,15 @@
-body{
+body {
     background-color: #f4f4f4;
 }
+
 /* Estilos generales para el navbar */
 .navbar-color {
-    background-color: #ffffff; /* Color de fondo del navbar */
-    border-bottom: 2px solid #dcdcdc; /* Línea inferior para separar el navbar del contenido */
-    padding: 10px 20px; /* Espaciado interno del navbar */
+    background-color: #ffffff;
+    /* Color de fondo del navbar */
+    border-bottom: 2px solid #dcdcdc;
+    /* Línea inferior para separar el navbar del contenido */
+    padding: 10px 20px;
+    /* Espaciado interno del navbar */
 }
 
 .navbar-brand .logo {
@@ -27,7 +31,7 @@ body{
     margin: 0;
     padding: 0;
     display: flex;
-    
+
     font-size: 12px;
 }
 
@@ -43,6 +47,17 @@ body{
     padding: 8px 15px;
     display: block;
 }
+
+strong {
+    font-weight: 600 !important;
+}
+
+a.nav-link:hover {
+    color: #3b88d3 !important;
+    /* Color del texto al pasar el mouse */
+}
+
+
 
 .navmenu ul li ul {
     display: none;
@@ -82,6 +97,15 @@ body{
         width: 100%;
     }
 
+
+/* 
+    .col-md-6{
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        flex-direction: column;
+    } */
+
     .navmenu ul {
         flex-direction: column;
         align-items: flex-start;
@@ -106,9 +130,10 @@ body{
     }
 }
 
-.nosotros_nav{
-    margin-left: 4%!important;
+.nosotros_nav {
+    margin-left: 4% !important;
 }
+
 .img {
     outline: 0;
     vertical-align: top;
@@ -117,12 +142,16 @@ body{
     height: auto;
 }
 
-.services_block{
+.services_block {
     margin-top: 4%;
 }
 
 section {
-    padding: 50px 0;
+    padding: 20px 0;
+}
+
+.col-md-6 {
+    padding-top: 22px;
 }
 
 section .section-title {
@@ -131,12 +160,29 @@ section .section-title {
     margin-bottom: 50px;
     text-transform: uppercase;
 }
-.text-center{
-    color: white;
-    
+
+.navbar-color.fixed-top {
+    background-color: #ffffff;
+    border-bottom: 2px solid #dcdcdc;
+    padding: 10px 20px;
 }
-.text-justify{
-    font-size: 1.2rem;
+
+.text-center {
+    color: #ffffff !important;
+}
+
+.text-justify {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+h1.text-center.text-primary{
+    color: #3b88d3 !important;
+}
+
+
+#footer {
+    background: #001a33 !important;
 }
 
 #footer {
@@ -164,7 +210,7 @@ section .section-title {
 
 #footer ul.social li a i {
     margin-right: 5px;
-    font-size: 25px;
+    font-size: 2rem;
     -webkit-transition: .5s all ease;
     -moz-transition: .5s all ease;
     transition: .5s all ease;
@@ -185,7 +231,7 @@ section .section-title {
 }
 
 #footer ul.quick-links li {
-    padding: 3px 0;
+    padding: .3125rem 0;
     -webkit-transition: .5s all ease;
     -moz-transition: .5s all ease;
     transition: .5s all ease;
@@ -205,6 +251,15 @@ section .section-title {
     font-weight: 700;
 }
 
+/* Estilo muevo footer */
+
+.col-xs-12.col-sm-4.col-md-4 {
+    text-align: left;
+}
+
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+
 @media (max-width: 767px) {
     #footer h5 {
         padding-left: 0;
@@ -212,4 +267,18 @@ section .section-title {
         padding-bottom: 0px;
         margin-bottom: 10px;
     }
+
+    #i.fa.fa-angle-double-right {
+        margin-right: 5px;
+    }
+
+    .container {
+        padding: 0px 30px !important;
+    }
+
+    
+
+
+
+
 }

@@ -7,31 +7,57 @@ body {
 }
 
 /* Navbar */
-.navbar {
+/* .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color:#001a33;
     padding: 10px 20px;
+} */
+
+.navbar-expand-lg.navbar-color{
+    background-color: #ffffff;
+    border-bottom: 2px solid #dcdcdc;
+    padding: 10px 20px;
 }
+
+.nav-link {
+    display: block !important;
+    font-size: 16px !important;
+    padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x) !important;
+    font-weight: var(--bs-nav-link-font-weight) !important;
+    color: var(--bs-nav-link-color) !important;
+    text-decoration: none;
+    background: 0 0;
+    border: 0;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
 .nav_citas{
     margin-right: 6%;
 }
+
+strong {
+    font-weight: 600 !important;
+}
+
 .navbar a {
     color: #fff;
     text-decoration: none;
 }
 
 .navbar a:hover {
-    text-decoration: underline;
+    color: #3b88d3 !important;
 }
+
+
 
 /* Estilos del logo en la navbar */
-.navbar .logo {
-    max-width: 150px;
-    height: auto;
+.navbar-brand .logo {
+    height: 60px;
+    width: auto;
+    margin-left: 2%;
 }
-
 /* Nuevas opciones de navegación */
 .navbar ul {
     list-style: none;
@@ -78,12 +104,7 @@ body {
 
 /* Contenedor principal */
 .container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    text-align: center;
 }
 
 main {
@@ -101,6 +122,23 @@ main {
 .info .text-content {
     flex: 1;
     margin-right: 20px;
+   
+}
+
+.text-content h1{
+    color: #3b88d3;
+    padding-top: 60px;
+}
+
+.text-content{
+    text-align: left;
+}
+
+
+.image-container {
+    background: #d6eaf8;
+    padding: 24px;
+    border-radius: 10px;
 }
 
 .info .image-container {
@@ -113,12 +151,14 @@ main {
     border-radius: 8px;
 }
 
-.info h1 {
-    color: #007BFF;
-}
 
 .info h2 {
-    color: #0056b3;
+    color: #3b88d3;
+}
+
+.btn:hover {
+    background-color: #001a33 !important;
+    color: #ffffff !important;
 }
 
 .info p {
@@ -130,34 +170,37 @@ main {
     margin: 20px 0;
 }
 
-.btn {
+.links a {
     display: inline-block;
     padding: 10px 20px;
     margin: 5px;
     color: #fff;
-    background-color: #007BFF;
+    background-color: #3b88d3;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s;
 }
 
-.btn:hover {
-    background-color: #0056b3;
-}
 
 .link {
     display: inline-block;
-    margin-top: 10px;
-    color: #007BFF;
+    color: #3b88d3;
     text-decoration: none;
     transition: text-decoration 0.3s;
 }
 
-.link:hover {
+.consulta:hover{
     text-decoration: underline;
+    color: #001a33;
 }
 
+
+
 /* Footer */
+
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+
 footer {
     background-color: #001a33;
     color: white;
@@ -167,6 +210,78 @@ footer {
     position: relative;
     width: 100%;
 }
+
+
+#footer {
+    background: #001a33 !important;
+}
+
+#footer h5 {
+    padding-left: 10px;
+    border-left: 3px solid #eeeeee;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+#footer a {
+    color: #ffffff;
+    text-decoration: none !important;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+
+#footer ul.social li {
+    padding: 3px 0;
+}
+
+.text-center {
+    color: white;
+}
+
+#footer ul.social li a i {
+    margin-right: 5px;
+    font-size: 2rem;
+    -webkit-transition: .5s all ease;
+    -moz-transition: .5s all ease;
+    transition: .5s all ease;
+}
+
+#footer ul.social li:hover a i {
+    font-size: 30px;
+    margin-top: -10px;
+}
+
+#footer ul.social li a,
+#footer ul.quick-links li a {
+    color: #ffffff;
+}
+
+#footer ul.social li a:hover {
+    color: #eeeeee;
+}
+
+#footer ul.quick-links li {
+    padding: 3px 0;
+    -webkit-transition: .5s all ease;
+    -moz-transition: .5s all ease;
+    transition: .5s all ease;
+}
+
+#footer ul.quick-links li:hover {
+    padding: 3px 0;
+    margin-left: 5px;
+    font-weight: 700;
+}
+
+#footer ul.quick-links li a i {
+    margin-right: 5px;
+}
+
+#footer ul.quick-links li:hover a i {
+    font-weight: 700;
+}
+
 /* Estilos del menú hamburguesa */
 .menu-toggle {
     display: none;
@@ -180,6 +295,14 @@ footer {
     width: 25px;
     background-color: white;
     margin: 3px 0;
+}
+
+section {
+    padding: 20px 0;
+}
+
+.col-xs-12.col-sm-4.col-md-4 {
+    text-align: left;
 }
 
 /* Media Queries para dispositivos móviles */
@@ -210,5 +333,33 @@ footer {
 
     .navbar ul li {
         margin: 10px 0; /* Espaciado entre elementos */
+    }
+
+    .links{
+        text-align: center;
+    }
+
+    .container {
+        padding: 0px 30px 20px 30px !important;
+    }
+
+    #footer ul.quick-links li a i {
+        margin-right: 5px;
+    }
+
+    #footer h5 {
+        padding-left: 0;
+        border-left: none;
+        padding-bottom: 6px;
+        margin-bottom: 20px;
+        color: #ffffff;
+    }
+
+    .link{
+        padding-bottom: 20px;
+    }
+
+    .text-content h1{
+        padding-top: 66px;
     }
 }

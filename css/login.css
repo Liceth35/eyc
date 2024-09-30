@@ -14,17 +14,21 @@ body {
 
 /* Contenedor principal del formulario */
 .login-container {
-    background-color: #fff; /* Fondo blanco */
-    padding: 30px; /* Espaciado interno */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    width: 300px; /* Ancho del contenedor */
-    text-align: center; /* Alineación del contenido centrado */
+    margin: 20px;
+    background-color: #a9dfbf;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    position: relative;
+    top: 20px;
+    bottom: 20px;
 }
 
 /* Estilo para el título del formulario */
 h2 {
-    color: #333; /* Color del texto oscuro */
+    color: #000000; /* Color del texto oscuro */
     margin-bottom: 20px; /* Margen inferior */
 }
 
@@ -38,7 +42,7 @@ form {
 label {
     text-align: left; /* Alineación del texto a la izquierda */
     margin-bottom: 8px; /* Margen inferior */
-    color: #555; /* Color del texto gris oscuro */
+    color: #000000; /* Color del texto gris oscuro */
 }
 
 /* Estilos para los campos de entrada de correo y contraseña */
@@ -54,7 +58,7 @@ input[type="password"] {
 
 /* Estilos para el botón de inicio de sesión */
 button[type="submit"] {
-    background-color: #007bff; /* Color de fondo azul */
+    background-color: #3b88d3 !important; /* Color de fondo azul */
     color: #fff; /* Color de texto blanco */
     border: none; /* Sin borde */
     padding: 12px 20px; /* Relleno interno */
@@ -62,11 +66,49 @@ button[type="submit"] {
     border-radius: 4px; /* Bordes redondeados */
     font-size: 16px; /* Tamaño de fuente */
     transition: background-color 0.3s; /* Transición suave del color de fondo */
+    width: 50%;
+    text-align: center;   
+    display: flex;
+    margin: 0 auto;
+}
+
+
+input {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+input:hover {
+    border-color: #007bff; /* Cambia el color del borde */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* Sombra */
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3; /* Color al pasar el mouse */
+}
+
+.error {
+    border: 1px solid red !important; /* Cambia el borde a rojo */
+     /* Opcional: fondo rojo claro */
 }
 
 /* Estilos para el botón de inicio de sesión al pasar el mouse */
 button[type="submit"]:hover {
-    background-color: #0056b3; /* Color de fondo azul más oscuro */
+    background-color: #001a33 !important;
 }
 
 /* Estilos para el mensaje de error */
