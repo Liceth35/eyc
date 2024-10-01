@@ -48,7 +48,7 @@
             <div class="modal fade" id="modalInspector1" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form action="procesar_evaluacion.php" method="POST">
+                        <form action="./controlador/procesar_evaluacion.php" method="POST">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="modalLabel">Calificar Inspector 1</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

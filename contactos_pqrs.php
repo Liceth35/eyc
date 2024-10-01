@@ -53,16 +53,16 @@ header("Expires: 0"); // Proxies
                 </div>
                 <div class="modal-body">
                 <form action="controlador/exportar_excel.php" method="post">
-    <div class="form-group">
-        <label for="start_date">Fecha de Inicio:</label>
-        <input type="date" id="start_date" name="start_date" class="form-control" required>
-    </div>
-    <div class="form-group">
-        <label for="end_date">Fecha de Fin:</label>
-        <input type="date" id="end_date" name="end_date" class="form-control" required>
-    </div>
-    <button type="submit" class="btn btn-success">Descargar PQRS en Excel</button>
-</form>
+                    <div class="form-group">
+                        <label for="start_date">Fecha de Inicio:</label>
+                        <input type="date" id="start_date" name="start_date" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="end_date">Fecha de Fin:</label>
+                        <input type="date" id="end_date" name="end_date" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-success">Descargar PQRS en Excel</button>
+                </form>
 
                 </div>
                 <div class="modal-footer">

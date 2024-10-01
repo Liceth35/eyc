@@ -35,7 +35,7 @@
                         <a class="nav-link" href="servicios.php"><strong>SERVICIOS</strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="agenda_tu_cita.php"><strong>AGENDA TU CITA</strong></a>
+                        <a class="nav-link" href="agendar_cita.php"><strong>AGENDA TU CITA</strong></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="certificado.php"><strong>CERTIFICADO</strong></a>
