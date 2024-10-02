@@ -44,48 +44,61 @@
                 </div>
             </div>
 
-            <!-- Modal para Calificar Inspector 1 -->
-            <div class="modal fade" id="modalInspector1" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <form action="./controlador/procesar_evaluacion.php" method="POST">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modalLabel">Calificar Inspector 1</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <!-- Formulario de calificación -->
-                                <h2>Productividad</h2>
-                                <label for="inspections">Número de inspecciones realizadas (1-10):</label>
-                                <input type="number" id="inspections" name="inspections" min="1" max="10" required>
-                                
-                                <label for="suspensions">Número de suspensiones realizadas (1-10):</label>
-                                <input type="number" id="suspensions" name="suspensions" min="1" max="10" required>
-
-                                <h2>Calidad</h2>
-                                <label for="photoEvidence">Evidencias de registros fotográficos (1-10):</label>
-                                <input type="number" id="photoEvidence" name="photoEvidence" min="1" max="10" required>
-
-                                <label for="supervisionResults">Resultados de supervisiones (1-10):</label>
-                                <input type="number" id="supervisionResults" name="supervisionResults" min="1" max="10" required>
-
-                                <label for="complaints">Número de quejas:</label>
-                                <select id="complaints" name="complaints" required>
-                                    <option value="0">0 quejas (10 puntos)</option>
-                                    <option value="1">1 queja (7 puntos)</option>
-                                    <option value="2">2 quejas (5 puntos)</option>
-                                    <option value="3">3 quejas (3 puntos)</option>
-                                    <option value="4">4 quejas (2 puntos)</option>
-                                </select>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <input type="submit" class="btn btn-primary" value="Guardar Calificación">
-                            </div>
-                        </form>
-                    </div>
+           <!-- Modal para Calificar Inspector 1 -->
+<div class="modal fade" id="modalInspector1" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="./controlador/procesar_evaluacion.php" method="POST">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Calificar Inspector 1</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-            </div>
+                <div class="modal-body">
+                    <!-- Formulario de calificación -->
+
+                    <h2>Productividad</h2>
+                    <label for="inspections">Número de inspecciones realizadas (1-10):</label>
+                    <input type="number" id="inspections" name="inspections" min="1" max="10" required>
+
+                    <label for="suspensions">Número de suspensiones realizadas (1-10):</label>
+                    <input type="number" id="suspensions" name="suspensions" min="1" max="10" required>
+
+                    <h2>Calidad</h2>
+                    <label for="photoEvidence">Evidencias de registros fotográficos (1-10):</label>
+                    <input type="number" id="photoEvidence" name="photoEvidence" min="1" max="10" required>
+
+                    <label for="supervisionResults">Resultados de supervisiones (1-10):</label>
+                    <input type="number" id="supervisionResults" name="supervisionResults" min="1" max="10" required>
+
+                    <label for="complaints">Número de quejas:</label>
+                    <select id="complaints" name="complaints" required>
+                        <option value="0">0 quejas (10 puntos)</option>
+                        <option value="1">1 queja (7 puntos)</option>
+                        <option value="2">2 quejas (5 puntos)</option>
+                        <option value="3">3 quejas (3 puntos)</option>
+                        <option value="4">4 quejas (2 puntos)</option>
+                    </select>
+
+                    <h2>Otros Aspectos</h2>
+                    <label for="toolCare">Cuidado de herramientas (1-10):</label>
+                    <input type="number" id="toolCare" name="toolCare" min="1" max="10" required>
+
+                    <label for="punctuality">Puntualidad en inicios de jornada (1-10):</label>
+                    <input type="number" id="punctuality" name="punctuality" min="1" max="10" required>
+
+                    <label for="satisfactionSurveys">Encuestas satisfactorias (1-10):</label>
+                    <input type="number" id="satisfactionSurveys" name="satisfactionSurveys" min="1" max="10" required>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <input type="submit" class="btn btn-primary" value="Guardar Calificación">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 
             <!-- Modal para Editar Inspector 1 -->
             <div class="modal fade" id="modalEditarInspector1" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">

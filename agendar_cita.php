@@ -11,6 +11,10 @@
 
 <body>
     <header>
+    <div class="navbar navbar-expand-lg navbar-color fixed-top">
+            <a href="index.php" class="navbar-brand">
+                <img src="./images/New_Logo_EyC2024-removebg-preview.png" alt="Logo" class="logo">
+            </a>
         <h2>Agendamiento de Citas</h2>
     </header>
 

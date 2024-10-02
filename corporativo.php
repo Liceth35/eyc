@@ -89,6 +89,12 @@ header("Expires: 0"); // Proxies
                 <span>Citas</span>
             </a>
         </div>
+        <div class="link-box">
+            <a href="./formulario.php" target="_blank">
+                <img src="./images/citas.png" alt="Citas">
+                <span>GAMINOW</span>
+            </a>
+        </div>
     </div>
 </div>
 
