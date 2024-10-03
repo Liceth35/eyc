@@ -59,7 +59,7 @@
 
                         <div class="col-md-4 mb-3">
                             <label for="municipio" class="form-label">Municipio</label>
-                            <select class="form-select" id="municipio" multiple="multiple" resize>
+                            <select class="form-select" id="municipio">
                                 <option value="">Selecciona un municipio</option>
                                 <!-- Opciones dinámicas se llenarán por JavaScript -->
                             </select>

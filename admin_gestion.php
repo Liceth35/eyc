@@ -63,7 +63,7 @@ $meses = [
         </div>
 
         <div class="mb-4 text-center">
-            <a href="./cargarDisponibilidad.php" class="btn btn-primary me-2">Cargar Disponibilidad <i class="bi bi-file-earmark-arrow-up"></i></a>
+            <a href="./newDisponibilidad.php" class="btn btn-primary me-2">Cargar Disponibilidad <i class="bi bi-file-earmark-arrow-up"></i></a>
             <a target="_blank" href="./agendar_cita.php" class="btn btn-success me-2">Agendar Cita <i class="bi bi-calendar"></i></a>
         </div>
 
