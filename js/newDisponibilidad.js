@@ -77,6 +77,11 @@ $(document).ready(function () {
             return;
         }
 
+        // Deshabilitar el botón y mostrar el spinner
+        $('#guardarBtn').prop('disabled', true);
+        $('#spinner').show();
+
+
         // Datos a enviar
         const data = {
             municipio_id: municipioId,
@@ -92,8 +97,8 @@ $(document).ready(function () {
             contentType: 'application/json',
             data: JSON.stringify(data),
             success: function (response) {
-                alert('Datos guardados correctamente.');
-            },
+                alert('La agenda se asignó correctamente');
+                window.location.reload();            },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.error('Error al guardar los datos:', textStatus, errorThrown);
                 console.error('Respuesta del servidor:', jqXHR.responseText);

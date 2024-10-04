@@ -56,22 +56,26 @@ $sqlFranja = "INSERT INTO franjas_horarias (municipio_id, dia, mes, hora_inicio,
 foreach ($franjas as $franja) {
     list($horaInicio, $horaFin) = explode('-', $franja);
     
-    $paramsFranja = [
-        ':municipio_id' => $municipio_id,
-        ':dia' => $dia, // Asegúrate de manejar esto si necesitas insertar varias franjas por día
-        ':mes' => $mes,
-        ':hora_inicio' => $horaInicio,
-        ':hora_fin' => $horaFin
-    ];
+    // Aquí necesitas asegurarte de que estás insertando franjas para cada día seleccionado
+    foreach ($dias as $dia) {
+        $paramsFranja = [
+            ':municipio_id' => $municipio_id,
+            ':dia' => $dia, // Ahora se usa el día del bucle
+            ':mes' => $mes,
+            ':hora_inicio' => $horaInicio,
+            ':hora_fin' => $horaFin
+        ];
 
-    try {
-        $pdo->ejecutar($sqlFranja, $paramsFranja);
-    } catch (Exception $e) {
-        echo json_encode(['success' => false, 'message' => 'Error al guardar franjas horarias: ' . $e->getMessage()]);
-        $pdo->close();
-        exit();
+        try {
+            $pdo->ejecutar($sqlFranja, $paramsFranja);
+        } catch (Exception $e) {
+            echo json_encode(['success' => false, 'message' => 'Error al guardar franjas horarias: ' . $e->getMessage()]);
+            $pdo->close();
+            exit();
+        }
     }
 }
+
 
 // Cerrar la conexión
 $pdo->close();
