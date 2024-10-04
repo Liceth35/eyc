@@ -13,7 +13,11 @@ header {
     text-align: center;
     padding: 5px 0;
 }
-
+.navbar-brand .logo {
+    height: 60px;
+    width: auto;
+    margin-left: 2%;
+}
 footer {
     background-color: #001a33;
     color: white;

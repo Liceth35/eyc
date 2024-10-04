@@ -9,7 +9,7 @@ body {
 }
 
 .login-container {
-    background: white;
+    background: #a9dfbf;
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -37,7 +37,7 @@ button {
     width: 90%;
     margin-left: 24px;
     padding: 12px;
-    background: #007BFF;
+    background: #3b88d3 ;
     border: none;
     color: white;
     border-radius: 4px;

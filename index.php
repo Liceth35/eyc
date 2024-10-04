@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E&C | Ingeniería S.A.S</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link rel="shortcut icon" href="./images/New_Logo_EyC2024_vertical-removebg-preview.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="images/New_Logo_EyC2024_vertical-removebg-preview.png">
     <link href="./css/home.css" rel="stylesheet">
 </head>
 
@@ -158,7 +158,7 @@
         </div>
     </div>
     <div class="additional-buttons">
-        <a href="./trabaja-con-nosotros.php" class="btn btn-secondary" id="btn-trabaja-con-nosotros">UNETE AL TEAM</a>
+        <a href="./trabaja-con-nosotros.php" class="btn btn-secondary" id="btn-trabaja-con-nosotros">Unete al team</a>
     </div>
     <div class="ranking-container">
         <h1 class="ranking-title">Ranking de Trabajadores</h1>
@@ -272,7 +272,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
                     <ul class="list-unstyled list-inline social text-center">
                         <li class="list-inline-item"><a href="https://m.facebook.com/people/Eyc-Ingenieria-Sas/100089364634242/"><i class="fa fa-facebook"></i></a></li>
                         <li class="list-inline-item"><a href="https://www.instagram.com/eycingenieria/?igsh=MXVyYWZ4NHV1ZzJ1dA%3D%3D"><i class="fa fa-instagram"></i></a></li>
@@ -289,12 +289,19 @@
     <!-- ./Footer -->
 
     <!-- Scripts de Bootstrap -->
-    <script src="./js/ranking.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!------ Include the above in your HEAD tag ---------->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const toggler = document.querySelector(".navbar-toggler");
+            const menu = document.querySelector(".navmenu ul");
+
+            toggler.addEventListener("click", function() {
+                menu.classList.toggle("active");
+            });
+        });
+    </script>
 </body>
 
 </html>

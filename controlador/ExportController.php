@@ -12,9 +12,26 @@ class ExportController {
         $db = new PDODB();
         $db->conectar();
 
-        // Consultar la base de datos
-        $sql = "SELECT id, nombre, correo, celular, tipo_documento, numero_documento, departamento, ciudad, profesion, tipo_moto, modelo_moto, estado_propiedad, mensaje, archivo_adjunto FROM hoja_de_vida";
-        $result = $db->getData($sql);
+        // Obtener las fechas desde la solicitud POST
+        $start_date = isset($_POST['start_date']) ? $_POST['start_date'] : null;
+        $end_date = isset($_POST['end_date']) ? $_POST['end_date'] : null;
+
+        // Construir la consulta SQL con el rango de fechas
+        $sql = "SELECT id, nombre, correo, celular, tipo_documento, numero_documento, departamento, ciudad, profesion, tipo_moto, modelo_moto, estado_propiedad, mensaje, archivo_adjunto, created_ate FROM hoja_de_vida";
+
+        if ($start_date && $end_date) {
+            $sql .= " WHERE created_ate BETWEEN :start_date AND :end_date";
+        }
+
+        $stmt = $db->prepare($sql);
+
+        if ($start_date && $end_date) {
+            $stmt->bindParam(':start_date', $start_date);
+            $stmt->bindParam(':end_date', $end_date);
+        }
+
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         // Crear un nuevo objeto Spreadsheet
         $spreadsheet = new Spreadsheet();
@@ -35,6 +52,7 @@ class ExportController {
         $sheet->setCellValue('L1', 'Estado Propiedad');
         $sheet->setCellValue('M1', 'Mensaje');
         $sheet->setCellValue('N1', 'Archivo Adjunto');
+        $sheet->setCellValue('O1', 'Fecha de Creación'); // Añadir la columna de fecha de creación
 
         // Iterar sobre los resultados de la consulta y escribir en el archivo Excel
         $row = 2;
@@ -53,6 +71,7 @@ class ExportController {
             $sheet->setCellValue('L' . $row, $row_data['estado_propiedad']);
             $sheet->setCellValue('M' . $row, $row_data['mensaje']);
             $sheet->setCellValue('N' . $row, $row_data['archivo_adjunto']);
+            $sheet->setCellValue('O' . $row, $row_data['created_ate']); // Añadir la fecha de creación
             $row++;
         }
 

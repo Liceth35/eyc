@@ -3,103 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Evaluación</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Evaluación de Desempeño</title>
+    <link rel="stylesheet" href="./css/formulario.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container">
-        <h1>Formulario de Evaluación de Desempeño</h1>
-        <form id="evaluation-form">
-            <h2>Este formulario contendra los resultados finales de desempeño</h2>
-            <!-- Productividad -->
-            <div class="form-group">
-                <h2>Productividad</h2>
-                <label for="productividad1">Número de inspecciones realizadas:</label>
-                <input type="number" id="productividad1" class="rating-input" min="1" max="10">
+        <h1>Calificar Inspectores</h1>
 
-                <label for="productividad2">Número de suspensiones realizadas:</label>
-                <input type="number" id="productividad2" class="rating-input" min="1" max="10">
-                
-                <p id="productividad-average">Promedio: 0</p>
+        <!-- Botón para agregar inspector -->
+        <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#modalAgregarInspector">
+            Agregar Inspector
+        </button>
+
+        <div class="row">
+            <!-- Listado de Inspectores -->
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Inspector 1</h5>
+                        
+                        <!-- Botón para calificar -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalInspector1">
+                            Calificar
+                        </button>
+                        
+                        <!-- Botón para editar -->
+                        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditarInspector1">
+                            Editar
+                        </button>
+
+                        <!-- Botón para eliminar -->
+                        <form action="./controlador/controladorFormulario.php" method="GET" style="display: inline;">
+                            <input type="hidden" name="eliminar_inspector" value="1">
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este inspector?');">
+                                Eliminar
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
 
-            <!-- Calidad -->
-            <div class="form-group">
-                <h2>Calidad</h2>
-                <label for="calidad1">Evidencias de registros fotográficos:</label>
-                <input type="number" id="calidad1" class="rating-input" min="1" max="10">
+           <!-- Modal para Calificar Inspector 1 -->
+<div class="modal fade" id="modalInspector1" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="./controlador/procesar_evaluacion.php" method="POST">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Calificar Inspector 1</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulario de calificación -->
 
-                <label for="calidad2">Resultados de supervisiones:</label>
-                <input type="number" id="calidad2" class="rating-input" min="1" max="10">
-                
-                <label for="calidad3">Ausencia de apelaciones y quejas:</label>
-                <input type="number" id="calidad3" class="rating-input" min="1" max="10">
-                
-                <p id="calidad-average">Promedio: 0</p>
-            </div>
+                    <h2>Productividad</h2>
+                    <label for="inspections">Número de inspecciones realizadas (1-10):</label>
+                    <input type="number" id="inspections" name="inspections" min="1" max="10" required>
 
-            <!-- Procesos disciplinarios -->
-            <div class="form-group">
-                <h2>Procesos disciplinarios</h2>
-                <label for="disciplinarios1">0 Descargos:</label>
-                <input type="number" id="disciplinarios1" class="rating-input" min="1" max="10">
+                    <label for="suspensions">Número de suspensiones realizadas (1-10):</label>
+                    <input type="number" id="suspensions" name="suspensions" min="1" max="10" required>
 
-                <label for="disciplinarios2">Cuidado de herramientas y equipos de medición:</label>
-                <input type="number" id="disciplinarios2" class="rating-input" min="1" max="10">
-                
-                <p id="disciplinarios-average">Promedio: 0</p>
-            </div>
+                    <h2>Calidad</h2>
+                    <label for="photoEvidence">Evidencias de registros fotográficos (1-10):</label>
+                    <input type="number" id="photoEvidence" name="photoEvidence" min="1" max="10" required>
 
-            <!-- Puntualidad -->
-            <div class="form-group">
-                <h2>Puntualidad en inicios de jornada</h2>
-                <label for="puntualidad1">Puntualidad:</label>
-                <input type="number" id="puntualidad1" class="rating-input" min="1" max="10">
-                
-                <p id="puntualidad-average">Promedio: 0</p>
-            </div>
+                    <label for="supervisionResults">Resultados de supervisiones (1-10):</label>
+                    <input type="number" id="supervisionResults" name="supervisionResults" min="1" max="10" required>
 
-            <!-- Servicio al cliente -->
-            <div class="form-group">
-                <h2>Servicio al cliente</h2>
-                <label for="servicio1">Encuestas satisfactorias:</label>
-                <input type="number" id="servicio1" class="rating-input" min="1" max="10">
+                    <label for="complaints">Número de quejas:</label>
+                    <select id="complaints" name="complaints" required>
+                        <option value="0">0 quejas (10 puntos)</option>
+                        <option value="1">1 queja (7 puntos)</option>
+                        <option value="2">2 quejas (5 puntos)</option>
+                        <option value="3">3 quejas (3 puntos)</option>
+                        <option value="4">4 quejas (2 puntos)</option>
+                    </select>
 
-                <label for="servicio2">Número de quejas:</label>
-                <input type="number" id="servicio2" class="rating-input" min="1" max="10">
-                
-                <p id="servicio-average">Promedio: 0</p>
-            </div>
+                    <h2>Otros Aspectos</h2>
+                    <label for="toolCare">Cuidado de herramientas (1-10):</label>
+                    <input type="number" id="toolCare" name="toolCare" min="1" max="10" required>
 
-            <!-- Calidad de inspecciones -->
-            <div class="form-group">
-                <h2>Calidad de inspecciones</h2>
-                <label for="calidad_inspecciones1">Calidad de inspecciones:</label>
-                <input type="number" id="calidad_inspecciones1" class="rating-input" min="1" max="10">
+                    <label for="punctuality">Puntualidad en inicios de jornada (1-10):</label>
+                    <input type="number" id="punctuality" name="punctuality" min="1" max="10" required>
 
-                <p id="calidad_inspecciones-average">Promedio: 0</p>
-            </div>
+                    <label for="satisfactionSurveys">Encuestas satisfactorias (1-10):</label>
+                    <input type="number" id="satisfactionSurveys" name="satisfactionSurveys" min="1" max="10" required>
 
-            <!-- Interacción con miembros -->
-            <div class="form-group">
-                <h2>Interacción con los procesos</h2>
-                <label for="interaccion1">Comunicación asertiva:</label>
-                <input type="number" id="interaccion1" class="rating-input" min="1" max="10">
-                
-                <p id="interaccion-average">Promedio: 0</p>
-            </div>
-
-            <!-- Resultado General -->
-            <div class="form-group">
-                <h2>Resultado General</h2>
-                <p id="general-average">Promedio General: 0</p>
-            </div>
-
-            <div class="form-group">
-                <button type="button" onclick="calculateAverages()">Calcular Promedios</button>
-            </div>
-        </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <input type="submit" class="btn btn-primary" value="Guardar Calificación">
+                </div>
+            </form>
+        </div>
     </div>
-    <script src="script.js"></script>
+</div>
+
+
+            <!-- Modal para Editar Inspector 1 -->
+            <div class="modal fade" id="modalEditarInspector1" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form action="./controlador/controladorFormulario.php" method="POST">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalLabel">Editar Inspector 1</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <label for="nombreInspector">Nombre del Inspector:</label>
+                                <input type="text" id="nombreInspector" name="nombre" value="Inspector 1" required>
+
+                                <label for="cedulaInspector">Cédula del Inspector:</label>
+                                <input type="text" id="cedulaInspector" name="cedula" value="123456789" required>
+
+                                <label for="supervisorInspector">Supervisor del Inspector:</label>
+                                <input type="text" id="supervisorInspector" name="id_supervisor" value="2" required>
+                                
+                                <input type="hidden" name="editar_inspector" value="1">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <input type="submit" class="btn btn-primary" value="Guardar Cambios">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para agregar un nuevo inspector -->
+    <div class="modal fade" id="modalAgregarInspector" tabindex="-1" aria-labelledby="modalLabelAgregar" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="./controlador/controladorFormulario.php" method="POST">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabelAgregar">Agregar Inspector</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <label for="nombreNuevoInspector">Nombre del Inspector:</label>
+                        <input type="text" id="nombreNuevoInspector" name="nombre" required>
+
+                        <label for="cedulaNuevoInspector">Cédula del Inspector:</label>
+                        <input type="text" id="cedulaNuevoInspector" name="cedula" required>
+
+                        <label for="supervisorNuevoInspector">Supervisor del Inspector:</label>
+                        <input type="text" id="supervisorNuevoInspector" name="id_supervisor" required>
+
+                        <input type="hidden" name="crear_inspector" value="1">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <input type="submit" class="btn btn-success" value="Agregar Inspector">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

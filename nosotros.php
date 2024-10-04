@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E&C | Ingeniería S.A.S</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/nosotros.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="images/New_Logo_EyC2024_vertical-removebg-preview.png">
     </head>
@@ -69,7 +69,7 @@
                         <img src="./images/contactos.jpg" class="img-fluid" alt="Descripción de la imagen 1">
                     </div>
                     <div class="col-md-6">
-                        <h1 class="text-center text-primary"><strong>NOSOTROS</strong></h1>
+                        <h1 class="text-center text-primary"><strong>Nosotros</strong></h1>
                         <hr>
                         <h3 class="text-justify">
                             Somos un grupo de personas que desde el 2008 vienen dando forma a un equipo de alto rendimiento. En septiembre de 2015 E&C Ingeniería SAS logra acreditarse como organismo de inspección tipo A. En noviembre de 2015 E&C Ingeniería logra certificarse en las normas NTC 9001-2008, NTC 14001-2004, OSHAS 18001-2007. En junio de 2016 inicia labores con el contrato de EPM PC-2015-003222 para el proceso de inspecciones en Antioquia. En octubre de 2016 inicia labores con el contrato de GDO para el proceso de inspecciones en Valle del Cauca. En octubre de 2019 inicia labores con el contrato de EFIGAS para el proceso de inspecciones en el Eje Cafetero. Actualmente nos encontramos capacitándonos para acreditarnos en las normas para inspección de ascensores, puertas eléctricas, andenes móviles. Además, estamos preparando nuestra entrada a Bogotá y la Costa Caribe.
@@ -79,7 +79,7 @@
                 <!-- ROW -->
                 <div class="row mt-4">
                     <div class="col-md-6">
-                        <h1 class="text-center text-primary"><strong>MISIÓN</strong></h1>
+                        <h1 class="text-center text-primary"><strong>Misión</strong></h1>
                         <hr>
                         <h3 class="text-justify">
                             Expresamos nuestro propósito empresarial en términos de ÉTICA, IMPARCIALIDAD, CONFIDENCIALIDAD e INDEPENDENCIA; contamos con un equipo de personas altamente competente para la ejecución de nuestras actividades, EVALUACIÓN DE LA CONFORMIDAD, garantizando de esta forma los requisitos normativos y legales que debe cumplir cada inspección, y con ello obtener el máximo grado de CALIDAD, SEGURIDAD, CONFIANZA Y SATISFACCIÓN para las personas, animales y otras partes interesadas que interactúan en su medio ambiente con el uso del gas natural, el GLP, los ascensores, las escaleras eléctricas y los andenes móviles.
@@ -95,7 +95,7 @@
                         <img src="./images/certificados-ssl-de-un-año.png" class="img-fluid" alt="Descripción de la imagen 3">
                     </div>
                     <div class="col-md-6">
-                        <h1 class="text-center text-primary"><strong>VISIÓN</strong></h1>
+                        <h1 class="text-center text-primary"><strong>Visión</strong></h1>
                         <hr>
                         <h3 class="text-justify">
                             El reconocimiento de nuestros clientes y nuestra cadena de abastecimiento hará posible que E&C INGENIERÍA SAS se posicione como referente en evaluaciones de conformidad en el medio nacional, y para el 2028 en el mercado de la Comunidad Andina de Naciones (CAN), México y Brasil. Esto genera en la compañía un alto grado de compromiso desde la alta dirección y todo el personal para posicionar cada día a E&C INGENIERÍA SAS como ese sueño posible de lograr.
@@ -105,7 +105,7 @@
                 <!-- ROW -->
                 <div class="row mt-4">
                     <div class="col-md-6">
-                        <h1 class="text-center text-primary"><strong>NUESTRA PROPUESTA DE VALOR</strong></h1>
+                        <h1 class="text-center text-primary"><strong>Nuestra propuesta de valor</strong></h1>
                         <hr>
                         <h3 class="text-justify">
                             En E&C (Evaluadores de Conformidad), estamos aquí para garantizar tu tranquilidad. Nos especializamos en inspeccionar redes para el suministro de gases combustibles en hogares, negocios y fábricas. Nuestro equipo está formado por personas apasionadas por la calidad, que hacen de cada inspección una experiencia segura y confiable. Contamos con un amplio conocimiento técnico respaldado por un sólido sistema de gestión de calidad, lo que nos permite brindar la seguridad que necesitas. Lo que nos distingue es nuestra disponibilidad inmediata y nuestra disposición para escucharte y ofrecerte soluciones a medida. Nos esforzamos por estar siempre un paso adelante, utilizando herramientas móviles de última generación y buscando constantemente formas de innovar y mejorar nuestros servicios. Nos comprometemos a agendar citas de manera precisa y a cumplir con los plazos acordados. En E&C, no solo realizamos inspecciones, sino que también buscamos transformar vidas. Te invitamos a descubrir cómo podemos ayudarte a superar cualquier desafío que enfrentes. Estamos aquí para ti en cada paso del camino.
@@ -154,7 +154,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2">
 					<ul class="list-unstyled list-inline social text-center">
 						<li class="list-inline-item"><a href="https://m.facebook.com/people/Eyc-Ingenieria-Sas/100089364634242/"><i class="fa fa-facebook"></i></a></li>
 						<li class="list-inline-item"><a href="https://www.instagram.com/eycingenieria/?igsh=MXVyYWZ4NHV1ZzJ1dA%3D%3D"><i class="fa fa-instagram"></i></a></li>
@@ -171,8 +171,8 @@
 	</section>
 	<!-- ./Footer -->
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </body>
 </html>

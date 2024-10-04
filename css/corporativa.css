@@ -71,7 +71,7 @@ h1 {
     width: 150px;
     margin: 20px;
     padding: 10px;
-    background-color: #007bff;
+    background-color: #d6eaf8;
     border-radius: 8px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -97,7 +97,7 @@ h1 {
 
 .link-box span {
     display: block;
-    color: white;
+    color: black;
     font-weight: bold;
 }
 

@@ -16,11 +16,21 @@
     <header>
         <h2>Re-agendar Cita</h2>
     </header>
-    <div class="centrado">
-        <label for="municipio">Selecciona la ciudad:</label>
-        <select id="municipio">
-            <!-- Opciones de municipios se llenarán aquí mediante la solicitud ajax a mi bd -->
-        </select>
+
+    <div class="contenedor">
+        <div class="centrado">
+            <select id="departamento">
+                <option value="">Seleccione un departamento</option>
+                <!-- Opciones de departamentos se llenarán aquí mediante la solicitud AJAX a la BD -->
+            </select>
+        </div>
+
+        <div class="centrado">
+            <select id="municipio">
+            <option value="">Seleccione un municipio</option>
+                <!-- Opciones de municipios se llenarán aquí mediante la solicitud AJAX a la BD -->
+            </select>
+        </div>
     </div>
 
     <h3>Disponibilidad</h3>
@@ -99,7 +109,7 @@
                 <input type="hidden" id="municipio-seleccionado" name="municipio" value="<?= $_GET['municipio'] ?>">
 
                 <div class="content-btn-cita">
-                    <button type="submit">Reagendar</button>
+                    <button id="btn_reagendar" type="submit">Reagendar</button>
                 </div>
             </form>
         </div>
@@ -109,8 +119,9 @@
         <p> 2024 E&C INGENIERÍA S.A.S. Todos los derechos reservados.</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="js/reagendar_cita.js"></script>
     <script src="js/citas.js"></script>
+    <script src="js/reagendar_cita.js"></script>
+
 
 </body>
 

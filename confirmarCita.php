@@ -116,15 +116,14 @@ function enviarCorreo($nombre, $email, $numero_contrato, $dia, $mes, $franja)
         $mail->isSMTP();
         $mail->Host = 'smtp-mail.outlook.com'; // servidor de outllok
         $mail->SMTPAuth = true;
-        $mail->Username = 'Liceth.Valderrama@eyc.com.co'; // Correo desde el que se enviará
-        $mail->Password = 'Babi2024*'; // Contraseña del correo
+        $mail->Username = 'citasycertificados@EyC.com.co'; // Correo desde el que se enviará
+        $mail->Password = 'EYC.2024*'; // Contraseña del correo
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
 
         // Configuración del correo
-        $mail->setFrom('Liceth.Valderrama@eyc.com.co', 'Confirmacion Cita');
+        $mail->setFrom('citasycertificados@EyC.com.co', 'Confirmacion Cita');
         $mail->addAddress($email);
-        $mail->addBCC('ceballosmarincristiancamilo@gmail.com', 'Copia oculta');
         $mail->isHTML(true);
         $mail->Subject = 'Confirmación de cita';
 

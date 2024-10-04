@@ -1,5 +1,16 @@
+<?php 
+include_once 'conexion.php';
+
+$pdo = new PDODB();
+$pdo->conectar();
+
+// Consulta para obtener las citas
+$query = "SELECT * from comisiona_inspector_qr_evaluacion";
+$admin = $pdo->consulta($query);
+
+?>
 <!DOCTYPE html>
-|<html lang="es">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -30,7 +41,6 @@
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th>Acciones</th>
                     <th>Preguntaid</th>
                     <th>Respuesta texto</th>
                     <th>Respuesta escala</th>
@@ -38,19 +48,17 @@
                 </tr>
             </thead>
             <tbody>
-                <?php if (!empty($result)) { ?>
-                    <?php foreach ($result as $row) { ?>
+                <?php if (!empty($query)) { ?>
+                    <?php foreach ($admin as $row) { ?>
                         <tr>
                             <td><?php echo $row['id'] ?></td>
                             <td><?php echo $row['nombre'] ?></td>
-                            <td><?php echo $row['Acciones'] ?></td>
                             <td><?php echo $row['preguntaid'] ?></td>
                             <td><?php echo $row['respuestatexto'] ?></td>
                             <td><?php echo $row['respuestaescala'] ?></td>
                             <td><?php echo $row['opcionPregunta'] ?></td>
-                            <td>
-                                <button class="btn btn-primary" onclick="openModal('<?php echo $row['archivo_adjunto'] ?>')">Ver Archivo Modal</button>
-                            </td>
+
+
                         </tr>
                     <?php } ?>
                 <?php } else { ?>

@@ -34,9 +34,8 @@ $db->close(); // Cerrar la conexión después de obtener los datos
 <body>
     <button type="button" class="btn btn-warning cerrar btn-cerrar" onclick="cerrarSesion()">Cerrar Sesión</button>
     <div class="contenedor_padre">
-        <form action="controlador/ExportController.php" method="post">
-            <button type="submit" class="btn btn-success">Descargar Hoja de Vida en Excel</button>
-        </form>
+        <button type="button" class="btn btn-success" onclick="mostrarModalFechas()">Descargar Hoja de Vida en Excel</button>
+
         <h1>Subir Archivos</h1>
         <form id="uploadForm" action="upload.php" method="POST" enctype="multipart/form-data">
             <!-- Campos del formulario -->
@@ -60,40 +59,43 @@ $db->close(); // Cerrar la conexión después de obtener los datos
                     <th>Mensaje</th>
                     <th>Archivo Adjunto</th>
                     <th>Acciones</th>
+                    <th>Fecha de Creación</th>
                 </tr>
             </thead>
             <tbody>
                 <?php if (!empty($result)) { ?>
                     <?php foreach ($result as $row) { ?>
                         <tr>
-                            <td><?php echo $row['id'] ?></td>
-                            <td><?php echo $row['nombre'] ?></td>
-                            <td><?php echo $row['correo'] ?></td>
-                            <td><?php echo $row['celular'] ?></td>
-                            <td><?php echo $row['tipo_documento'] ?></td>
-                            <td><?php echo $row['numero_documento'] ?></td>
-                            <td><?php echo $row['departamento'] ?></td>
-                            <td><?php echo $row['ciudad'] ?></td>
-                            <td><?php echo $row['profesion'] ?></td>
-                            <td><?php echo $row['tipo_moto'] ?></td>
-                            <td><?php echo $row['modelo_moto'] ?></td>
-                            <td><?php echo $row['estado_propiedad'] ?></td>
-                            <td><?php echo $row['mensaje'] ?></td>
-                            <td><a href='controlador/<?php echo $row['archivo_adjunto'] ?>'>Ver Archivo</a></td>
+                            <td><?php echo htmlspecialchars($row['id']); ?></td>
+                            <td><?php echo htmlspecialchars($row['nombre']); ?></td>
+                            <td><?php echo htmlspecialchars($row['correo']); ?></td>
+                            <td><?php echo htmlspecialchars($row['celular']); ?></td>
+                            <td><?php echo htmlspecialchars($row['tipo_documento']); ?></td>
+                            <td><?php echo htmlspecialchars($row['numero_documento']); ?></td>
+                            <td><?php echo htmlspecialchars($row['departamento']); ?></td>
+                            <td><?php echo htmlspecialchars($row['ciudad']); ?></td>
+                            <td><?php echo htmlspecialchars($row['profesion']); ?></td>
+                            <td><?php echo htmlspecialchars($row['tipo_moto']); ?></td>
+                            <td><?php echo htmlspecialchars($row['modelo_moto']); ?></td>
+                            <td><?php echo htmlspecialchars($row['estado_propiedad']); ?></td>
+                            <td><?php echo htmlspecialchars($row['mensaje']); ?></td>
+                            <td><a href='controlador/<?php echo htmlspecialchars($row['archivo_adjunto']); ?>'>Ver Archivo</a></td>
                             <td>
-                                <button class="btn btn-primary" onclick="openModal('<?php echo $row['archivo_adjunto'] ?>')">Ver Archivo Modal</button>
+                                <button class="btn btn-primary" onclick="openModal('<?php echo htmlspecialchars($row['archivo_adjunto']); ?>')">Ver Archivo Modal</button>
                             </td>
+                            <td><?php echo htmlspecialchars($row['created_ate']); ?></td> <!-- Fecha de creación -->
                         </tr>
                     <?php } ?>
                 <?php } else { ?>
                     <tr>
-                        <td colspan="14" class="text-center">No se encontraron registros.</td>
+                        <td colspan="15" class="text-center">No se encontraron registros.</td>
                     </tr>
                 <?php } ?>
             </tbody>
         </table>
     </div>
 
+    <!-- Modal para mostrar el archivo adjunto -->
     <div class="modal fade" id="archivoModal" tabindex="-1" role="dialog" aria-labelledby="archivoModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -113,6 +115,37 @@ $db->close(); // Cerrar la conexión después de obtener los datos
         </div>
     </div>
 
+    <!-- Modal para seleccionar el rango de fechas antes de descargar Excel -->
+    <div class="modal fade" id="fechaModal" tabindex="-1" role="dialog" aria-labelledby="fechaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="fechaModalLabel">Seleccionar Rango de Fechas</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="controlador/ExportController.php" method="post">
+                        <div class="form-group">
+                            <label for="start_date">Fecha de Inicio:</label>
+                            <input type="date" id="start_date" name="start_date" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="end_date">Fecha de Fin:</label>
+                            <input type="date" id="end_date" name="end_date" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-success">Descargar Hoja de Vida en Excel</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
@@ -132,6 +165,10 @@ $db->close(); // Cerrar la conexión después de obtener los datos
             };
             xhttp.open("GET", "./controlador/logaout.php", true);
             xhttp.send();
+        }
+
+        function mostrarModalFechas() {
+            $('#fechaModal').modal('show');
         }
     </script>
 </body>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmación de Venta de Boletas</title>
+    <title>Confirmación de Cita</title>
     <style>
         /* Estilos generales para el correo electrónico */
         * {

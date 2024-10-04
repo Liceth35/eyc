@@ -177,48 +177,61 @@ document.addEventListener('DOMContentLoaded', function() {
         modalConfirmacion.style.display = 'block';
     }
 
-    formCita.addEventListener('submit', function(event) {
-        event.preventDefault();
-        const formData = new FormData(formCita);
-
-        fetch('confirmarCita.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => {
-            if (response.ok && response.headers.get('content-type')?.includes('application/json')) {
-                return response.json();
-            } else {
-                return response.text().then(text => {
-                    console.log("Texto de la respuesta:", text);
-                    throw new Error(`Error: ${text}`);
-                });
-            }
-        })
-        .then(data => {
-            if (data.success) {
-                Swal.fire({
-                    title: '¡Hemos agendado tu cita!',
-                    html: `
-                        <p><strong>Hola:</strong> ${document.getElementById('nombre').value}</p>
-                        <p>Queremos confirmar tu cita</p>
-                        <p><strong>Fecha:</strong> ${document.getElementById('dia-seleccionado').value} ${obtenerNombreMes(Number(document.getElementById('mes-seleccionado').value))} a las <strong>${document.getElementById('franja-seleccionada').value}</strong></p>
-                    `,
-                    confirmButtonText: 'OK, gracias'
-                });
-                modalConfirmacion.style.display = 'none';
-                formCita.reset();
-            } else {
-                Swal.fire({
-                    title: 'Error',
-                    text: data.message,
-                    icon: 'error',
-                    confirmButtonText: 'Aceptar'
-                });
-            }
-        })
-        .catch(error => console.error('Error al confirmar la cita:', error));
-    });
+    if (formCita) {
+        formCita.addEventListener('submit', function(event) {
+            event.preventDefault();
+            // cambiar estilos de un boton mediante el id de un boton
+            let boton = document.getElementById('btn-cita');
+            // Cambiar texto del botón y deshabilitarlo
+            boton.textContent = 'Espere por favor...';
+            boton.disabled = true;
+            // cambio el background
+            boton.style.backgroundColor = "#28a74587";
+    
+            const formData = new FormData(formCita);
+    
+            fetch('confirmarCita.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok && response.headers.get('content-type')?.includes('application/json')) {
+                    return response.json();
+                } else {
+                    return response.text().then(text => {
+                        console.log("Texto de la respuesta:", text);
+                        throw new Error(`Error: ${text}`);
+                    });
+                }
+            })
+            .then(data => {
+                if (data.success) {
+                    Swal.fire({
+                        title: '¡Hemos agendado tu cita!',
+                        html: `
+                            <p><strong>Hola:</strong> ${document.getElementById('nombre').value}</p>
+                            <p>Queremos confirmar tu cita</p>
+                            <p><strong>Fecha:</strong> ${document.getElementById('dia-seleccionado').value} ${obtenerNombreMes(Number(document.getElementById('mes-seleccionado').value))} a las <strong>${document.getElementById('franja-seleccionada').value}</strong></p>
+                        `,
+                        confirmButtonText: 'OK, gracias'
+                    });
+                    modalConfirmacion.style.display = 'none';
+                    boton.textContent = 'Confirmar Cita';
+                    boton.disabled = false;
+                    boton.style.backgroundColor = "#28a745";
+                    formCita.reset();                
+                } else {
+                    Swal.fire({
+                        title: 'Error',
+                        text: data.message,
+                        icon: 'error',
+                        confirmButtonText: 'Aceptar'
+                    });
+                }
+            })
+            .catch(error => console.error('Error al confirmar la cita:', error));
+        });
+    }
 
     function obtenerNombreMes(numeroMes) {
         const nombresMeses = [
