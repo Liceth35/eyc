@@ -14,9 +14,9 @@
     </script>
 
     <!-- plugin select2 de jquery -->
-     <!-- Incluir CSS y JS de Select2 -->
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <!-- Incluir CSS y JS de Select2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
     <link rel="stylesheet" href="css/newDisponibilidad.css">
 </head>
@@ -59,7 +59,7 @@
 
                         <div class="col-md-4 mb-3">
                             <label for="municipio" class="form-label">Municipio</label>
-                            <select class="form-select" id="municipio" multiple="multiple" resize>
+                            <select class="form-select" id="municipio">
                                 <option value="">Selecciona un municipio</option>
                                 <!-- Opciones dinámicas se llenarán por JavaScript -->
                             </select>
@@ -109,8 +109,13 @@
             </div>
 
             <div class="text-center">
-                <button type="button" class="btn btn-success mt-3 mb-3" id="guardarBtn">Guardar Cambios</button>
+                <button type="button" class="btn btn-success mt-3 mb-3" id="guardarBtn">
+                    Guardar Cambios
+                    <span class="spinner-border spinner-border-sm ms-2" id="spinner" style="display: none;"
+                        role="status" aria-hidden="true"></span>
+                </button>
             </div>
+
         </form>
     </div>
 
