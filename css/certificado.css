@@ -447,6 +447,12 @@ section .section-title {
     text-transform: uppercase;
 }
 
+
+i.fa.fa-angle-double-right {
+    margin-right: 5px;
+}
+
+
 @media (max-width: 767px) {
     #footer h5 {
         padding-left: 0;
@@ -455,7 +461,7 @@ section .section-title {
         margin-bottom: 10px;
     }
 
-    #i.fa.fa-angle-double-right {
+    i.fa.fa-angle-double-right {
         margin-right: 5px;
     }
 

@@ -507,6 +507,10 @@ a.nav-link:hover {
     /* Color del texto al pasar el mouse */
 }
 
+i.fa.fa-angle-double-right {
+    margin-right: 5px;
+}
+
 
 @media (max-width:767px) {
     #footer h5 {
@@ -568,6 +572,7 @@ a.nav-link:hover {
         left: 0;
         z-index: 999;
     }
+
 
     .navmenu ul.active {
         display: flex;

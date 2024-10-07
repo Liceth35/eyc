@@ -257,6 +257,12 @@ h1.text-center.text-primary{
     text-align: left;
 }
 
+
+i.fa.fa-angle-double-right {
+    margin-right: 5px;
+}
+
+
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 

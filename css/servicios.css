@@ -337,6 +337,12 @@ section .section-title {
     text-align: left;
 }
 
+
+i.fa.fa-angle-double-right {
+    margin-right: 5px;
+}
+
+
 @media (max-width:767px) {
     #footer h5 {
         padding-left: 0;
