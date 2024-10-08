@@ -18,39 +18,52 @@
 
     <!-- Navbar -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top navbar-color">
-            <div class="container">
-                <!-- LOGO -->
-                <a class="" href="index.php"><img class="logo" src="./images/New_Logo_EyC2024-removebg-preview.png" alt=""></a>
-                <!-- Toggler/collapsibe Button -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <!-- Navbar links -->
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="index.php"><strong>INICIO</strong></a></li>
-                        <li class="nav-item"><a class="nav-link" href="nosotros.php"><strong>NOSOTROS</strong></a></li>
-                        <li class="nav-item"><a class="nav-link" href="contactos.php"><strong>CONTACTOS</strong></a></li>
-                        <li class="nav-item"><a class="nav-link" href="servicios.php"><strong>SERVICIOS</strong></a></li>
-                        <li class="nav-item"><a class="nav-link" href="agendar_cita.php"><strong>AGENDA TU CITA</strong></a></li>
-                        <li class="nav-item"><a class="nav-link" href="certificado.php"><strong>CERTIFICADO</strong></a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPoliticas" role="button" data-bs-toggle="dropdown" aria-expanded="false">POLÍTICAS</a>
-                            <ul class="dropdown-menu dropdown-team-politicas" aria-labelledby="navbarDropdownPoliticas">
-                                <li><a class="dropdown-item" href="./politicas.php">Políticas</a></li>
-                                <li><a class="dropdown-item" href="./politicasetica.php">Política ética</a></li>
-                                <li><a class="dropdown-item" href="./politicastratamiento.php">Políticas tratamiento</a></li>
-                            </ul>
-                        <li class="nav-item">
-                            <a class="nav-link" href="trabaja-con-nosotros.php"><strong>TEAM</strong></a>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="./login.php"><strong>CORPORATIVO</strong></a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <div class="navbar navbar-expand-lg navbar-color fixed-top">
+            <a href="index.php" class="navbar-brand">
+                <img src="./images/New_Logo_EyC2024-removebg-preview.png" alt="Logo" class="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php"><strong>INICIO</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="nosotros.php"><strong>NOSOTROS</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactos.php"><strong>CONTACTOS</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="servicios.php"><strong>SERVICIOS</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="agenda_tu_cita.php"><strong>AGENDA TU CITA</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="certificado.php"><strong>CERTIFICADO</strong></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="javascript:void(0);" class="nav-link dropdown-toggle" id="dropdownMenu" data-bs-toggle="dropdown" aria-expanded="false">POLÍTICAS</a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                            <li><a class="dropdown-item" href="politicas.php">Políticas de seguridad</a></li>
+                            <li><a class="dropdown-item" href="politicastratamiento.php">Política de tratamiento</a></li>
+                            <li><a class="dropdown-item" href="politicasetica.php">Política ética</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="trabaja-con-nosotros.php"><strong>TEAM</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.php"><strong>CORPORATIVO</strong></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </header>
+    
     <img fetchpriority="high" decoding="async" class="img_politica" alt="" width="1700" height="2200" data-lazy-srcset="https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01.jpg 1700w, https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01-1280x1656.jpg 1280w, https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01-980x1268.jpg 980w, https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01-480x621.jpg 480w" data-lazy-sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) and (max-width: 1280px) 1280px, (min-width: 1281px) 1700px, 100vw" data-lazy-src="https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01.jpg" src="https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01.jpg" data-ll-status="loaded" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) and (max-width: 1280px) 1280px, (min-width: 1281px) 1700px, 100vw" srcset="https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01.jpg 1700w, https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01-1280x1656.jpg 1280w, https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01-980x1268.jpg 980w, https://smart.edu.co/wp-content/uploads/2024/04/Procedimiento-Datos-Personales-Smart-1-1_Pagina_01-480x621.jpg 480w">
 
     <!------ Include the above in your HEAD tag ---------->

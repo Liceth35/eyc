@@ -92,13 +92,6 @@ a.nav-link:hover {
 .dropdown-team-politicas{
     background-color: black!important; /* Fondo negro */
 }
-.dropdown-menu a {
-    color: white !important; /* Texto blanco */
-}
-.dropdown-menu a:hover {
-    background-color: transparent !important; /* Elimina el color de fondo */
-    color: white !important; /* Cambia el color del texto a negro */
-}
 
 
 
@@ -474,10 +467,18 @@ section .section-title {
         display: none;
     }
 
-    /* Mostrar el icono en pantallas pequeñas */
-    .navbar-toggler {
-        display: inline-block;
+    button.navbar-toggler {
+        display: flex;
+        flex-direction: column;
+        align-content: flex-end;
+        flex-wrap: wrap;
+        width: 56px;
     }
+
+    /* Mostrar el icono en pantallas pequeñas */
+    /* .navbar-toggler {
+        display: inline-block;
+    } */
 
     
 }

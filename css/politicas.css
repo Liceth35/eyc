@@ -1,6 +1,4 @@
-.navbar-color {
-    height: 80px; /* Ajusta la altura del navbar */
-}
+
 .navbar {
     background-color: white; /* Fondo blanco */
     border-bottom: 2px solid #f0f0f0; /* Borde inferior gris claro opcional */
@@ -18,10 +16,105 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+
+.navbar-color {
+    background-color: #ffffff;
+    border-bottom: 2px solid #dcdcdc;
+    padding: 10px 20px;
+}
+
+.navbar-brand .logo {
+    height: 60px;
+    width: auto;
+    margin-left: 2%;
+}
+
+.navmenu {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.navmenu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    margin-left: -4%;
+    font-size: 1rem;
+}
+
+.navmenu ul li {
+    margin-left: 20px;
+    position: relative;
+}
+
+.navmenu ul li a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    display: block;
+}
+
+strong {
+    font-weight: 600 !important;
+}
+
+a.nav-link:hover {
+    color: #3b88d3 !important;
+    /* Color del texto al pasar el mouse */
+}
+.navmenu ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #000000;
+    padding: 10px 0;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.navmenu ul li ul li {
+    width: 200px;
+    margin: 0;
+}
+
+.navmenu ul li ul li a {
+    padding: 8px 15px;
+    color: #ffffff;
+}
+
+.navmenu ul li:hover ul {
+    display: block;
+}
+
+.navmenu ul li ul li a:hover {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+i.fa.fa-angle-double-right {
+    margin-right: 5px;
+}
+
+#footer ul.quick-links li a i {
+    margin-right: 5px;
+}
+
 .navbar-brand img {
     height: 60px; /* Ajusta el tamaño del logo */
     color: white;
 }
+
+.col-xs-12.col-sm-4.col-md-4 {
+    text-align: left;
+}
+
+
+
 
 .navbar-nav {
     margin-left: auto; /* Mueve los elementos del menú a la derecha */
@@ -38,10 +131,7 @@
     font-weight: bold;
 }
 /* Navbar Styles */
-.navbar-nav .nav-link {
-    font-size: 0.8rem;
-    margin: 0 10px;
-}
+
 
 .nav-item.dropdown .dropdown-menu {
     background-color: #f8f9fa;
@@ -70,13 +160,6 @@
 }
 .dropdown-team-politicas{
     background-color: black!important; /* Fondo negro */
-}
-.dropdown-menu a {
-    color: white !important; /* Texto blanco */
-}
-.dropdown-menu a:hover {
-    background-color: transparent !important; /* Elimina el color de fondo */
-    color: white !important; /* Cambia el color del texto a negro */
 }
 
 

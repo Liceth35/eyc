@@ -107,17 +107,6 @@ a.nav-link:hover {
     /* Fondo negro */
 }
 
-.dropdown-menu a {
-    color: white !important;
-    /* Texto blanco */
-}
-
-.dropdown-menu a:hover {
-    background-color: transparent !important;
-    /* Elimina el color de fondo */
-    color: white !important;
-    /* Cambia el color del texto a negro */
-}
 
 
 .navbar-brand .logo {
@@ -224,17 +213,6 @@ a.nav-link:hover {
     /* Fondo negro */
 }
 
-.dropdown-menu a {
-    color: white !important;
-    /* Texto blanco */
-}
-
-.dropdown-menu a:hover {
-    background-color: transparent !important;
-    /* Elimina el color de fondo */
-    color: white !important;
-    /* Cambia el color del texto a negro */
-}
 
 
 .navmenu {

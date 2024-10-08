@@ -41,15 +41,9 @@ strong {
     font-weight: 600 !important;
 }
 
-.navbar a {
-    color: #fff;
-    text-decoration: none;
+a.dropdown-item{
+    padding-left: 0px;
 }
-
-.navbar a:hover {
-    color: #3b88d3 !important;
-}
-
 
 
 /* Estilos del logo en la navbar */
@@ -78,7 +72,7 @@ strong {
     top: 100%;
     left: 0;
     display: none;
-    background-color: black;
+    background-color: #ffffff;
     list-style: none;
     padding: 10px 0;
     margin: 0;
@@ -88,19 +82,9 @@ strong {
     display: block;
 }
 
-.navbar ul li ul li {
-    width: 200px;
-    padding: 10px;
-}
 
-.navbar ul li ul li a {
-    color: #fff;
-    text-decoration: none;
-}
 
-.navbar ul li ul li a:hover {
-    background-color: #007BFF;
-}
+
 
 /* Contenedor principal */
 .container {

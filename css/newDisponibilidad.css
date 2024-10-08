@@ -51,3 +51,8 @@ body {
 #calendario, #agendas {
     display: none;
 }
+
+.card-header{
+    background-color: #d6eaf8;
+    font-weight: 600;
+}

@@ -23,6 +23,10 @@ body {
     border-radius: 5px;
 }
 
+div.dataTables_wrapper div.dataTables_length select{
+    width: 53px !important;
+}
+
 .menu {
     display: flex;
     justify-content: center; /* Alineación centrada */

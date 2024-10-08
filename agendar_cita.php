@@ -11,11 +11,12 @@
 
 <body>
     <header>
-    <div class="navbar navbar-expand-lg navbar-color fixed-top">
+        <div class="navbar navbar-expand-lg navbar-color fixed-top">
             <a href="index.php" class="navbar-brand">
                 <img src="./images/New_Logo_EyC2024-removebg-preview.png" alt="Logo" class="logo">
             </a>
-        <h2>Agendamiento de Citas</h2>
+            <h2>Agendamiento de Citas</h2>
+        </div>
     </header>
 
     <div class="contenedor">
@@ -28,7 +29,7 @@
 
         <div class="centrado">
             <select id="municipio">
-            <option value="">Seleccione un municipio</option>
+                <option value="">Seleccione un municipio</option>
                 <!-- Opciones de municipios se llenarán aquí mediante la solicitud AJAX a la BD -->
             </select>
         </div>
