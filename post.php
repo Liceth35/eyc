@@ -30,20 +30,27 @@ if (isset($_GET['id'])) {
     <link rel="shortcut icon" href="images/New_Logo_EyC2024_vertical-removebg-preview.png">
 </head>
 <body>
-    <header>
-        <a href="./blog.php" class="logo">
-            <img src="./images/New_Logo_EyC2024__verde__Slogan-removebg-preview.png" alt="Logo">
-        </a>
-        <div class="header-container">
-            <nav>
-                <ul>
-                    <li><a href="./blog.php">Artículos</a></li>
-                    <li><a href="./contactos.php">Contacto</a></li>
-                    <li><a href="./trabaja-con-nosotros.php">Team</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<header>
+    <a href="./blog.php" class="logo">
+        <img src="./images/New_Logo_EyC2024__verde__Slogan-removebg-preview.png" alt="Logo">
+    </a>
+    <div class="sandwich-menu" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="header-container" id="sideMenu">
+        <nav>
+            <ul>
+                <li><a href="./blog.php">Artículos</a></li>
+                <li><a href="./contactos.php">Contacto</a></li>
+                <li><a href="./trabaja-con-nosotros.php">Team</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
     <main>
         <article class="post">
             <h2><?php echo htmlspecialchars($article['titulo']); ?></h2>
@@ -74,6 +81,15 @@ if (isset($_GET['id'])) {
     </footer>
 </body>
 </html>
+
+<script>
+    function toggleMenu() {
+        const sideMenu = document.getElementById("sideMenu");
+        sideMenu.classList.toggle("active");
+    }
+</script>
+
+
 <?php
     } else {
         // Si no se encontró el artículo, mostrar un mensaje de error
